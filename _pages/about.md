@@ -7,17 +7,6 @@ description: <a href="#">Affiliations</a>. Address. Contacts. Moto. Etc.
 profile:
   align: right
   image: prof_pic.jpg
-  address: >
-    ```python
-    addr = {"housenum": "",
-            "road":     "Lavant Down Road",
-            "town":     "Lavant",
-            "city":     "Chichester",
-            "county":   "West Sussex",
-            "postcode": "PO18 0DJ"}
-
-    print(" ".join(add.housenum, addr.road), " ".join(addr.town, addr.city), addr.county, addr.postcode, sep="\n")
-    ```
 
 news: true  # includes a list of news items
 selected_papers: true # includes a list of papers marked as "selected={true}"
