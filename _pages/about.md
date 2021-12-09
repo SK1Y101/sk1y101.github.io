@@ -25,7 +25,7 @@ Link to your social media connections, too. This theme is set up to use [Font Aw
 
 ### Support me
 
-A lot of my work, especially if it's personal, is free and open source, and probably always will be. If you want to go above and beyond free, I do accept mugs of tea.
+A lot of my work, especially if it's personal, is free, open source, and probably always will be. If you want to go above and beyond and support that, I do accept cups of tea.
 
 <a href="https://www.buymeacoffee.com/lloydwaltersj">
   <img src="https://img.buymeacoffee.com/button-api/?text=Buy me a tea&emoji=&slug=lloydwaltersj&button_colour=B3FFFF&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=c58e4c">
