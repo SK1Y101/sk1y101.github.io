@@ -7,6 +7,7 @@ importance: 1
 category: fun
 ---
 
+```
 Every project has a beautiful feature showcase page.
 It's easy to include images in a flexible 3-column grid format.
 Make your photos 1/3, 2/3, or full width.
@@ -67,7 +68,7 @@ To make images responsive, add `img-fluid` class to each; for rounded corners an
 Here's the code for the last row of images above:
 
 {% raw %}
-```html
+``html
 <div class="row justify-content-sm-center">
     <div class="col-sm-8 mt-3 mt-md-0">
         {% responsive_image path: assets/img/6.jpg title: "example image" class: "img-fluid rounded z-depth-1" %}
@@ -76,5 +77,7 @@ Here's the code for the last row of images above:
         {% responsive_image path: assets/img/11.jpg title: "example image" class: "img-fluid rounded z-depth-1" %}
     </div>
 </div>
-```
+``
 {% endraw %}
+
+```
