@@ -2,7 +2,7 @@
 layout: page
 title: Skiylia
 description: My custom programming language
-img: assets/img/PySkiyliaLogo.jpg
+img: assets/img/PySkiyliaLogo.png
 importance: 1
 category: fun
 ---

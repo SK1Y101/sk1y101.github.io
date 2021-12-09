@@ -30,3 +30,6 @@ A lot of my work, especially if it's personal, is free, open source, and probabl
 <a href="https://www.buymeacoffee.com/lloydwaltersj">
   <img src="https://img.buymeacoffee.com/button-api/?text=Buy me a tea&emoji=&slug=lloydwaltersj&button_colour=B3FFFF&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=c58e4c">
 </a>
+
+### Site status
+[![Deploy](https://github.com/SK1Y101/sk1y101.github.io/actions/workflows/deploy.yml/badge.svg)](https://github.com/SK1Y101/sk1y101.github.io/actions/workflows/deploy.yml)
