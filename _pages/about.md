@@ -22,3 +22,11 @@ Write your biography here. Tell the world about yourself. Link to your favorite 
 Put your address / P.O. box / other info right below your picture. You can also disable any these elements by editing `profile` property of the YAML header of your `_pages/about.md`. Edit `_bibliography/papers.bib` and Jekyll will render your [publications page](/al-folio/publications/) automatically.
 
 Link to your social media connections, too. This theme is set up to use [Font Awesome icons](http://fortawesome.github.io/Font-Awesome/) and [Academicons](https://jpswalsh.github.io/academicons/), like the ones below. Add your Facebook, Twitter, LinkedIn, Google Scholar, or just disable all of them.
+
+### Support me
+
+A lot of my work, especially if it's personal, is free and open source, and probably always will be. If you want to go above and beyond free, I do accept mugs of tea.
+
+<a href="https://www.buymeacoffee.com/lloydwaltersj">
+  <img src="https://img.buymeacoffee.com/button-api/?text=Buy me a tea&emoji=&slug=lloydwaltersj&button_colour=B3FFFF&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=c58e4c">
+</a>
