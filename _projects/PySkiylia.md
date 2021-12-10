@@ -7,6 +7,12 @@ importance: 1
 category: fun
 date: 2021-12-10
 
+authors:
+  - name: Jack Lloyd-Walters
+    url: "https://sk1y101.github.io"
+    affiliations:
+      name: Skiylia-Lang
+
 # Optionally, you can add a table of contents to your post.
 # NOTES:
 #   - make sure that TOC names match the actual section names
