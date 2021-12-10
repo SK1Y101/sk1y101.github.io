@@ -32,10 +32,10 @@ toc:
 ## What is Skiylia?
 
 <div class="row">
-  <div class="col-sm mt-3 mt-md-0">
+  <div class="col-sm mt-4 mt-md-0">
     {% responsive_image path: assets/img/Skiylia_Logo.svg title: "Skiylia logo" class: "img-fluid rounded z-depth-1" %}
   </div>
-  <div class="col-sm mt-3 mt-md-0">
+  <div class="col-sm mt-8 mt-md-0">
     <p><a href="https://skiylia-lang.github.io/">Skiylia</a> is a custom programing language I started developing back in March of 2021.
     The language is dynamically typed, object oriented, and most importantly *interpreted*, with a strong focus on code readability and understandability.
     While it may share many similarities with C derivatives, its heritage is definitely Pythonic.</p>
