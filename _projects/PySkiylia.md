@@ -26,13 +26,13 @@ toc:
 ## What is Skiylia?
 
 <div style="display:flex;">
-  <img src="assets/img/Skiylia_Logo.svg" alt="Skiylia icon" style="width: 20%; padding-right: 5%"/>
+  <img src="../assets/img/Skiylia_Logo.svg" alt="Skiylia icon" style="width: 20%; padding-right: 5%"/>
   <div style="vertical-align: middle;">
     <p><a href="https://skiylia-lang.github.io/">Skiylia</a> is a custom programing language I started developing back in March of 2021.
     The language is dynamically typed, object oriented, and most importantly *interpreted*, with a strong focus on code readability and understandability.
     While it may share many similarities with C derivatives, its heritage is definitely Pythonic.</p>
   </div>
-</div>
+</div></br>
 
 The first version of skiylia began with a relatively slow [Abstract Syntax Tree](https://en.wikipedia.org/wiki/Abstract_syntax_tree) interpreter built in pure python. This provided an excellent real-world test bed for language features, as everything had been purely theoretical before that point.
 This version of Skiylia, [PySkiylia](https://github.com/Skiylia-Lang/PySkiylia), is currently version [![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/skiylia-lang/PySkiylia?include_prereleases&label=%20&style=flat-square)](https://github.com/Skiylia-Lang/PySkiylia/releases/latest), and represents the first itteration of the language.
