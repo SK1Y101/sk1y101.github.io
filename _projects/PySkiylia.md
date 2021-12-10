@@ -1,7 +1,7 @@
 ---
 layout: distill
 title: Skiylia Lang
-description: My custom programming language based on Python.
+description: My primary custom programming language.
 img: assets/img/PySkiyliaLogo.png
 importance: 1
 category: fun
