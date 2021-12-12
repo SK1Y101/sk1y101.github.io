@@ -1,8 +1,8 @@
 ---
 layout: distill
-title: Glitches in the Ligo Dataset
+title: Bachelors Thesis
 longtitle: Distinguishing Intermediate Mass Black Hole Mergers from Short Duration Glitches
-description: My Bachelors thesis on the topic of glitches and black hole mergers.
+description: Using LIGO data to filter glitche events when searching for intermediate mass black holes
 img: 
 importance: 1
 category: work
