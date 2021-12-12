@@ -195,20 +195,6 @@ blockquote {
   }
 }
 
-// Scroll Progress Bar
-
-.progress-container {
-  width: 100%;
-  height: 8px;
-  background: var(--global-text-color);
-}
-.progress-bar {
-  height: 8px;
-  background: var(--global-theme-color);
-  width: 0%;
-}
-
-
 // News
 
 .news table td {
