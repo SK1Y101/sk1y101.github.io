@@ -148,5 +148,60 @@ nav: true
 			</ul>
 		</div>
 	</div>
+	
+	<!-- Proffesional Membership -->
+	
+	<div class="card p-3">
+		<h3 class="card-title">Proffesional Membership</h3>
+		<div>
+			<ul class="card-text list-group list-group-flush">
+				<li class="list-group-item">
+					<div class="row">
+						<div class="col-xs-2 cl-sm-2 col-md-auto text-left" style="width: 90px;">
+							<span class="badge text-uppercase align-middle" style="width: 90px;">
+								2020 - present
+							</span>
+						</div>
+						<div class="col-xs-10 cl-sm-10 col-md mt-2 mt-md-0">
+							<h3 class="title font-weight-bold ml-1 ml-md-4">Member of the European Astronomical Society</h3>
+							<ul class="items">
+							</ul>
+						</div>
+					</div>
+				</li>
+				<li class="list-group-item">
+					<div class="row">
+						<div class="col-xs-2 cl-sm-2 col-md-auto text-left" style="width: 90px;">
+							<span class="badge text-uppercase align-middle" style="width: 90px;">
+								2020 - present
+							</span>
+						</div>
+						<div class="col-xs-10 cl-sm-10 col-md mt-2 mt-md-0">
+							<h3 class="title font-weight-bold ml-1 ml-md-4">Fellow of the Royal Astronomical Socity</h3>
+							<ul class="items">
+								<li>
+									Allows the use of the post-nomen "FRAS".
+								</li>
+							</ul>
+						</div>
+					</div>
+				</li>
+				<li class="list-group-item">
+					<div class="row">
+						<div class="col-xs-2 cl-sm-2 col-md-auto text-left" style="width: 90px;">
+							<span class="badge text-uppercase align-middle" style="width: 90px;">
+								2018 - present
+							</span>
+						</div>
+						<div class="col-xs-10 cl-sm-10 col-md mt-2 mt-md-0">
+							<h3 class="title font-weight-bold ml-1 ml-md-4">Associate Member of the Institue of Physics</h3>
+							<ul class="items">
+							</ul>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
 </div>
 
