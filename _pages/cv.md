@@ -12,7 +12,7 @@ nav: true
 	</a>
 </div>
 
-<div class="projects">
+<div class="cv">
 
 	<!-- General -->
 	
