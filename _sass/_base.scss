@@ -316,12 +316,21 @@ footer.sticky-bottom {
   }
 }
 
-// cv
+// CV
+
 .cv {
-  a:hover {
-    border-bottom-color: var(--global-theme-color);
-    text-decoration: none;
+ .card {
+  background-color: var(--global-card-color);
+  border-radius: 1.5rem;
+  padding: .5rem .5rem .5rem .5rem;
+  margin: .5rem .5rem .5rem .5rem;
+  .card-title {
+    color: var(--global-text-color);
   }
+  .card-text {
+    color: var(--global-text-color);
+  }
+ }
 }
 
 // Projects
@@ -338,11 +347,11 @@ footer.sticky-bottom {
   }
 
   .card {
-    background-color: rgba(64, 64, 64, 0.25);
+    background-color: var(--global-card-color);
     border-radius: 1.5rem;
     padding: .5rem .5rem .5rem .5rem;
     &:hover {
-      background-color: rgba(64, 64, 64, 0.5);
+      background-color: var(--global-card-hover-color);
     }
     img {
       width: 100%;
