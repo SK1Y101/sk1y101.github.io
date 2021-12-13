@@ -329,6 +329,10 @@ footer.sticky-bottom {
   }
   .card-text {
     color: var(--global-text-color);
+    background-color: var(--global-card-color);
+  }
+  table {
+    color: var(--global-text-color);
   }
   li {
     margin-bottom: 1rem;
