@@ -166,10 +166,10 @@ nav: true
 		</div>
 	</div>
 	
-	<!-- Proffesional Membership -->
+	<!-- Professional Membership -->
 	
 	<div class="card p-3">
-		<h3 class="card-title">Proffesional Membership</h3>
+		<h3 class="card-title">Professional Membership</h3>
 		<div>
 			<ul class="card-text list-group list-group-flush">
 				<li class="list-group-item">

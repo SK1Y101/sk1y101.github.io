@@ -321,6 +321,7 @@ footer.sticky-bottom {
 .cv {
   color: var(--global-text-color);
   .card {
+    color: var(--global-text-color);
     background-color: var(--global-card-color);
     border-radius: 1.5rem;
     padding: .5rem .5rem .5rem .5rem;
@@ -337,6 +338,10 @@ footer.sticky-bottom {
     }
   }
   
+  table {
+    color: var(--global-text-color);
+  }
+  
   li {  
     background-color: var(--global-card-color);
     color: var(--global-text-color);
@@ -345,6 +350,7 @@ footer.sticky-bottom {
       height: 2rem;
       abbr {
         display: inline-block;
+        color: var(--global-text-color);
         background-color: var(--global-theme-color);
         padding-left: 1rem;
         padding-right: 1rem;
