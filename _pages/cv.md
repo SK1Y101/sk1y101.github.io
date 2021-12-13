@@ -54,10 +54,10 @@ nav: true
 			<ul class="card-text list-group list-group-flush">
 				<li class="list-group-item">
 					<div class="row">
-						<div class="col-xs-2 cl-sm-2 col-md-auto text-left" style="width: 90px;">
-							<span class="badge text-uppercase align-middle" style="width: 90px;">
+						<div	 class="col-sm-2 abbr">
+							<abbr class="badge">
 								2018 - present
-							</span>
+							</abbr>
 						</div>
 						<div class="col-xs-10 cl-sm-10 col-md mt-2 mt-md-0">
 							<h3 class="title font-weight-bold ml-1 ml-md-4">MPhys (Hons) Physics, Astronomy, and Cosmology - University of Portsmouth</h3>
@@ -74,10 +74,10 @@ nav: true
 				</li>
 				<li class="list-group-item">
 					<div class="row">
-						<div class="col-xs-2 cl-sm-2 col-md-auto text-left" style="width: 90px;">
-							<span class="badge text-uppercase align-middle" style="width: 90px;">
+						<div	 class="col-sm-2 abbr">
+							<abbr class="badge">
 								2016 - 2018
-							</span>
+							</abbr>
 						</div>
 						<div class="col-xs-10 cl-sm-10 col-md mt-2 mt-md-0">
 							<h3 class="title font-weight-bold ml-1 ml-md-4">AS Levels - Peter Symonds College</h3>
@@ -94,10 +94,10 @@ nav: true
 				</li>
 				<li class="list-group-item">
 					<div class="row">
-						<div class="col-xs-2 cl-sm-2 col-md-auto text-left" style="width: 90px;">
-							<span class="badge text-uppercase align-middle" style="width: 90px;">
-								2016 - 2018
-							</span>
+						<div	 class="col-sm-2 abbr">
+							<abbr class="badge">
+								2011 - 2016
+							</abbr>
 						</div>
 						<div class="col-xs-10 cl-sm-10 col-md mt-2 mt-md-0">
 							<h3 class="title font-weight-bold ml-1 ml-md-4">GCSEs - Coty of Portsmouth Boys School</h3>
@@ -121,10 +121,10 @@ nav: true
 			<ul class="card-text list-group list-group-flush">
 				<li class="list-group-item">
 					<div class="row">
-						<div class="col-xs-2 cl-sm-2 col-md-auto text-left" style="width: 90px;">
-							<span class="badge text-uppercase align-middle" style="width: 90px;">
+						<div	 class="col-sm-2 abbr">
+							<abbr class="badge">
 								2017 - 2019
-							</span>
+							</abbr>
 						</div>
 						<div class="col-xs-10 cl-sm-10 col-md mt-2 mt-md-0">
 							<h3 class="title font-weight-bold ml-1 ml-md-4">Floor Staff - B&M</h3>
@@ -157,10 +157,10 @@ nav: true
 			<ul class="card-text list-group list-group-flush">
 				<li class="list-group-item">
 					<div class="row">
-						<div class="col-xs-2 cl-sm-2 col-md-auto text-left" style="width: 90px;">
-							<span class="badge text-uppercase align-middle" style="width: 90px;">
+						<div	 class="col-sm-2 abbr">
+							<abbr class="badge">
 								2020 - present
-							</span>
+							</abbr>
 						</div>
 						<div class="col-xs-10 cl-sm-10 col-md mt-2 mt-md-0">
 							<h3 class="title font-weight-bold ml-1 ml-md-4">Member of the European Astronomical Society</h3>
@@ -171,10 +171,10 @@ nav: true
 				</li>
 				<li class="list-group-item">
 					<div class="row">
-						<div class="col-xs-2 cl-sm-2 col-md-auto text-left" style="width: 90px;">
-							<span class="badge text-uppercase align-middle" style="width: 90px;">
+						<div	 class="col-sm-2 abbr">
+							<abbr class="badge">
 								2020 - present
-							</span>
+							</abbr>
 						</div>
 						<div class="col-xs-10 cl-sm-10 col-md mt-2 mt-md-0">
 							<h3 class="title font-weight-bold ml-1 ml-md-4">Fellow of the Royal Astronomical Socity</h3>
