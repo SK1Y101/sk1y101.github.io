@@ -319,24 +319,16 @@ footer.sticky-bottom {
 // CV
 
 .cv {
- .card {
   background-color: var(--global-card-color);
-  
+  color: var(--global-text-color);
+ .card {
   border-radius: 1.5rem;
   padding: .5rem .5rem .5rem .5rem;
   margin: .5rem .5rem .5rem .5rem;
   .card-title {
-    color: var(--global-text-color);
-  }
-  .card-text {
-    color: var(--global-text-color);
-    background-color: var(--global-card-color);
-  }
-  table {
-    color: var(--global-text-color);
+    color: var(--global-theme-color);
   }
   li {
-    color: var(--global-text-color);
     margin-bottom: 1rem;
     .abbr {
       height: 2rem;
