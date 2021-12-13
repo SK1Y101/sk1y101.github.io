@@ -49,8 +49,8 @@ nav: true
 	<!-- About me -->
 	
 	<div class="card p-3">
-		<h3 class="card-title">General</h3>
-		<div class="row">
+		<h3 class="card-title">About Me</h3>
+		<div class="card-text p-3">
 			I am a final year masters student with a strong passion for computational physics, particularly focused on astronomy, exoplanetary science, and other space-based endeavours.
 			
 			I have nearly 12 years of programming experience, primarily Python, that I used to great effect in my 2021 bachelors project "Distinguishing Intermediate Mass Black Hole Mergers From Short Duration Glitches".

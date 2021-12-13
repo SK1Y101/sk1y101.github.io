@@ -319,19 +319,24 @@ footer.sticky-bottom {
 // CV
 
 .cv {
- .card {
-  background-color: var(--global-card-color);
   color: var(--global-text-color);
-  border-radius: 1.5rem;
-  padding: .5rem .5rem .5rem .5rem;
-  margin: .5rem .5rem .5rem .5rem;
-  .card-title {
-    color: var(--global-theme-color);
-  }
-  table { 
+  .card {
     background-color: var(--global-card-color);
-    color: var(--global-text-color);
+    border-radius: 1.5rem;
+    padding: .5rem .5rem .5rem .5rem;
+    .card-title {
+      color: var(--global-theme-color);
+    }
   }
+  .card-item {
+    width: auto;
+    margin-bottom: 10px;
+    .row {
+      display: flex;
+      align-items: center;
+    }
+  }
+  
   li {  
     background-color: var(--global-card-color);
     color: var(--global-text-color);
@@ -346,7 +351,6 @@ footer.sticky-bottom {
       }
     }
   }
- }
 }
 
 // Projects
