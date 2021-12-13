@@ -46,6 +46,23 @@ nav: true
 		</table>
 	</div>
 	
+	<!-- About me -->
+	
+	<div class="card p-3">
+		<h3 class="card-title">General</h3>
+		<div class="row">
+			I am a final year masters student with a strong passion for computational physics, particularly focused on astronomy, exoplanetary science, and other space-based endeavours.
+			
+			I have nearly 12 years of programming experience, primarily Python, that I used to great effect in my 2021 bachelors project "Distinguishing Intermediate Mass Black Hole Mergers From Short Duration Glitches".
+			
+			In 2020 I became a fellow of the Royal Astronomical Society and a member of theEuropean Astronomical Society to further my interest and professional options, asI aim to pursue a research career in astrophysics after graduation.
+			
+			I am currently a beginner learner of Japanese, with the aim of passing the JLPT N5 by the summer of 2022.
+			
+			My eventual goal is to find a career in computational astrophysics, preferably within the exoplanetary sector, and push the boundaries of human knowledge.
+		</div>
+	</div>
+	
 	<!-- Education -->
 	
 	<div class="card p-3">
