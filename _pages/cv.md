@@ -188,7 +188,7 @@ nav: true
 				</li>
 				<li class="list-group-item">
 					<div class="row">
-						<div class="col-xs-2 cl-sm-2 col-md-auto text-left" style="width: 90px;">
+						<div class="col-xs-2 cl-sm-2 col-md-auto abbr text-left" style="width: 90px;">
 							<span class="badge text-uppercase align-middle" style="width: 90px;">
 								2018 - present
 							</span>
