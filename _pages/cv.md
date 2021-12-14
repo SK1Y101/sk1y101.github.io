@@ -8,7 +8,7 @@ nav: true
 
 <div class="row" style="margin-top: -3.5em;">
 	<a class="ml-auto mr-2" href="/assets/pdf/CV.pdf" target="_blank">
-	  <i class="fas fa-file-pdf" style="font-size: 2rem;"></i>
+	  <i class="fas fa-file-pdf" style="font-size: 3rem;"></i>
 	</a>
 </div>
 
