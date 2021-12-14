@@ -1,11 +1,5 @@
 <header>
-  <div class="sticky-top">
-      <!-- Scrolling Progress Bar -->
-      <div class="progress-container sticky-top">
-         <div class="progress-bar" id="myBar">
-         </div>
-      </div>
-      
+  <div class="sticky-top" style="position: -webkit-sticky; position: sticky;">
       <!-- Nav Bar -->
       <nav id="navbar" class="navbar navbar-light navbar-expand-sm {% if site.navbar_fixed %}fixed-top{% else %}sticky-top{% endif %}">
       <div class="container">
@@ -92,6 +86,12 @@
             {% endif %}
           </ul>
         </div>
+      </div>
+      
+      <!-- Scrolling Progress Bar -->
+      <div class="progress-container sticky-top">
+         <div class="progress-bar" id="myBar">
+         </div>
       </div>
     </nav>
   </div>

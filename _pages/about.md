@@ -21,9 +21,17 @@ I'm a Final year masters student in astrophysics at Portsmouth university with a
 
 A small selection of projects I'm proud of
 
-[![Readme Card](https://github-readme-stats.vercel.app/api/pin/?username=Skiylia-Lang&repo=Verboscript&theme=algolia&border_radius=20)](https://github.com/Skiylia-Lang/Verboscript)
+<div width="90%">
+  <a href="https://github.com/Skiylia-Lang/Verboscript">
+    <img align="center" src="https://github-readme-stats.vercel.app/api/pin/?username=Skiylia-Lang&repo=Verboscript&theme=algolia&border_radius=20)"/>
+  </a>
+</div>
 
-[![Readme Card](https://github-readme-stats.vercel.app/api/pin/?username=Skiylia-Lang&repo=PySkiylia&theme=algolia&border_radius=20)](https://github.com/Skiylia-Lang/PySkiylia)
+<div width="90%">
+  <a href="https://github.com/Skiylia-Lang/PySkiylia">
+    <img align="center" src="https://github-readme-stats.vercel.app/api/pin/?username=Skiylia-Lang&repo=PySkiylia&theme=algolia&border_radius=20"/>
+  </a>
+</div>
 
 for an extended list of things I'm working on, or have previously worked with, see <a href="sk1y101.github.io/projects">the projects section</a> of this website.
 
