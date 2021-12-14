@@ -45,6 +45,8 @@ A lot of my work, especially if it's personal, is free, open source, and probabl
 
 ### Site status
 
-[website: up](https://img.shields.io/website?url=https%3A%2F%2Fsk1y101.github.io)
+![website: up](https://img.shields.io/website?url=https%3A%2F%2Fsk1y101.github.io)
+
+![uptime](https://img.shields.io/uptimerobot/ratio/${{ secrets.UPTIMEROBOT }})
 
 [![Deploy](https://github.com/SK1Y101/sk1y101.github.io/actions/workflows/deploy.yml/badge.svg)](https://github.com/SK1Y101/sk1y101.github.io/actions/workflows/deploy.yml)
