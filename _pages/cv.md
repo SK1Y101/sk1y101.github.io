@@ -2,13 +2,13 @@
 layout: page
 title: Curriculum vitae
 permalink: /cv/
-description: online view of my Curriculum vitae
+description: Online view of my Curriculum vitae, downloadable PDF available.
 nav: true
 ---
 
 <div class="row" style="margin-top: -3.5em;">
 	<a class="ml-auto mr-2" href="/assets/pdf/CV.pdf" target="_blank">
-	  <i class="fas fa-file-pdf"></i>
+	  <i class="fas fa-file-pdf" style="font-size: 2rem;"></i>
 	</a>
 </div>
 
@@ -52,13 +52,13 @@ nav: true
 		<h3 class="card-title">About Me</h3>
 		<div class="card-text p-3">
 			I am a final year masters student with a strong passion for computational physics, particularly focused on astronomy, exoplanetary science, and other space-based endeavours.
-			
+			</br>
 			I have nearly 12 years of programming experience, primarily Python, that I used to great effect in my 2021 bachelors project "Distinguishing Intermediate Mass Black Hole Mergers From Short Duration Glitches".
-			
+			</br>
 			In 2020 I became a fellow of the Royal Astronomical Society and a member of theEuropean Astronomical Society to further my interest and professional options, asI aim to pursue a research career in astrophysics after graduation.
-			
+			</br>
 			I am currently a beginner learner of Japanese, with the aim of passing the JLPT N5 by the summer of 2022.
-			
+			</br>
 			My eventual goal is to find a career in computational astrophysics, preferably within the exoplanetary sector, and push the boundaries of human knowledge.
 		</div>
 	</div>
@@ -117,7 +117,7 @@ nav: true
 							</abbr>
 						</div>
 						<div class="col-xs-10 cl-sm-10 col-md mt-2 mt-md-0">
-							<h3 class="title font-weight-bold ml-1 ml-md-4">GCSEs - Coty of Portsmouth Boys School</h3>
+							<h3 class="title font-weight-bold ml-1 ml-md-4">GCSEs - City of Portsmouth Boys' School</h3>
 							<ul class="items">
 								<li>
 									Grades A* to B including Maths, Science, English, and Computer Science

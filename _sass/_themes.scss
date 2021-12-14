@@ -6,6 +6,7 @@
   --global-bg-color: #{$white-color};
   --global-code-bg-color: #{$code-bg-color-light};
   --global-text-color: #{$black-color};
+  --global-badge-text-color: #{$grey-color-light};
   --global-text-color-light: #{$grey-color};
   --global-theme-color: #{$purple-color};
   --global-hover-color: #{$purple-color};
@@ -31,6 +32,7 @@ html[data-theme='dark'] {
   --global-bg-color: #{$grey-color-dark};
   --global-code-bg-color: #{$code-bg-color-dark};
   --global-text-color: #{$grey-color-light};
+  --global-badge-text-color: #{$grey-color};
   --global-text-color-light: #{$grey-color-light};
   --global-theme-color: #{$aqua-color};
   --global-hover-color: #{$aqua-color};
