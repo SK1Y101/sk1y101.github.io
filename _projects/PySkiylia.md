@@ -1,5 +1,5 @@
 ---
-layout: distill
+layout: page
 title: Skiylia Lang
 description: My custom programming language.
 img: assets/img/PySkiyliaLogo.png
@@ -47,4 +47,32 @@ While progress has stalled somewhat in light of other projects, the second itter
 
 ***
 
-Work in Progress, To Be Completed
+### Example code
+
+{% highlight skiylia %}
+/// This contains a snippet of Skiylia-code that
+    computes the factorial of a number. ///
+
+def factorial(n):
+  // return null if n is not an integer.
+  if n !~~ 0:
+    return null
+
+  // return 1 if n is less than, or equal to, 2.
+  if n <= 1:
+    return 1
+
+  // otherwise, recursively multiply.
+  return n * factorial(n - 1)
+
+var num = 6
+
+print("The factorial of", num, "is", factorial(num))
+
+/// Expected output:
+    The factorial of 6 is 720 ///
+{% endhighlight %}
+
+***
+
+The remainder is a work in progress.
