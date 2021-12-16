@@ -363,6 +363,7 @@ footer.sticky-bottom {
     color: var(--global-text-color);
     margin-bottom: 1rem;
     .abbr {
+      color: var(--global-badge-text-color);
       height: 2rem;
       abbr {
         display: inline-block;
