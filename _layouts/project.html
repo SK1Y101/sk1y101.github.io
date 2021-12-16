@@ -1,0 +1,27 @@
+---
+layout: default
+---
+<div class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">{{ page.title }}</h1>
+    <p class="post-description">{{ page.description }}</p>
+  </header>
+  
+  <h3>Contents</h3>
+  {% for section in page.toc %}
+  <div><a href="#{{ section.name | downcase | replace: ' ','-' }}">{{ section.name }}</a></div>
+  {% if section.subsections %}
+  <ul>
+    {% for subsection in section.subsections %}
+    <li><a href="#{{ subsection.name | downcase | replace: ' ','-' }}">{{ subsection.name }}</a></li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+  {% endfor %}
+
+  <article>
+    {{ content }}
+  </article>
+
+</div>

@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: project
 title: Skiylia Lang
 description: My custom programming language.
 img: assets/img/PySkiyliaLogo.png
@@ -19,6 +19,7 @@ authors:
 #     jekyll-toc plugin (https://github.com/toshimaru/jekyll-toc).
 toc:
   - name: What is Skiylia
+  - name: Example code
     # if a section has subsections, you can add them as follows:
     # subsections:
     #   - name: Example Child Subsection 1
@@ -50,7 +51,7 @@ While progress has stalled somewhat in light of other projects, the second itter
 ### Example code
 
 {% highlight skiylia %}
-/// This contains a snippet of Skiylia-code that
+/// This contains a snippet of Skiylia code that
     computes the factorial of a number. ///
 
 def factorial(n):
