@@ -32,8 +32,8 @@ blockquote {
 }
 
 .badge {
-  background: var(--global-theme-color);
-  color: var(--global-badge-text-color);
+  background: var(--global-theme-color) !important;
+  color: var(--global-badge-text-color) !important;
 }
 
 // Math
@@ -138,6 +138,9 @@ blockquote {
       color: var(--global-hover-color);
       background-color: var(--global-bg-color);
     }
+}
+.navbar.navbar-expand-sm {
+  flex-flow: flow wrap !important;
 }
 .navbar.navbar-light {
   a {
@@ -339,10 +342,9 @@ footer.sticky-bottom {
 // CV
 
 .cv {
-  color: var(--global-text-color);
+  color: var(--global-text-color) !important;
   .card {
-    color: var(--global-text-color);
-    background-color: var(--global-card-color);
+    background-color: var(--global-card-color) !important;
     border-radius: 1.5rem;
     padding: .5rem .5rem .5rem .5rem;
     margin: .5rem .5rem .5rem .5rem;
@@ -360,20 +362,19 @@ footer.sticky-bottom {
   }
 
   table {
-    color: var(--global-text-color);
+    color: var(--global-text-color) !important;
   }
 
   li {
-    background-color: var(--global-card-color);
+    background-color: var(--global-card-color) !important;
     color: var(--global-text-color);
     margin-bottom: 1rem;
     .abbr {
-      color: var(--global-badge-text-color);
+      color: var(--global-badge-text-color) !important;
       height: 2rem;
       abbr {
         display: inline-block;
-        color: var(--global-badge-text-color);
-        background-color: var(--global-theme-color);
+        background-color: var(--global-theme-color) !important;
         padding-left: 1rem;
         padding-right: 1rem;
       }

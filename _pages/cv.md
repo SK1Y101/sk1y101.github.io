@@ -6,7 +6,7 @@ description: Online view of my Curriculum vitae, downloadable PDF available.
 nav: true
 ---
 
-<div class="row" style="margin-top: -3.5em;">
+<div class="row" style="margin-top: -8rem; margin-bottom: 4rem">
 	<a class="ml-auto mr-2" href="/assets/pdf/CV.pdf" target="_blank">
 	  <i class="fas fa-file-pdf" style="font-size: 3rem;"></i>
 	</a>
@@ -15,7 +15,7 @@ nav: true
 <div class="cv">
 
 	<!-- General -->
-	
+
 	<div class="card p-3">
 		<h3 class="card-title">General</h3>
 	      <table class="table table-sm table-borderless">
@@ -45,9 +45,9 @@ nav: true
 			</tr>
 		</table>
 	</div>
-	
+
 	<!-- About me -->
-	
+
 	<div class="card p-3">
 		<h3 class="card-title">About Me</h3>
 		<div class="card-text p-3">
@@ -62,9 +62,9 @@ nav: true
 			My eventual goal is to find a career in computational astrophysics, preferably within the exoplanetary sector, and push the boundaries of human knowledge.
 		</div>
 	</div>
-	
+
 	<!-- Education -->
-	
+
 	<div class="card p-3">
 		<h3 class="card-title">Education</h3>
 		<div>
@@ -129,9 +129,9 @@ nav: true
 			</ul>
 		</div>
 	</div>
-	
+
 	<!-- Work -->
-	
+
 	<div class="card p-3">
 		<h3 class="card-title">Work</h3>
 		<div>
@@ -165,9 +165,9 @@ nav: true
 			</ul>
 		</div>
 	</div>
-	
+
 	<!-- Professional Membership -->
-	
+
 	<div class="card p-3">
 		<h3 class="card-title">Professional Membership</h3>
 		<div>
@@ -221,4 +221,3 @@ nav: true
 		</div>
 	</div>
 </div>
-
