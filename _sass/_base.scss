@@ -118,6 +118,8 @@ blockquote {
   border-bottom: 1px solid var(--global-divider-color);
   background-color: var(--global-bg-color);
   opacity: 0.9;
+  flex-wrap: wrap !important;
+  flex-direction: row !important;
 }
 .navbar .dropdown-menu {
   background-color: var(--global-bg-color);
