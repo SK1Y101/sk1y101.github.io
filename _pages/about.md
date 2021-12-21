@@ -17,16 +17,19 @@ Hi there, I'm Jack!
 
 I'm a Final year masters student in astrophysics at Portsmouth university with a strong passion for Python programming, exoplanetary science, and gravitational wave astronomy. I'm currently looking to begin a career in computational physics, focusing primarily on astronomical research or spacecraft operations.
 
+For any employers, feel free to send a job posting to me via email, my CV is [here]("https://sk1y101.github.io/cv/").
+I will only consider jobs that are fully remote work, but may be willing to enter negotiations if the position allows remote working for 80% or more of the total time.
+
 ### Projects
 
 A small selection of projects I'm proud of
 
 <a href="https://github.com/Skiylia-Lang/PySkiylia">
-  <img align="center" width="45%" src="https://github-readme-stats.vercel.app/api/pin/?username=Skiylia-Lang&repo=PySkiylia&theme=algolia&border_radius=20"/>
+  <img align="center" width="90%" src="https://github-readme-stats.vercel.app/api/pin/?username=Skiylia-Lang&repo=PySkiylia&theme=algolia&border_radius=20"/>
 </a>
 
 <a href="https://github.com/Skiylia-Lang/Verboscript">
-  <img align="center" width="45%" src="https://github-readme-stats.vercel.app/api/pin/?username=Skiylia-Lang&repo=Verboscript&theme=algolia&border_radius=20"/>
+  <img align="center" width="90%" src="https://github-readme-stats.vercel.app/api/pin/?username=Skiylia-Lang&repo=Verboscript&theme=algolia&border_radius=20"/>
 </a>
 
 for an extended list of things I'm working on, or have previously worked with, see <a href="sk1y101.github.io/projects">the projects section</a> of this website.

@@ -220,4 +220,36 @@ nav: true
 			</ul>
 		</div>
 	</div>
+
+	<!-- Skills -->
+
+	<div class="card p-3">
+		<h3 class="card-title">Skills</h3>
+	      <table class="table table-sm table-borderless">
+	          <tr>
+				<td class="p-0 pr-2 text-right">
+					<b>Programming</b>
+				</td>
+				<td class="p-0 pl-2 text-left">
+					Excellent knowledge of programming began in early 2011 with Python and HTML/CSS and have steadily picked up other languages as time has passed. Have gained familiarity with Unix due to using Ubuntu as the OS on my Personal Machine from early 2021 onwards.
+				</td>
+			</tr>
+			<tr>
+				<td class="p-0 pr-2 text-right">
+					<b>Languages</b>
+				</td>
+				<td class="p-0 pl-2 text-left">
+					English native speaker, with beginner Japanese that I am currently working on as part of a language course at university.
+				</td>
+			</tr>
+			<tr>
+				<td class="p-0 pr-2 text-right">
+					<b>Office</b>
+				</td>
+				<td class="p-0 pl-2 text-left">
+					Proficient with Excel, Slides, Jupyter, and Overleaf for all required office workloads, with specific skills focussing on the methods required to manipulate data, write and present research papers. While I am Proficient with Word/Publisher/Docs, I much prefer LaTeX Typesetting.
+				</td>
+			</tr>
+		</table>
+	</div>
 </div>
