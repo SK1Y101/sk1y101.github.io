@@ -17,8 +17,7 @@ Hi there, I'm Jack!
 
 I'm a Final year masters student in astrophysics at Portsmouth university with a strong passion for Python programming, exoplanetary science, and gravitational wave astronomy. I'm currently looking to begin a career in computational physics, focusing primarily on astronomical research or spacecraft operations.
 
-For any employers, feel free to send a job posting to me via email, my CV is [here]("https://sk1y101.github.io/cv/").
-I will only consider jobs that are fully remote work, but may be willing to enter negotiations if the position allows remote working for 80% or more of the total time.
+For any employers looking at this page, feel free to send a job posting to me via email. I only consider jobs that are fully remote work, but may be willing to enter negotiations if the position allows remote working for a large fraction of the total time.
 
 ### Projects
 
