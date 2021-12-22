@@ -57,8 +57,12 @@ blockquote {
   color: var(--global-theme-color);
 }
 
-// Profile
+// base images on the about screen
+.imgresize {
+  width: 60%;
+}
 
+// Profile
 .profile {
   margin-left: 1rem;
   width: 100%;
@@ -74,7 +78,11 @@ blockquote {
   }
 }
 
+// changing things for phone screens
 @media (min-width: 576px) {
+  .imgresize {
+    width: 90%;
+  }
   .profile {
     width: 30%;
     .address {
