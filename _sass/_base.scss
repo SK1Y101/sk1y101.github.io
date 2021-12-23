@@ -58,8 +58,8 @@ blockquote {
 }
 
 // base images on the about screen
-.imgresize {
-  width: 60%;
+imgresize {
+  width: 90%;
 }
 
 // Profile
@@ -78,10 +78,10 @@ blockquote {
   }
 }
 
-// changing things for phone screens
+// Desktop-only display
 @media (min-width: 576px) {
-  .imgresize {
-    width: 90%;
+  imgresize {
+    width: 60%;
   }
   .profile {
     width: 30%;
