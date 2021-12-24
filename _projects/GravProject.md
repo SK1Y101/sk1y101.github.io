@@ -26,25 +26,25 @@ toc:
   - name: Abstract
   - name: Acknowledgements
   - name: Introduction
-  subsections:
-    - name: The Intermediate Mass Black Hole Problem
-    - name: Glitch Events
-    - name: Moving Forward
+    subsections:
+      - name: The Intermediate Mass Black Hole Problem
+      - name: Glitch Events
+      - name: Moving Forward
   - name: Theory
-  subsections:
-    - name: Constructing a Glitch
-    - name: Matched filtering
+    subsections:
+      - name: Constructing a Glitch
+      - name: Matched filtering
   - name: Methodology
-  subsections:
-    - name: The Search
-#    subsubsections:
-#      -name: Data collection
-#      -name: Template Generation
-#      -name: Signal Processing
-    - name: Compiling results
-#    subsubsections:
-#      -name: Event Detection
-#      -name: Graphical Output
+    subsections:
+      - name: The Search
+    #    subsubsections:
+    #      -name: Data collection
+    #      -name: Template Generation
+    #      -name: Signal Processing
+      - name: Compiling results
+    #    subsubsections:
+    #      -name: Event Detection
+    #      -name: Graphical Output
   - name: Results
   - name: Conclusion
 
