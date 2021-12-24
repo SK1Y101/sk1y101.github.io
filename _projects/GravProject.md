@@ -8,7 +8,8 @@ importance: 1
 category: work
 
 date: 2021-12-24
-published: 2021-06-03
+
+bibliography: GravProject.bib
 
 authors:
   - name: Jack Lloyd-Walters
@@ -24,18 +25,18 @@ toc:
   - name: Abstract
   - name: Acknowledgements
   - name: Introduction
-#    - name: The Intermediate Mass Black Hole Problem
-#    - name: Glitch Events
-#    - name: Moving Forward
+    - name: The Intermediate Mass Black Hole Problem
+    - name: Glitch Events
+    - name: Moving Forward
   - name: Theory
-#    - name: Constructing a Glitch
-#    - name: Matched filtering
+    - name: Constructing a Glitch
+    - name: Matched filtering
   - name: Methodology
-#    - name: The Search
+    - name: The Search
 #      -name: Data collection
 #      -name: Template Generation
 #      -name: Signal Processing
-#    - name: Compiling results
+    - name: Compiling results
 #      -name: Event Detection
 #      -name: Graphical Output
   - name: Results
@@ -70,9 +71,9 @@ Finally, I would like to thank the Ligo Collaboration for providing the server e
 
 ### The Intermediate Mass Black Hole Problem
 
-Since their inception a century ago, we have found a multitude of black holes spanning the very small, to the monstrously large. At the lowest range are stellar black holes, remnants of the largest stars whose mass is less than $10^2 M_\odot$. In contrast are the supermassive black holes, whose mass is sufficient to dominate the evolution of galaxies, and are thought to reside with their cores. Within this continuous range of known compact objects is an odd discontinuity; black holes whose mass ranges from `$$ 10^2 - 10^5 M_\odot $$`.
+Since their inception a century ago, we have found a multitude of black holes spanning the very small, to the monstrously large. At the lowest range are stellar black holes, remnants of the largest stars whose mass is less than $10^2 M_\odot$. In contrast are the supermassive black holes, whose mass is sufficient to dominate the evolution of galaxies, and are thought to reside with their cores. Within this continuous range of known compact objects is an odd discontinuity; black holes whose mass ranges from $$ 10^2 - 10^5 M_\odot $$.
 
-While a handful of candidates for these intermediate mass black holes (IMBH's) have been found, only a single one has ever been confirmed. This object, GW190521 <d-cite key="GW190521"></d-cite>, was found on the `$$ 19^{th} $$` of may 2019 following a detection trigger in multiple detectors, which was thought to result from the merger of two large stellar mass black holes. This merger event, characterised by a short duration and low peak frequency, sits squarely within the area that LIGO is most sensitive to, raising questions as to their observed scarcity.
+While a handful of candidates for these intermediate mass black holes (IMBH's) have been found, only a single one has ever been confirmed. This object, GW190521 <d-cite key="GW190521"></d-cite>, was found on the $$ 19^{th} $$ of may 2019 following a detection trigger in multiple detectors, which was thought to result from the merger of two large stellar mass black holes. This merger event, characterised by a short duration and low peak frequency, sits squarely within the area that LIGO is most sensitive to, raising questions as to their observed scarcity.
 
 As the largest stars reach the end of their lives, temperatures and pressures within their cores are sufficient for pair creation to play a dominant role in stellar evolution. As stars support themselves against gravitational collapse by way of radiation pressure, a portion of these photons becoming particle-antiparticle pairs destabilises the previously established equilibrium <d-cite key="pair_instability_supernovae"></d-cite>.
 
@@ -83,11 +84,11 @@ As the largest stars reach the end of their lives, temperatures and pressures wi
     \label{fig:pairinst}
 \end{figure}
 
-For stars between `$$ 100 $$` and `$$ 130 M_\odot $$` this results in several pulsations, where increased pair production causes the star to contract, raising core fusion rate until a new equilibrium is established, with several solar mass of material ejected from the outermost layers of the star in the process. This continues until the star falls below the required limit for pair production, and evolves further as a regular (albeit massive) star.
+For stars between $$ 100 $$ and $$ 130 M_\odot $$ this results in several pulsations, where increased pair production causes the star to contract, raising core fusion rate until a new equilibrium is established, with several solar mass of material ejected from the outermost layers of the star in the process. This continues until the star falls below the required limit for pair production, and evolves further as a regular (albeit massive) star.
 
-Stars within the `$$ 100 $$` and `$$ 250 M_\odot $$` boundary experience a much more energetic suite of pair production events due to their increased pressures. While smaller stars can eventually reach a new equilibrium after the initial pair production, these stars experience a runaway feedback loop. Overpressure in the star is sufficient to completely consume the core as a seconds-long thermonuclear explosion, blowing apart the star in a highly destructive and energetic pair-instability supernova <d-cite key="pair_instability_supernovae"></d-cite>. We can see this in figure \ref{fig:pairinst} as a blank area in the two graphs.
+Stars within the $$ 100 $$ and $$ 250 M_\odot $$ boundary experience a much more energetic suite of pair production events due to their increased pressures. While smaller stars can eventually reach a new equilibrium after the initial pair production, these stars experience a runaway feedback loop. Overpressure in the star is sufficient to completely consume the core as a seconds-long thermonuclear explosion, blowing apart the star in a highly destructive and energetic pair-instability supernova <d-cite key="pair_instability_supernovae"></d-cite>. We can see this in figure \ref{fig:pairinst} as a blank area in the two graphs.
 
-Further massive stars, those above `$$ 250 M_\odot $$` undergo photodisintegration before pair-production can completely consume the star. Photodisintegration is an endothermic (energy absorbing) process whereby a nucleus absorbs a gamma ray, enters an excited state, and immediately deexcites by emitting one or more subatomic particles. This prevents thermonuclear runaway, as distinct fusion processes require specific atomic isotopes, and the star eventually collapses completely in on itself to form a massive black hole <d-cite key="Fraley1968"></d-cite>. While this is the expected evolutionary path of a star this massive, very few, if any, of these stars besides the very first in the universe are expected to have formed.
+Further massive stars, those above $$ 250 M_\odot $$ undergo photodisintegration before pair-production can completely consume the star. Photodisintegration is an endothermic (energy absorbing) process whereby a nucleus absorbs a gamma ray, enters an excited state, and immediately deexcites by emitting one or more subatomic particles. This prevents thermonuclear runaway, as distinct fusion processes require specific atomic isotopes, and the star eventually collapses completely in on itself to form a massive black hole <d-cite key="Fraley1968"></d-cite>. While this is the expected evolutionary path of a star this massive, very few, if any, of these stars besides the very first in the universe are expected to have formed.
 
 From this, we expect that intermediate mass black holes form only through gravitational mergers, though a secondary problem arises: Supermassive black holes. If our model of bottom up formation is correct, SMBH's form through mergers of massive seed black holes, either typical IMBH's or direct collapse black holes <d-cite key="seed_black_holes"></d-cite>. Given the high population of both SMBH's and stellar mass black holes, we should expect to see many remnants within the IMBH range.
 
@@ -111,7 +112,7 @@ Over years of LIGO observation, we have seen an entire zoo <d-cite key="GlitchZo
     \label{fig:0}
 \end{figure}
 
-From this plot we can see how short a duration blip glitches are compared to mergers, significantly less than a tenth of a second for this specific glitch. As it will be important later, we can also see that this glitch occurs between the `$$ 16Hz $$` and `$$ 1024Hz $$` range, with a greater proportion of the glitch occurring at the lower end of this frequency range.
+From this plot we can see how short a duration blip glitches are compared to mergers, significantly less than a tenth of a second for this specific glitch. As it will be important later, we can also see that this glitch occurs between the $$ 16Hz $$ and $$ 1024Hz $$ range, with a greater proportion of the glitch occurring at the lower end of this frequency range.
 
 \begin{figure}[h!]
     \includegraphics[width=\textwidth]{Images/GW190828_063405.png}
@@ -201,7 +202,7 @@ As there are very few things that can be done here without removing required inf
 
 One way of representing short duration is to say that all frequency information is in phase. As the phases of each individual sinusoidal become aligned, so too does their central peaks, causing constructive interference around the centre and destructive interference elsewhere. As we know that phase information for each frequency is the argument of each complex number, a useful next step would be setting this to zero without affecting the modulus (and subsequently amplitude) for each frequency.
 
-From \ref{eq:1}, we can see an easy way of achieving this is setting `$$ b $$`, or the imaginary part, to zero. To retain the amplitude information, \ref{eq:2} Shows that `$$ r^2 = a^2 + b^2 $$`, and so `$$ a $$`, or the real part, must be set to the modulus. This is, conveniently enough, what the `numpy.abs()` function does, the output of such shown in figure \ref{fig:3}.
+From \ref{eq:1}, we can see an easy way of achieving this is setting $$ b $$, or the imaginary part, to zero. To retain the amplitude information, \ref{eq:2} Shows that $$ r^2 = a^2 + b^2 $$, and so $$ a $$, or the real part, must be set to the modulus. This is, conveniently enough, what the `numpy.abs()` function does, the output of such shown in figure \ref{fig:3}.
 
 \begin{figure}[h!]
     \includegraphics[width=\textwidth]{Images/60 glitch.png}
@@ -209,7 +210,7 @@ From \ref{eq:1}, we can see an easy way of achieving this is setting `$$ b $$`, 
     \label{fig:3}
 \end{figure}
 
-Finally, using an Inverse Fourier transform to return to the time domain, we should see that our template now occurs almost exclusively at `$$ t=0 $$`, as shown in figure \ref{fig:4}. As the Inverse Fourier Transform expects a sequence of complex numbers, care should be taken to avoid completely removing the imaginary part in the step above. As `numpy.abs()` automatically does this, the glitch frequency series had to be recast using `numpy.astype("complex-128")`, which converts each number to a complex double floating point value (in essence, appending `$$ 0j $$` to what would otherwise be a sequence of reals). There is an animation of the merger to glitch conversion hosted \href{https://github.com/SK1Y101/GWProject/blob/main/Animation\%20of\%20Merger\%20converting\%20to\%20Glitch.gif}{here} as part of this project's Github Repository <d-cite key="GithubRepo"></d-cite>.
+Finally, using an Inverse Fourier transform to return to the time domain, we should see that our template now occurs almost exclusively at $$ t=0 $$, as shown in figure \ref{fig:4}. As the Inverse Fourier Transform expects a sequence of complex numbers, care should be taken to avoid completely removing the imaginary part in the step above. As `numpy.abs()` automatically does this, the glitch frequency series had to be recast using `numpy.astype("complex-128")`, which converts each number to a complex double floating point value (in essence, appending $$ 0j $$ to what would otherwise be a sequence of reals). There is an animation of the merger to glitch conversion hosted \href{https://github.com/SK1Y101/GWProject/blob/main/Animation\%20of\%20Merger\%20converting\%20to\%20Glitch.gif}{here} as part of this project's Github Repository <d-cite key="GithubRepo"></d-cite>.
 
 \begin{figure}[h!]
     \includegraphics[width=\textwidth]{Images/60 glitch (time).png}
@@ -217,19 +218,19 @@ Finally, using an Inverse Fourier transform to return to the time domain, we sho
     \label{fig:4}
 \end{figure}
 
-To assess how similar our glitch model and merger model are, we will use the `PyCBC.filter.match()` function to compute their similarity. This function takes two templates and yields two numbers, `$$ \epsilon $$` and `$$ \phi $$`. `$$ \epsilon $$` is a measure between 0 and 1 of their correlation, where 0 is completely dissimilar and 1 is completely identical, and `$$ \phi $$` is the time offset between the two signals required to obtain the match. As we are only concerned with how correlated the two signals are at this stage, we can discard `$$ \phi $$`.
+To assess how similar our glitch model and merger model are, we will use the `PyCBC.filter.match()` function to compute their similarity. This function takes two templates and yields two numbers, $$ \epsilon $$ and $$ \phi $$. $$ \epsilon $$ is a measure between 0 and 1 of their correlation, where 0 is completely dissimilar and 1 is completely identical, and $$ \phi $$ is the time offset between the two signals required to obtain the match. As we are only concerned with how correlated the two signals are at this stage, we can discard $$ \phi $$.
 
-To see how the similarity, or `$$ \epsilon $$`, between glitch and merger varies as a function of mass, we can create a bank of template mergers between two equal mass black holes across a range of masses, and a bank of glitches from those same mergers. While it would not be difficult to use unequal mass templates (such as a glitch formed from a `$$ 30 M_\odot $$ - $$ 50 M_\odot $$` merger), the equal mass templates are more than appropriate for our needs. Figure \ref{fig:6} shows the result of this operation, where the glitches and templates were generated with symmetric masses between $10$ and `$$ 300 M_\odot $$`. The z axis, which shows `$$ \epsilon $$`, is also represented proportionally with a colour scale.
+To see how the similarity, or $$ \epsilon $$, between glitch and merger varies as a function of mass, we can create a bank of template mergers between two equal mass black holes across a range of masses, and a bank of glitches from those same mergers. While it would not be difficult to use unequal mass templates (such as a glitch formed from a $$ 30 M_\odot $$ - $$ 50 M_\odot $$ merger), the equal mass templates are more than appropriate for our needs. Figure \ref{fig:6} shows the result of this operation, where the glitches and templates were generated with symmetric masses between $10$ and $$ 300 M_\odot $$. The z axis, which shows $$ \epsilon $$, is also represented proportionally with a colour scale.
 
 \begin{figure}[h!]
     \includegraphics[width=\textwidth]{Images/Epsilon_Correlation_2.1.png}
-    \caption{Epsilon correlation (`$$ \epsilon $$`) between a bank of Glitches and Mergers}
+    \caption{Epsilon correlation ($$ \epsilon $$) between a bank of Glitches and Mergers}
     \label{fig:6}
 \end{figure}
 
-We can see that, for low mass merger events, the value of `$$ \epsilon $$` does not vary strongly as the mass of each glitch increases. This also shows that low mass mergers do not look particularly like glitch events, as `$$ \epsilon $$` does not rise above `$$ 0.2 $$` until the symmetric merger mass is above `$$ 50 M_\odot $$`, which is already more massive than all mergers observed except GW190521 <d-cite key="GW190521"></d-cite>.
+We can see that, for low mass merger events, the value of $$ \epsilon $$ does not vary strongly as the mass of each glitch increases. This also shows that low mass mergers do not look particularly like glitch events, as $$ \epsilon $$ does not rise above $$ 0.2 $$ until the symmetric merger mass is above $$ 50 M_\odot $$, which is already more massive than all mergers observed except GW190521 <d-cite key="GW190521"></d-cite>.
 
-The short discontinuities in the graph is an artefact of the computation required to calculate `$$ \epsilon $$`. The likely culprit is the frequency cutoff chosen when generating the templates, for this particular computation, only information above `$$ 10Hz $$` was retained. This would explain why the graph is continuous at low masses, as these mergers contain a lot of information in the `$$ 100Hz $$`-`$$ 300Hz $$`, while discontinuous at High masses, which occur mostly within the `$$ 1Hz $$`-`$$ 30Hz $$` regime and thus are missing some of their frequency information.
+The short discontinuities in the graph is an artefact of the computation required to calculate $$ \epsilon $$. The likely culprit is the frequency cutoff chosen when generating the templates, for this particular computation, only information above $$ 10Hz $$ was retained. This would explain why the graph is continuous at low masses, as these mergers contain a lot of information in the $$ 100Hz $$-$$ 300Hz $$, while discontinuous at High masses, which occur mostly within the $$ 1Hz $$-$$ 30Hz $$ regime and thus are missing some of their frequency information.
 
 ### Matched filtering
 
@@ -244,7 +245,7 @@ $$
     \label{eq:match2}
 $$
 
-The output of the matched filter function is the signal-to-noise (SNR) ratio for a given template `$$ h $$` against data `$$ d $$`, represented by `$$ \rho $$` in equation \ref{eq:match1}. The `$$ \sigma $$` term given is the auto-correlation of the template, and is used to normalise the SNR output.
+The output of the matched filter function is the signal-to-noise (SNR) ratio for a given template $$ h $$ against data $$ d $$, represented by $$ \rho $$ in equation \ref{eq:match1}. The $$ \sigma $$ term given is the auto-correlation of the template, and is used to normalise the SNR output.
 
 We can see in equation \ref{eq:match2} that we multiply the template with its complex conjugate. This operation yields the amplitude squared of the template, with the imaginary portion collapsing to zero, an operation which can be demonstrated with little effort.
 
@@ -268,9 +269,9 @@ Having obtained the amplitude squared of the template, we divide through by the 
 
 We then perform a very similar operation with the data and template, using the conjugate of the template as we've already computed it. This causes shared frequency content between the data and template to be retained prominently, while those that aren't shared are diminished. The following division by the spectral density of data evens out regular frequencies found, resulting in spikes for each frequency proportional to the strength of those frequencies present in the template.
 
-By integrating over all frequencies, the relative correlation of the template and data at that point is returned, proportional to the amount of the template in the data. Dividing this by the auto-correlation of the template normalises the filter, such that `$$ \rho = 1 $$` is equal noise and template content, and any values above that represent a louder template signal found.
+By integrating over all frequencies, the relative correlation of the template and data at that point is returned, proportional to the amount of the template in the data. Dividing this by the auto-correlation of the template normalises the filter, such that $$ \rho = 1 $$ is equal noise and template content, and any values above that represent a louder template signal found.
 
-A side effect of this operation is that `$$ \rho = 1 $$` is also one standard deviation of noise, as noise is Gaussian in nature, and so the value of `$$ \rho $$` is identical to the standard deviation of the probability of the template occurring in the data by random noise fluctuation; that is, a template with SNR `$$ 8.9 $$` has a `$$ 1 - \text{erf}(\frac{8.9}{\sqrt{2}}) = 5.58467*10^{-17}\% $$` chance of being due to random noise fluctuations.
+A side effect of this operation is that $$ \rho = 1 $$ is also one standard deviation of noise, as noise is Gaussian in nature, and so the value of $$ \rho $$ is identical to the standard deviation of the probability of the template occurring in the data by random noise fluctuation; that is, a template with SNR $$ 8.9 $$ has a $$ 1 - \text{erf}(\frac{8.9}{\sqrt{2}}) = 5.58467*10^{-17}\% $$ chance of being due to random noise fluctuations.
 
 This method of matched filtering with our glitch model stands in contrast to the typical tools used, most prominently the omicron scan, as seen in figure \ref{fig:OmicronGlitches}.
 Omicron scanning is agnostic to data context, quite unlike matched filtering with it's specified template searching.
@@ -299,7 +300,7 @@ Now that we have a model to generate glitch events, and a handle of the methods 
 
 To first begin, the data to perform a search on needed to be obtained. Initial testing when developing the code function used an hour long segment at GPS time 1244473218 (2019-06-13, 15:00), while the full search documented in the results used a 3 hour long segment starting at GPS time 1242442818 (2019-05-21, 03:00).
 
-Data was collected from both Hanford and Livingston detectors, though could easily be extended to include Virgo and others. To ease computational time, the data was down-sampled from its native `$$ 16384Hz $$` sampling time to `$$ 4096 Hz $$`. This data was then separated into smaller chunks of length `$$ 512 s $$` with `$$ 32 s $$` padding either side. As the matched filter requires the template and data to be of equal length, this was a happy medium between reducing the number of matched filters that needed to be computed, and reducing the length of the templates (and subsequently their memory usage). To complete the requirements for the matched filter function, the spectral density for each chunk of data was computed, as shown in figure \ref{fig:SpectralDensity}.
+Data was collected from both Hanford and Livingston detectors, though could easily be extended to include Virgo and others. To ease computational time, the data was down-sampled from its native $$ 16384Hz $$ sampling time to $$ 4096 Hz $$. This data was then separated into smaller chunks of length $$ 512 s $$ with $$ 32 s $$ padding either side. As the matched filter requires the template and data to be of equal length, this was a happy medium between reducing the number of matched filters that needed to be computed, and reducing the length of the templates (and subsequently their memory usage). To complete the requirements for the matched filter function, the spectral density for each chunk of data was computed, as shown in figure \ref{fig:SpectralDensity}.
 
 \begin{figure}[ht!]
     \includegraphics[width=\textwidth]{Images/SpectralDensity.png}
@@ -309,9 +310,9 @@ Data was collected from both Hanford and Livingston detectors, though could easi
 
 #### Template Generation
 
-Following this, an entire bank of template glitches and mergers needed to be created. While these can be as numerous as desired, the results in this paper were collected by creating equal-mass templates between `$$ 20 M_\odot $$` and `$$ 300 M_\odot $$` in `$$ 10 M_\odot $$` intervals, for a total of 58. While higher mass templates, and a greater mass resolution between them, could have been used, this made for an appropriate middle ground between computational speed and breadth of search. Each of the templates created had a length of `$$ 576 s $$` (`$$ 512s + 32 s $$` padding either side) and a sampling rate of `$$ 4096 Hz $$` to match each data chunk.
+Following this, an entire bank of template glitches and mergers needed to be created. While these can be as numerous as desired, the results in this paper were collected by creating equal-mass templates between $$ 20 M_\odot $$ and $$ 300 M_\odot $$ in $$ 10 M_\odot $$ intervals, for a total of 58. While higher mass templates, and a greater mass resolution between them, could have been used, this made for an appropriate middle ground between computational speed and breadth of search. Each of the templates created had a length of $$ 576 s $$ ($$ 512s + 32 s $$ padding either side) and a sampling rate of $$ 4096 Hz $$ to match each data chunk.
 
-It was imperative that the length of each template was specified before performing a cyclic time shift operation. This operation was used to align the peak of each template with `$$ t = 0 $$` by wrapping the entire template around its time length. If additional time was appended after this, the wrapped template would be discontinuous at `$$ t = 0 $$`, causing filtering errors, as the matched filter process assumes that all data and templates are continuous. This has the effect of a secondary detection echo occurring when computing the SNR, as the wrapped data is partway through the template, rather than neatly at the end of each template. An example of this artefact is shown here in figure \ref{fig:ringing}, where a secondary peak is detected after a time proportional to the duration of the initial template.
+It was imperative that the length of each template was specified before performing a cyclic time shift operation. This operation was used to align the peak of each template with $$ t = 0 $$ by wrapping the entire template around its time length. If additional time was appended after this, the wrapped template would be discontinuous at $$ t = 0 $$, causing filtering errors, as the matched filter process assumes that all data and templates are continuous. This has the effect of a secondary detection echo occurring when computing the SNR, as the wrapped data is partway through the template, rather than neatly at the end of each template. An example of this artefact is shown here in figure \ref{fig:ringing}, where a secondary peak is detected after a time proportional to the duration of the initial template.
 
 \begin{figure}[ht!]
     \includegraphics[width=\textwidth]{Images/TemplateSNRSRinging.png}
@@ -321,27 +322,27 @@ It was imperative that the length of each template was specified before performi
 
 #### Signal Processing
 
-For each `$$ 576 s $$` chunk of data, the Signal-to-Noise ratio was computed for each of the template events. As this would have taken a long time to do in series a multiprocessing pool <d-cite key="MultiPool"></d-cite> was utilised instead, with each of the 8 workers given a template at a time. While more workers could have been used, this would have slightly increased the overhead per worker, and would have consumed more resources on the shared server.
+For each $$ 576 s $$ chunk of data, the Signal-to-Noise ratio was computed for each of the template events. As this would have taken a long time to do in series a multiprocessing pool <d-cite key="MultiPool"></d-cite> was utilised instead, with each of the 8 workers given a template at a time. While more workers could have been used, this would have slightly increased the overhead per worker, and would have consumed more resources on the shared server.
 
-With `$$ 928 $$` SNR segments of length `$$ 576 s $$` found, all of the points where the SNR dropped below a signal threshold were discarded, so that only significant peaks remained. A typical SNR of 8 is chosen for LIGO searches, but as the standard deviation for Gaussian noise is `$$ \pm 1 $$`, an event that would have had a raw SNR of `$$ 8 $$` could feasibly register as `$$ 7 $$` with noise included, hence SNR `$$ 7 $$` was the cutoff for this search.
+With $$ 928 $$ SNR segments of length $$ 576 s $$ found, all of the points where the SNR dropped below a signal threshold were discarded, so that only significant peaks remained. A typical SNR of 8 is chosen for LIGO searches, but as the standard deviation for Gaussian noise is $$ \pm 1 $$, an event that would have had a raw SNR of $$ 8 $$ could feasibly register as $$ 7 $$ with noise included, hence SNR $$ 7 $$ was the cutoff for this search.
 
-For each of the peaks found for a given template, all peaks within a certain time threshold were compared, such that only the loudest within a `$$ 5 s $$` boundary was reported. This eliminates echoing artefacts, and is significantly under the expected detection time of a gravitational event. Once each of the most significant peaks for each of the templates is found, they are compiled into an extended array, and our signal processing stages are complete.
+For each of the peaks found for a given template, all peaks within a certain time threshold were compared, such that only the loudest within a $$ 5 s $$ boundary was reported. This eliminates echoing artefacts, and is significantly under the expected detection time of a gravitational event. Once each of the most significant peaks for each of the templates is found, they are compiled into an extended array, and our signal processing stages are complete.
 
 ### Compiling results
 
 #### Event Detection
 
-With an array of each SNR peaks found within the data, compiling them into a coherent list of probable events is the next, and arguably most important, step. To ensure computational efficiency from this point onward, the peak array is sorted chronologically. This makes the task of determining which templates align much simpler, as any two neighbours greater than `$$ 5 s $$` apart mark the boundary between one event and the next.
+With an array of each SNR peaks found within the data, compiling them into a coherent list of probable events is the next, and arguably most important, step. To ensure computational efficiency from this point onward, the peak array is sorted chronologically. This makes the task of determining which templates align much simpler, as any two neighbours greater than $$ 5 s $$ apart mark the boundary between one event and the next.
 
 It should be ensured between these two steps that events are sorted when other parts of the search expect them to be, as this could (and did) cause cascading errors in follow up calculations.
 
-By splitting this array into sub-arrays, each containing only coincident SNR peak events (those that occur within a `$$ 5 s $$` boundary of each other), we can directly compare each template to identify which was responsible for this event. The simplest approach is to assume that the template with the loudest SNR is most likely responsible for this event.
+By splitting this array into sub-arrays, each containing only coincident SNR peak events (those that occur within a $$ 5 s $$ boundary of each other), we can directly compare each template to identify which was responsible for this event. The simplest approach is to assume that the template with the loudest SNR is most likely responsible for this event.
 
 As we have only the coincident templates for each event, we can also show which detector data was triggered for this event. This, coupled with identifying a glitch or merger as the most probable culprit, provides an important step in quickly determining which, if any, event requires further study.
 
-While not directly required, a very useful metric to calculate and show at this stage is `$$ G/M $$` ratio, or the SNR of the loudest glitch for this event divided by the SNR of the loudest merger. This serves as a very quick indication of how "glitchy" an event actually is, with values close to `$$ 1 $$` representing a possibility that random noise could have pushed this event one way or the other. Alongside this, `$$ G-M $$` offset, or the time delay between the peak of the loudest glitch and loudest merger, can also be shown, though this is less important for collecting results.
+While not directly required, a very useful metric to calculate and show at this stage is $$ G/M $$ ratio, or the SNR of the loudest glitch for this event divided by the SNR of the loudest merger. This serves as a very quick indication of how "glitchy" an event actually is, with values close to $$ 1 $$ representing a possibility that random noise could have pushed this event one way or the other. Alongside this, $$ G-M $$ offset, or the time delay between the peak of the loudest glitch and loudest merger, can also be shown, though this is less important for collecting results.
 
-For example, supposing that a `$$ 20 $$` glitch and `$$ 130 $$` merger had an SNR of `$$ 14.5 $$` and $10$ respectively, separated by `$$ 0.5 s $$`. This would be identified as a single `$$ 20 M_\odot $$` glitch, with a `$$ G/M $$` ratio of `$$ 1.45 $$`. As these individual peaks are separated by more than `$$ \pm 1 $$`, we can be reasonably confident in saying this event is a glitch.
+For example, supposing that a $$ 20 $$ glitch and $$ 130 $$ merger had an SNR of $$ 14.5 $$ and $10$ respectively, separated by $$ 0.5 s $$. This would be identified as a single $$ 20 M_\odot $$ glitch, with a $$ G/M $$ ratio of $$ 1.45 $$. As these individual peaks are separated by more than $$ \pm 1 $$, we can be reasonably confident in saying this event is a glitch.
 
 Once the above steps have all been completed, it remains only to distribute them across a table, as shown in both extended and summary tables. Then, with all events categorised and laid out logically, any anomalies or objects of further study can be identified.
 
@@ -386,7 +387,7 @@ This graph would thus make coincident template defections obvious, and would als
 
 ## Results
 
-For the bulk of this section, we will be referring to the table of results returned by the search script that can be found at the end of this document, with exception given to a zoomed in figure comparison below. Secondarily, all quoted SNR's (in table or otherwise) have an implicit error of `$$ \pm 1 $$` due to Gaussian noise while error in reported time is assumed to be `$$ \pm \frac{1}{4096} s $$` due to the sampling time. Calculations using these values also have these implicit errors built in. Finally, the results and search script can be found in this project's Github Repo <d-cite key="GithubRepo"></d-cite>.
+For the bulk of this section, we will be referring to the table of results returned by the search script that can be found at the end of this document, with exception given to a zoomed in figure comparison below. Secondarily, all quoted SNR's (in table or otherwise) have an implicit error of $$ \pm 1 $$ due to Gaussian noise while error in reported time is assumed to be $$ \pm \frac{1}{4096} s $$ due to the sampling time. Calculations using these values also have these implicit errors built in. Finally, the results and search script can be found in this project's Github Repo <d-cite key="GithubRepo"></d-cite>.
 
 \begin{figure}[h!]
     \includegraphics[width=\textwidth, center]{Images/190521-1hr-GravPlotSummary.png}
@@ -400,9 +401,9 @@ As demonstrated in the theoretical segment of this paper, the glitch model looks
 
 As listed in our \href{https://github.com/SK1Y101/GWProject/blob/main/190521-3hr-Sumarrised_Results.tex}{summarised table of results} in section \ref{table}, we found 61 unique events, of which 59 were initially labelled as glitches. The first event, GW190521, was correctly identified as a merger, despite using only a few non-specific merger templates as a control for the search. This demonstrates that, while our glitch model is similar to the glitches identified in LIGO, it does not trigger falsely for real mergers.
 
-The second of the two events (event 13) that triggered as a merger took place at 03:38:07, 36 minutes after GW190521, was identified as a `$$ 100 M_\odot $$ ` - `$$ 100 M_\odot $$` merger. While it would be incredibly unlikely to have identified the second ever IMBH merger in history within such a short time of the first, it still warranted a further investigation as part of the search pipeline. This event was triggered only in the L1 data, and with a `$$ G/M $$` ratio of `$$ 0.955 $$` and peak SNR of `$$ 9.57 \pm 1 $$`, hence within the range that Gaussian noise can affect. To that end, it is easily explained as a misidentified glitch in a noisy segment of data.
+The second of the two events (event 13) that triggered as a merger took place at 03:38:07, 36 minutes after GW190521, was identified as a $$ 100 M_\odot $$ ` - $$ 100 M_\odot $$ merger. While it would be incredibly unlikely to have identified the second ever IMBH merger in history within such a short time of the first, it still warranted a further investigation as part of the search pipeline. This event was triggered only in the L1 data, and with a $$ G/M $$ ratio of $$ 0.955 $$ and peak SNR of $$ 9.57 \pm 1 $$, hence within the range that Gaussian noise can affect. To that end, it is easily explained as a misidentified glitch in a noisy segment of data.
 
-Event 50 also stood out as an event of interest in our table. This event was identified as a glitch, with peak SNR `$$ 2212.58 \pm 1 $$` and `$$ G/M $$` `$$ 1.142 $$` (and thus well outside the range of Gaussian noise). This would have been nothing of note, if not for the detection trigger in both the L1 and H1 data. By noting its position on the \href{https://github.com/SK1Y101/GWProject/blob/main/190521-3hr-Full_Results.tex}{full table of results} (row 2206), we can see that this event has two main parts, one that occurred in Hanford at 05:03:51 with SNR `$$ \approx2200 $$`, and one in Livingston at 05:03:53 with SNR `$$ \approx 7.4 $$`. As the disparity between detector SNR was so high, this event is clearly a rare near-coincidental set of two glitches, and reducing the time threshold in the search from `$$ 5 s $$` to `$$ 2s $$` would have avoided this issue.
+Event 50 also stood out as an event of interest in our table. This event was identified as a glitch, with peak SNR $$ 2212.58 \pm 1 $$ and $$ G/M $$ $$ 1.142 $$ (and thus well outside the range of Gaussian noise). This would have been nothing of note, if not for the detection trigger in both the L1 and H1 data. By noting its position on the \href{https://github.com/SK1Y101/GWProject/blob/main/190521-3hr-Full_Results.tex}{full table of results} (row 2206), we can see that this event has two main parts, one that occurred in Hanford at 05:03:51 with SNR $$ \approx2200 $$, and one in Livingston at 05:03:53 with SNR $$ \approx 7.4 $$. As the disparity between detector SNR was so high, this event is clearly a rare near-coincidental set of two glitches, and reducing the time threshold in the search from $$ 5 s $$ to $$ 2s $$ would have avoided this issue.
 
 With the results obtained, it seems likely that this glitch model is accurate, despite this report only being a pilot study. With a higher mass resolution and larger bank of glitches (as mentioned previously) a much more refined glitch search could be carried out. A logical secondary step after this would be a search for glitches using this model, removal of those identified glitches, and then a secondary search afterwards on the cleaned data, with a much higher confidence that an event found after is a real merger.
 
@@ -416,222 +417,4 @@ Without actively trying to ensure its safety, the glitch model did not misidenti
 
 While no additional IMBH mergers have been identified in the limited scope of this paper, it would require only computational time and very minimal effort to extend the search over (potentially) the entirety of the O3 run and beyond, which should provide a definitive answer to the question as to IMBH mergers.
 
-Following this, a larger suite of glitched templates with varying properties could be created and searched for as part of the main LIGO search pipeline. While such a model can be extended to even higher masses, it should be noted that, from figure \ref{fig:6}, we can see that glitches generated via this model and real mergers rapidly converge. By performing a quick calculation, we can note that an `$$ \epsilon = 0.95 $$` reached for symmetric masses over `$$ 800 $$`.
-
-## Equations
-
-This theme supports rendering beautiful math in inline and display modes using [MathJax 3](https://www.mathjax.org/) engine.
-You just need to surround your math expression with `$$`, like `$$ E = mc^2 $$`.
-If you leave it inside a paragraph, it will produce an inline expression, just like $$ E = mc^2 $$.
-
-To use display mode, again surround your expression with `$$` and place it as a separate paragraph.
-Here is an example:
-
-$$
-\left( \sum_{k=1}^n a_k b_k \right)^2 \leq \left( \sum_{k=1}^n a_k^2 \right) \left( \sum_{k=1}^n b_k^2 \right)
-$$
-
-Note that MathJax 3 is [a major re-write of MathJax](https://docs.mathjax.org/en/latest/upgrading/whats-new-3.0.html) that brought a significant improvement to the loading and rendering speed, which is now [on par with KaTeX](http://www.intmath.com/cg5/katex-mathjax-comparison.php).
-
-
-***
-
-## Citations
-
-Citations are then used in the article body with the `<d-cite>` tag.
-The key attribute is a reference to the id provided in the bibliography.
-The key attribute can take multiple ids, separated by commas.
-
-The citation is presented inline like this: <d-cite key="gregor2015draw"></d-cite> (a number that displays more information on hover).
-If you have an appendix, a bibliography is automatically created and populated in it.
-
-Distill chose a numerical inline citation style to improve readability of citation dense articles and because many of the benefits of longer citations are obviated by displaying more information on hover.
-However, we consider it good style to mention author last names if you discuss something at length and it fits into the flow well — the authors are human and it’s nice for them to have the community associate them with their work.
-
-***
-
-## Footnotes
-
-Just wrap the text you would like to show up in a footnote in a `<d-footnote>` tag.
-The number of the footnote will be automatically generated.<d-footnote>This will become a hoverable footnote.</d-footnote>
-
-***
-
-## Code Blocks
-
-Syntax highlighting is provided within `<d-code>` tags.
-An example of inline code snippets: `<d-code language="html">let x = 10;</d-code>`.
-For larger blocks of code, add a `block` attribute:
-
-<d-code block language="javascript">
-  var x = 25;
-  function(x) {
-    return x * x;
-  }
-</d-code>
-
-**Note:** `<d-code>` blocks do not look well in the dark mode.
-You can always use the default code-highlight using the `highlight` liquid tag:
-
-{% highlight javascript %}
-var x = 25;
-function(x) {
-  return x * x;
-}
-{% endhighlight %}
-
-***
-
-## Layouts
-
-The main text column is referred to as the body.
-It is the assumed layout of any direct descendants of the `d-article` element.
-
-<div class="fake-img l-body">
-  <p>.l-body</p>
-</div>
-
-For images you want to display a little larger, try `.l-page`:
-
-<div class="fake-img l-page">
-  <p>.l-page</p>
-</div>
-
-All of these have an outset variant if you want to poke out from the body text a little bit.
-For instance:
-
-<div class="fake-img l-body-outset">
-  <p>.l-body-outset</p>
-</div>
-
-<div class="fake-img l-page-outset">
-  <p>.l-page-outset</p>
-</div>
-
-Occasionally you’ll want to use the full browser width.
-For this, use `.l-screen`.
-You can also inset the element a little from the edge of the browser by using the inset variant.
-
-<div class="fake-img l-screen">
-  <p>.l-screen</p>
-</div>
-<div class="fake-img l-screen-inset">
-  <p>.l-screen-inset</p>
-</div>
-
-The final layout is for marginalia, asides, and footnotes.
-It does not interrupt the normal flow of `.l-body` sized text except on mobile screen sizes.
-
-<div class="fake-img l-gutter">
-  <p>.l-gutter</p>
-</div>
-
-***
-
-## Other Typography
-
-Emphasis, aka italics, with *asterisks* (`*asterisks*`) or _underscores_ (`_underscores_`).
-
-Strong emphasis, aka bold, with **asterisks** or __underscores__.
-
-Combined emphasis with **asterisks and _underscores_**.
-
-Strikethrough uses two tildes. ~~Scratch this.~~
-
-1. First ordered list item
-2. Another item
-⋅⋅* Unordered sub-list.
-1. Actual numbers don't matter, just that it's a number
-⋅⋅1. Ordered sub-list
-4. And another item.
-
-⋅⋅⋅You can have properly indented paragraphs within list items. Notice the blank line above, and the leading spaces (at least one, but we'll use three here to also align the raw Markdown).
-
-⋅⋅⋅To have a line break without a paragraph, you will need to use two trailing spaces.⋅⋅
-⋅⋅⋅Note that this line is separate, but within the same paragraph.⋅⋅
-⋅⋅⋅(This is contrary to the typical GFM line break behaviour, where trailing spaces are not required.)
-
-* Unordered list can use asterisks
-- Or minuses
-+ Or pluses
-
-[I'm an inline-style link](https://www.google.com)
-
-[I'm an inline-style link with title](https://www.google.com "Google's Homepage")
-
-[I'm a reference-style link][Arbitrary case-insensitive reference text]
-
-[I'm a relative reference to a repository file](../blob/master/LICENSE)
-
-[You can use numbers for reference-style link definitions][1]
-
-Or leave it empty and use the [link text itself].
-
-URLs and URLs in angle brackets will automatically get turned into links.
-http://www.example.com or <http://www.example.com> and sometimes
-example.com (but not on Github, for example).
-
-Some text to show that the reference links can follow later.
-
-[arbitrary case-insensitive reference text]: https://www.mozilla.org
-[1]: http://slashdot.org
-[link text itself]: http://www.reddit.com
-
-Here's our logo (hover to see the title text):
-
-Inline-style:
-![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
-
-Reference-style:
-![alt text][logo]
-
-[logo]: https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 2"
-
-Inline `code` has `back-ticks around` it.
-
-```javascript
-var s = "JavaScript syntax highlighting";
-alert(s);
-```
-
-```python
-s = "Python syntax highlighting"
-print s
-```
-
-```
-No language indicated, so no syntax highlighting.
-But let's throw in a <b>tag</b>.
-```
-
-Colons can be used to align columns.
-
-| Tables        | Are           | Cool  |
-| ------------- |:-------------:| -----:|
-| col 3 is      | right-aligned | $1600 |
-| col 2 is      | centered      |   $12 |
-| zebra stripes | are neat      |    $1 |
-
-There must be at least 3 dashes separating each header cell.
-The outer pipes (|) are optional, and you don't need to make the
-raw Markdown line up prettily. You can also use inline Markdown.
-
-Markdown | Less | Pretty
---- | --- | ---
-*Still* | `renders` | **nicely**
-1 | 2 | 3
-
-> Blockquotes are very handy in email to emulate reply text.
-> This line is part of the same quote.
-
-Quote break.
-
-> This is a very long line that will still be quoted properly when it wraps. Oh boy let's keep writing to make sure this is long enough to actually wrap for everyone. Oh, you can *put* **Markdown** into a blockquote.
-
-
-Here's a line for us to start with.
-
-This line is separated from the one above by two newlines, so it will be a *separate paragraph*.
-
-This line is also a separate paragraph, but...
-This line is only separated by a single newline, so it's a separate line in the *same paragraph*.
+Following this, a larger suite of glitched templates with varying properties could be created and searched for as part of the main LIGO search pipeline. While such a model can be extended to even higher masses, it should be noted that, from figure \ref{fig:6}, we can see that glitches generated via this model and real mergers rapidly converge. By performing a quick calculation, we can note that an $$ \epsilon = 0.95 $$ reached for symmetric masses over $$ 800 $$.
