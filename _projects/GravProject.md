@@ -37,14 +37,14 @@ toc:
   - name: Methodology
     subsections:
       - name: The Search
-    #    subsubsections:
-    #      -name: Data collection
-    #      -name: Template Generation
-    #      -name: Signal Processing
+        subsubsections:
+          - name: Data collection
+          - name: Template Generation
+          - name: Signal Processing
       - name: Compiling results
-    #    subsubsections:
-    #      -name: Event Detection
-    #      -name: Graphical Output
+        subsubsections:
+          - name: Event Detection
+          - name: Graphical Output
   - name: Results
   - name: Conclusion
 
