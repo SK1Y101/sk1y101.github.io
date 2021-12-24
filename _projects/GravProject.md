@@ -20,7 +20,7 @@ authors:
 #   - we may want to automate TOC generation in the future using
 #     jekyll-toc plugin (https://github.com/toshimaru/jekyll-toc).
 
-bibliography: GravProject.bib
+bibliography: 2018-12-22-distill.bib
 
 toc:
   - name: Abstract
@@ -52,6 +52,8 @@ toc:
 # If you use this post as a template, delete this _styles block.
 
 ---
+
+<d-cite key="gregor2015draw"></d-cite>
 
 ## Abstract
 
