@@ -77,6 +77,13 @@
             <ul>
               {% for subsection in section.subsections %}
               <li><a href="#{{ subsection.name | downcase | replace: ' ','-' }}">{{ subsection.name }}</a></li>
+              {% if subsection.subsubsection %}
+              <ul>
+                {% for subsubsection in subsection.subsubsections %}
+                <li><a href="#{{ subsubsection.name | downcase | replace: ' ','-' }}">{{ subsubsection.name }}</a></li>
+                {% endfor %}
+              </ul>
+              {% endif %}
               {% endfor %}
             </ul>
             {% endif %}
