@@ -17,6 +17,10 @@ d-byline a, d-article d-byline a {
   }
 }
 
+d-hover-box {
+  background-color:: var(--global-code-bg-color) !important;
+}
+
 d-article {
   border-top-color: var(--global-divider-color) !important;
   a, p, h1, h2, h3, h4, h5, h6, li, table {

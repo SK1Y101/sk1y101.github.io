@@ -9,8 +9,6 @@ category: work
 
 date: 2021-12-24
 
-bibliography: GravProject.bib
-
 authors:
   - name: Jack Lloyd-Walters
     url: "https://sk1y101.github.io"
@@ -21,6 +19,8 @@ authors:
 #     for hyperlinks within the post to work correctly.
 #   - we may want to automate TOC generation in the future using
 #     jekyll-toc plugin (https://github.com/toshimaru/jekyll-toc).
+
+bibliography: GravProject.bib
 
 toc:
   - name: Abstract
@@ -77,7 +77,7 @@ Finally, I would like to thank the Ligo Collaboration for providing the server e
 
 ### The Intermediate Mass Black Hole Problem
 
-Since their inception a century ago, we have found a multitude of black holes spanning the very small, to the monstrously large. At the lowest range are stellar black holes, remnants of the largest stars whose mass is less than $10^2 M_\odot$. In contrast are the supermassive black holes, whose mass is sufficient to dominate the evolution of galaxies, and are thought to reside with their cores. Within this continuous range of known compact objects is an odd discontinuity; black holes whose mass ranges from $$ 10^2 - 10^5 M_\odot $$.
+Since their inception a century ago, we have found a multitude of black holes spanning the very small, to the monstrously large. At the lowest range are stellar black holes, remnants of the largest stars whose mass is less than $$ 10^2 M_\odot $$. In contrast are the supermassive black holes, whose mass is sufficient to dominate the evolution of galaxies, and are thought to reside with their cores. Within this continuous range of known compact objects is an odd discontinuity; black holes whose mass ranges from $$ 10^2 - 10^5 M_\odot $$.
 
 While a handful of candidates for these intermediate mass black holes (IMBH's) have been found, only a single one has ever been confirmed. This object, GW190521 <d-cite key="GW190521"></d-cite>, was found on the $$ 19^{th} $$ of may 2019 following a detection trigger in multiple detectors, which was thought to result from the merger of two large stellar mass black holes. This merger event, characterised by a short duration and low peak frequency, sits squarely within the area that LIGO is most sensitive to, raising questions as to their observed scarcity.
 
@@ -128,7 +128,7 @@ From this plot we can see how short a duration blip glitches are compared to mer
 
 To further visually distinguish glitches from mergers, figure \ref{fig:GW} shows the spectral plot of a merger event. Note how this event is asymmetric, unlike the blip glitch in figure \ref{fig:0}, due to the characteristic chirp of a gravitational in spiral.
 
-While the majority of glitches can be easy to dismiss, as they have Signal-to-Noise ratios in the hundreds to thousands, it is the quietest that present the largest problem. Those that have Signal-to-Noise ratios (SNR's) on the same scale as true mergers, between $10$ and $30$, have near identical properties to IMBH events.
+While the majority of glitches can be easy to dismiss, as they have Signal-to-Noise ratios in the hundreds to thousands, it is the quietest that present the largest problem. Those that have Signal-to-Noise ratios (SNR's) on the same scale as true mergers, between $$ 10 $$ and $$ 30 $$, have near identical properties to IMBH events.
 
 Due to their similarity with short duration mergers, there exists the potential that the curious deficit of IMBH merger events could be due to incorrect labelling as glitches. This report will progress toward a search for glitch-like IMBH mergers that may help to place limits on the number of known high-mass events.
 
@@ -166,7 +166,7 @@ Before attempting to construct a glitch template, it is prudent to list the know
 
 \begin{figure}[h!]
     \includegraphics[width=\textwidth]{Images/60 merger.png}
-    \caption{Merger between two $60 M_\odot$ black holes}
+    \caption{Merger between two $$ 60 M_\odot $$ black holes}
     \label{fig:1}
 \end{figure}
 
@@ -216,7 +216,7 @@ From \ref{eq:1}, we can see an easy way of achieving this is setting $$ b $$, or
     \label{fig:3}
 \end{figure}
 
-Finally, using an Inverse Fourier transform to return to the time domain, we should see that our template now occurs almost exclusively at $$ t=0 $$, as shown in figure \ref{fig:4}. As the Inverse Fourier Transform expects a sequence of complex numbers, care should be taken to avoid completely removing the imaginary part in the step above. As `numpy.abs()` automatically does this, the glitch frequency series had to be recast using `numpy.astype("complex-128")`, which converts each number to a complex double floating point value (in essence, appending $$ 0j $$ to what would otherwise be a sequence of reals). There is an animation of the merger to glitch conversion hosted \href{https://github.com/SK1Y101/GWProject/blob/main/Animation\%20of\%20Merger\%20converting\%20to\%20Glitch.gif}{here} as part of this project's Github Repository <d-cite key="GithubRepo"></d-cite>.
+Finally, using an Inverse Fourier transform to return to the time domain, we should see that our template now occurs almost exclusively at $$ t=0 $$, as shown in figure \ref{fig:4}. As the Inverse Fourier Transform expects a sequence of complex numbers, care should be taken to avoid completely removing the imaginary part in the step above. As `numpy.abs()` automatically does this, the glitch frequency series had to be recast using `numpy.astype("complex-128")`, which converts each number to a complex double floating point value (in essence, appending $$ 0j $$ to what would otherwise be a sequence of reals). There is an animation of the merger to glitch conversion hosted [here](https://github.com/SK1Y101/GWProject/blob/main/Animation\%20of\%20Merger\%20converting\%20to\%20Glitch.gif) as part of this project's Github Repository <d-cite key="GithubRepo"></d-cite>.
 
 \begin{figure}[h!]
     \includegraphics[width=\textwidth]{Images/60 glitch (time).png}
@@ -226,7 +226,7 @@ Finally, using an Inverse Fourier transform to return to the time domain, we sho
 
 To assess how similar our glitch model and merger model are, we will use the `PyCBC.filter.match()` function to compute their similarity. This function takes two templates and yields two numbers, $$ \epsilon $$ and $$ \phi $$. $$ \epsilon $$ is a measure between 0 and 1 of their correlation, where 0 is completely dissimilar and 1 is completely identical, and $$ \phi $$ is the time offset between the two signals required to obtain the match. As we are only concerned with how correlated the two signals are at this stage, we can discard $$ \phi $$.
 
-To see how the similarity, or $$ \epsilon $$, between glitch and merger varies as a function of mass, we can create a bank of template mergers between two equal mass black holes across a range of masses, and a bank of glitches from those same mergers. While it would not be difficult to use unequal mass templates (such as a glitch formed from a $$ 30 M_\odot $$ - $$ 50 M_\odot $$ merger), the equal mass templates are more than appropriate for our needs. Figure \ref{fig:6} shows the result of this operation, where the glitches and templates were generated with symmetric masses between $10$ and $$ 300 M_\odot $$. The z axis, which shows $$ \epsilon $$, is also represented proportionally with a colour scale.
+To see how the similarity, or $$ \epsilon $$, between glitch and merger varies as a function of mass, we can create a bank of template mergers between two equal mass black holes across a range of masses, and a bank of glitches from those same mergers. While it would not be difficult to use unequal mass templates (such as a glitch formed from a $$ 30 M_\odot $$ - $$ 50 M_\odot $$ merger), the equal mass templates are more than appropriate for our needs. Figure \ref{fig:6} shows the result of this operation, where the glitches and templates were generated with symmetric masses between $$ 10 $$ and $$ 300 M_\odot $$. The z axis, which shows $$ \epsilon $$, is also represented proportionally with a colour scale.
 
 \begin{figure}[h!]
     \includegraphics[width=\textwidth]{Images/Epsilon_Correlation_2.1.png}
@@ -240,7 +240,7 @@ The short discontinuities in the graph is an artefact of the computation require
 
 ### Matched filtering
 
-Matched filtering <d-cite key="matchedFilter"></d-cite> is the main method by which the bulk of this search is performed. This tool is particularly powerful for identifying a known signal within data that contains Gaussian noise, as it is \textit{mathematically provable} [find source maybe?] to be the optimum linear filter. As such, it underpins a lot of work in RADAR and similar subsystems, as they too require filtering known data from noise. The two deceptively simple equations that describe it's working are given below:
+Matched filtering <d-cite key="matchedFilter"></d-cite> is the main method by which the bulk of this search is performed. This tool is particularly powerful for identifying a known signal within data that contains Gaussian noise, as it is *mathematically provable* [find source maybe?] to be the optimum linear filter. As such, it underpins a lot of work in RADAR and similar subsystems, as they too require filtering known data from noise. The two deceptively simple equations that describe it's working are given below:
 
 $$
     \rho = \frac{1}{\sigma} \int \frac {d(f) h^*(f)}{S(f)} df
@@ -348,7 +348,7 @@ As we have only the coincident templates for each event, we can also show which 
 
 While not directly required, a very useful metric to calculate and show at this stage is $$ G/M $$ ratio, or the SNR of the loudest glitch for this event divided by the SNR of the loudest merger. This serves as a very quick indication of how "glitchy" an event actually is, with values close to $$ 1 $$ representing a possibility that random noise could have pushed this event one way or the other. Alongside this, $$ G-M $$ offset, or the time delay between the peak of the loudest glitch and loudest merger, can also be shown, though this is less important for collecting results.
 
-For example, supposing that a $$ 20 $$ glitch and $$ 130 $$ merger had an SNR of $$ 14.5 $$ and $10$ respectively, separated by $$ 0.5 s $$. This would be identified as a single $$ 20 M_\odot $$ glitch, with a $$ G/M $$ ratio of $$ 1.45 $$. As these individual peaks are separated by more than $$ \pm 1 $$, we can be reasonably confident in saying this event is a glitch.
+For example, supposing that a $$ 20 $$ glitch and $$ 130 $$ merger had an SNR of $$ 14.5 $$ and $$ 10 $$ respectively, separated by $$ 0.5 s $$. This would be identified as a single $$ 20 M_\odot $$ glitch, with a $$ G/M $$ ratio of $$ 1.45 $$. As these individual peaks are separated by more than $$ \pm 1 $$, we can be reasonably confident in saying this event is a glitch.
 
 Once the above steps have all been completed, it remains only to distribute them across a table, as shown in both extended and summary tables. Then, with all events categorised and laid out logically, any anomalies or objects of further study can be identified.
 
@@ -405,11 +405,11 @@ For the bulk of this section, we will be referring to the table of results retur
 
 As demonstrated in the theoretical segment of this paper, the glitch model looks very similar to known glitches, providing a strong incentive that this model would be effective. We also see a clear correlation of these events with those found by the omicron scan, with a few exceptions whose peak frequency was in the kilohertz regime, as seen in figure \ref{fig:omicroncomparison}. This is mostly due to our focus on IMBH mergers, whose frequency content lies in the single to tens of Hertz regime.
 
-As listed in our \href{https://github.com/SK1Y101/GWProject/blob/main/190521-3hr-Sumarrised_Results.tex}{summarised table of results} in section \ref{table}, we found 61 unique events, of which 59 were initially labelled as glitches. The first event, GW190521, was correctly identified as a merger, despite using only a few non-specific merger templates as a control for the search. This demonstrates that, while our glitch model is similar to the glitches identified in LIGO, it does not trigger falsely for real mergers.
+As listed in our [summarised table of results](https://github.com/SK1Y101/GWProject/blob/main/190521-3hr-Sumarrised_Results.tex), we found 61 unique events, of which 59 were initially labelled as glitches. The first event, GW190521, was correctly identified as a merger, despite using only a few non-specific merger templates as a control for the search. This demonstrates that, while our glitch model is similar to the glitches identified in LIGO, it does not trigger falsely for real mergers.
 
-The second of the two events (event 13) that triggered as a merger took place at 03:38:07, 36 minutes after GW190521, was identified as a $$ 100 M_\odot $$ ` - $$ 100 M_\odot $$ merger. While it would be incredibly unlikely to have identified the second ever IMBH merger in history within such a short time of the first, it still warranted a further investigation as part of the search pipeline. This event was triggered only in the L1 data, and with a $$ G/M $$ ratio of $$ 0.955 $$ and peak SNR of $$ 9.57 \pm 1 $$, hence within the range that Gaussian noise can affect. To that end, it is easily explained as a misidentified glitch in a noisy segment of data.
+The second of the two events (event 13) that triggered as a merger took place at 03:38:07, 36 minutes after GW190521, was identified as a $$ 100 M_\odot $$ - $$ 100 M_\odot $$ merger. While it would be incredibly unlikely to have identified the second ever IMBH merger in history within such a short time of the first, it still warranted a further investigation as part of the search pipeline. This event was triggered only in the L1 data, and with a $$ G/M $$ ratio of $$ 0.955 $$ and peak SNR of $$ 9.57 \pm 1 $$, hence within the range that Gaussian noise can affect. To that end, it is easily explained as a misidentified glitch in a noisy segment of data.
 
-Event 50 also stood out as an event of interest in our table. This event was identified as a glitch, with peak SNR $$ 2212.58 \pm 1 $$ and $$ G/M $$ $$ 1.142 $$ (and thus well outside the range of Gaussian noise). This would have been nothing of note, if not for the detection trigger in both the L1 and H1 data. By noting its position on the \href{https://github.com/SK1Y101/GWProject/blob/main/190521-3hr-Full_Results.tex}{full table of results} (row 2206), we can see that this event has two main parts, one that occurred in Hanford at 05:03:51 with SNR $$ \approx2200 $$, and one in Livingston at 05:03:53 with SNR $$ \approx 7.4 $$. As the disparity between detector SNR was so high, this event is clearly a rare near-coincidental set of two glitches, and reducing the time threshold in the search from $$ 5 s $$ to $$ 2s $$ would have avoided this issue.
+Event 50 also stood out as an event of interest in our table. This event was identified as a glitch, with peak SNR $$ 2212.58 \pm 1 $$ and $$ G/M $$ $$ 1.142 $$ (and thus well outside the range of Gaussian noise). This would have been nothing of note, if not for the detection trigger in both the L1 and H1 data. By noting its position on the [full table of results](https://github.com/SK1Y101/GWProject/blob/main/190521-3hr-Full_Results.tex) (row 2206), we can see that this event has two main parts, one that occurred in Hanford at 05:03:51 with SNR $$ \approx2200 $$, and one in Livingston at 05:03:53 with SNR $$ \approx 7.4 $$. As the disparity between detector SNR was so high, this event is clearly a rare near-coincidental set of two glitches, and reducing the time threshold in the search from $$ 5 s $$ to $$ 2s $$ would have avoided this issue.
 
 With the results obtained, it seems likely that this glitch model is accurate, despite this report only being a pilot study. With a higher mass resolution and larger bank of glitches (as mentioned previously) a much more refined glitch search could be carried out. A logical secondary step after this would be a search for glitches using this model, removal of those identified glitches, and then a secondary search afterwards on the cleaned data, with a much higher confidence that an event found after is a real merger.
 
@@ -423,222 +423,4 @@ Without actively trying to ensure its safety, the glitch model did not misidenti
 
 While no additional IMBH mergers have been identified in the limited scope of this paper, it would require only computational time and very minimal effort to extend the search over (potentially) the entirety of the O3 run and beyond, which should provide a definitive answer to the question as to IMBH mergers.
 
-Following this, a larger suite of glitched templates with varying properties could be created and searched for as part of the main LIGO search pipeline. While such a model can be extended to even higher masses, it should be noted that, from figure \ref{fig:6}, we can see that glitches generated via this model and real mergers rapidly converge. By performing a quick calculation, we can note that an $$ \epsilon = 0.95 $$ reached for symmetric masses over $$ 800 $$.
-
-## Equations
-
-This theme supports rendering beautiful math in inline and display modes using [MathJax 3](https://www.mathjax.org/) engine.
-You just need to surround your math expression with $$, like $$ E = mc^2 $$.
-If you leave it inside a paragraph, it will produce an inline expression, just like $$ E = mc^2 $$.
-
-To use display mode, again surround your expression with $$ and place it as a separate paragraph.
-Here is an example:
-
-$$
-\left( \sum_{k=1}^n a_k b_k \right)^2 \leq \left( \sum_{k=1}^n a_k^2 \right) \left( \sum_{k=1}^n b_k^2 \right)
-$$
-
-Note that MathJax 3 is [a major re-write of MathJax](https://docs.mathjax.org/en/latest/upgrading/whats-new-3.0.html) that brought a significant improvement to the loading and rendering speed, which is now [on par with KaTeX](http://www.intmath.com/cg5/katex-mathjax-comparison.php).
-
-
-***
-
-## Citations
-
-Citations are then used in the article body with the `<d-cite>` tag.
-The key attribute is a reference to the id provided in the bibliography.
-The key attribute can take multiple ids, separated by commas.
-
-The citation is presented inline like this: <d-cite key="gregor2015draw"></d-cite> (a number that displays more information on hover).
-If you have an appendix, a bibliography is automatically created and populated in it.
-
-Distill chose a numerical inline citation style to improve readability of citation dense articles and because many of the benefits of longer citations are obviated by displaying more information on hover.
-However, we consider it good style to mention author last names if you discuss something at length and it fits into the flow well — the authors are human and it’s nice for them to have the community associate them with their work.
-
-***
-
-## Footnotes
-
-Just wrap the text you would like to show up in a footnote in a `<d-footnote>` tag.
-The number of the footnote will be automatically generated.<d-footnote>This will become a hoverable footnote.</d-footnote>
-
-***
-
-## Code Blocks
-
-Syntax highlighting is provided within `<d-code>` tags.
-An example of inline code snippets: `<d-code language="html">let x = 10;</d-code>`.
-For larger blocks of code, add a `block` attribute:
-
-<d-code block language="javascript">
-  var x = 25;
-  function(x) {
-    return x * x;
-  }
-</d-code>
-
-**Note:** `<d-code>` blocks do not look well in the dark mode.
-You can always use the default code-highlight using the `highlight` liquid tag:
-
-{% highlight javascript %}
-var x = 25;
-function(x) {
-  return x * x;
-}
-{% endhighlight %}
-
-***
-
-## Layouts
-
-The main text column is referred to as the body.
-It is the assumed layout of any direct descendants of the `d-article` element.
-
-<div class="fake-img l-body">
-  <p>.l-body</p>
-</div>
-
-For images you want to display a little larger, try `.l-page`:
-
-<div class="fake-img l-page">
-  <p>.l-page</p>
-</div>
-
-All of these have an outset variant if you want to poke out from the body text a little bit.
-For instance:
-
-<div class="fake-img l-body-outset">
-  <p>.l-body-outset</p>
-</div>
-
-<div class="fake-img l-page-outset">
-  <p>.l-page-outset</p>
-</div>
-
-Occasionally you’ll want to use the full browser width.
-For this, use `.l-screen`.
-You can also inset the element a little from the edge of the browser by using the inset variant.
-
-<div class="fake-img l-screen">
-  <p>.l-screen</p>
-</div>
-<div class="fake-img l-screen-inset">
-  <p>.l-screen-inset</p>
-</div>
-
-The final layout is for marginalia, asides, and footnotes.
-It does not interrupt the normal flow of `.l-body` sized text except on mobile screen sizes.
-
-<div class="fake-img l-gutter">
-  <p>.l-gutter</p>
-</div>
-
-***
-
-## Other Typography
-
-Emphasis, aka italics, with *asterisks* (`*asterisks*`) or _underscores_ (`_underscores_`).
-
-Strong emphasis, aka bold, with **asterisks** or __underscores__.
-
-Combined emphasis with **asterisks and _underscores_**.
-
-Strikethrough uses two tildes. ~~Scratch this.~~
-
-1. First ordered list item
-2. Another item
-⋅⋅* Unordered sub-list.
-1. Actual numbers don't matter, just that it's a number
-⋅⋅1. Ordered sub-list
-4. And another item.
-
-⋅⋅⋅You can have properly indented paragraphs within list items. Notice the blank line above, and the leading spaces (at least one, but we'll use three here to also align the raw Markdown).
-
-⋅⋅⋅To have a line break without a paragraph, you will need to use two trailing spaces.⋅⋅
-⋅⋅⋅Note that this line is separate, but within the same paragraph.⋅⋅
-⋅⋅⋅(This is contrary to the typical GFM line break behaviour, where trailing spaces are not required.)
-
-* Unordered list can use asterisks
-- Or minuses
-+ Or pluses
-
-[I'm an inline-style link](https://www.google.com)
-
-[I'm an inline-style link with title](https://www.google.com "Google's Homepage")
-
-[I'm a reference-style link][Arbitrary case-insensitive reference text]
-
-[I'm a relative reference to a repository file](../blob/master/LICENSE)
-
-[You can use numbers for reference-style link definitions][1]
-
-Or leave it empty and use the [link text itself].
-
-URLs and URLs in angle brackets will automatically get turned into links.
-http://www.example.com or <http://www.example.com> and sometimes
-example.com (but not on Github, for example).
-
-Some text to show that the reference links can follow later.
-
-[arbitrary case-insensitive reference text]: https://www.mozilla.org
-[1]: http://slashdot.org
-[link text itself]: http://www.reddit.com
-
-Here's our logo (hover to see the title text):
-
-Inline-style:
-![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
-
-Reference-style:
-![alt text][logo]
-
-[logo]: https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 2"
-
-Inline `code` has `back-ticks around` it.
-
-```javascript
-var s = "JavaScript syntax highlighting";
-alert(s);
-```
-
-```python
-s = "Python syntax highlighting"
-print s
-```
-
-```
-No language indicated, so no syntax highlighting.
-But let's throw in a <b>tag</b>.
-```
-
-Colons can be used to align columns.
-
-| Tables        | Are           | Cool  |
-| ------------- |:-------------:| -----:|
-| col 3 is      | right-aligned | $1600 |
-| col 2 is      | centered      |   $12 |
-| zebra stripes | are neat      |    $1 |
-
-There must be at least 3 dashes separating each header cell.
-The outer pipes (|) are optional, and you don't need to make the
-raw Markdown line up prettily. You can also use inline Markdown.
-
-Markdown | Less | Pretty
---- | --- | ---
-*Still* | `renders` | **nicely**
-1 | 2 | 3
-
-> Blockquotes are very handy in email to emulate reply text.
-> This line is part of the same quote.
-
-Quote break.
-
-> This is a very long line that will still be quoted properly when it wraps. Oh boy let's keep writing to make sure this is long enough to actually wrap for everyone. Oh, you can *put* **Markdown** into a blockquote.
-
-
-Here's a line for us to start with.
-
-This line is separated from the one above by two newlines, so it will be a *separate paragraph*.
-
-This line is also a separate paragraph, but...
-This line is only separated by a single newline, so it's a separate line in the *same paragraph*.
+Following this, a larger suite of glitched templates with varying properties could be created and searched for as part of the main LIGO search pipeline. While such a model can be extended to even higher masses, it should be noted that, from figure \ref{fig:6}, we can see that glitches generated via this model and real mergers rapidly converge. By performing a quick calculation, we can note that an $$ \epsilon = 0.95 $$ reached for symmetric masses over $$ 800 M_\odot $$.
