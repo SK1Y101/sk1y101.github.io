@@ -9,9 +9,7 @@ category: work
 
 date: 2021-12-24
 
-bibliography: GravProject.bib
-
-bibliography: GravProject.bib
+#bibliography: GravProject.bib
 
 authors:
   - name: Jack Lloyd-Walters
@@ -27,18 +25,18 @@ toc:
   - name: Abstract
   - name: Acknowledgements
   - name: Introduction
-    - name: The Intermediate Mass Black Hole Problem
-    - name: Glitch Events
-    - name: Moving Forward
+#    - name: The Intermediate Mass Black Hole Problem
+#    - name: Glitch Events
+#    - name: Moving Forward
   - name: Theory
-    - name: Constructing a Glitch
-    - name: Matched filtering
+#    - name: Constructing a Glitch
+#    - name: Matched filtering
   - name: Methodology
-    - name: The Search
+#    - name: The Search
 #      -name: Data collection
 #      -name: Template Generation
 #      -name: Signal Processing
-    - name: Compiling results
+#    - name: Compiling results
 #      -name: Event Detection
 #      -name: Graphical Output
   - name: Results
