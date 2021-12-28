@@ -3,10 +3,10 @@
  ******************************************************************************/
 
 d-cite {
-  color: var(--global-theme-color) !important;
-  d-hover-box {
-    color: var(--global-text-color) !important;
-    background-color: var(--global-code-bg-color) !important;
+  color: var(--global-text-color) !important;
+  background-color: var(--global-code-bg-color) !important;
+  a {
+    color: var(--global-theme-color) !important;
   }
 }
 
@@ -85,7 +85,6 @@ d-article {
         list-style-type: none;
         li {
           margin-bottom: 0.25em;
-          background-color: var(--global-code-bg-color) !important;
         }
       }
     }
