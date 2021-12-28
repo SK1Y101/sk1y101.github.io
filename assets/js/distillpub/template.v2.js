@@ -927,7 +927,7 @@ ${math}
     if ("doi" in ent) {
       return `${new_line ? "<br>" : ""} <a href="https://doi.org/${
       ent.doi
-    }" style="text-decoration:inherit;">DOI: ${ent.doi}</a>`;
+    }" style="text-decoration:inherit; color: var(--global-theme-color);">DOI: ${ent.doi}</a>`;
     } else {
       return "";
     }
@@ -2139,7 +2139,7 @@ d-appendix > distill-appendix {
   white-space: nowrap;
   font-family: -apple-system, BlinkMacSystemFont, "Roboto", Helvetica, sans-serif;
   font-size: 75%;
-  color: hsla(206, 90%, 20%, 0.7);
+  color: var(--global-theme-color);
   display: inline-block;
   line-height: 1.1em;
   text-align: center;
@@ -4426,7 +4426,7 @@ d-footnote-list a.footnote-backlink {
   left: 0;
   width: 100%;
   border: 1px solid rgba(0, 0, 0, 0.1);
-  background-color: rgba(250, 250, 250, 0.95);
+  background-color: var(--global-code-bg-color);
   box-shadow: 0 0 7px rgba(0, 0, 0, 0.1);
   border-radius: 4px;
   box-sizing: border-box;

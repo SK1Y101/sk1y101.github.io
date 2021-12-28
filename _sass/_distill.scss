@@ -2,14 +2,6 @@
  * Style overrides for distill blog posts.
  ******************************************************************************/
 
-d-cite {
-  color: var(--global-text-color) !important;
-  background-color: var(--global-code-bg-color) !important;
-  a {
-    color: var(--global-theme-color) !important;
-  }
-}
-
 d-byline {
   border-top-color: var(--global-divider-color) !important;
 }
