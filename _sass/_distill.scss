@@ -2,6 +2,10 @@
  * Style overrides for distill blog posts.
  ******************************************************************************/
 
+d-cite {
+  color: var(--global-theme-color) !important;
+}
+
 d-byline {
   border-top-color: var(--global-divider-color) !important;
 }
@@ -15,10 +19,6 @@ d-byline a, d-article d-byline a {
   &:hover {
     color: var(--global-hover-color) !important;
   }
-}
-
-d-hover-box {
-  background-color: var(--global-code-bg-color) !important;
 }
 
 d-article {
@@ -57,6 +57,7 @@ d-article {
     nav {
       grid-column: toc;
       a {
+        color: var(--global-theme-color) !important;
         border-bottom: none !important;
         &:hover {
           border-bottom: 1px solid var(--global-text-color) !important;
@@ -80,6 +81,7 @@ d-article {
         list-style-type: none;
         li {
           margin-bottom: 0.25em;
+          background-color: var(--global-code-bg-color) !important;
         }
       }
     }
