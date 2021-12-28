@@ -4,6 +4,10 @@
 
 d-cite {
   color: var(--global-theme-color) !important;
+  d-hover-box {
+    color: var(--global-text-color) !important;
+    background-color: var(--global-code-bg-color) !important;
+  }
 }
 
 d-byline {
