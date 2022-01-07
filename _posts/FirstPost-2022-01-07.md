@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: distil
 title: January 2022
 description: The first post of the new year
 categories: Babbling-blog
