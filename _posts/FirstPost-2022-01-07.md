@@ -2,7 +2,9 @@
 layout: project
 title: January 2022
 description: The first post of the new year
-date: 2022-01-07
+categories: Babbling-blog
+tags: updates
+date: 2022-01-07 16:02:00-0000
 
 authors:
   - name: Jack Lloyd-Walters
