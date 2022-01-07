@@ -1,10 +1,9 @@
 ---
-layout: distil
+layout: distill
 title: January 2022
 description: The first post of the new year
-categories: Babbling-blog
 tags: updates
-date: 2022-01-07 16:02:00-0000
+date: 2022-01-07
 
 authors:
   - name: Jack Lloyd-Walters
