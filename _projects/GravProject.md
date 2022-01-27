@@ -98,12 +98,12 @@ As the largest stars reach the end of their lives, temperatures and pressures wi
     </div>
 </div>
 <div class="caption">
-    [ {{ pairinst }} ] Supernovae types, and remnant objects, given initial star mass and metallicity. <d-cite key="remnanttype"></d-cite> <d-cite key="supernovaetype"></d-cite>
+    <fig>[ {{ pairinst }} ]</fig> Supernovae types, and remnant objects, given initial star mass and metallicity. <d-cite key="remnanttype"></d-cite> <d-cite key="supernovaetype"></d-cite>
 </div>
 
 For stars between $$ 100 $$ and $$ 130 M_\odot $$ this results in several pulsations, where increased pair production causes the star to contract, raising core fusion rate until a new equilibrium is established, with several solar mass of material ejected from the outermost layers of the star in the process. This continues until the star falls below the required limit for pair production, and evolves further as a regular (albeit massive) star.
 
-Stars within the $$ 100 $$ and $$ 250 M_\odot $$ boundary experience a much more energetic suite of pair production events due to their increased pressures. While smaller stars can eventually reach a new equilibrium after the initial pair production, these stars experience a runaway feedback loop. Overpressure in the star is sufficient to completely consume the core as a seconds-long thermonuclear explosion, blowing apart the star in a highly destructive and energetic pair-instability supernova <d-cite key="pair_instability_supernovae"></d-cite>. We can see this in figure {{ pairinst }} as a blank area in the two graphs.
+Stars within the $$ 100 $$ and $$ 250 M_\odot $$ boundary experience a much more energetic suite of pair production events due to their increased pressures. While smaller stars can eventually reach a new equilibrium after the initial pair production, these stars experience a runaway feedback loop. Overpressure in the star is sufficient to completely consume the core as a seconds-long thermonuclear explosion, blowing apart the star in a highly destructive and energetic pair-instability supernova <d-cite key="pair_instability_supernovae"></d-cite>. We can see this in figure <fig>[ {{ pairinst }} ]</fig> as a blank area in the two graphs.
 
 Further massive stars, those above $$ 250 M_\odot $$ undergo photodisintegration before pair-production can completely consume the star. Photodisintegration is an endothermic (energy absorbing) process whereby a nucleus absorbs a gamma ray, enters an excited state, and immediately deexcites by emitting one or more subatomic particles. This prevents thermonuclear runaway, as distinct fusion processes require specific atomic isotopes, and the star eventually collapses completely in on itself to form a massive black hole <d-cite key="Fraley1968"></d-cite>. While this is the expected evolutionary path of a star this massive, very few, if any, of these stars besides the very first in the universe are expected to have formed.
 
@@ -123,26 +123,34 @@ Within any arbitrary segment of gravitational strain data are glitch events. Gli
     </div>
 </div>
 <div class="caption">
-    [{{ OmicronGlitches }}] Omicron scan of the Hanford and Livingston detectors, demonstrating the frequency of glitch events
+    <fig>[ {{ OmicronGlitches }} ]</fig> Omicron scan of the Hanford and Livingston detectors, demonstrating the frequency of glitch events
 </div>
 
-Over years of LIGO observation, we have seen an entire zoo <d-cite key="GlitchZoo"></d-cite> of glitches. To trim what would otherwise be a broad topic, the particular glitches that share features with the blip (**B**and **L**imited **I**m**P**ulse) glitches will be the main focus of this paper, with an example shown in figure \ref{fig:0}. This figure shows a specific class of time-frequency diagram called the "QTransform" which shows the energy content of each frequency in the detector strain changes over time. \label{Glitch_Properties}
+Over years of LIGO observation, we have seen an entire zoo <d-cite key="GlitchZoo"></d-cite> of glitches. To trim what would otherwise be a broad topic, the particular glitches that share features with the blip (**B**and **L**imited **I**m**P**ulse) glitches will be the main focus of this paper, with an example shown in figure <fig>[ {{ glitchimg }} ]</fig>. This figure shows a specific class of time-frequency diagram called the "QTransform" which shows the energy content of each frequency in the detector strain changes over time.
 
-\begin{figure}[h!]
-    \includegraphics[width=\textwidth]{Images/4pEe3veoKk.png}
-    \caption{Sample Glitch event in the Livingston Detector. The colour scale is the normalised energy for this time range}
-    \label{fig:0}
-\end{figure}
+{% assign glitchimg = 3 %}
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.html path="assets/img/GWProject/Livingston_glitch.png" title="BLIP Glitch in the Livingston detector" %}
+    </div>
+</div>
+<div class="caption">
+    <fig>[ {{ glitchimg }} ]</fig> Sample Glitch event in the Livingston Detector. The colour scale is the normalised energy for this time range
+</div>
 
 From this plot we can see how short a duration blip glitches are compared to mergers, significantly less than a tenth of a second for this specific glitch. As it will be important later, we can also see that this glitch occurs between the $$ 16Hz $$ and $$ 1024Hz $$ range, with a greater proportion of the glitch occurring at the lower end of this frequency range.
 
-\begin{figure}[h!]
-    \includegraphics[width=\textwidth]{Images/GW190828_063405.png}
-    \caption{Spectral plot for $GW190828_063405$}
-    \label{fig:GW}
-\end{figure}
+{% assign GW = 4 %}
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.html path="assets/img/GWProject/GW190828_063405.png" %}
+    </div>
+</div>
+<div class="caption">
+    <fig>[ {{ GW }} ]</fig> Spectral plot for GW190828_063405
+</div>
 
-To further visually distinguish glitches from mergers, figure \ref{fig:GW} shows the spectral plot of a merger event. Note how this event is asymmetric, unlike the blip glitch in figure \ref{fig:0}, due to the characteristic chirp of a gravitational in spiral.
+To further visually distinguish glitches from mergers, figure <fig>[ {{ GW }} ]</fig> shows the spectral plot of a merger event. Note how this event is asymmetric, unlike the blip glitch in figure <fig>[ {{ glitchimg }} ]</fig>, due to the characteristic chirp of a gravitational in spiral.
 
 While the majority of glitches can be easy to dismiss, as they have Signal-to-Noise ratios in the hundreds to thousands, it is the quietest that present the largest problem. Those that have Signal-to-Noise ratios (SNR's) on the same scale as true mergers, between $$ 10 $$ and $$ 30 $$, have near identical properties to IMBH events.
 
@@ -180,75 +188,91 @@ Before attempting to construct a glitch template, it is prudent to list the know
     Glitches can vary from near-undetectable, to completely overwhelming, with an almost continuous distribution between the two. Any given glitch can have any given loudness, with no obvious relation.
 \end{itemize}
 
-\begin{figure}[h!]
-    \includegraphics[width=\textwidth]{Images/60 merger.png}
-    \caption{Merger between two $$ 60 M_\odot $$ black holes}
-    \label{fig:1}
-\end{figure}
+{% assign 60merger = 5 %}
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.html path="assets/img/GWProject/60_merger.png" %}
+    </div>
+</div>
+<div class="caption">
+    <fig>[ {{ 60merger }} ]</fig> Merger between two $$ 60 M_\odot $$ black holes
+</div>
 
-In order to address the first point and ensure our glitch template has similar spectral features and properties to a merger event, we will first start with a merger template as shown in figure \ref{fig:1}. While this does give us the characteristic spectrum we desire, with most of the energy contained in lower frequencies, this does come with the side-effect of introducing the characteristic merger chirp into our template.
+In order to address the first point and ensure our glitch template has similar spectral features and properties to a merger event, we will first start with a merger template as shown in figure <fig>[ {{ 60merger }} ]</fig>. While this does give us the characteristic spectrum we desire, with most of the energy contained in lower frequencies, this does come with the side-effect of introducing the characteristic merger chirp into our template.
 
-\begin{figure}[h!]
-    \includegraphics[width=\textwidth]{Images/60 merger (freq).png}
-    \caption{Fourier transform of the merger}
-    \label{fig:2}
-\end{figure}
+{% assign 60mergerfreq = 6 %}
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.html path="assets/img/GWProject/60_merger_freq.png" %}
+    </div>
+</div>
+<div class="caption">
+    <fig>[ {{ 60mergerfreq }} ]</fig> Fourier transform of the merger
+</div>
 
-As there are very few things that can be done here without removing required information, The template will then be converted to a frequency series by way of Fourier transform as shown in figure \ref{fig:2}. This representation encodes each frequency of a waveform as a complex number, where the argument is the phase of each frequency, and the magnitude is its amplitude. This representation thus allows us to address the second point above.
+As there are very few things that can be done here without removing required information, The template will then be converted to a frequency series by way of Fourier transform as shown in figure <fig>[ {{ 60mergerfreq }} ]</fig>. This representation encodes each frequency of a waveform as a complex number, where the argument is the phase of each frequency, and the magnitude is its amplitude. This representation thus allows us to address the second point above.
 
-\begin{center}
-    Standard form
-    $$
-        z = a + bj
-    $$
-    $$
-        a = \text{Re}(z)
-    $$
-    $$
-        b= \text{Im}(z)
-    $$
-\end{center}
+Standard form
+$$
+    z = a + bj
+$$
+$$
+    a = \text{Re}(z)
+$$
+$$
+    b= \text{Im}(z)
+$$
 
-\begin{center}
-    Polar form
-    $$
-        z = r ( \cos(\theta) + j \sin(\theta) ) = r e^{j \pi \theta}
-    $$
-    $$
-        r = \text{mod}(z) = \sqrt{a^2 + b^2}\label{eq:2}
-    $$
-    $$
-        \theta = \text{arg}(z) = \arctan(\frac{b}{a})\label{eq:1}
-    $$
-\end{center}
+Polar form
+$$
+    z = r ( \cos(\theta) + j \sin(\theta) ) = r e^{j \pi \theta}
+$$
+$$
+    r = \text{mod}(z) = \sqrt{a^2 + b^2}\label{eq:2}
+$$
+$$
+    \theta = \text{arg}(z) = \arctan(\frac{b}{a})\label{eq:1}
+$$
 
 One way of representing short duration is to say that all frequency information is in phase. As the phases of each individual sinusoidal become aligned, so too does their central peaks, causing constructive interference around the centre and destructive interference elsewhere. As we know that phase information for each frequency is the argument of each complex number, a useful next step would be setting this to zero without affecting the modulus (and subsequently amplitude) for each frequency.
 
-From \ref{eq:1}, we can see an easy way of achieving this is setting $$ b $$, or the imaginary part, to zero. To retain the amplitude information, \ref{eq:2} Shows that $$ r^2 = a^2 + b^2 $$, and so $$ a $$, or the real part, must be set to the modulus. This is, conveniently enough, what the `numpy.abs()` function does, the output of such shown in figure \ref{fig:3}.
+From \ref{eq:1}, we can see an easy way of achieving this is setting $$ b $$, or the imaginary part, to zero. To retain the amplitude information, \ref{eq:2} Shows that $$ r^2 = a^2 + b^2 $$, and so $$ a $$, or the real part, must be set to the modulus. This is, conveniently enough, what the `numpy.abs()` function does, the output of such shown in figure <fig>[ {{ 60glitch }} ]</fig>.
 
-\begin{figure}[h!]
-    \includegraphics[width=\textwidth]{Images/60 glitch.png}
-    \caption{All phase information removed}
-    \label{fig:3}
-\end{figure}
+{% assign 60glitch = 7 %}
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.html path="assets/img/GWProject/60_glitch.png" %}
+    </div>
+</div>
+<div class="caption">
+    <fig>[ {{ 60glitch }} ]</fig> All phase information removed
+</div>
 
-Finally, using an Inverse Fourier transform to return to the time domain, we should see that our template now occurs almost exclusively at $$ t=0 $$, as shown in figure \ref{fig:4}. As the Inverse Fourier Transform expects a sequence of complex numbers, care should be taken to avoid completely removing the imaginary part in the step above. As `numpy.abs()` automatically does this, the glitch frequency series had to be recast using `numpy.astype("complex-128")`, which converts each number to a complex double floating point value (in essence, appending $$ 0j $$ to what would otherwise be a sequence of reals). There is an animation of the merger to glitch conversion hosted https://github.com/SK1Y101/GWProject/blob/main/Animation of Merger converting to Glitch.gif as part of this project's Github Repository <d-cite key="GithubRepo"></d-cite>.
+Finally, using an Inverse Fourier transform to return to the time domain, we should see that our template now occurs almost exclusively at $$ t=0 $$, as shown in figure <fig>[ {{ 60glitchtime }} ]</fig>. As the Inverse Fourier Transform expects a sequence of complex numbers, care should be taken to avoid completely removing the imaginary part in the step above. As `numpy.abs()` automatically does this, the glitch frequency series had to be recast using `numpy.astype("complex-128")`, which converts each number to a complex double floating point value (in essence, appending $$ 0j $$ to what would otherwise be a sequence of reals). There is an animation of the merger to glitch conversion hosted https://github.com/SK1Y101/GWProject/blob/main/Animation of Merger converting to Glitch.gif as part of this project's Github Repository <d-cite key="GithubRepo"></d-cite>.
 
-\begin{figure}[h!]
-    \includegraphics[width=\textwidth]{Images/60 glitch (time).png}
-    \caption{Inverse Fourier transformed into the time domain}
-    \label{fig:4}
-\end{figure}
+{% assign 60glitchtime = 8 %}
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.html path="assets/img/GWProject/60_glitch_time.png" %}
+    </div>
+</div>
+<div class="caption">
+    <fig>[ {{ 60glitchtime }} ]</fig> Inverse Fourier transformed into the time domain
+</div>
 
 To assess how similar our glitch model and merger model are, we will use the `PyCBC.filter.match()` function to compute their similarity. This function takes two templates and yields two numbers, $$ \epsilon $$ and $$ \phi $$. $$ \epsilon $$ is a measure between 0 and 1 of their correlation, where 0 is completely dissimilar and 1 is completely identical, and $$ \phi $$ is the time offset between the two signals required to obtain the match. As we are only concerned with how correlated the two signals are at this stage, we can discard $$ \phi $$.
 
-To see how the similarity, or $$ \epsilon $$, between glitch and merger varies as a function of mass, we can create a bank of template mergers between two equal mass black holes across a range of masses, and a bank of glitches from those same mergers. While it would not be difficult to use unequal mass templates (such as a glitch formed from a $$ 30 M_\odot $$ - $$ 50 M_\odot $$ merger), the equal mass templates are more than appropriate for our needs. Figure \ref{fig:6} shows the result of this operation, where the glitches and templates were generated with symmetric masses between $$ 10 $$ and $$ 300 M_\odot $$. The z axis, which shows $$ \epsilon $$, is also represented proportionally with a colour scale.
+To see how the similarity, or $$ \epsilon $$, between glitch and merger varies as a function of mass, we can create a bank of template mergers between two equal mass black holes across a range of masses, and a bank of glitches from those same mergers. While it would not be difficult to use unequal mass templates (such as a glitch formed from a $$ 30 M_\odot $$ - $$ 50 M_\odot $$ merger), the equal mass templates are more than appropriate for our needs. Figure <fig>[ {{ Epsilon }} ]</fig> shows the result of this operation, where the glitches and templates were generated with symmetric masses between $$ 10 $$ and $$ 300 M_\odot $$. The z axis, which shows $$ \epsilon $$, is also represented proportionally with a colour scale.
 
-\begin{figure}[h!]
-    \includegraphics[width=\textwidth]{Images/Epsilon_Correlation_2.1.png}
-    \caption{Epsilon correlation ($$ \epsilon $$) between a bank of Glitches and Mergers}
-    \label{fig:6}
-\end{figure}
+{% assign Epsilon = 9 %}
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.html path="assets/img/GWProject/Epsilon_Correlation_2.1.png" %}
+    </div>
+</div>
+<div class="caption">
+    <fig>[ {{ Epsilon }} ]</fig> Epsilon correlation ($$ \epsilon $$) between a bank of Glitches and Mergers
+</div>
 
 We can see that, for low mass merger events, the value of $$ \epsilon $$ does not vary strongly as the mass of each glitch increases. This also shows that low mass mergers do not look particularly like glitch events, as $$ \epsilon $$ does not rise above $$ 0.2 $$ until the symmetric merger mass is above $$ 50 M_\odot $$, which is already more massive than all mergers observed except GW190521 <d-cite key="GW190521"></d-cite>.
 
@@ -295,7 +319,7 @@ By integrating over all frequencies, the relative correlation of the template an
 
 A side effect of this operation is that $$ \rho = 1 $$ is also one standard deviation of noise, as noise is Gaussian in nature, and so the value of $$ \rho $$ is identical to the standard deviation of the probability of the template occurring in the data by random noise fluctuation; that is, a template with SNR $$ 8.9 $$ has a $$ 1 - \text{erf}(\frac{8.9}{\sqrt{2}}) = 5.58467*10^{-17}\% $$ chance of being due to random noise fluctuations.
 
-This method of matched filtering with our glitch model stands in contrast to the typical tools used, most prominently the omicron scan, as seen in figure {{ OmicronGlitches }}.
+This method of matched filtering with our glitch model stands in contrast to the typical tools used, most prominently the omicron scan, as seen in figure <fig>[ {{ OmicronGlitches }} ]</fig>.
 Omicron scanning is agnostic to data context, quite unlike matched filtering with it's specified template searching.
 
 Omicron scanning operates on a wavelet-like basis, whereby the entire data is whitened, and individual tiles formed from the data are overlaid on top of each-other. These tiles vary between large in frequency domain and small in time, and vice versa, and combine to give an overview of the spectral content of a segment of data. Where multiple of these tiles overlap, the data has deviated from a standard Gaussian, and the spectral shape of this event is shown <d-cite key="robinet2020omicron"></d-cite>.
@@ -322,25 +346,33 @@ Now that we have a model to generate glitch events, and a handle of the methods 
 
 To first begin, the data to perform a search on needed to be obtained. Initial testing when developing the code function used an hour long segment at GPS time 1244473218 (2019-06-13, 15:00), while the full search documented in the results used a 3 hour long segment starting at GPS time 1242442818 (2019-05-21, 03:00).
 
-Data was collected from both Hanford and Livingston detectors, though could easily be extended to include Virgo and others. To ease computational time, the data was down-sampled from its native $$ 16384Hz $$ sampling time to $$ 4096 Hz $$. This data was then separated into smaller chunks of length $$ 512 s $$ with $$ 32 s $$ padding either side. As the matched filter requires the template and data to be of equal length, this was a happy medium between reducing the number of matched filters that needed to be computed, and reducing the length of the templates (and subsequently their memory usage). To complete the requirements for the matched filter function, the spectral density for each chunk of data was computed, as shown in figure \ref{fig:SpectralDensity}.
+Data was collected from both Hanford and Livingston detectors, though could easily be extended to include Virgo and others. To ease computational time, the data was down-sampled from its native $$ 16384Hz $$ sampling time to $$ 4096 Hz $$. This data was then separated into smaller chunks of length $$ 512 s $$ with $$ 32 s $$ padding either side. As the matched filter requires the template and data to be of equal length, this was a happy medium between reducing the number of matched filters that needed to be computed, and reducing the length of the templates (and subsequently their memory usage). To complete the requirements for the matched filter function, the spectral density for each chunk of data was computed, as shown in figure <fig>[ {{ SpectralDensity }} ]</fig>.
 
-\begin{figure}[ht!]
-    \includegraphics[width=\textwidth]{Images/SpectralDensity.png}
-    \caption{Logarithmic plot of the Spectral density of the two detectors. Note the different characteristic frequencies that occur between the two.}
-    \label{fig:SpectralDensity}
-\end{figure}
+{% assign SpectralDensity = 10 %}
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.html path="assets/img/GWProject/SpectralDensity.png" %}
+    </div>
+</div>
+<div class="caption">
+    <fig>[ {{ SpectralDensity }} ]</fig> Logarithmic plot of the Spectral density of the two detectors. Note the different characteristic frequencies that occur between the two.
+</div>
 
 #### Template Generation
 
 Following this, an entire bank of template glitches and mergers needed to be created. While these can be as numerous as desired, the results in this paper were collected by creating equal-mass templates between $$ 20 M_\odot $$ and $$ 300 M_\odot $$ in $$ 10 M_\odot $$ intervals, for a total of 58. While higher mass templates, and a greater mass resolution between them, could have been used, this made for an appropriate middle ground between computational speed and breadth of search. Each of the templates created had a length of $$ 576 s $$ ($$ 512s + 32 s $$ padding either side) and a sampling rate of $$ 4096 Hz $$ to match each data chunk.
 
-It was imperative that the length of each template was specified before performing a cyclic time shift operation. This operation was used to align the peak of each template with $$ t = 0 $$ by wrapping the entire template around its time length. If additional time was appended after this, the wrapped template would be discontinuous at $$ t = 0 $$, causing filtering errors, as the matched filter process assumes that all data and templates are continuous. This has the effect of a secondary detection echo occurring when computing the SNR, as the wrapped data is partway through the template, rather than neatly at the end of each template. An example of this artefact is shown here in figure \ref{fig:ringing}, where a secondary peak is detected after a time proportional to the duration of the initial template.
+It was imperative that the length of each template was specified before performing a cyclic time shift operation. This operation was used to align the peak of each template with $$ t = 0 $$ by wrapping the entire template around its time length. If additional time was appended after this, the wrapped template would be discontinuous at $$ t = 0 $$, causing filtering errors, as the matched filter process assumes that all data and templates are continuous. This has the effect of a secondary detection echo occurring when computing the SNR, as the wrapped data is partway through the template, rather than neatly at the end of each template. An example of this artefact is shown here in figure <fig>[ {{ ringing }} ]</fig>, where a secondary peak is detected after a time proportional to the duration of the initial template.
 
-\begin{figure}[ht!]
-    \includegraphics[width=\textwidth]{Images/TemplateSNRSRinging.png}
-    \caption{Secondary SNR echo due to incorrect template shifting and resizing. The secondary detection peaks can be seen to occur after the primary.}
-    \label{fig:ringing}
-\end{figure}
+{% assign ringing = 11 %}
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.html path="assets/img/GWProject/TemplateSNRSRinging.png" %}
+    </div>
+</div>
+<div class="caption">
+    <fig>[ {{ ringing }} ]</fig> Secondary SNR echo due to incorrect template shifting and resizing. The secondary detection peaks can be seen to occur after the primary.
+</div>
 
 #### Signal Processing
 
@@ -411,15 +443,25 @@ This graph would thus make coincident template defections obvious, and would als
 
 For the bulk of this section, we will be referring to the table of results returned by the search script that can be found at the end of this document, with exception given to a zoomed in figure comparison below. Secondarily, all quoted SNR's (in table or otherwise) have an implicit error of $$ \pm 1 $$ due to Gaussian noise while error in reported time is assumed to be $$ \pm \frac{1}{4096} s $$ due to the sampling time. Calculations using these values also have these implicit errors built in. Finally, the results and search script can be found in this project's Github Repo <d-cite key="GithubRepo"></d-cite>.
 
-\begin{figure}[h!]
-    \includegraphics[width=\textwidth, center]{Images/190521-1hr-GravPlotSummary.png}
-    \includegraphics[width=.49\textwidth]{Images/L1-LOCKED_HOFT_OMICRON_TRIGGERS-1242442818-3600.png}
-    \includegraphics[width=.49\textwidth]{Images/H1-LOCKED_HOFT_OMICRON_TRIGGERS-1242442818-3600.png}
-    \caption{Comparison for one hour of data of Search script output and LIGO omicron scan}
-    \label{fig:omicroncomparison}
-\end{figure}
+{% assign omicroncomparison = 12 %}
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.html path="assets/img/GWProject/190521-1hr-GravPlotSummary.png" %}
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.html path="assets/img/GWProject/L1-LOCKED_HOFT_OMICRON_TRIGGERS-1242442818-3600.png" %}
+    </div>
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.html path="assets/img/GWProject/H1-LOCKED_HOFT_OMICRON_TRIGGERS-1242442818-3600.png" %}
+    </div>
+</div>
+<div class="caption">
+    <fig>[ {{ omicroncomparison }} ]</fig> Comparison for one hour of data of Search script output and LIGO omicron scan
+</div>
 
-As demonstrated in the theoretical segment of this paper, the glitch model looks very similar to known glitches, providing a strong incentive that this model would be effective. We also see a clear correlation of these events with those found by the omicron scan, with a few exceptions whose peak frequency was in the kilohertz regime, as seen in figure \ref{fig:omicroncomparison}. This is mostly due to our focus on IMBH mergers, whose frequency content lies in the single to tens of Hertz regime.
+As demonstrated in the theoretical segment of this paper, the glitch model looks very similar to known glitches, providing a strong incentive that this model would be effective. We also see a clear correlation of these events with those found by the omicron scan, with a few exceptions whose peak frequency was in the kilohertz regime, as seen in figure <fig>[ {{ omicroncomparison }} ]</fig>. This is mostly due to our focus on IMBH mergers, whose frequency content lies in the single to tens of Hertz regime.
 
 As listed in our [summarised table of results](https://github.com/SK1Y101/GWProject/blob/main/190521-3hr-Sumarrised_Results.tex), we found 61 unique events, of which 59 were initially labelled as glitches. The first event, GW190521, was correctly identified as a merger, despite using only a few non-specific merger templates as a control for the search. This demonstrates that, while our glitch model is similar to the glitches identified in LIGO, it does not trigger falsely for real mergers.
 
@@ -439,4 +481,4 @@ Without actively trying to ensure its safety, the glitch model did not misidenti
 
 While no additional IMBH mergers have been identified in the limited scope of this paper, it would require only computational time and very minimal effort to extend the search over (potentially) the entirety of the O3 run and beyond, which should provide a definitive answer to the question as to IMBH mergers.
 
-Following this, a larger suite of glitched templates with varying properties could be created and searched for as part of the main LIGO search pipeline. While such a model can be extended to even higher masses, it should be noted that, from figure \ref{fig:6}, we can see that glitches generated via this model and real mergers rapidly converge. By performing a quick calculation, we can note that an $$ \epsilon = 0.95 $$ reached for symmetric masses over $$ 800 M_\odot $$.
+Following this, a larger suite of glitched templates with varying properties could be created and searched for as part of the main LIGO search pipeline. While such a model can be extended to even higher masses, it should be noted that, from figure <fig>[ {{ Epsilon }} ]</fig>, we can see that glitches generated via this model and real mergers rapidly converge. By performing a quick calculation, we can note that an $$ \epsilon = 0.95 $$ reached for symmetric masses over $$ 800 M_\odot $$.

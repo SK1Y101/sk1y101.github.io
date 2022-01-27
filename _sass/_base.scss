@@ -12,6 +12,10 @@ katex {
   color: var(--global-text-color) !important;
 }
 
+fig {
+  color: var(--global-theme-color) !important;
+}
+
 hr {
   border-top: 1px solid var(--global-divider-color);
 }
