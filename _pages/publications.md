@@ -13,17 +13,13 @@ nav: true
 <!-- Itterate on all page years -->
 {% for y in (2016..thisyear) reversed %}
   <!-- fetch the number of objects for this year -->
-  {% capture entries %}
-  {% bibliography_count -f papers -q @*[year={{y}}]* %}
-  {% endcapture %}
-  {% entries %}
+  {% capture entries %}{% bibliography_count -f papers -q @*[year={{y}}]* %}{% endcapture %}
+  <!-- {% entries %} -->
   <!-- check we have a bibliography thingy for this year -->
-  {% if entries | times: 1 > 1 %}
-    <!-- Create a year heading -->
-    <h2 class="year">{{y}}</h2>
-    <!-- create the bibliography card -->
-    {% bibliography -f papers -q @*[year={{y}}]* %}
-  {% endif %}
+  <!-- Create a year heading -->
+  <h2 class="year">{{y}}</h2>
+  <!-- create the bibliography card -->
+  {% bibliography -f papers -q @*[year={{y}}]* %}
 {% endfor %}
 
 </div>
