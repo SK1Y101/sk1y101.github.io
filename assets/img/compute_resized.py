@@ -35,13 +35,31 @@ def tonum(*args):
 
 # compile a list of images in this folder
 def fetchNames():
-    # fetch files
-    files = [file for file in os.listdir() if os.path.isfile(file)]
+    # fetch all files, looping through subfolders
+    files = nested_to_linear([[(root+"/").replace(os.getcwd()+"/", "")+f for f in file] \
+                                for root, dir, file in os.walk(os.getcwd())])
     # Filter to only images
     files = [file for file in files if contains(file, ".png", ".jpg", ".svg")]
     print("found {} files".format(len(files)), files, sep="\n")
     # and return
     return files
+
+# check that we have a folder to save the image into
+def checkFolder(dir):
+    # if it exists, we're good
+    if os.path.exists(dir):
+        return True
+    # otherwise, fetch all the directory components
+    dirsplit = dir.split("/")
+    # loop over them
+    for x in range(1, len(dirsplit)):
+        # get this directory
+        thisfolder = "/".join(dirsplit[:x])
+        # check if it exists
+        if os.path.exists(thisfolder):
+            continue
+        # otherwise, create it
+        os.mkdir(thisfolder)
 
 # rename svg's so they work
 def reName(imgs):
@@ -70,6 +88,9 @@ def reName(imgs):
 
 # fetch the size of each image and resize to our format
 def reSize(imgs):
+    # ensure we have the resized folder
+    if not os.path.exists("../resized/"):
+        os.mkdir("../resized/")
     svg = []
     # itterate over each image
     for img in imgs:
@@ -95,6 +116,8 @@ def reSize(imgs):
             im_resize = im.resize((_w, _h), Image.LANCZOS)
             # Compute the new name
             newname = name[0] + "-" + str(_w) + "x" + str(_h) + "." + name[1]
+            # check we have the folder to save into
+            checkFolder("../resized/"+".".join(name))
             # And save
             im_resize.save("../resized/"+newname)
         print("Complete")
