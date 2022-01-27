@@ -9,7 +9,8 @@ nav: true
 
 <div class="publications">
 
-{% (2000..{{ "now" | date: "%Y"}}) %}
+{{ (2000..2022) }}
+{{ "now" | date: "%Y" }}
 
 <!-- Itterate on all page years -->
 {% for y in page.years %}
