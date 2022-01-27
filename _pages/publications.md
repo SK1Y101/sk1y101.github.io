@@ -13,7 +13,8 @@ nav: true
 <!-- Itterate on all page years -->
 {% for y in (2016..thisyear) reversed %}
   <!-- fetch the number of entires for this year -->
-  {% assign entries = bibliography_count -f papers -q @*[year={{y}}]* | times: 1 %}
+  {% assign entries = bibliography_count -f papers -q @*[year={{y}}]* %}
+  {% entries %}
   <!-- check we have a bibliography thingy for this year -->
   {% if entries > 0 %}
     <!-- Create a year heading -->

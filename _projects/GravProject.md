@@ -88,6 +88,7 @@ While a handful of candidates for these intermediate mass black holes (IMBH's) h
 
 As the largest stars reach the end of their lives, temperatures and pressures within their cores are sufficient for pair creation to play a dominant role in stellar evolution. As stars support themselves against gravitational collapse by way of radiation pressure, a portion of these photons becoming particle-antiparticle pairs destabilises the previously established equilibrium <d-cite key="pair_instability_supernovae"></d-cite>.
 
+{% assign pairinst = 1 %}
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.html path="assets/img/GWProject/remnants_of_single_massive_stars.png" title="Supernovae remnant graph" %}
@@ -97,7 +98,7 @@ As the largest stars reach the end of their lives, temperatures and pressures wi
     </div>
 </div>
 <div class="caption">
-    {% assign pairinst = increment imgref %} Supernovae types, and remnant objects, given initial star mass and metallicity. <d-cite key="remnanttype"></d-cite> <d-cite key="supernovaetype"></d-cite>
+    [ {{ pairinst }} ] Supernovae types, and remnant objects, given initial star mass and metallicity. <d-cite key="remnanttype"></d-cite> <d-cite key="supernovaetype"></d-cite>
 </div>
 
 For stars between $$ 100 $$ and $$ 130 M_\odot $$ this results in several pulsations, where increased pair production causes the star to contract, raising core fusion rate until a new equilibrium is established, with several solar mass of material ejected from the outermost layers of the star in the process. This continues until the star falls below the required limit for pair production, and evolves further as a regular (albeit massive) star.
@@ -112,6 +113,7 @@ From this, we expect that intermediate mass black holes form only through gravit
 
 Within any arbitrary segment of gravitational strain data are glitch events. Glitches are, broadly speaking, short duration non-Gaussian wave-forms with similar spectral properties to actual merger events, though without an astrophysical source, and an almost unlimited loudness. These occur frequently, on the order of ten an hour, and are independent between detectors, with a rare chance that two detectors may see a chance overlap of independent glitches.
 
+{% assign OmicronGlitches = 2 %}
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.html path="assets/img/GWProject/H1_Omicron_triggers-1242432018-86400.png" title="Supernovae remnant graph" %}
@@ -121,7 +123,7 @@ Within any arbitrary segment of gravitational strain data are glitch events. Gli
     </div>
 </div>
 <div class="caption">
-    {% assign OmicronGlitches = increment imgref %} Omicron scan of the Hanford and Livingston detectors, demonstrating the frequency of glitch events
+    [{{ OmicronGlitches }}] Omicron scan of the Hanford and Livingston detectors, demonstrating the frequency of glitch events
 </div>
 
 Over years of LIGO observation, we have seen an entire zoo <d-cite key="GlitchZoo"></d-cite> of glitches. To trim what would otherwise be a broad topic, the particular glitches that share features with the blip (**B**and **L**imited **I**m**P**ulse) glitches will be the main focus of this paper, with an example shown in figure \ref{fig:0}. This figure shows a specific class of time-frequency diagram called the "QTransform" which shows the energy content of each frequency in the detector strain changes over time. \label{Glitch_Properties}

@@ -23,13 +23,9 @@ For any employers looking at this page, feel free to send a job posting to me vi
 
 A small selection of projects I'm proud of
 
-<a href="https://github.com/Skiylia-Lang/PySkiylia">
-  <img align="center" class="imgresize" src="https://github-readme-stats.vercel.app/api/pin/?username=Skiylia-Lang&repo=PySkiylia&theme=algolia&border_radius=20"/>
-</a>
+{% include githubcard.html path="https://github.com/Skiylia-Lang/PySkiylia" %}
 
-<a href="https://github.com/Skiylia-Lang/Verboscript">
-  <img align="center" class="imgresize" src="https://github-readme-stats.vercel.app/api/pin/?username=Skiylia-Lang&repo=Verboscript&theme=algolia&border_radius=20"/>
-</a>
+{% include githubcard.html path="https://github.com/Skiylia-Lang/Verboscript" %}
 
 for an extended list of things I'm working on, or have previously worked with, see <a href="sk1y101.github.io/projects">the projects section</a> of this website.
 
