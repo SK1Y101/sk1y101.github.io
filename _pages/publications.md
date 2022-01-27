@@ -10,13 +10,15 @@ nav: true
 <div class="publications">
 
 {% assign thisyear = "now" | date: "%Y" | times: 1 %}
-{% assign yearrange = (2016..thisyear) %}
-{% for y in yearrange reversed %}{{ y }}{% endfor %}
+{% assign years = (2016..thisyear) reversed %}
+{{ years | join: ", " %}}
 
 <!-- Itterate on all page years -->
 {% for y in page.years %}
+  <!-- fetch the number of entires for this year -->
+  {% assign entries = bibliography_count -f papers -q @*[year={{y}}]* | times: 1 %}
   <!-- check we have a bibliography thingy for this year -->
-  {% if bibliography_count -f papers -q @*[year={{y}}]* %}
+  {% if entries %}
     <!-- Create a year heading -->
     <h2 class="year">{{y}}</h2>
     <!-- create the bibliography card -->
