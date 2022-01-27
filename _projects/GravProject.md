@@ -14,8 +14,8 @@ authors:
     url: "https://sk1y101.github.io"
 
 links:
-  - github: SK1Y101/GWProject
-  - pdf: GWProjectFinalReport.pdf
+  github: SK1Y101/GWProject
+  pdf: GWProjectFinalReport.pdf
 
 # Optionally, you can add a table of contents to your post.
 # NOTES:
