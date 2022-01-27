@@ -37,7 +37,7 @@ toc:
 
 <div class="row">
   <div class="col-sm-4 mt-3 mt-md-0">
-    {% responsive_image path: assets/img/Skiylia_Logo.svg title: "Skiylia logo" class: "img-fluid rounded z-depth-1" %}
+    {% responsive_image path: assets/img/Skiylia/Skiylia_Logo.svg title: "Skiylia logo" class: "img-fluid rounded z-depth-1" %}
   </div>
   <div class="col-sm-10 mt-3 mt-md-0">
     <p><a href="https://skiylia-lang.github.io/">Skiylia</a> is a custom programing language I started developing back in March of 2021.
