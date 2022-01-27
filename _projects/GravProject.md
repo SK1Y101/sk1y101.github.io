@@ -13,6 +13,10 @@ authors:
   - name: Jack Lloyd-Walters
     url: "https://sk1y101.github.io"
 
+links:
+  - github: SK1Y101/GWProject
+  - pdf: GWProjectFinalReport.pdf
+
 # Optionally, you can add a table of contents to your post.
 # NOTES:
 #   - make sure that TOC names match the actual section names

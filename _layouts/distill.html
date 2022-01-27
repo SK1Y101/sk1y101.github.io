@@ -64,6 +64,22 @@
         <p>{{ page.description }}</p>
       </d-title>
 
+      <!-- If the document contains any links, let's add them here, eh? -->
+      {% if page.links %}
+        <!-- Github link -->
+        {% if page.links.github %}<a href="https://github.com/{{ page.links.github }}" title="GitHub"><i class="fab fa-github"></i></a>{% endif %}
+        <!-- PDF view. if we are only given a title, assume it is on this page -->
+        {% if page.links.pdf %}
+          {% if page.links.pdf contains '://' %}
+            <a href="{{ page.links.pdf }}" title="PDF"><i class="fab fa-file-pdf"></i></a>
+          {% else %}
+            <a href="{{ page.links.pdf | prepend: '/assets/pdf/' | relative_url }}" title="PDF"><i class="fab fa-file-pdf"></i></a>
+          {% endif %}
+        {% endif %}
+        <!-- External URL -->
+        {% if page.links.url %}<a href="{{ page.links.url }}" title="External Url"><i class="fab fa-external-link-alt"></i></a>{% endif %}
+      {% endif %}
+
       <d-byline></d-byline>
 
       <d-article>

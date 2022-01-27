@@ -7,20 +7,44 @@ layout: default
     <h1 class="post-title">{{ page.title }}</h1>
     <p class="post-description">{{ page.description }}</p>
   </header>
-  
+  <!-- If the document contains any links, let's add them here, eh? -->
+  {% if page.links %}
+    <!-- Github link -->
+    {% if page.links.github %}<a href="https://github.com/{{ page.links.github }}" title="GitHub"><i class="fab fa-github"></i></a>{% endif %}
+    <!-- PDF view. if we are only given a title, assume it is on this page -->
+    {% if page.links.pdf %}
+      {% if page.links.pdf contains '://' %}
+        <a href="{{ page.links.pdf }}" title="PDF"><i class="fab fa-file-pdf"></i></a>
+      {% else %}
+        <a href="{{ page.links.pdf | prepend: '/assets/pdf/' | relative_url }}" title="PDF"><i class="fab fa-file-pdf"></i></a>
+      {% endif %}
+    {% endif %}
+    <!-- External URL -->
+    {% if page.links.url %}<a href="{{ page.links.url }}" title="External Url"><i class="fab fa-external-link-alt"></i></a>{% endif %}
+  {% endif %}
+
   {% if page.toc %}
   <d-contents>
+    <nav class="l-text figcaption">
     <h3>Contents</h3>
-    {% for section in page.toc %}
-    <div><a href="#{{ section.name | downcase | replace: ' ','-' }}">{{ section.name }}</a></div>
-    {% if section.subsections %}
-    <ul>
-      {% for subsection in section.subsections %}
-      <li><a href="#{{ subsection.name | downcase | replace: ' ','-' }}">{{ subsection.name }}</a></li>
+      {% for section in page.toc %}
+      <div><a href="#{{ section.name | downcase | replace: ' ','-' }}">{{ section.name }}</a></div>
+      {% if section.subsections %}
+      <ul>
+        {% for subsection in section.subsections %}
+        <li><a href="#{{ subsection.name | downcase | replace: ' ','-' }}">{{ subsection.name }}</a></li>
+        {% if subsection.subsubsections %}
+        <ul>
+          {% for subsubsections in subsection.subsubsections %}
+          <li><a href="#{{ subsubsections.name | downcase | replace: ' ','-' }}">{{ subsubsections.name }}</a></li>
+          {% endfor %}
+        </ul>
+        {% endif %}
+        {% endfor %}
+      </ul>
+      {% endif %}
       {% endfor %}
-    </ul>
-    {% endif %}
-    {% endfor %}
+    </nav>
   </d-contents>
   {% endif %}
 
