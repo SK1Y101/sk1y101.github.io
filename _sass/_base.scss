@@ -128,14 +128,9 @@ imgresize {
 
 // back to top button
 
-.back-to-top-icon {
-  width: 2rem;
-  height: 2rem;
-  color: var(--global-theme-color);
-}
-
 .back-to-top {
   position: fixed;
+  z-index: 999;
   right: 2rem;
   bottom: 4rem;
   padding: 0.5rem;
