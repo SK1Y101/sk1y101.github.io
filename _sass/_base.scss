@@ -126,6 +126,18 @@ imgresize {
   opacity: 0.9;
 }
 
+// back to top button
+
+.hidden {
+  display: none;
+}
+
+.back-to-top {
+  position: fixed;
+  right: 2rem;
+  bottom: 2rem;
+}
+
 // Navbar customization
 
 .navbar {

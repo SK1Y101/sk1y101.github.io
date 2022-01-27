@@ -57,7 +57,7 @@ toc:
 # If you use this post as a template, delete this _styles block.
 
 ---
-
+{%- increment figure_num -%}
 ## Abstract
 
 Glitches are a frequent occurrence with LIGO data, on the order of 10 an hour, and represent unwanted noise when searching for gravitational wave signals. Due to their similarity to IMBH merger events, they represent an obstacle to any search that deals with higher mass black holes.
@@ -91,10 +91,10 @@ As the largest stars reach the end of their lives, temperatures and pressures wi
 {% capture pairinst %}{% increment figure_num %}{% endcapture %}
 {% assign pairinst = 1 %}
 <div class="row">
-    <div class="col-sm mt-3 mt-md-0">
+    <div class="col-sm g-0">
         {% include figure.html path="assets/img/GWProject/remnants_of_single_massive_stars.png" title="Supernovae remnant graph" %}
     </div>
-    <div class="col-sm mt-3 mt-md-0">
+    <div class="col-sm g-0">
         {% include figure.html path="assets/img/GWProject/supernovae_as_initial_mass-metallicity.png" title="Supernovae type graph"%}
     </div>
 </div>
@@ -116,10 +116,10 @@ Within any arbitrary segment of gravitational strain data are glitch events. Gli
 
 {% capture OmicronGlitches %}{% increment figure_num %}{% endcapture %}
 <div class="row">
-    <div class="col-sm mt-3 mt-md-0">
+    <div class="col-sm g-0">
         {% include figure.html path="assets/img/GWProject/H1_Omicron_triggers-1242432018-86400.png" title="Supernovae remnant graph" %}
     </div>
-    <div class="col-sm mt-3 mt-md-0">
+    <div class="col-sm g-0">
         {% include figure.html path="assets/img/GWProject/L1_Omicron_triggers-1242432018-86400.png" title="Supernovae type graph"%}
     </div>
 </div>
@@ -131,7 +131,7 @@ Over years of LIGO observation, we have seen an entire zoo <d-cite key="GlitchZo
 
 {% capture glitchimg %}{% increment figure_num %}{% endcapture %}
 <div class="row">
-    <div class="col-sm mt-3 mt-md-0">
+    <div class="col-sm g-0">
         {% include figure.html path="assets/img/GWProject/Livingston_glitch.png" title="BLIP Glitch in the Livingston detector" %}
     </div>
 </div>
@@ -143,7 +143,7 @@ From this plot we can see how short a duration blip glitches are compared to mer
 
 {% capture GW %}{% increment figure_num %}{% endcapture %}
 <div class="row">
-    <div class="col-sm mt-3 mt-md-0">
+    <div class="col-sm g-0">
         {% include figure.html path="assets/img/GWProject/GW190828_063405.png" %}
     </div>
 </div>
@@ -191,19 +191,19 @@ Before attempting to construct a glitch template, it is prudent to list the know
 
 {% capture 60merger %}{% increment figure_num %}{% endcapture %}
 <div class="row">
-    <div class="col-sm mt-3 mt-md-0">
+    <div class="col-sm g-0">
         {% include figure.html path="assets/img/GWProject/60_merger.png" %}
     </div>
 </div>
 <div class="caption">
-    <fig>[ {{ 60merger }} ]</fig> Merger between two $$ 60 M_\odot $$ black holes
+    <fig>[ {{ 60merger }} ]</fig> Merger between two $ 60 M_\odot $ black holes
 </div>
 
 In order to address the first point and ensure our glitch template has similar spectral features and properties to a merger event, we will first start with a merger template as shown in figure <fig>[ {{ 60merger }} ]</fig>. While this does give us the characteristic spectrum we desire, with most of the energy contained in lower frequencies, this does come with the side-effect of introducing the characteristic merger chirp into our template.
 
 {% capture 60mergerfreq %}{% increment figure_num %}{% endcapture %}
 <div class="row">
-    <div class="col-sm mt-3 mt-md-0">
+    <div class="col-sm g-0">
         {% include figure.html path="assets/img/GWProject/60_merger_freq.png" %}
     </div>
 </div>
@@ -241,7 +241,7 @@ From \ref{eq:1}, we can see an easy way of achieving this is setting $$ b $$, or
 
 {% capture 60glitch %}{% increment figure_num %}{% endcapture %}
 <div class="row">
-    <div class="col-sm mt-3 mt-md-0">
+    <div class="col-sm g-0">
         {% include figure.html path="assets/img/GWProject/60_glitch.png" %}
     </div>
 </div>
@@ -253,7 +253,7 @@ Finally, using an Inverse Fourier transform to return to the time domain, we sho
 
 {% capture 60glitchtime %}{% increment figure_num %}{% endcapture %}
 <div class="row">
-    <div class="col-sm mt-3 mt-md-0">
+    <div class="col-sm g-0">
         {% include figure.html path="assets/img/GWProject/60_glitch_time.png" %}
     </div>
 </div>
@@ -267,12 +267,12 @@ To see how the similarity, or $$ \epsilon $$, between glitch and merger varies a
 
 {% capture Epsilon %}{% increment figure_num %}{% endcapture %}
 <div class="row">
-    <div class="col-sm mt-3 mt-md-0">
+    <div class="col-sm g-0">
         {% include figure.html path="assets/img/GWProject/Epsilon_Correlation_2_1.png" %}
     </div>
 </div>
 <div class="caption">
-    <fig>[ {{ Epsilon }} ]</fig> Epsilon correlation ($$ \epsilon $$) between a bank of Glitches and Mergers
+    <fig>[ {{ Epsilon }} ]</fig> Epsilon correlation ($ \epsilon $) between a bank of Glitches and Mergers
 </div>
 
 We can see that, for low mass merger events, the value of $$ \epsilon $$ does not vary strongly as the mass of each glitch increases. This also shows that low mass mergers do not look particularly like glitch events, as $$ \epsilon $$ does not rise above $$ 0.2 $$ until the symmetric merger mass is above $$ 50 M_\odot $$, which is already more massive than all mergers observed except GW190521 <d-cite key="GW190521"></d-cite>.
@@ -351,7 +351,7 @@ Data was collected from both Hanford and Livingston detectors, though could easi
 
 {% capture SpectralDensity %}{% increment figure_num %}{% endcapture %}
 <div class="row">
-    <div class="col-sm mt-3 mt-md-0">
+    <div class="col-sm g-0">
         {% include figure.html path="assets/img/GWProject/SpectralDensity.png" %}
     </div>
 </div>
@@ -367,7 +367,7 @@ It was imperative that the length of each template was specified before performi
 
 {% capture ringing %}{% increment figure_num %}{% endcapture %}
 <div class="row">
-    <div class="col-sm mt-3 mt-md-0">
+    <div class="col-sm g-0">
         {% include figure.html path="assets/img/GWProject/TemplateSNRSRinging.png" %}
     </div>
 </div>
@@ -446,15 +446,15 @@ For the bulk of this section, we will be referring to the table of results retur
 
 {% capture omicroncomparison %}{% increment figure_num %}{% endcapture %}
 <div class="row">
-    <div class="col-sm mt-3 mt-md-0">
+    <div class="col-sm g-0">
         {% include figure.html path="assets/img/GWProject/190521-1hr-GravPlotSummary.png" %}
     </div>
 </div>
 <div class="row">
-    <div class="col-sm mt-3 mt-md-0">
+    <div class="col-sm g-0">
         {% include figure.html path="assets/img/GWProject/L1-LOCKED_HOFT_OMICRON_TRIGGERS-1242442818-3600.png" %}
     </div>
-    <div class="col-sm mt-3 mt-md-0">
+    <div class="col-sm g-0">
         {% include figure.html path="assets/img/GWProject/H1-LOCKED_HOFT_OMICRON_TRIGGERS-1242442818-3600.png" %}
     </div>
 </div>
@@ -482,4 +482,4 @@ Without actively trying to ensure its safety, the glitch model did not misidenti
 
 While no additional IMBH mergers have been identified in the limited scope of this paper, it would require only computational time and very minimal effort to extend the search over (potentially) the entirety of the O3 run and beyond, which should provide a definitive answer to the question as to IMBH mergers.
 
-Following this, a larger suite of glitched templates with varying properties could be created and searched for as part of the main LIGO search pipeline. While such a model can be extended to even higher masses, it should be noted that, from figure <fig>[ {{ Epsilon }} ]</fig>, we can see that glitches generated via this model and real mergers rapidly converge. By performing a quick calculation, we can note that an $$ \epsilon = 0.95 $$ reached for symmetric masses over $$ 800 M_\odot $$.
+Following this, a larger suite of glitched templates with varying properties could be created and searched for as part of the main LIGO search pipeline. While such a model can be extended to even higher masses, it should be noted that, from figure <fig>[ {{ Epsilon }} ]</fig>, we can see that glitches generated via this model and real mergers rapidly converge. By performing a quick calculation, we can note that an $$ \epsilon = 0.95 $$ is reached for symmetric masses over $$ 800 M_\odot $$.
