@@ -9,15 +9,18 @@ nav: true
 
 <div class="publications">
 
-{{ (2000..2022) }}
-{{ "now" | date: "%Y" }}
+{% for y in (2022..2016) %}{{ y }}{% endfor %}
+{{ "now" | date: "%Y" | times: 1 }}
 
 <!-- Itterate on all page years -->
 {% for y in page.years %}
-  <!-- Create a year heading -->
-  <h2 class="year">{{y}}</h2>
-  <!-- create the bibliography card -->
-  {% bibliography -f papers -q @*[year={{y}}]* %}
+  <!-- check we have a bibliography thingy for this year -->
+  {% if {% bibliography_count -f papers -q @*[year={{y}}]* %} %}
+    <!-- Create a year heading -->
+    <h2 class="year">{{y}}</h2>
+    <!-- create the bibliography card -->
+    {% bibliography -f papers -q @*[year={{y}}]* %}
+  {% endif %}
 {% endfor %}
 
 </div>
