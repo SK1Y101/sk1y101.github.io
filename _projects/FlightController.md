@@ -5,7 +5,7 @@ description: An autopilot script written for KSP + RSS.
 img:
 importance: 3
 category: fun
-date:
+date: 2022-01-27
 
 authors:
   - name: Jack Lloyd-Walters

@@ -53,7 +53,10 @@ def reName(imgs):
         with open(img, "r") as file:
             m = file.read()
         # and read the dimensions
-        h, w = tonum(search(m, "height", "width"))
+        try:
+            h, w = tonum(search(m, "height", "width"))
+        except:
+            h, w = 200, 200
         # list of sizes
         size = [480, 800, 1400]
         # itterate over the sizes

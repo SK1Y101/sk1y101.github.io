@@ -5,7 +5,7 @@ description: A custom programming language designed around plain english.
 img:
 importance: 2
 category: fun
-date:
+date: 2022-01-27
 
 authors:
   - name: Jack Lloyd-Walters

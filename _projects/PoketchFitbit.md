@@ -13,8 +13,8 @@ authors:
 
 links:
   github: SK1Y101/PoketchFitbit
+  url: https://gallery.fitbit.com/details/c69cadcb-a312-4be3-a51f-681b259364c4
   pdf:
-  url:
 
 # Optionally, you can add a table of contents to your post.
 # NOTES:
