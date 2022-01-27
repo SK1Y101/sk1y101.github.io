@@ -88,16 +88,21 @@ While a handful of candidates for these intermediate mass black holes (IMBH's) h
 
 As the largest stars reach the end of their lives, temperatures and pressures within their cores are sufficient for pair creation to play a dominant role in stellar evolution. As stars support themselves against gravitational collapse by way of radiation pressure, a portion of these photons becoming particle-antiparticle pairs destabilises the previously established equilibrium <d-cite key="pair_instability_supernovae"></d-cite>.
 
-\begin{figure}[h!]
-    \includegraphics[width=.49\textwidth]{Images/2560px-Supernovae_as_initial_mass-metallicity.svg.png}
-    \includegraphics[width=.49\textwidth]{Images/2560px-Remnants_of_single_massive_stars.svg.png}
-    \caption{Supernovae types, and remnant object, given initial star mass and metallicity. credit: <d-cite key="remnanttype"></d-cite> <d-cite key="supernovaetype"></d-cite>}
-    \label{fig:pairinst}
-\end{figure}
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.html path="assets/img/GWProject/remnants_of_single_massive_stars.png" title="Supernovae remnant graph" %}
+    </div>
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.html path="assets/img/GWProject/supernovae_as_initial_mass-metallicity.png" title="Supernovae type graph"%}
+    </div>
+</div>
+<div class="caption">
+    {% assign pairinst = increment imgref %} Supernovae types, and remnant objects, given initial star mass and metallicity. <d-cite key="remnanttype"></d-cite> <d-cite key="supernovaetype"></d-cite>
+</div>
 
 For stars between $$ 100 $$ and $$ 130 M_\odot $$ this results in several pulsations, where increased pair production causes the star to contract, raising core fusion rate until a new equilibrium is established, with several solar mass of material ejected from the outermost layers of the star in the process. This continues until the star falls below the required limit for pair production, and evolves further as a regular (albeit massive) star.
 
-Stars within the $$ 100 $$ and $$ 250 M_\odot $$ boundary experience a much more energetic suite of pair production events due to their increased pressures. While smaller stars can eventually reach a new equilibrium after the initial pair production, these stars experience a runaway feedback loop. Overpressure in the star is sufficient to completely consume the core as a seconds-long thermonuclear explosion, blowing apart the star in a highly destructive and energetic pair-instability supernova <d-cite key="pair_instability_supernovae"></d-cite>. We can see this in figure \ref{fig:pairinst} as a blank area in the two graphs.
+Stars within the $$ 100 $$ and $$ 250 M_\odot $$ boundary experience a much more energetic suite of pair production events due to their increased pressures. While smaller stars can eventually reach a new equilibrium after the initial pair production, these stars experience a runaway feedback loop. Overpressure in the star is sufficient to completely consume the core as a seconds-long thermonuclear explosion, blowing apart the star in a highly destructive and energetic pair-instability supernova <d-cite key="pair_instability_supernovae"></d-cite>. We can see this in figure {{ pairinst }} as a blank area in the two graphs.
 
 Further massive stars, those above $$ 250 M_\odot $$ undergo photodisintegration before pair-production can completely consume the star. Photodisintegration is an endothermic (energy absorbing) process whereby a nucleus absorbs a gamma ray, enters an excited state, and immediately deexcites by emitting one or more subatomic particles. This prevents thermonuclear runaway, as distinct fusion processes require specific atomic isotopes, and the star eventually collapses completely in on itself to form a massive black hole <d-cite key="Fraley1968"></d-cite>. While this is the expected evolutionary path of a star this massive, very few, if any, of these stars besides the very first in the universe are expected to have formed.
 
@@ -107,15 +112,19 @@ From this, we expect that intermediate mass black holes form only through gravit
 
 Within any arbitrary segment of gravitational strain data are glitch events. Glitches are, broadly speaking, short duration non-Gaussian wave-forms with similar spectral properties to actual merger events, though without an astrophysical source, and an almost unlimited loudness. These occur frequently, on the order of ten an hour, and are independent between detectors, with a rare chance that two detectors may see a chance overlap of independent glitches.
 
-\begin{figure}[h!]
-    \includegraphics[width=.49\textwidth]{Images/H1-LOCKED_HOFT_OMICRON_TRIGGERS-1242432018-86400.png}
-    \hfill
-    \includegraphics[width=.49\textwidth]{Images/L1-LOCKED_HOFT_OMICRON_TRIGGERS-1242432018-86400.png}
-    \caption{Omicron scan of the Hanford and Livingston detectors, demonstrating the frequency of glitch events}
-    \label{fig:OmicronGlitches}
-\end{figure}
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.html path="assets/img/GWProject/H1_Omicron_triggers-1242432018-86400.png" title="Supernovae remnant graph" %}
+    </div>
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.html path="assets/img/GWProject/L1_Omicron_triggers-1242432018-86400.png" title="Supernovae type graph"%}
+    </div>
+</div>
+<div class="caption">
+    {% assign OmicronGlitches = increment imgref %} Omicron scan of the Hanford and Livingston detectors, demonstrating the frequency of glitch events
+</div>
 
-Over years of LIGO observation, we have seen an entire zoo <d-cite key="GlitchZoo"></d-cite> of glitches. To trim what would otherwise be a broad topic, the particular glitches that share features with the blip (\textbf{B}and \textbf{L}imited \textbf{I}m\textbf{P}ulse) glitches will be the main focus of this paper, with an example shown in figure \ref{fig:0}. This figure shows a specific class of time-frequency diagram called the "QTransform" which shows the energy content of each frequency in the detector strain changes over time. \label{Glitch_Properties}
+Over years of LIGO observation, we have seen an entire zoo <d-cite key="GlitchZoo"></d-cite> of glitches. To trim what would otherwise be a broad topic, the particular glitches that share features with the blip (**B**and **L**imited **I**m**P**ulse) glitches will be the main focus of this paper, with an example shown in figure \ref{fig:0}. This figure shows a specific class of time-frequency diagram called the "QTransform" which shows the energy content of each frequency in the detector strain changes over time. \label{Glitch_Properties}
 
 \begin{figure}[h!]
     \includegraphics[width=\textwidth]{Images/4pEe3veoKk.png}
@@ -284,7 +293,7 @@ By integrating over all frequencies, the relative correlation of the template an
 
 A side effect of this operation is that $$ \rho = 1 $$ is also one standard deviation of noise, as noise is Gaussian in nature, and so the value of $$ \rho $$ is identical to the standard deviation of the probability of the template occurring in the data by random noise fluctuation; that is, a template with SNR $$ 8.9 $$ has a $$ 1 - \text{erf}(\frac{8.9}{\sqrt{2}}) = 5.58467*10^{-17}\% $$ chance of being due to random noise fluctuations.
 
-This method of matched filtering with our glitch model stands in contrast to the typical tools used, most prominently the omicron scan, as seen in figure \ref{fig:OmicronGlitches}.
+This method of matched filtering with our glitch model stands in contrast to the typical tools used, most prominently the omicron scan, as seen in figure {{ OmicronGlitches }}.
 Omicron scanning is agnostic to data context, quite unlike matched filtering with it's specified template searching.
 
 Omicron scanning operates on a wavelet-like basis, whereby the entire data is whitened, and individual tiles formed from the data are overlaid on top of each-other. These tiles vary between large in frequency domain and small in time, and vice versa, and combine to give an overview of the spectral content of a segment of data. Where multiple of these tiles overlap, the data has deviated from a standard Gaussian, and the spectral shape of this event is shown <d-cite key="robinet2020omicron"></d-cite>.
