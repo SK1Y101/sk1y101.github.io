@@ -7,7 +7,7 @@ nav: true
 ---
 
 <div class="row" style="margin-top: -8rem; margin-bottom: 4rem">
-	<a class="ml-auto mr-2" href="/assets/pdf/CV.pdf" target="_blank">
+	<a class="ml-auto mr-2" href="/assets/pdf/CV.pdf" target="_blank" style="color: var(--global-text-color) !important;">
 	  <i class="fas fa-file-pdf" style="font-size: 3rem;"></i>
 	</a>
 </div>

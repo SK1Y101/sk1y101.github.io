@@ -1,6 +1,6 @@
 {% if page.links.github %}
   <!-- Github link -->
-  <a href="https://github.com/{{ page.links.github }}" title="GitHub" class="pagelink">
+  <a href="https://github.com/{{ page.links.github }}" title="GitHub" style="color: var(--global-text-color) !important;">
     <i class="fab fa-github" style="font-size: 3rem;"></i>
   </a>
 {% endif %}
@@ -8,10 +8,10 @@
 {% if page.links.pdf %}
   <!-- PDF Link -->
   {% if page.links.pdf contains '://' %}
-    <a href="{{ page.links.pdf }}" title="PDF" class="pagelink">
+    <a href="{{ page.links.pdf }}" title="PDF" style="color: var(--global-text-color) !important;">
       <i class="fab fa-file-pdf"></i></a>
   {% else %}
-    <a href="{{ page.links.pdf | prepend: '/assets/pdf/' | relative_url }}" title="PDF" class="pagelink">
+    <a href="{{ page.links.pdf | prepend: '/assets/pdf/' | relative_url }}" title="PDF" style="color: var(--global-text-color) !important;">
       <i class="fas fa-file-pdf" style="font-size: 3rem;"></i>
     </a>
   {% endif %}
@@ -19,7 +19,7 @@
 
 {% if page.links.url %}
   <!-- External URL -->
-  <a href="{{ page.links.url }}" title="External Url" class="pagelink">
+  <a href="{{ page.links.url }}" title="External Url" style="color: var(--global-text-color) !important;">
     <i class="fas fa-external-link-alt" style="font-size: 3rem;"></i>
   </a>
 {% endif %}

@@ -39,6 +39,7 @@ def fetchNames():
     files = [file for file in os.listdir() if os.path.isfile(file)]
     # Filter to only images
     files = [file for file in files if contains(file, ".png", ".jpg", ".svg")]
+    print("found {} files".format(len(files)), files, sep="\n")
     # and return
     return files
 
@@ -73,6 +74,7 @@ def reSize(imgs):
         if ".svg" in img:
             svg.append(img)
             continue
+        print("Resizing {}".format(img), end=", ")
         # Split the new name so it can be used later
         name = img.split(".")
         # Fetch the image
@@ -81,6 +83,7 @@ def reSize(imgs):
         w, h = im.size
         # fetch the resizing widths
         size = [x for x in [480, 800, 1400, 1920] if x < w]
+        print("to sizes", size, end=", ")
         # Resize
         for _w in size:
             # Compute new height
@@ -91,6 +94,7 @@ def reSize(imgs):
             newname = name[0] + "-" + str(_w) + "x" + str(_h) + "." + name[1]
             # And save
             im_resize.save("../resized/"+newname)
+        print("Complete")
     #do the final work on the svg images
     reName(svg)
 
