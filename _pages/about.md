@@ -24,13 +24,13 @@ For any employers looking at this page, feel free to send a job posting to me vi
 A small selection of projects I'm proud of
 
 <a href="https://github.com/Skiylia-Lang/PySkiylia">
-  <img align="center" class="imgresize ghcard-light" src="https://github-readme-stats.vercel.app/api/pin/?username=Skiylia-Lang&repo=PySkiylia&border_radius=20&title_color=00AEFF&icon_color=2DDE98&text_color=FFFFFF&bg_color=050F2C"/>
-  <img align="center" class="imgresize ghcard-dark" src="https://github-readme-stats.vercel.app/api/pin/?username=Skiylia-Lang&repo=PySkiylia&border_radius=20&title_color=00AEFF&icon_color=2DDE98&text_color=FFFFFF&bg_color=050F2C"/>
+  <img align="center" class="imgresize ghcard-light" src="https://github-readme-stats.vercel.app/api/pin/?username=Skiylia-Lang&repo=PySkiylia&border_radius=20&title_color=2698BA&icon_color=2698BA&text_color=000000&bg_color=EEEEEE"/>
+  <img align="center" class="imgresize ghcard-dark" src="https://github-readme-stats.vercel.app/api/pin/?username=Skiylia-Lang&repo=PySkiylia&border_radius=20&title_color=B3FFFF&icon_color=B3FFFF&text_color=#a3a3a6&bg_color=1C1C1D"/>
 </a>
 
 <a href="https://github.com/Skiylia-Lang/Verboscript">
-  <img align="center" class="imgresize ghcard-light" src="https://github-readme-stats.vercel.app/api/pin/?username=Skiylia-Lang&repo=Verboscript&border_radius=20&title_color=00AEFF&icon_color=2DDE98&text_color=FFFFFF&bg_color=050F2C"/>
-  <img align="center" class="imgresize ghcard-dark" src="https://github-readme-stats.vercel.app/api/pin/?username=Skiylia-Lang&repo=Verboscript&border_radius=20&title_color=00AEFF&icon_color=2DDE98&text_color=FFFFFF&bg_color=050F2C"/>
+  <img align="center" class="imgresize ghcard-light" src="https://github-readme-stats.vercel.app/api/pin/?username=Skiylia-Lang&repo=Verboscript&border_radius=20&title_color=2698BA&icon_color=2698BA&text_color=000000&bg_color=EEEEEE"/>
+  <img align="center" class="imgresize ghcard-dark" src="https://github-readme-stats.vercel.app/api/pin/?username=Skiylia-Lang&repo=Verboscript&border_radius=20&title_color=B3FFFF&icon_color=B3FFFF&text_color=#a3a3a6&bg_color=1C1C1D"/>
 </a>
 
 for an extended list of things I'm working on, or have previously worked with, see <a href="sk1y101.github.io/projects">the projects section</a> of this website.
