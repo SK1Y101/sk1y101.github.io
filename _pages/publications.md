@@ -15,12 +15,11 @@ nav: true
 <!-- Itterate on all page years -->
 {% for y in page.years %}
   <!-- check we have a bibliography thingy for this year -->
-  {% if {% bibliography_count -f papers -q @*[year={{y}}]* %} %}
-    <!-- Create a year heading -->
-    <h2 class="year">{{y}}</h2>
-    <!-- create the bibliography card -->
-    {% bibliography -f papers -q @*[year={{y}}]* %}
-  {% endif %}
+  {% bibliography_count -f papers -q @*[year={{y}}]* %}
+  <!-- Create a year heading -->
+  <h2 class="year">{{y}}</h2>
+  <!-- create the bibliography card -->
+  {% bibliography -f papers -q @*[year={{y}}]* %}
 {% endfor %}
 
 </div>
