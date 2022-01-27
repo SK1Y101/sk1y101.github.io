@@ -5,7 +5,7 @@ description: A Fitbit clock-face based on the Pokémon watch from Diamond, Pearl
 img:
 importance: 4
 category: fun
-date:
+date: 2022-01-27
 
 authors:
   - name: Jack Lloyd-Walters
