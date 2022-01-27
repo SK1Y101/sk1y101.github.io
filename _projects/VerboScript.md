@@ -3,7 +3,7 @@ layout: project
 title: VerboScript
 description: A custom programming language designed around plain english.
 img:
-importance: 2
+importance: 3
 category: fun
 date: 2022-01-27
 
