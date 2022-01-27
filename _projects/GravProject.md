@@ -145,7 +145,7 @@ With an appropriate model created, a search through LIGO data using the same met
 
 Finally, by comparing and contrasting each of these searches between multiple detector data, we should be able to determine if any glitches (or mergers) are true glitch events, or misconstrued IMBH mergers. Extending this search further into unknown data should also allow the potential discovery of new IMBH events, and potentially a better understanding into how to accurately model and remove these glitch events.
 
-To do this, the Python PyCBC package will be used inside a Jupyter notebook running on an external LIGO server. This should expose all required LIGO data and computational power to completely achieve the goals laid out above.
+To do this, the Python PyCBC <d-cite key="PyCBC"></d-cite> package will be used inside a Jupyter notebook running on an external LIGO server. This should expose all required LIGO data and computational power to completely achieve the goals laid out above.
 
 ***
 

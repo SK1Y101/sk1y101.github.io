@@ -17,7 +17,7 @@ hr {
 }
 
 a, table.table a {
-  color: var(--global-theme-color);
+  color: var(--global-text-color);
   &:hover {
     color: var(--global-theme-color);
     text-decoration: underline;
@@ -397,6 +397,10 @@ footer.sticky-bottom {
 }
 
 // Projects
+
+.card-body {
+  padding: .25rem !important;
+}
 
 .projects {
   a {

@@ -53,9 +53,10 @@ d-article {
     nav {
       grid-column: toc;
       a {
-        color: var(--global-theme-color) !important;
+        color: var(--global-text-color) !important;
         border-bottom: none !important;
         &:hover {
+          color: var(--global-theme-color) !important;
           border-bottom: 1px solid var(--global-text-color) !important;
         }
       }
