@@ -1,6 +1,0 @@
-{%- assign path = include.path -%}
-{% assign paths = path | replace: "https://github.com/", "" | split: "/" %}
-
-<a href="{{ path }}">
-  <img align="center" class="imgresize" src="https://github-readme-stats.vercel.app/api/pin/?username={{ paths[1] }}&repo={{ paths[1] }}&border_radius=20&title_color=00AEFF&icon_color=2DDE98&text_color=FFFFFF&bg_color=050F2C"/>
-</a>

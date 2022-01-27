@@ -132,10 +132,25 @@ imgresize {
   display: none;
 }
 
+.back-to-top-icon {
+  width: 2rem;
+  height: 2rem;
+  color: var(--global-theme-color);
+}
+
 .back-to-top {
   position: fixed;
   right: 2rem;
-  bottom: 2rem;
+  bottom: 4rem;
+  padding: 0.5rem;
+  border-radius: 100%;
+  background: var(--global-code-bg-color);
+  border: none;
+  cursor: pointer;
+}
+
+.back-to-top:hover {
+  opacity: 60%;
 }
 
 // Navbar customization

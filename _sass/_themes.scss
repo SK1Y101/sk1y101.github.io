@@ -27,6 +27,12 @@
     padding-bottom: .5rem;
     display : block;
   }
+  .ghcard-light {
+    display : block;
+  }
+  .ghcard-dark {
+    display : none;
+  }
 }
 
 html[data-theme='dark'] {
@@ -53,5 +59,11 @@ html[data-theme='dark'] {
   }
   .fa-moon {
     display : none;
+  }
+  .ghcard-light {
+    display : none;
+  }
+  .ghcard-dark {
+    display : block;
   }
 }
