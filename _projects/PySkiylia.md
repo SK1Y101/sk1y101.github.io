@@ -11,6 +11,11 @@ authors:
   - name: Jack Lloyd-Walters
     url: "https://sk1y101.github.io"
 
+links:
+  github: Skiylia-Lang/PySkiylia
+  pdf:
+  url: https://skiylia-lang.github.io/
+
 # Optionally, you can add a table of contents to your post.
 # NOTES:
 #   - make sure that TOC names match the actual section names
