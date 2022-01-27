@@ -96,7 +96,7 @@
    </div>
 
   <!-- Back to top button -->
-  <button class="back-to-top hidden">
+  <button class="back-to-top">
     <svg
       xmlns="http://www.w3.org/2000/svg"
       class="back-to-top-icon"
@@ -128,20 +128,7 @@
 
   <!-- Javascript for back to top button -->
   <script type="text/javascript">
-    const showOnPx = 100;
     const backToTopButton = document.querySelector(".back-to-top")
-
-    const scrollContainer = () => {
-      return document.documentElement || document.body;
-    };
-
-    document.addEventListener("scroll", () => {
-      if (scrollContainer().scrollTop > showOnPx) {
-        backToTopButton.classList.remove("hidden")
-      } else {
-        backToTopButton.classList.add("hidden")
-      }
-    })
 
     const goToTop = () => {
       document.body.scrollIntoView({
