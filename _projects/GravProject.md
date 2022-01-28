@@ -225,7 +225,7 @@ $$ \theta = \text{arg}(z) = \arctan(\frac{b}{a}) \text{[ {{ complexarg }} ]} $$
 
 One way of representing short duration is to say that all frequency information is in phase. As the phases of each individual sinusoidal become aligned, so too does their central peaks, causing constructive interference around the centre and destructive interference elsewhere. As we know that phase information for each frequency is the argument of each complex number, a useful next step would be setting this to zero without affecting the modulus (and subsequently amplitude) for each frequency.
 
-From equation [ {{ complexmod }} ], we can see an easy way of achieving this is setting $$ b $$, or the imaginary part, to zero. To retain the amplitude information, equation [ {{ complexarg }} ] Shows that $$ r^2 = a^2 + b^2 $$, and so $$ a $$, or the real part, must be set to the modulus. This is, conveniently enough, what the `numpy.abs()` function does, the output of such shown in figure <fig>[ {{ 60glitch }} ]</fig>.
+From equation <fig>[ {{ complexmod }} ]</fig>, we can see an easy way of achieving this is setting $$ b $$, or the imaginary part, to zero. To retain the amplitude information, equation <fig>[ {{ complexarg }} ]</fig> Shows that $$ r^2 = a^2 + b^2 $$, and so $$ a $$, or the real part, must be set to the modulus. This is, conveniently enough, what the `numpy.abs()` function does, the output of such shown in figure <fig>[ {{ 60glitch }} ]</fig>.
 
 {% capture 60glitch %}{% increment figure_num %}{% endcapture %}
 <div class="row">
@@ -277,9 +277,9 @@ Matched filtering <d-cite key="matchedFilter"></d-cite> is the main method by wh
 {% capture match2 %}{% increment equation_num %}{% endcapture %}
 $$ \sigma^2 = \int \frac {h(f) h^*(f)}{S(f)} df \text{[ {{ match2 }}]} $$
 
-The output of the matched filter function is the signal-to-noise (SNR) ratio for a given template $$ h $$ against data $$ d $$, represented by $$ \rho $$ in equation equation [ {{ match1 }} ]. The $$ \sigma $$ term given is the auto-correlation of the template, and is used to normalise the SNR output.
+The output of the matched filter function is the signal-to-noise (SNR) ratio for a given template $$ h $$ against data $$ d $$, represented by $$ \rho $$ in equation equation <fig>[ {{ match1 }} ]</fig>. The $$ \sigma $$ term given is the auto-correlation of the template, and is used to normalise the SNR output.
 
-We can see in equation equation [ {{ match2 }} ] that we multiply the template with its complex conjugate. This operation yields the amplitude squared of the template, with the imaginary portion collapsing to zero, an operation which can be demonstrated with little effort.
+We can see in equation equation <fig>[ {{ match2 }} ]</fig> that we multiply the template with its complex conjugate. This operation yields the amplitude squared of the template, with the imaginary portion collapsing to zero, an operation which can be demonstrated with little effort.
 
 $$ z = a + bj $$
 
@@ -384,7 +384,7 @@ Once the above steps have all been completed, it remains only to distribute them
 
 {% capture SummaryResultsGraph %}{% increment figure_num %}{% endcapture %}
 
-While the search is technically complete, as the table of results contains any information needed, it does not necessarily aid an understanding of the distribution of events. To that end, every template peak would then be plotted on a graph, with colour representing detector, and shape showing glitch or merger, as shown in the results figure [ {{ SummaryResultsGraph }} ].
+While the search is technically complete, as the table of results contains any information needed, it does not necessarily aid an understanding of the distribution of events. To that end, every template peak would then be plotted on a graph, with colour representing detector, and shape showing glitch or merger, as shown in the results figure <fig>[ {{ SummaryResultsGraph }} ]</fig>.
 
 This graph would thus make coincident template defections obvious, and would also show the approximate glitch frequency in an easy to understand format.
 
