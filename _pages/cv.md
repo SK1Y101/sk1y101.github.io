@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Curriculum vitae
+title: CV
 permalink: /cv/
 description: Online view of my Curriculum vitae, downloadable PDF available.
 nav: true

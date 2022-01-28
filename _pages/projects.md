@@ -1,9 +1,9 @@
 ---
 layout: page
-title: projects
+title: Projects
 permalink: /projects/
 description: An incomplete list of things I've done.
-nav: false
+nav: true
 display_categories: [work, fun]
 horizontal: false
 ---
