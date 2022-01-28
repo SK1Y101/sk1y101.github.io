@@ -175,7 +175,7 @@ To do this, the Python PyCBC <d-cite key="PyCBC"></d-cite> package will be used 
 
 Before attempting to construct a glitch template, it is prudent to list the known properties of glitches found within LIGO data:
 
-1. Merger similarity: Glitches respond very similarly to mergers when matched filtering for merger templates. They also exhibit similar spectral properties to known merger events, as touched on in section \ref{Glitch_Properties}.
+1. Merger similarity: Glitches respond very similarly to mergers when matched filtering for merger templates. They also exhibit similar spectral properties to known merger events, as touched on in the section on Glitch_Properties.
 
 2. Duration: Glitches are very short duration, typically on the order of tenths of a second. The specific glitches this paper focuses on, blip glitches, are time-symmetric, unlike merger events that tend to have an initial chirp.
 
@@ -382,7 +382,9 @@ Once the above steps have all been completed, it remains only to distribute them
 
 #### Graphical Output
 
-While the search is technically complete, as the table of results contains any information needed, it does not necessarily aid an understanding of the distribution of events. To that end, every template peak would then be plotted on a graph, with colour representing detector, and shape showing glitch or merger, as shown in the results figure \ref{fig:SummaryResultsGraph}.
+{% capture SummaryResultsGraph %}{% increment figure_num %}{% endcapture %}
+
+While the search is technically complete, as the table of results contains any information needed, it does not necessarily aid an understanding of the distribution of events. To that end, every template peak would then be plotted on a graph, with colour representing detector, and shape showing glitch or merger, as shown in the results figure [ {{ SummaryResultsGraph }} ].
 
 This graph would thus make coincident template defections obvious, and would also show the approximate glitch frequency in an easy to understand format.
 
@@ -429,6 +431,10 @@ For the bulk of this section, we will be referring to the table of results retur
         {% include figure.html path="assets/img/GWProject/190521-1hr-GravPlotSummary.png" %}
     </div>
 </div>
+<div class="caption">
+  <fig>[ {{ SummaryResultsGraph }} ]</fig> Summarised results for the hour search data
+</div>
+
 <div class="row">
     <div class="col-sm g-0 imgfig">
         {% include figure.html path="assets/img/GWProject/L1-LOCKED_HOFT_OMICRON_TRIGGERS-1242442818-3600.png" %}
@@ -438,7 +444,7 @@ For the bulk of this section, we will be referring to the table of results retur
     </div>
 </div>
 <div class="caption">
-    <fig>[ {{ omicroncomparison }} ]</fig> Comparison for one hour of data of Search script output and LIGO omicron scan
+    <fig>[ {{ omicroncomparison }} ]</fig> LIGO omicron scan for the hour search data
 </div>
 
 As demonstrated in the theoretical segment of this paper, the glitch model looks very similar to known glitches, providing a strong incentive that this model would be effective. We also see a clear correlation of these events with those found by the omicron scan, with a few exceptions whose peak frequency was in the kilohertz regime, as seen in figure <fig>[ {{ omicroncomparison }} ]</fig>. This is mostly due to our focus on IMBH mergers, whose frequency content lies in the single to tens of Hertz regime.
