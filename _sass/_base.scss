@@ -12,6 +12,12 @@ katex {
   color: var(--global-text-color) !important;
 }
 
+.caption {
+  .katex {
+    color: var(--global-text-color) !important;
+  }
+}
+
 fig {
   color: var(--global-theme-color) !important;
 }
@@ -71,8 +77,8 @@ blockquote {
 }
 
 // figure columns
-.col-sm {
-  padding: 0;
+.imgfig {
+  padding: 0 !important;
 }
 
 // Profile
@@ -185,7 +191,7 @@ blockquote {
 
 // zooming
 .zoomable {
-  z-index: auto;
+  z-index: 0;
   transition: transform .2s;
   &:hover {
     z-index: 900;

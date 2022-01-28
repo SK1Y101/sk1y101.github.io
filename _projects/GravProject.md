@@ -57,6 +57,7 @@ toc:
 # If you use this post as a template, delete this _styles block.
 
 ---
+{% capture figurenums %}{% increment figure_num %}{% increment equation_num %}{% endcapture %}
 
 ## Abstract
 
@@ -90,10 +91,10 @@ As the largest stars reach the end of their lives, temperatures and pressures wi
 
 {% capture pairinst %}{% increment figure_num %}{% endcapture %}
 <div class="row">
-    <div class="col-sm g-0">
+    <div class="col-sm g-0 imgfig">
         {% include figure.html path="assets/img/GWProject/remnants_of_single_massive_stars.png" title="Supernovae remnant graph" %}
     </div>
-        <div class="col-sm g-0">
+        <div class="col-sm g-0 imgfig">
         {% include figure.html path="assets/img/GWProject/supernovae_as_initial_mass-metallicity.png" title="Supernovae type graph"%}
     </div>
 </div>
@@ -115,10 +116,10 @@ Within any arbitrary segment of gravitational strain data are glitch events. Gli
 
 {% capture OmicronGlitches %}{% increment figure_num %}{% endcapture %}
 <div class="row">
-    <div class="col-sm g-0">
+    <div class="col-sm g-0 imgfig">
         {% include figure.html path="assets/img/GWProject/H1_Omicron_triggers-1242432018-86400.png" title="Supernovae remnant graph" %}
     </div>
-    <div class="col-sm g-0">
+    <div class="col-sm g-0 imgfig">
         {% include figure.html path="assets/img/GWProject/L1_Omicron_triggers-1242432018-86400.png" title="Supernovae type graph"%}
     </div>
 </div>
@@ -130,7 +131,7 @@ Over years of LIGO observation, we have seen an entire zoo <d-cite key="GlitchZo
 
 {% capture glitchimg %}{% increment figure_num %}{% endcapture %}
 <div class="row">
-    <div class="col-sm g-0">
+    <div class="col-sm g-0 imgfig">
         {% include figure.html path="assets/img/GWProject/Livingston_glitch.png" title="BLIP Glitch in the Livingston detector" %}
     </div>
 </div>
@@ -142,7 +143,7 @@ From this plot we can see how short a duration blip glitches are compared to mer
 
 {% capture GW %}{% increment figure_num %}{% endcapture %}
 <div class="row">
-    <div class="col-sm g-0">
+    <div class="col-sm g-0 imgfig">
         {% include figure.html path="assets/img/GWProject/GW190828_063405.png" %}
     </div>
 </div>
@@ -182,7 +183,7 @@ Before attempting to construct a glitch template, it is prudent to list the know
 
 {% capture 60merger %}{% increment figure_num %}{% endcapture %}
 <div class="row">
-    <div class="col-sm g-0">
+    <div class="col-sm g-0 imgfig">
         {% include figure.html path="assets/img/GWProject/60_merger.png" %}
     </div>
 </div>
@@ -194,7 +195,7 @@ In order to address the first point and ensure our glitch template has similar s
 
 {% capture 60mergerfreq %}{% increment figure_num %}{% endcapture %}
 <div class="row">
-    <div class="col-sm g-0">
+    <div class="col-sm g-0 imgfig">
         {% include figure.html path="assets/img/GWProject/60_merger_freq.png" %}
     </div>
 </div>
@@ -204,25 +205,31 @@ In order to address the first point and ensure our glitch template has similar s
 
 As there are very few things that can be done here without removing required information, The template will then be converted to a frequency series by way of Fourier transform as shown in figure <fig>[ {{ 60mergerfreq }} ]</fig>. This representation encodes each frequency of a waveform as a complex number, where the argument is the phase of each frequency, and the magnitude is its amplitude. This representation thus allows us to address the second point above.
 
-Standard form $$ z = a + bj $$
+Standard form
+
+$$ z = a + bj $$
 
 $$ a = \text{Re}(z) $$
 
 $$ b= \text{Im}(z) $$
 
-Polar form $$ z = r ( \cos(\theta) + j \sin(\theta) ) = r e^{j \pi \theta} $$
+Polar form
 
-$$ r = \text{mod}(z) = \sqrt{a^2 + b^2}\label{eq:2} $$
+$$ z = r ( \cos(\theta) + j \sin(\theta) ) = r e^{j \pi \theta} $$
 
-$$ \theta = \text{arg}(z) = \arctan(\frac{b}{a})\label{eq:1} $$
+{% capture complexmod %}{% increment equation_num %}{% endcapture %}
+$$ r = \text{mod}(z) = \sqrt{a^2 + b^2} \text{[ {{ complexmod }} ]}$$
+
+{% capture complexarg %}{% increment equation_num %}{% endcapture %}
+$$ \theta = \text{arg}(z) = \arctan(\frac{b}{a}) \text{[ {{ complexarg }} ]} $$
 
 One way of representing short duration is to say that all frequency information is in phase. As the phases of each individual sinusoidal become aligned, so too does their central peaks, causing constructive interference around the centre and destructive interference elsewhere. As we know that phase information for each frequency is the argument of each complex number, a useful next step would be setting this to zero without affecting the modulus (and subsequently amplitude) for each frequency.
 
-From \ref{eq:1}, we can see an easy way of achieving this is setting $$ b $$, or the imaginary part, to zero. To retain the amplitude information, \ref{eq:2} Shows that $$ r^2 = a^2 + b^2 $$, and so $$ a $$, or the real part, must be set to the modulus. This is, conveniently enough, what the `numpy.abs()` function does, the output of such shown in figure <fig>[ {{ 60glitch }} ]</fig>.
+From equation [ {{ complexmod }} ], we can see an easy way of achieving this is setting $$ b $$, or the imaginary part, to zero. To retain the amplitude information, equation [ {{ complexarg }} ] Shows that $$ r^2 = a^2 + b^2 $$, and so $$ a $$, or the real part, must be set to the modulus. This is, conveniently enough, what the `numpy.abs()` function does, the output of such shown in figure <fig>[ {{ 60glitch }} ]</fig>.
 
 {% capture 60glitch %}{% increment figure_num %}{% endcapture %}
 <div class="row">
-    <div class="col-sm g-0">
+    <div class="col-sm g-0 imgfig">
         {% include figure.html path="assets/img/GWProject/60_glitch.png" %}
     </div>
 </div>
@@ -234,7 +241,7 @@ Finally, using an Inverse Fourier transform to return to the time domain, we sho
 
 {% capture 60glitchtime %}{% increment figure_num %}{% endcapture %}
 <div class="row">
-    <div class="col-sm g-0">
+    <div class="col-sm g-0 imgfig">
         {% include figure.html path="assets/img/GWProject/60_glitch_time.png" %}
     </div>
 </div>
@@ -248,7 +255,7 @@ To see how the similarity, or $$ \epsilon $$, between glitch and merger varies a
 
 {% capture Epsilon %}{% increment figure_num %}{% endcapture %}
 <div class="row">
-    <div class="col-sm g-0">
+    <div class="col-sm g-0 imgfig">
         {% include figure.html path="assets/img/GWProject/Epsilon_Correlation_2_1.png" %}
     </div>
 </div>
@@ -264,23 +271,25 @@ The short discontinuities in the graph is an artefact of the computation require
 
 Matched filtering <d-cite key="matchedFilter"></d-cite> is the main method by which the bulk of this search is performed. This tool is particularly powerful for identifying a known signal within data that contains Gaussian noise, as it is *mathematically provable* to be the optimum linear filter. As such, it underpins a lot of work in RADAR and similar subsystems, as they too require filtering known data from noise. The two deceptively simple equations that describe it's working are given below:
 
- $$ \rho = \frac{1}{\sigma} \int \frac {d(f) h^*(f)}{S(f)} df
-    \label{eq:match1} $$
+{% capture match1 %}{% increment equation_num %}{% endcapture %}
+ $$ \rho = \frac{1}{\sigma} \int \frac {d(f) h^*(f)}{S(f)} df \text{[ {{ match1 }}]} $$
 
-$$ \sigma^2 = \int \frac {h(f) h^*(f)}{S(f)} df
-    \label{eq:match2} $$
+{% capture match2 %}{% increment equation_num %}{% endcapture %}
+$$ \sigma^2 = \int \frac {h(f) h^*(f)}{S(f)} df \text{[ {{ match2 }}]} $$
 
-The output of the matched filter function is the signal-to-noise (SNR) ratio for a given template $$ h $$ against data $$ d $$, represented by $$ \rho $$ in equation \ref{eq:match1}. The $$ \sigma $$ term given is the auto-correlation of the template, and is used to normalise the SNR output.
+The output of the matched filter function is the signal-to-noise (SNR) ratio for a given template $$ h $$ against data $$ d $$, represented by $$ \rho $$ in equation equation [ {{ match1 }} ]. The $$ \sigma $$ term given is the auto-correlation of the template, and is used to normalise the SNR output.
 
-We can see in equation \ref{eq:match2} that we multiply the template with its complex conjugate. This operation yields the amplitude squared of the template, with the imaginary portion collapsing to zero, an operation which can be demonstrated with little effort.
- $$ z = a + bj $$
+We can see in equation equation [ {{ match2 }} ] that we multiply the template with its complex conjugate. This operation yields the amplitude squared of the template, with the imaginary portion collapsing to zero, an operation which can be demonstrated with little effort.
+
+$$ z = a + bj $$
 
 $$ z^* = a - bj $$
 
 $$ zz^* = (a + bj)(a - bj) $$
 
 $$ zz^* = a^2 - abj + abj - b^2j^2 $$
- $$ zz^* = a^2 + b^2 = \text{mod}(z)^2 $$
+
+$$ zz^* = a^2 + b^2 = \text{mod}(z)^2 $$
 
 Having obtained the amplitude squared of the template, we divide through by the spectral density of the data. This has the effect of reducing any frequency values in the template that are not present in the data, which if integrated over all frequencies gives the correlation of the template and itself squared.
 
@@ -321,7 +330,7 @@ Data was collected from both Hanford and Livingston detectors, though could easi
 
 {% capture SpectralDensity %}{% increment figure_num %}{% endcapture %}
 <div class="row">
-    <div class="col-sm g-0">
+    <div class="col-sm g-0 imgfig">
         {% include figure.html path="assets/img/GWProject/SpectralDensity.png" %}
     </div>
 </div>
@@ -333,17 +342,17 @@ Data was collected from both Hanford and Livingston detectors, though could easi
 
 Following this, an entire bank of template glitches and mergers needed to be created. While these can be as numerous as desired, the results in this paper were collected by creating equal-mass templates between $$ 20 M_\odot $$ and $$ 300 M_\odot $$ in $$ 10 M_\odot $$ intervals, for a total of 58. While higher mass templates, and a greater mass resolution between them, could have been used, this made for an appropriate middle ground between computational speed and breadth of search. Each of the templates created had a length of $$ 576 s $$ ($$ 512s + 32 s $$ padding either side) and a sampling rate of $$ 4096 Hz $$ to match each data chunk.
 
-It was imperative that the length of each template was specified before performing a cyclic time shift operation. This operation was used to align the peak of each template with $$ t = 0 $$ by wrapping the entire template around its time length. If additional time was appended after this, the wrapped template would be discontinuous at $$ t = 0 $$, causing filtering errors, as the matched filter process assumes that all data and templates are continuous. This has the effect of a secondary detection echo occurring when computing the SNR, as the wrapped data is partway through the template, rather than neatly at the end of each template. An example of this artefact is shown here in figure <fig>[ {{ ringing }} ]</fig>, where a secondary peak is detected after a time proportional to the duration of the initial template.
-
 {% capture ringing %}{% increment figure_num %}{% endcapture %}
 <div class="row">
-    <div class="col-sm g-0">
+    <div class="col-sm g-0 imgfig">
         {% include figure.html path="assets/img/GWProject/TemplateSNRSRinging.png" %}
     </div>
 </div>
 <div class="caption">
     <fig>[ {{ ringing }} ]</fig> Secondary SNR echo due to incorrect template shifting and resizing. The secondary detection peaks can be seen to occur after the primary.
 </div>
+
+It was imperative that the length of each template was specified before performing a cyclic time shift operation. This operation was used to align the peak of each template with $$ t = 0 $$ by wrapping the entire template around its time length. If additional time was appended after this, the wrapped template would be discontinuous at $$ t = 0 $$, causing filtering errors, as the matched filter process assumes that all data and templates are continuous. This has the effect of a secondary detection echo occurring when computing the SNR, as the wrapped data is partway through the template, rather than neatly at the end of each template. An example of this artefact is shown here in figure <fig>[ {{ ringing }} ]</fig>, where a secondary peak is detected after a time proportional to the duration of the initial template.
 
 #### Signal Processing
 
@@ -416,15 +425,15 @@ For the bulk of this section, we will be referring to the table of results retur
 
 {% capture omicroncomparison %}{% increment figure_num %}{% endcapture %}
 <div class="row">
-    <div class="col-sm g-0">
+    <div class="col-sm g-0 imgfig">
         {% include figure.html path="assets/img/GWProject/190521-1hr-GravPlotSummary.png" %}
     </div>
 </div>
 <div class="row">
-    <div class="col-sm g-0">
+    <div class="col-sm g-0 imgfig">
         {% include figure.html path="assets/img/GWProject/L1-LOCKED_HOFT_OMICRON_TRIGGERS-1242442818-3600.png" %}
     </div>
-    <div class="col-sm g-0">
+    <div class="col-sm g-0 imgfig">
         {% include figure.html path="assets/img/GWProject/H1-LOCKED_HOFT_OMICRON_TRIGGERS-1242442818-3600.png" %}
     </div>
 </div>
