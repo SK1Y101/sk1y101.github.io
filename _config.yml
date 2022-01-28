@@ -11,7 +11,7 @@ email: lloydwaltersj@physics.org
 description: > # the ">" symbol means to ignore newlines until "footer_text:"
   Jack Lloyd-Walters' Personal website. Theme based on [*folio](https://github.com/bogoli/-folio) with customised design.
 footer_text: >
-  Powered by <a href="http://jekyllrb.com/" target="_blank">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme template.
+  Powered by <a href="http://jekyllrb.com/" target="_blank">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio">al-folio</a> template.
   Hosted by <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
 
 lang: en # the language of your site (for example: en, fr, cn, ru, etc.)

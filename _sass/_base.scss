@@ -66,7 +66,7 @@ blockquote {
 }
 
 // base images on the about screen
-imgresize {
+.imgresize {
   width: 80%;
 }
 
@@ -88,8 +88,14 @@ imgresize {
 
 // Desktop-only display
 @media (min-width: 576px) {
-  imgresize {
+  .imgresize {
     width: 60%;
+  }
+  .search-button {
+    right: .5rem;
+  }
+  .back-to-top {
+    right: .5rem;
   }
   .profile {
     width: 30%;
@@ -126,6 +132,29 @@ imgresize {
   opacity: 0.9;
 }
 
+// Search button
+
+.search-button-icon {
+  height: 2rem;
+  width: 2rem;
+  color: var(--global-theme-color);
+  &:hover {
+    opacity: 60%;
+  }
+}
+
+.search-button {
+  position: fixed;
+  z-index: 999;
+  right: 2rem;
+  bottom: 7rem;
+  padding: 0.5rem;
+  border-radius: 100%;
+  background: var(--global-code-bg-color);
+  border: none;
+  cursor: pointer;
+}
+
 // back to top button
 
 .back-to-top-icon {
@@ -141,7 +170,7 @@ imgresize {
   position: fixed;
   z-index: 999;
   right: 2rem;
-  bottom: 4rem;
+  bottom: 3rem;
   padding: 0.5rem;
   border-radius: 100%;
   background: var(--global-code-bg-color);
