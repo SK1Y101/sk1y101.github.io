@@ -132,6 +132,9 @@ imgresize {
   height: 2rem;
   width: 2rem;
   color: var(--global-theme-color);
+  &:hover {
+    opacity: 60%;
+  }
 }
 
 .back-to-top {
@@ -146,8 +149,12 @@ imgresize {
   cursor: pointer;
 }
 
-.back-to-top:hover {
-  opacity: 60%;
+// zooming
+.zoomable {
+  transition: transform .2s;
+  &:hover {
+  transform: scale(2);
+  }
 }
 
 // Navbar customization
