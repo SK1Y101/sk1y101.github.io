@@ -89,12 +89,11 @@ While a handful of candidates for these intermediate mass black holes (IMBH's) h
 As the largest stars reach the end of their lives, temperatures and pressures within their cores are sufficient for pair creation to play a dominant role in stellar evolution. As stars support themselves against gravitational collapse by way of radiation pressure, a portion of these photons becoming particle-antiparticle pairs destabilises the previously established equilibrium <d-cite key="pair_instability_supernovae"></d-cite>.
 
 {% capture pairinst %}{% increment figure_num %}{% endcapture %}
-{% assign pairinst = 1 %}
-<div class="row">
-    <div class="col-sm g-0">
+<div class="row" style="background-color: white;">
+    <div class="col-sm g-0" style="padding: 0;">
         {% include figure.html path="assets/img/GWProject/remnants_of_single_massive_stars.png" title="Supernovae remnant graph" %}
     </div>
-    <div class="col-sm g-0">
+    <div class="col-sm g-0" style="padding: 0;">
         {% include figure.html path="assets/img/GWProject/supernovae_as_initial_mass-metallicity.png" title="Supernovae type graph"%}
     </div>
 </div>
@@ -115,11 +114,11 @@ From this, we expect that intermediate mass black holes form only through gravit
 Within any arbitrary segment of gravitational strain data are glitch events. Glitches are, broadly speaking, short duration non-Gaussian wave-forms with similar spectral properties to actual merger events, though without an astrophysical source, and an almost unlimited loudness. These occur frequently, on the order of ten an hour, and are independent between detectors, with a rare chance that two detectors may see a chance overlap of independent glitches.
 
 {% capture OmicronGlitches %}{% increment figure_num %}{% endcapture %}
-<div class="row">
-    <div class="col-sm g-0">
+<div class="row" style="background-color: white;">
+    <div class="col-sm g-0" style="padding: 0;">
         {% include figure.html path="assets/img/GWProject/H1_Omicron_triggers-1242432018-86400.png" title="Supernovae remnant graph" %}
     </div>
-    <div class="col-sm g-0">
+    <div class="col-sm g-0" style="padding: 0;">
         {% include figure.html path="assets/img/GWProject/L1_Omicron_triggers-1242432018-86400.png" title="Supernovae type graph"%}
     </div>
 </div>
@@ -130,8 +129,8 @@ Within any arbitrary segment of gravitational strain data are glitch events. Gli
 Over years of LIGO observation, we have seen an entire zoo <d-cite key="GlitchZoo"></d-cite> of glitches. To trim what would otherwise be a broad topic, the particular glitches that share features with the blip (**B**and **L**imited **I**m**P**ulse) glitches will be the main focus of this paper, with an example shown in figure <fig>[ {{ glitchimg }} ]</fig>. This figure shows a specific class of time-frequency diagram called the "QTransform" which shows the energy content of each frequency in the detector strain changes over time.
 
 {% capture glitchimg %}{% increment figure_num %}{% endcapture %}
-<div class="row">
-    <div class="col-sm g-0">
+<div class="row" style="background-color: white;">
+    <div class="col-sm g-0" style="padding: 0;">
         {% include figure.html path="assets/img/GWProject/Livingston_glitch.png" title="BLIP Glitch in the Livingston detector" %}
     </div>
 </div>
@@ -142,8 +141,8 @@ Over years of LIGO observation, we have seen an entire zoo <d-cite key="GlitchZo
 From this plot we can see how short a duration blip glitches are compared to mergers, significantly less than a tenth of a second for this specific glitch. As it will be important later, we can also see that this glitch occurs between the $$ 16Hz $$ and $$ 1024Hz $$ range, with a greater proportion of the glitch occurring at the lower end of this frequency range.
 
 {% capture GW %}{% increment figure_num %}{% endcapture %}
-<div class="row">
-    <div class="col-sm g-0">
+<div class="row" style="background-color: white;">
+    <div class="col-sm g-0" style="padding: 0;">
         {% include figure.html path="assets/img/GWProject/GW190828_063405.png" %}
     </div>
 </div>
@@ -175,23 +174,15 @@ To do this, the Python PyCBC <d-cite key="PyCBC"></d-cite> package will be used 
 
 Before attempting to construct a glitch template, it is prudent to list the known properties of glitches found within LIGO data:
 
-\begin{itemize}
-    \item Merger similarity:
+1. Merger similarity: Glitches respond very similarly to mergers when matched filtering for merger templates. They also exhibit similar spectral properties to known merger events, as touched on in section \ref{Glitch_Properties}.
 
-    Glitches respond very similarly to mergers when matched filtering for merger templates. They also exhibit similar spectral properties to known merger events, as touched on in section \ref{Glitch_Properties}.
+2. Duration: Glitches are very short duration, typically on the order of tenths of a second. The specific glitches this paper focuses on, blip glitches, are time-symmetric, unlike merger events that tend to have an initial chirp.
 
-    \item Duration:
-
-    Glitches are very short duration, typically on the order of tenths of a second. The specific glitches this paper focuses on, blip glitches, are time-symmetric, unlike merger events that tend to have an initial chirp.
-
-    \item Loudness:
-
-    Glitches can vary from near-undetectable, to completely overwhelming, with an almost continuous distribution between the two. Any given glitch can have any given loudness, with no obvious relation.
-\end{itemize}
+3. Loudness: Glitches can vary from near-undetectable, to completely overwhelming, with an almost continuous distribution between the two. Any given glitch can have any given loudness, with no obvious relation.
 
 {% capture 60merger %}{% increment figure_num %}{% endcapture %}
-<div class="row">
-    <div class="col-sm g-0">
+<div class="row" style="background-color: white;">
+    <div class="col-sm g-0" style="padding: 0;">
         {% include figure.html path="assets/img/GWProject/60_merger.png" %}
     </div>
 </div>
@@ -202,8 +193,8 @@ Before attempting to construct a glitch template, it is prudent to list the know
 In order to address the first point and ensure our glitch template has similar spectral features and properties to a merger event, we will first start with a merger template as shown in figure <fig>[ {{ 60merger }} ]</fig>. While this does give us the characteristic spectrum we desire, with most of the energy contained in lower frequencies, this does come with the side-effect of introducing the characteristic merger chirp into our template.
 
 {% capture 60mergerfreq %}{% increment figure_num %}{% endcapture %}
-<div class="row">
-    <div class="col-sm g-0">
+<div class="row" style="background-color: white;">
+    <div class="col-sm g-0" style="padding: 0;">
         {% include figure.html path="assets/img/GWProject/60_merger_freq.png" %}
     </div>
 </div>
@@ -240,8 +231,8 @@ One way of representing short duration is to say that all frequency information 
 From \ref{eq:1}, we can see an easy way of achieving this is setting $$ b $$, or the imaginary part, to zero. To retain the amplitude information, \ref{eq:2} Shows that $$ r^2 = a^2 + b^2 $$, and so $$ a $$, or the real part, must be set to the modulus. This is, conveniently enough, what the `numpy.abs()` function does, the output of such shown in figure <fig>[ {{ 60glitch }} ]</fig>.
 
 {% capture 60glitch %}{% increment figure_num %}{% endcapture %}
-<div class="row">
-    <div class="col-sm g-0">
+<div class="row" style="background-color: white;">
+    <div class="col-sm g-0" style="padding: 0;">
         {% include figure.html path="assets/img/GWProject/60_glitch.png" %}
     </div>
 </div>
@@ -252,8 +243,8 @@ From \ref{eq:1}, we can see an easy way of achieving this is setting $$ b $$, or
 Finally, using an Inverse Fourier transform to return to the time domain, we should see that our template now occurs almost exclusively at $$ t=0 $$, as shown in figure <fig>[ {{ 60glitchtime }} ]</fig>. As the Inverse Fourier Transform expects a sequence of complex numbers, care should be taken to avoid completely removing the imaginary part in the step above. As `numpy.abs()` automatically does this, the glitch frequency series had to be recast using `numpy.astype("complex-128")`, which converts each number to a complex double floating point value (in essence, appending $$ 0j $$ to what would otherwise be a sequence of reals). There is an animation of the merger to glitch conversion hosted https://github.com/SK1Y101/GWProject/blob/main/Animation of Merger converting to Glitch.gif as part of this project's Github Repository <d-cite key="GithubRepo"></d-cite>.
 
 {% capture 60glitchtime %}{% increment figure_num %}{% endcapture %}
-<div class="row">
-    <div class="col-sm g-0">
+<div class="row" style="background-color: white;">
+    <div class="col-sm g-0" style="padding: 0;">
         {% include figure.html path="assets/img/GWProject/60_glitch_time.png" %}
     </div>
 </div>
@@ -266,8 +257,8 @@ To assess how similar our glitch model and merger model are, we will use the `Py
 To see how the similarity, or $$ \epsilon $$, between glitch and merger varies as a function of mass, we can create a bank of template mergers between two equal mass black holes across a range of masses, and a bank of glitches from those same mergers. While it would not be difficult to use unequal mass templates (such as a glitch formed from a $$ 30 M_\odot $$ - $$ 50 M_\odot $$ merger), the equal mass templates are more than appropriate for our needs. Figure <fig>[ {{ Epsilon }} ]</fig> shows the result of this operation, where the glitches and templates were generated with symmetric masses between $$ 10 $$ and $$ 300 M_\odot $$. The z axis, which shows $$ \epsilon $$, is also represented proportionally with a colour scale.
 
 {% capture Epsilon %}{% increment figure_num %}{% endcapture %}
-<div class="row">
-    <div class="col-sm g-0">
+<div class="row" style="background-color: white;">
+    <div class="col-sm g-0" style="padding: 0;">
         {% include figure.html path="assets/img/GWProject/Epsilon_Correlation_2_1.png" %}
     </div>
 </div>
@@ -350,8 +341,8 @@ To first begin, the data to perform a search on needed to be obtained. Initial t
 Data was collected from both Hanford and Livingston detectors, though could easily be extended to include Virgo and others. To ease computational time, the data was down-sampled from its native $$ 16384Hz $$ sampling time to $$ 4096 Hz $$. This data was then separated into smaller chunks of length $$ 512 s $$ with $$ 32 s $$ padding either side. As the matched filter requires the template and data to be of equal length, this was a happy medium between reducing the number of matched filters that needed to be computed, and reducing the length of the templates (and subsequently their memory usage). To complete the requirements for the matched filter function, the spectral density for each chunk of data was computed, as shown in figure <fig>[ {{ SpectralDensity }} ]</fig>.
 
 {% capture SpectralDensity %}{% increment figure_num %}{% endcapture %}
-<div class="row">
-    <div class="col-sm g-0">
+<div class="row" style="background-color: white;">
+    <div class="col-sm g-0" style="padding: 0;">
         {% include figure.html path="assets/img/GWProject/SpectralDensity.png" %}
     </div>
 </div>
@@ -367,7 +358,7 @@ It was imperative that the length of each template was specified before performi
 
 {% capture ringing %}{% increment figure_num %}{% endcapture %}
 <div class="row">
-    <div class="col-sm g-0">
+    <div class="col-sm g-0" style="padding: 0;">
         {% include figure.html path="assets/img/GWProject/TemplateSNRSRinging.png" %}
     </div>
 </div>
@@ -445,16 +436,16 @@ This graph would thus make coincident template defections obvious, and would als
 For the bulk of this section, we will be referring to the table of results returned by the search script that can be found at the end of this document, with exception given to a zoomed in figure comparison below. Secondarily, all quoted SNR's (in table or otherwise) have an implicit error of $$ \pm 1 $$ due to Gaussian noise while error in reported time is assumed to be $$ \pm \frac{1}{4096} s $$ due to the sampling time. Calculations using these values also have these implicit errors built in. Finally, the results and search script can be found in this project's Github Repo <d-cite key="GithubRepo"></d-cite>.
 
 {% capture omicroncomparison %}{% increment figure_num %}{% endcapture %}
-<div class="row">
-    <div class="col-sm g-0">
+<div class="row" style="background-color: white;">
+    <div class="col-sm g-0" style="padding: 0;">
         {% include figure.html path="assets/img/GWProject/190521-1hr-GravPlotSummary.png" %}
     </div>
 </div>
-<div class="row">
-    <div class="col-sm g-0">
+<div class="row" style="background-color: white;">
+    <div class="col-sm g-0" style="padding: 0;">
         {% include figure.html path="assets/img/GWProject/L1-LOCKED_HOFT_OMICRON_TRIGGERS-1242442818-3600.png" %}
     </div>
-    <div class="col-sm g-0">
+    <div class="col-sm g-0" style="padding: 0;">
         {% include figure.html path="assets/img/GWProject/H1-LOCKED_HOFT_OMICRON_TRIGGERS-1242442818-3600.png" %}
     </div>
 </div>
