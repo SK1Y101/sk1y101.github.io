@@ -70,6 +70,11 @@ blockquote {
   width: 80%;
 }
 
+// figure columns
+.col-sm {
+  padding: 0;
+}
+
 // Profile
 .profile {
   margin-left: 1rem;
@@ -180,9 +185,11 @@ blockquote {
 
 // zooming
 .zoomable {
+  z-index: auto;
   transition: transform .2s;
   &:hover {
-  transform: scale(2);
+    z-index: 900;
+    transform: scale(2);
   }
 }
 
