@@ -175,7 +175,7 @@ for (var i = 20; i >= 0; i--) { entities.push(new Satellite()); }
 for (var i = 2; i >= 0; i--) { entities.push(new ShootingStar()); }
 
 // create the shooting stars for special occasions
-for (var i = 2; i >= 0; i--) { entities.push(new ShootingStar(true)); }
+for (var i = 20; i >= 0; i--) { entities.push(new ShootingStar(true)); }
 
 // animate the background
 function animate() {
