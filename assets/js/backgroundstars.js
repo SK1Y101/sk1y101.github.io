@@ -1,3 +1,15 @@
+// Let the browser handle the animation cycles
+var requestAnimFrame = (function(){
+  return window.requestAnimationFrame       ||
+         window.webkitRequestAnimationFrame ||
+         window.mozRequestAnimationFrame    ||
+         window.oRequestAnimationFrame      ||
+         window.msRequestAnimationFrame     ||
+         function( callback ){
+           window.setTimeout(callback, 1000 / 60);
+         };
+})();
+
 // fetch the background canvas
 var background = document.getElementById("bgCanvas"),
     bgCtx = background.getContext("2d"),
@@ -51,13 +63,13 @@ ShootingStar.prototype.reset = function() {
   this.x = Math.random() * width;
   this.y = 0;
   this.len = (Math.random() * 80) + 10;
-  this.speed = (Math.random * 10) + 6;
-  this.size = (Math.random() * 1) + .1;
-  this.waitTime = new Date().getTime() + (Math.round() * 3000) + 500;
+  this.speed = (Math.random() * 10) + 6;
+  this.size = (Math.random() * 1) + 0.1;
+  this.waitTime = new Date().getTime() + 0*((Math.random() * 3000) + 500);
   this.active = false;
 }
 
-// function to update the shooting stars
+// and a function to update their positions
 ShootingStar.prototype.update = function() {
   if (this.active) {
     this.x -= this.speed;
@@ -65,7 +77,7 @@ ShootingStar.prototype.update = function() {
     if (this.x < 0 || this.y >= height) {
       this.reset();
     } else {
-      bgCtx.linewidth = this.size;
+      bgCtx.lineWidth = this.size;
       bgCtx.beginPath();
       bgCtx.moveTo(this.x, this.y);
       bgCtx.lineTo(this.x + this.len, this.y - this.len);
@@ -99,12 +111,15 @@ function animate() {
   bgCtx.fillStyle = '#ffffff';
   bgCtx.strokeStyle = '#ffffff';
 
+  // update all entities
   var entLen = entities.length;
-
   while (entLen--) {
     entities[entLen].update();
   }
+
+  //schedule the next animation frame
+  requestAnimFrame(animate);
 }
 
-// animate every 60th of a second
-setInterval(animate, 1000 / 60);
+// call the first animation
+animate();
