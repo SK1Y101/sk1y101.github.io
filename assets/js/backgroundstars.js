@@ -44,8 +44,6 @@ function Star() {
   this.size = Math.random() * 2 + .1;
   this.x = Math.random() * width;
   this.y = Math.random() * height;
-  // the star has a 5% chance of being a variable star
-  this.variable = Math.random() >= .95;
   // select it's colour
   this.colour = starColour[Math.floor(Math.random() * starColour.length)]
 }
@@ -69,15 +67,11 @@ function Satellite() {
 
 // update the star positions
 Star.prototype.update = function() {
-  // if this star is a variable star, change it's size
-  if (this.variable) {
-    // the variable star cannot be larger than 3 or smaller than .5, and will grow or shrink by ..5
-    this.size = Math.max(.5, Math.min(3, this.size + 0.2 * Math.random() - 0.1));
-  }
-  // and just create some simple atmospheric twinkling
-  var twinkle = Math.random()*0.1 - 0.05;
+  // change the size of the star due to atmospheric twinkling
+  this.size = Math.max(.5, Math.min(2, this.size + 0.1 * Math.random() - 0.05));
+  // and draw the star
   bgCtx.fillStyle = this.colour;
-  bgCtx.fillRect(this.x, this.y, this.size+twinkle, this.size+twinkle);
+  bgCtx.fillRect(this.x, this.y, this.size, this.size);
 }
 
 // and a function to update the shooting star position

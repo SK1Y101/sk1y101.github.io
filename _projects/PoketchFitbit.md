@@ -24,6 +24,7 @@ links:
 #     jekyll-toc plugin (https://github.com/toshimaru/jekyll-toc).
 toc:
   - name: Motivation
+  - name: Links
     # if a section has subsections, you can add them as follows:
     # subsections:
     #   - name: Example Child Subsection 1
@@ -33,7 +34,32 @@ toc:
 
 ## Motivation
 
+When I first started this project, Pokémon Brilliant Diamond and Shining Pearl were mere weeks from releasing. I had always loved the Pokétch from the original games, and now that I had developed some watch faces of my own, I seriously considered bringing one into the real world.
 
+***
+
+## Links
+
+While there are links to the project in the header of this page, I'll also add the links here!
+
+#### Github Repo
+
+<a href="https://github.com/SK1y101/PoketchFitbit">
+  <img align="center" class="imgresize ghcard-light" src="https://github-readme-stats.vercel.app/api/pin/?username=SK1y101&repo=PoketchFitbit&border_radius=20&title_color=2698BA&icon_color=2698BA&text_color=000000&bg_color=EEEEEE"/>
+  <img align="center" class="imgresize ghcard-dark" src="https://github-readme-stats.vercel.app/api/pin/?username=SK1y101&repo=PoketchFitbit&border_radius=20&title_color=B3FFFF&icon_color=B3FFFF&text_color=A3A3A6&bg_color=2A2A2B"/>
+</a>
+
+#### Fitbit Store
+
+As there are two versions of the Fitbit OS currently used, there are two store links too!
+
+For the Versa 1, Versa 2, and Versa Lite
+
+https://gallery.fitbit.com/details/c69cadcb-a312-4be3-a51f-681b259364c4
+
+For the Versa 3, and Sense
+
+https://gallery.fitbit.com/details/5f740578-6ec4-4bf3-a98b-561e2d94fd0c
 
 ***
 
