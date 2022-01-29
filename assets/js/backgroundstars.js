@@ -92,7 +92,7 @@ Satellite.prototype.update = function() {
     // update it's position
     this.x -= this.speed;
     // if it goes out of the window, reset
-    if (this.x < 0 || this.y >= height) {
+    if (this.x < 0) {
       this.reset();
     } else {
       // set the colour
@@ -123,8 +123,8 @@ ShootingStar.prototype.reset = function() {
 Satellite.prototype.reset = function() {
   this.y = Math.random() * height;
   this.x = width;
-  this.speed = (Math.random() * 2) + 1;
-  this.size = (Math.random() * 1) + 0.1;
+  this.speed = (Math.random() * .5) + .1;
+  this.size = (Math.random() * 2) + 0.1;
   this.colour = "white";
   this.waitTime = new Date().getTime() + (Math.random() * 3000) + 500;
   this.active = false;
