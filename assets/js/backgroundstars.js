@@ -53,14 +53,14 @@ function Star() {
 // function to draw shooting stars
 function ShootingStar(special = false) {
   this.special = special;
-  this.reset(-100);
+  this.reset(-200);
 }
 
 // function to draw satellites
 function Satellite() {
   this.y = Math.random() * height;
   this.x = Math.random() * width;
-  this.speed = (Math.random() * .5) + .1;
+  this.speed = (Math.random() * .19) + .01;
   this.size = (Math.random() * 2) + 0.1;
   this.colour = "white";
   this.waitTime = new Date().getTime() + (Math.random() * 3000) + 500;
@@ -171,7 +171,7 @@ var entities = [];
 for (var i = height; i > 0; i--) { entities.push(new Star()); }
 
 // add a few satellites
-for (var i = 5; i > 0; i--) { entities.push(new Satellite()); }
+for (var i = 10; i > 0; i--) { entities.push(new Satellite()); }
 
 // add a shooting star
 for (var i = 1; i > 0; i--) { entities.push(new ShootingStar()); }
