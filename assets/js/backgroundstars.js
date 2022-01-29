@@ -53,8 +53,7 @@ function Star() {
 // function to draw shooting stars
 function ShootingStar(special = false) {
   this.special = special;
-  // set position outside of the screen so the reset will occur
-  this.speed=0; this.x=-1; this.y=0; this.active=true;
+  this.reset(-1);
 }
 
 // function to draw satellites
@@ -90,6 +89,7 @@ ShootingStar.prototype.update = function() {
       this.speed = 0;
       // if the shooting star is special, and it's the right time
       if (this.special) {
+        console.log(isSpecialDate);
         if (isSpecialDate) { this.reset(); }
       // otherwise, just reset it
       } else { this.reset(); }
@@ -134,11 +134,11 @@ Satellite.prototype.update = function() {
 }
 
 // function to reset the shooting stars
-ShootingStar.prototype.reset = function() {
+ShootingStar.prototype.reset = function(x="0") {
   // select the starting position, along the two screen axes
   var pos = Math.random() * (width + height);
   this.y = Math.max(0, pos - width);
-  this.x = Math.min(width, pos);
+  (x=="0") ? this.x = Math.min(width, pos) : this.x=-1;
   // the other bits
   this.len = (Math.random() * 80) + 10;
   this.size = (Math.random() * 1) + 0.1;
@@ -184,7 +184,6 @@ for (var i = 40; i > 0; i--) { entities.push(new ShootingStar(true)); }
 function animate() {
   // check if today is a special date
   isSpecialDate = specialDates.indexOf(today(new Date())) != -1;
-  console.log(isSpecialDate);
   // fetch the requiredbackground colour
   bgCtx.fillStyle = "#110E19";
   bgCtx.fillRect(0, 0, width, height);
