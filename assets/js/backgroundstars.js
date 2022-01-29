@@ -36,7 +36,11 @@ function Star() {
   this.x = Math.random() * width;
   this.y = Math.random() * height;
   // select a random star colour
-  bgCtx.fillStyle = Math.floor(Math.random() * starColour.length);
+  this.colour = starColour[Math.floor(Math.random() * starColour.length)]
+}
+
+Star.prototype.update = function() {
+  bgCtx.fillStyle = this.colour;
   bgCtx.fillRect(this.x, this.y, this.size, this.size);
 }
 
@@ -130,7 +134,7 @@ function Star() {
 var entities = [];
 
 // initialise the star field
-for (var i = height; i >= 0; i--) { new Star() }
+for (var i = height; i >= 0; i--) { entities.push(new Star()); }
 
 // add some variable stars
 //for (var i = Math.floor(height / 4); i >= 0; i--) { entities.push(new VariableStar()); }
@@ -143,6 +147,8 @@ for (var i = height; i >= 0; i--) { new Star() }
 
 // animate the background
 function animate() {
+  bgCtx.fillStyle = "#110E19";
+  bgCtx.fillRect(0, 0, width, height);
   bgCtx.fillStyle = '#ffffff';
   bgCtx.strokeStyle = '#ffffff';
 
