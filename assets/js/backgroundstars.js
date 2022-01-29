@@ -45,7 +45,15 @@ function Star() {
 function ShootingStar() { this.reset(); }
 
 // function to draw satellites
-function Satellite() { this.reset(); }
+function Satellite() {
+  this.y = Math.random() * height;
+  this.x = Math.random() * width;
+  this.speed = (Math.random() * .5) + .1;
+  this.size = (Math.random() * 2) + 0.1;
+  this.colour = "white";
+  this.waitTime = new Date().getTime() + (Math.random() * 3000) + 500;
+  this.active = false;
+}
 
 // update the star positions
 Star.prototype.update = function() {
