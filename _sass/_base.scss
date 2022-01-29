@@ -80,9 +80,14 @@ blockquote {
   width: 100%;
 }
 
+// default page content
 .content-div { // phone size
   margin-left: 0%;
   margin-right: 0%;
+}
+.content-card {
+  background-color: var(--global-card-color) !important;
+  border-radius: 1.5rem;
 }
 
 // figure columns
@@ -498,7 +503,7 @@ footer.sticky-bottom {
 
     &:hover {
       .card-title {
-        color: var(--global-theme-color);
+        color: var(--global-theme-color) !important;
       }
     }
   }
