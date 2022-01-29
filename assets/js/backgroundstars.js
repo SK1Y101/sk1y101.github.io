@@ -32,6 +32,7 @@ function Star(options) {
   this.size = Math.random() * 2 + .1;
   this.x = Math.random() * width;
   this.y = Math.random() * height;
+  bgCtx.fillRect(this.x, this.y, this.size, this.size);
 }
 
 // function to draw stars that vary slightly
