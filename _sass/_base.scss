@@ -77,7 +77,7 @@ blockquote {
 
 // base images on the about screen
 .imgresize { // phone size
-  width: 60%;
+  width: 100%;
 }
 
 .content-div { // phone size
@@ -109,7 +109,7 @@ blockquote {
 // Desktop-only display
 @media (min-width: 576px) {
   .imgresize {
-    width: 80%;
+    width: 60%;
   }
   .search-button {
     right: 2rem;

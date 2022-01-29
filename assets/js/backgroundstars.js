@@ -31,16 +31,16 @@ bgCtx.fillRect(0, 0, width, height);
 const starColour = ["white", "floralWhite", "aliceBlue", "powderBlue", "azure", "moccasin", "sandyBrown", "peachPuff"]
 
 // function to draw background stars
-function Star() {
+function Star(options) {
   this.size = Math.random() * 2 + .1;
   this.x = Math.random() * width;
   this.y = Math.random() * height;
-  // select a random star colour
-  this.colour = starColour[Math.floor(Math.random() * starColour.length)]
+  this.colour = "#FFFFFF"
 }
 
+// update the star positions
 Star.prototype.update = function() {
-  bgCtx.fillStyle = this.colour;
+  bgCtx.fillStyle = this.color;
   bgCtx.fillRect(this.x, this.y, this.size, this.size);
 }
 
@@ -159,8 +159,10 @@ function animate() {
   }
 
   //schedule the next animation frame
-  requestAnimFrame(animate);
+  //requestAnimFrame(animate);
 }
 
 // call the first animation
 animate();
+
+setInterval(animate, 1000 / 60);
