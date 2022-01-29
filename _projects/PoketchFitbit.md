@@ -45,8 +45,8 @@ While there are links to the project in the header of this page, I'll also add t
 #### Github Repo
 
 <a href="https://github.com/SK1y101/PoketchFitbit">
-  <img align="center" class="imgresize ghcard-light" src="https://github-readme-stats.vercel.app/api/pin/?username=SK1y101&repo=PoketchFitbit&border_radius=20&title_color=2698BA&icon_color=2698BA&text_color=000000&bg_color=EEEEEE"/>
-  <img align="center" class="imgresize ghcard-dark" src="https://github-readme-stats.vercel.app/api/pin/?username=SK1y101&repo=PoketchFitbit&border_radius=20&title_color=B3FFFF&icon_color=B3FFFF&text_color=A3A3A6&bg_color=2A2A2B"/>
+  <img align="center" class="imgresize ghcard-light" src="https://github-readme-stats.vercel.app/api/pin/?username=SK1y101&repo=PoketchFitbit&border_radius=20&title_color=2698BA&icon_color=2698BA&text_color=000000&bg_color=EEEEEE&border_color=2A2A2B"/>
+  <img align="center" class="imgresize ghcard-dark" src="https://github-readme-stats.vercel.app/api/pin/?username=SK1y101&repo=PoketchFitbit&border_radius=20&title_color=B3FFFF&icon_color=B3FFFF&text_color=A3A3A6&bg_color=2A2A2B&border_color=EEEEEE"/>
 </a>
 
 #### Fitbit Store
