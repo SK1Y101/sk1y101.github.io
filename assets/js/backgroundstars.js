@@ -72,10 +72,10 @@ Star.prototype.update = function() {
   // if this star is a variable star, change it's size
   if (this.variable) {
     // the variable star cannot be larger than 3 or smaller than .5, and will grow or shrink by ..5
-    this.size = Math.max(.5, Math.min(3, this.size + 0.1 * Math.random() - 0.5));
+    this.size = Math.max(.5, Math.min(3, this.size + 0.2 * Math.random() - 0.1));
   }
   // and just create some simple atmospheric twinkling
-  var twinkle = Math.random()*0.04 - 0.02;
+  var twinkle = Math.random()*0.1 - 0.05;
   bgCtx.fillStyle = this.colour;
   bgCtx.fillRect(this.x, this.y, this.size+twinkle, this.size+twinkle);
 }
