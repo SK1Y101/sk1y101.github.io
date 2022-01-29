@@ -24,14 +24,19 @@ background.width = width;
 background.height = height;
 
 // draw the night sky
-bgCtx.fillStyle = "#10101A";
+bgCtx.fillStyle = "#110E19";
 bgCtx.fillRect(0, 0, width, height);
+
+// determine which star colours are allowed
+const starColour = ["white", "floralWhite", "aliceBlue", "powderBlue", "azure", "moccasin", "sandyBrown", "peachPuff"]
 
 // function to draw background stars
 function Star() {
   this.size = Math.random() * 2 + .1;
   this.x = Math.random() * width;
   this.y = Math.random() * height;
+  // select a random star colour
+  bgCtx.fillStyle = Math.floor(Math.random() * starColour.length);
   bgCtx.fillRect(this.x, this.y, this.size, this.size);
 }
 
@@ -138,8 +143,6 @@ for (var i = height; i >= 0; i--) { new Star() }
 
 // animate the background
 function animate() {
-  bgCtx.fillStyle = '#110E19';
-  bgCtx.fillRect(0, 0, width, height);
   bgCtx.fillStyle = '#ffffff';
   bgCtx.strokeStyle = '#ffffff';
 
