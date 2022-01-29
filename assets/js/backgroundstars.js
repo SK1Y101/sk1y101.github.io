@@ -11,11 +11,9 @@ var requestAnimFrame = (function(){
 })();
 
 // function to get todays date
-function todaysDate(d) {
-  // fetch the day and month
+function today(d) {
   var day = d.getDate(),
-      mon = d.getMonth();
-  // zero pad
+      mon = d.getMonth()+1;
   (day < 10) ? day = "0"+day : day;
   (mon < 10) ? mon = "0"+mon : mon;
   return day+"/"+mon;
@@ -142,9 +140,11 @@ ShootingStar.prototype.reset = function() {
   this.colour = starColour[Math.floor(Math.random() * starColour.length)];
   this.waitTime = new Date().getTime() + (Math.random() * 3000) + 500;
   this.active = false;
-  // if we have a special shooting star on an invalid date, stop it
-  if ((this.special) && (todaysDate(new Date()) != "29/01")) {
+
+  if (this.special) {
+    if (new Date().getMinutes() != 0) {
       this.speed = 0;
+    }
   }
 }
 
@@ -169,10 +169,7 @@ for (var i = height; i >= 0; i--) { entities.push(new Star()); }
 for (var i = 20; i >= 0; i--) { entities.push(new Satellite()); }
 
 // add a shooting star
-for (var i = 2; i >= 0; i--) { entities.push(new ShootingStar()); }
-
-// create the shooting stars for special occasions
-for (var i = 20; i >= 0; i--) { entities.push(new ShootingStar(true)); }
+for (var i = 3; i >= 0; i--) { entities.push(new ShootingStar()); }
 
 // animate the background
 function animate() {
