@@ -97,10 +97,9 @@ ShootingStar.prototype.reset = function() {
   this.x = Math.random() * width;
   this.y = 0;
   this.len = (Math.random() * 80) + 10;
-  this.xspeed = (Math.random() * 10) + 5;
-  this.yspeed = (Math.random() * 10) + 5;
+  this.speed = (Math.random() * 10) + 5;
   this.size = (Math.random() * 1) + 0.1;
-  this.colour = "white";
+  this.colour = starColour[Math.floor(Math.random() * starColour.length)]
   this.waitTime = new Date().getTime() + (Math.random() * 3000) + 500;
   this.active = false;
 }
@@ -109,8 +108,8 @@ ShootingStar.prototype.reset = function() {
 ShootingStar.prototype.update = function() {
   if (this.active) {
     // update it's position
-    this.x -= this.xspeed;
-    this.y += this.yspeed;
+    this.x -= this.speed;
+    this.y += this.speed;
     // if it goes out of the window, reset
     if (this.x < -this.len || this.y >= height+this.len) {
       this.reset();
@@ -143,10 +142,11 @@ for (var i = height; i >= 0; i--) { entities.push(new Star()); }
 //for (var i = 4; i >= 0; i--) { entities.push(new Satellite()); }
 
 // add two shooting stars
-for (var i = 2; i >= 0; i--) { entities.push(new ShootingStar()); }
+for (var i = 1; i >= 0; i--) { entities.push(new ShootingStar()); }
 
 // animate the background
 function animate() {
+  // fetch the requiredbackground colour
   bgCtx.fillStyle = "#110E19";
   bgCtx.fillRect(0, 0, width, height);
   bgCtx.fillStyle = '#ffffff';
@@ -159,10 +159,10 @@ function animate() {
   }
 
   //schedule the next animation frame
-  //requestAnimFrame(animate);
+  requestAnimFrame(animate);
 }
 
 // call the first animation
 animate();
 
-setInterval(animate, 1000 / 60);
+//setInterval(animate, 1000 / 60);
