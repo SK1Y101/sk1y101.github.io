@@ -80,6 +80,11 @@ blockquote {
   width: 80%;
 }
 
+.content-div {
+  margin-left:25%;
+  margin-right:25%;
+}
+
 // figure columns
 .imgfig {
   padding: 0 !important;
@@ -111,6 +116,10 @@ blockquote {
   }
   .back-to-top {
     right: .5rem;
+  }
+  .content-div {
+    margin-left:0%;
+    margin-right:0%;
   }
   .profile {
     width: 30%;
