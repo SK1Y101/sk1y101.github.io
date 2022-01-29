@@ -133,7 +133,7 @@ Satellite.prototype.update = function() {
 ShootingStar.prototype.reset = function() {
   // select the starting position, along the two screen axes
   var pos = Math.random() * (width + height);
-  this.y = Math.max(0, pos - height);
+  this.y = Math.max(0, pos - width);
   this.x = Math.min(width, pos);
   // the other bits
   this.len = (Math.random() * 80) + 10;
@@ -142,16 +142,10 @@ ShootingStar.prototype.reset = function() {
   this.colour = starColour[Math.floor(Math.random() * starColour.length)];
   this.waitTime = new Date().getTime() + (Math.random() * 3000) + 500;
   this.active = false;
-
-  // if we have a special shooting star on a valid date, let it go
-  //if (this.special) {
-  //  if (todaysDate(new Date()) == "29/01") {
-  //    this.speed = (Math.random() * 10) + 5;
-  //  } else {
-  //    // otheriwse, keep it out of view
-  //    this.speed = 0;
-  //  }
-  //}
+  // if we have a special shooting star on an invalid date, stop it
+  if ((this.special) && (todaysDate(new Date()) != "29/01")) {
+      this.speed = 0;
+  }
 }
 
 // function to reset the satellites
