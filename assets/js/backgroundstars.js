@@ -53,7 +53,7 @@ Star.prototype.update = function() {
 var entities = [];
 
 // initialise the star field
-for (var i = 0l i < height; i++) {
+for (var i = 0; i < height; i++) {
   entities.push(new Star({
     x: Math.random() * width,
     y: Math.random() * height
