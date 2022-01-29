@@ -53,7 +53,8 @@ function Star() {
 // function to draw shooting stars
 function ShootingStar(special = false) {
   this.special = special;
-  this.reset();
+  // set position outside of the screen so the reset will occur
+  this.speed=0; this.x=-1; this.y=0; this.active=true;
 }
 
 // function to draw satellites
@@ -86,7 +87,12 @@ ShootingStar.prototype.update = function() {
     this.y += this.speed;
     // if it goes out of the window, reset
     if (this.x < -this.len || this.y >= height+this.len) {
-      this.reset();
+      this.speed = 0;
+      // if the shooting star is special, and it's the right time
+      if (this.special) {
+        if (today(new Date()) == "26/10") { this.reset();
+      // otherwise, just reset it
+      } else { this.reset(); }
     } else {
       // set the shooting star colour
       bgCtx.fillStyle = this.colour;
@@ -140,12 +146,6 @@ ShootingStar.prototype.reset = function() {
   this.colour = starColour[Math.floor(Math.random() * starColour.length)];
   this.waitTime = new Date().getTime() + (Math.random() * 3000) + 500;
   this.active = false;
-
-  if (this.special) {
-    if (new Date().getMinutes() != 0) {
-      this.speed = 0;
-    }
-  }
 }
 
 // function to reset the satellites
@@ -172,7 +172,7 @@ for (var i = 20; i > 0; i--) { entities.push(new Satellite()); }
 for (var i = 2; i > 0; i--) { entities.push(new ShootingStar()); }
 
 // add the special shooting stars
-for (var i = 20; i > 0; i--) { entities.push(new ShootingStar(true)); }
+for (var i = 40; i > 0; i--) { entities.push(new ShootingStar(true)); }
 
 // animate the background
 function animate() {
