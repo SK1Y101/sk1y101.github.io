@@ -160,7 +160,7 @@ Satellite.prototype.reset = function() {
 }
 
 // list of special dates
-var specialDates = ["26/10", "30/01"];
+var specialDates = ["26/10", "29/01"];
 
 // boolean for if this date is special
 var isSpecialDate = false;
@@ -184,6 +184,7 @@ for (var i = 40; i > 0; i--) { entities.push(new ShootingStar(true)); }
 function animate() {
   // check if today is a special date
   isSpecialDate = specialDates.indexOf(today(new Date())) != -1;
+  console.log(isSpecialDate);
   // fetch the requiredbackground colour
   bgCtx.fillStyle = "#110E19";
   bgCtx.fillRect(0, 0, width, height);
