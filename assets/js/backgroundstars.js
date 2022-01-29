@@ -163,13 +163,16 @@ Satellite.prototype.reset = function() {
 var entities = [];
 
 // initialise the star field
-for (var i = height; i >= 0; i--) { entities.push(new Star()); }
+for (var i = height; i > 0; i--) { entities.push(new Star()); }
 
 // add a few satellites
-for (var i = 20; i >= 0; i--) { entities.push(new Satellite()); }
+for (var i = 20; i > 0; i--) { entities.push(new Satellite()); }
 
 // add a shooting star
-for (var i = 3; i >= 0; i--) { entities.push(new ShootingStar()); }
+for (var i = 2; i > 0; i--) { entities.push(new ShootingStar()); }
+
+// add the special shooting stars
+for (var i = 20; i > 0; i--) { entities.push(new ShootingStar(true)); }
 
 // animate the background
 function animate() {
