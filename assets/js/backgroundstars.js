@@ -114,10 +114,10 @@ var entities = [];
 for (var i = height; i >= 0; i--) { entities.push(new Star()); }
 
 // add a few satellites
-for (var i = 2; i >= 0; i--) { entities.push(new ShootingStar(satellite: true)); }
+for (var i = 2; i >= 0; i--) { entities.push(new ShootingStar({satellite: true})); }
 
-// add a shooting stars
-for (var i = 1; i >= 0; i--) { entities.push(new ShootingStar(satellite: false)); }
+// add a shooting star
+for (var i = 1; i >= 0; i--) { entities.push(new ShootingStar({satellite: false})); }
 
 // animate the background
 function animate() {
