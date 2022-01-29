@@ -190,7 +190,6 @@ function animate() {
   while (entLen--) {
     entities[entLen].update();
   }
-  }
 
   //schedule the next animation frame
   requestAnimFrame(animate);
