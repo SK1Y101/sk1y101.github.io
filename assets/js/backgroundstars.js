@@ -93,7 +93,7 @@ ShootingStar.prototype.update = function() {
       this.speed = 0;
       // if the shooting star is special, and it's the right time
       if (this.special) {
-        if (specialDates.includes(today(new Date()))) { this.reset(); }
+        if (isSpecialDate) { this.reset(); }
       // otherwise, just reset it
       } else { this.reset(); }
     } else {
@@ -162,6 +162,9 @@ Satellite.prototype.reset = function() {
   this.active = false;
 }
 
+// boolean for if this date is special
+var isSpecialDate = false;
+
 // create an array of animated entities
 var entities = [];
 
@@ -179,6 +182,8 @@ for (var i = 40; i > 0; i--) { entities.push(new ShootingStar(true)); }
 
 // animate the background
 function animate() {
+  // check if something is a special date
+  isSpecialDate = specialDates.includes(today(new Date()));
   // fetch the requiredbackground colour
   bgCtx.fillStyle = "#110E19";
   bgCtx.fillRect(0, 0, width, height);
