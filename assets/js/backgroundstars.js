@@ -53,7 +53,7 @@ function Star() {
 // function to draw shooting stars
 function ShootingStar(special = false) {
   this.special = special;
-  this.reset(-1);
+  this.reset(-100);
 }
 
 // function to draw satellites
@@ -144,7 +144,7 @@ ShootingStar.prototype.reset = function(x="0") {
   this.size = (Math.random() * 1) + 0.1;
   this.speed = (Math.random() * 10) + 5;
   this.colour = starColour[Math.floor(Math.random() * starColour.length)];
-  this.waitTime = new Date().getTime() + (Math.random() * 3000) + 500;
+  this.waitTime = new Date().getTime() + (Math.random() * 20000);
   this.active = false;
 }
 
@@ -160,7 +160,7 @@ Satellite.prototype.reset = function() {
 }
 
 // list of special dates
-var specialDates = ["26/10", "29/01"];
+var specialDates = ["23/08", "26/10", "25/12"];
 
 // boolean for if this date is special
 var isSpecialDate = false;
@@ -175,10 +175,10 @@ for (var i = height; i > 0; i--) { entities.push(new Star()); }
 for (var i = 20; i > 0; i--) { entities.push(new Satellite()); }
 
 // add a shooting star
-for (var i = 2; i > 0; i--) { entities.push(new ShootingStar()); }
+for (var i = 1; i > 0; i--) { entities.push(new ShootingStar()); }
 
 // add the special shooting stars
-for (var i = 40; i > 0; i--) { entities.push(new ShootingStar(true)); }
+for (var i = 20; i > 0; i--) { entities.push(new ShootingStar(true)); }
 
 // animate the background
 function animate() {
