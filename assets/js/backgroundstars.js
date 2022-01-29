@@ -122,7 +122,7 @@ ShootingStar.prototype.reset = function() {
 // function to reset the satellites
 Satellite.prototype.reset = function() {
   this.y = Math.random() * height;
-  this.x = 0;
+  this.x = width;
   this.speed = (Math.random() * 2) + 1;
   this.size = (Math.random() * 1) + 0.1;
   this.colour = "white";
