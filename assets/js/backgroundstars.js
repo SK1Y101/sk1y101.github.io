@@ -31,31 +31,25 @@ bgCtx.fillRect(0, 0, width, height);
 const starColour = ["white", "floralWhite", "aliceBlue", "powderBlue", "azure", "moccasin", "sandyBrown", "peachPuff"]
 
 // function to draw background stars
-function Star(options) {
+function Star() {
   this.size = Math.random() * 2 + .1;
   this.x = Math.random() * width;
   this.y = Math.random() * height;
-  this.colour = "#FFFFFF"
+  // the star has a 5% chance of being a variable star
+  this.variable = Math.random() >= .95;
+  // select it's colour
+  this.colour = starColour[Math.floor(Math.random() * starColour.length)]
 }
 
 // update the star positions
 Star.prototype.update = function() {
-  bgCtx.fillStyle = this.color;
+  // if this star is a variable star, change it's size
+  if (this.variable) {
+    this.size = Math.random() * 2 + .1;
+  }
+  bgCtx.fillStyle = this.colour;
   bgCtx.fillRect(this.x, this.y, this.size, this.size);
 }
-
-// function to draw stars that vary slightly
-//function VariableStar() {
-//  this.size = Math.random() * 2 + .1;
-//  this.x = Math.random() * width;
-//  this.y = Math.random() * height;
-//}
-
-// and a function to change their size for the twinkle effect
-//VariableStar.prototype.update = function() {
-//  this.size = Math.random() * 2 + .1;
-//  bgCtx.fillRect(this.x, this.y, this.size, this.size);
-//}
 
 // function to draw satellites
 //function Satellite() {
@@ -135,9 +129,6 @@ var entities = [];
 
 // initialise the star field
 for (var i = height; i >= 0; i--) { entities.push(new Star()); }
-
-// add some variable stars
-//for (var i = Math.floor(height / 4); i >= 0; i--) { entities.push(new VariableStar()); }
 
 // add a few satellites
 //for (var i = 4; i >= 0; i--) { entities.push(new Satellite()); }
