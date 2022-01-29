@@ -63,7 +63,7 @@ function Satellite() {
   this.speed = (Math.random() * .19) + .01;
   this.size = (Math.random() * 2) + 0.1;
   this.colour = "white";
-  this.waitTime = new Date().getTime() + (Math.random() * 3000) + 500;
+  this.waitTime = new Date().getTime() + (Math.random() * 20000);
   this.active = false;
 }
 
@@ -154,7 +154,7 @@ Satellite.prototype.reset = function() {
   this.speed = (Math.random() * .19) + .01;
   this.size = (Math.random() * 2) + 0.1;
   this.colour = "white";
-  this.waitTime = new Date().getTime() + (Math.random() * 3000) + 500;
+  this.waitTime = new Date().getTime() + (Math.random() * 20000);
   this.active = false;
 }
 
