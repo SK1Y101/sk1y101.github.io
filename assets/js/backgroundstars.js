@@ -53,8 +53,8 @@ Star.prototype.update = function() {
 }
 
 // function to draw shooting stars
-function ShootingStar(options) {
-  this.satellite = options.satellite
+function ShootingStar(satellite = false) {
+  this.satellite = satellite;
   this.reset();
 }
 
@@ -113,11 +113,12 @@ var entities = [];
 // initialise the star field
 for (var i = height; i >= 0; i--) { entities.push(new Star()); }
 
+for (var i = 2; i >= 0; i--) { entities.push(new ShootingStar(true)); }
+
 // add a few satellites
-for (var i = 2; i >= 0; i--) { entities.push(new ShootingStar({satellite: true})); }
 
 // add a shooting star
-for (var i = 1; i >= 0; i--) { entities.push(new ShootingStar({satellite: false})); }
+for (var i = 1; i >= 0; i--) { entities.push(new ShootingStar()); }
 
 // animate the background
 function animate() {
