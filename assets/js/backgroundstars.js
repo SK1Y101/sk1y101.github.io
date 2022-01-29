@@ -34,7 +34,7 @@ function Star(options) {
 // function to reset stars that go off screen
 Star.prototype.reset = function() {
   this.size = Math.random() * 2;
-  this.speed = Math.random * .05;
+  this.speed = Math.random() * .05;
   this.x = width;
   this.y = Math.random() * height;
 }
@@ -49,6 +49,43 @@ Star.prototype.update = function() {
   }
 }
 
+// create shooting stars
+function ShootingStar() {
+  this.reset();
+}
+
+// function to reset the shooting stars
+ShootingStar.prototype.reset = function() {
+  this.x = Math.random() * width;
+  this.y = 0;
+  this.len = (Math.random() * 80) + 10;
+  this.speed = (Math.random * 10) + 6;
+  this.size = (Math.random() * 1) + .1;
+  this.waitTime = new Date().getTime() + (Math.round() * 3000) + 500;
+  this.active = false;
+}
+
+// function to update the shooting stars
+ShootingStar.prototype.update = function() {
+  if (this.active) {
+    this.x -= this.speed;
+    this.y += this.speed;
+    if (this.x < 0 || this.y >= height) {
+      this.reset();
+    } else {
+      bgCtx.linewidth = this.size;
+      bgCtx.beginPath();
+      bgCtx.moveTo(this.x, this.y);
+      bgCtx.lineTo(this.x + this.len, this.y - this.len);
+      bgCtx.stroke();
+    }
+  } else {
+    if (this.waitTime < new Date().getTime()) {
+      this.active = true;
+    }
+  }
+}
+
 // create an array of animated entities
 var entities = [];
 
@@ -59,6 +96,9 @@ for (var i = 0; i < height; i++) {
     y: Math.random() * height
   }));
 }
+
+// add a shooting star
+entities.push(new ShootingStar());
 
 // animate the background
 function animate() {
