@@ -19,9 +19,6 @@ function today(d) {
   return day+"/"+mon;
 }
 
-// list of special dates
-var specialDates = ["26/10", "29/01"];
-
 // fetch the background canvas
 var background = document.getElementById("bgCanvas"),
     bgCtx = background.getContext("2d"),
@@ -162,6 +159,9 @@ Satellite.prototype.reset = function() {
   this.active = false;
 }
 
+// list of special dates
+var specialDates = ["26/10", "30/01"];
+
 // boolean for if this date is special
 var isSpecialDate = false;
 
@@ -182,8 +182,8 @@ for (var i = 40; i > 0; i--) { entities.push(new ShootingStar(true)); }
 
 // animate the background
 function animate() {
-  // check if something is a special date
-  isSpecialDate = specialDates.includes(today(new Date()));
+  // check if today is a special date
+  isSpecialDate = specialDates.indexOf(today(new Date())) != -1;
   // fetch the requiredbackground colour
   bgCtx.fillStyle = "#110E19";
   bgCtx.fillRect(0, 0, width, height);
