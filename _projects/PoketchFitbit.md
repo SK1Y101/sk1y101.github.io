@@ -56,17 +56,30 @@ As there are two versions of the Fitbit OS currently used, there are two store l
 <div class="row">
   <div class="col-sm g-0 imgfig">
     <a href="https://gallery.fitbit.com/details/c69cadcb-a312-4be3-a51f-681b259364c4">
-      {% include figure.html path="assets/img/poketchfitbit.png" caption="For the Versa 1, Versa 2, and Versa Lite" %}
+      <figure>
+        <picture>
+          {% for i in site.imagemagick.widths -%}
+            <source media="(max-width: {{ i }}px)" srcset="{{ "assets/img/poketchfitbit.png" | relative_url }}-{{ i }}.webp" />
+          {% endfor -%}
+          <img src="{{ "assets/img/poketchfitbit.png" | relative_url }}" />
+        </picture>
+        <figcaption class="caption">For the Versa 1, Versa 2, and Versa Lite</figcaption>
+      </figure>
     </a>
   </div>
   <div class="col-sm g-0 imgfig">
     <a href="https://gallery.fitbit.com/details/5f740578-6ec4-4bf3-a98b-561e2d94fd0c">
-      {% include figure.html path="assets/img/poketchfitbit2.png" caption="For the Versa 1, Versa 2, and Versa Lite" %}
+      <figure>
+        <picture>
+          {% for i in site.imagemagick.widths -%}
+            <source media="(max-width: {{ i }}px)" srcset="{{ "assets/img/poketchfitbit2.png" | relative_url }}-{{ i }}.webp" />
+          {% endfor -%}
+          <img src="{{ "assets/img/poketchfitbit2.png" | relative_url }}" />
+        </picture>
+        <figcaption class="caption">For the Versa 3, and Sense</figcaption>
+      </figure>
     </a>
   </div>
-</div>
-<div class="caption">
-    <fig>[ {{ pairinst }} ]</fig> Supernovae types, and remnant objects, given initial star mass and metallicity. <d-cite key="remnanttype"></d-cite> <d-cite key="supernovaetype"></d-cite>
 </div>
 
 ***
