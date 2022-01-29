@@ -481,7 +481,6 @@ footer.sticky-bottom {
     .abbr {
       color: var(--global-badge-text-color) !important;
       height: 2rem;
-      margin-right: 1rem;
       abbr {
         display: inline-block;
         background-color: var(--global-theme-color) !important;
@@ -585,7 +584,7 @@ footer.sticky-bottom {
       .abbr {
         height: 2rem;
         margin-bottom: 0.5rem;
-        margin-right: 1rem;
+        margin-right: 1rem !important;
         abbr {
           display: inline-block;
           background-color: var(--global-theme-color);
