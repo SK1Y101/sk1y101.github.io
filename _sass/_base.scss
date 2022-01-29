@@ -76,13 +76,13 @@ blockquote {
 }
 
 // base images on the about screen
-.imgresize {
-  width: 80%;
+.imgresize { // phone size
+  width: 60%;
 }
 
-.content-div {
-  margin-left:25%;
-  margin-right:25%;
+.content-div { // phone size
+  margin-left: 0%;
+  margin-right: 0%;
 }
 
 // figure columns
@@ -109,17 +109,17 @@ blockquote {
 // Desktop-only display
 @media (min-width: 576px) {
   .imgresize {
-    width: 60%;
+    width: 80%;
   }
   .search-button {
-    right: .5rem;
+    right: 2rem;
   }
   .back-to-top {
-    right: .5rem;
+    right: 2rem;
   }
   .content-div {
-    margin-left:0%;
-    margin-right:0%;
+    margin-left: 25%;
+    margin-right: 25%;
   }
   .profile {
     width: 30%;
@@ -170,7 +170,7 @@ blockquote {
 .search-button {
   position: fixed;
   z-index: 999;
-  right: 2rem;
+  right: .5rem;
   bottom: 7rem;
   padding: 0.5rem;
   border-radius: 100%;
@@ -193,8 +193,8 @@ blockquote {
 .back-to-top {
   position: fixed;
   z-index: 999;
-  right: 2rem;
-  bottom: 3rem;
+  right: .5rem;
+  bottom: 3.5rem;
   padding: 0.5rem;
   border-radius: 100%;
   background: var(--global-code-bg-color);

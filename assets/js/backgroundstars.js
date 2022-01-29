@@ -28,7 +28,7 @@ bgCtx.fillStyle = "#10101A";
 bgCtx.fillRect(0, 0, width, height);
 
 // function to draw background stars
-function Star(options) {
+function Star() {
   this.size = Math.random() * 2 + .1;
   this.x = Math.random() * width;
   this.y = Math.random() * height;
@@ -36,7 +36,7 @@ function Star(options) {
 }
 
 // function to draw stars that vary slightly
-//function VariableStar(options) {
+//function VariableStar() {
 //  this.size = Math.random() * 2 + .1;
 //  this.x = Math.random() * width;
 //  this.y = Math.random() * height;
@@ -49,7 +49,7 @@ function Star(options) {
 //}
 
 // function to draw satellites
-//function Satellite(options) {
+//function Satellite() {
 //  this.x = options.x;
 //  this.y = options.y;
 //  this.speed = Math.random() + .1;

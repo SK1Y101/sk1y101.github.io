@@ -25,16 +25,16 @@
             <!-- Search box -->
             <li class="nav-item">
               <div class="search-input-wrap" style="height: 100%">
+                <!-- input field -->
+                <input type="text" id="search-input" class="search-input" style="border: hidden; border-radius: .5rem; height: 100%; background: var(--global-bg-color); color: var(--global-text-color);" tabindex="0" placeholder="Search..." aria-label="Search..." autocomplete="off">
+                  <label/>
+                </input>
                 <!-- search icon -->
                 <svg xmlns="http://www.w3.org/2000/svg" class="feather feather-search search-button-icon" fill="none" viewBox="0 0 24 24"
                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="padding:bottom: .25rem; height:100%; width: 1rem;">
                   <circle cx="11" cy="11" r="8"></circle>
                   <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
                 </svg>
-                <!-- input field -->
-                <input type="text" id="search-input" class="search-input" style="border: hidden; border-radius: .5rem; height: 100%; background: var(--global-bg-color); color: var(--global-text-color);" tabindex="0" placeholder="Search..." aria-label="Search..." autocomplete="off">
-                  <label/>
-                </input>
               </div>
               <!-- search results -->
               <div id="search-results" class="search-results">
@@ -142,8 +142,8 @@
   </script>
 
   <!-- Javacript for search button -->
-  <script type="text/javascript" src="{{ '/assets/js/vendor/lunr.min.js' | relative_url }}">
-  </script>
+  <!--<script type="text/javascript" src="{{ '/assets/js/vendor/lunr.min.js' | relative_url }}">
+  </script>-->
 
   <!-- Javascript for back to top button -->
   <script type="text/javascript">
