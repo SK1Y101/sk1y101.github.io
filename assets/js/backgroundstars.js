@@ -30,30 +30,59 @@ bgCtx.fillRect(0, 0, width, height);
 // function to draw background stars
 function Star(options) {
   this.size = Math.random() * 2;
-  this.speed = Math.random() * .05;
   this.x = options.x;
   this.y = options.y;
 }
 
-// function to reset stars that go off screen
-Star.prototype.reset = function() {
+// function to draw stars that vary slightly
+function VariableStar(options) {
   this.size = Math.random() * 2;
-  this.speed = Math.random() * .05;
-  this.x = width;
-  this.y = Math.random() * height;
+  this.x = options.x;
+  this.y = options.y;
 }
 
-// update the star positions
-Star.prototype.update = function() {
-  this.x -= this.speed;
-  if (this.x <0) {
-    this.reset();
+// and a function to change their size for the twinkle effect
+VariableStar.prototype.update = function() {
+  this.size = Math.min(2, Math.max(0, this.size + Math.random() * .2 - .1));
+  bgCtx.fillRect(this.x, this.y, this.size, this.size);
+}
+
+// function to draw satellites
+function Satellite(options) {
+  this.x = options.x;
+  this.y = options.y;
+  this.speed = Math.random() + .1;
+  this.size = (Math.random() * 1) + 0.1;
+  this.waitTime = new Date().getTime() + (Math.random() * 3000) + 500;
+  this.active = false;
+}
+
+// function to reset the shooting stars
+Satellite.prototype.reset = function() {
+  this.x = Math.random() * width;
+  this.y = 0;
+  this.size = (Math.random() * 1) + 0.1;
+  this.waitTime = new Date().getTime() + (Math.random() * 3000) + 500;
+  this.active = false;
+}
+
+// and a function to update their positions
+Satellite.prototype.update = function() {
+  if (this.active) {
+    this.x -= this.speed;
+    if (this.x < 0) {
+      this.reset();
+    } else {
+      bgCtx.fillRect(this.x, this.y, this.size, this.size);
+    }
   } else {
-    bgCtx.fillRect(this.x, this.y, this.size, this.size);
+    if (this.waitTime < new Date().getTime()) {
+      this.active = true;
+    }
   }
 }
 
-// create shooting stars
+// function to draw shooting stars
 function ShootingStar() {
   this.reset();
 }
@@ -63,17 +92,18 @@ ShootingStar.prototype.reset = function() {
   this.x = Math.random() * width;
   this.y = 0;
   this.len = (Math.random() * 80) + 10;
-  this.speed = (Math.random() * 10) + 6;
+  this.xspeed = (Math.random() * 10) + 5;
+  this.yspeed = (Math.random() * 10) + 5;
   this.size = (Math.random() * 1) + 0.1;
-  this.waitTime = new Date().getTime() + 0*((Math.random() * 3000) + 500);
+  this.waitTime = new Date().getTime() + (Math.random() * 3000) + 500;
   this.active = false;
 }
 
 // and a function to update their positions
 ShootingStar.prototype.update = function() {
   if (this.active) {
-    this.x -= this.speed;
-    this.y += this.speed;
+    this.x -= this.xspeed;
+    this.y += this.yspeed;
     if (this.x < 0 || this.y >= height) {
       this.reset();
     } else {
@@ -95,13 +125,26 @@ var entities = [];
 
 // initialise the star field
 for (var i = 0; i < height; i++) {
-  entities.push(new Star({
+  new Star({
+    x: Math.random() * width,
+    y: Math.random() * height
+  })
+}
+
+// add some variable stars
+for (var i = 0; i < Math.floor(height / 10); i++) {
+  entities.push(new VariableStar({
     x: Math.random() * width,
     y: Math.random() * height
   }));
 }
 
-// add a shooting star
+// add two shooting satellites
+entities.push(new Satellite());
+entities.push(new Satellite());
+
+// add two shooting stars
+entities.push(new ShootingStar());
 entities.push(new ShootingStar());
 
 // animate the background
