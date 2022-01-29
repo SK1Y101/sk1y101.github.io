@@ -93,7 +93,7 @@ ShootingStar.prototype.update = function() {
       this.speed = 0;
       // if the shooting star is special, and it's the right time
       if (this.special) {
-        if (specialDates.includes(today(new Date()))) { this.reset();
+        if (specialDates.includes(today(new Date()))) { this.reset(); }
       // otherwise, just reset it
       } else { this.reset(); }
     } else {
@@ -197,5 +197,3 @@ function animate() {
 
 // call the first animation
 animate();
-
-//setInterval(animate, 1000 / 60);
