@@ -1,8 +1,6 @@
 // fetch the animation frame
 (function () {
-  var requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame || function (callback) {
-  window.setTimeout(callback, 1000 / 60);
-  };
+  var requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame || function (callback) { window.setTimeout(callback, 1000 / 60); };
   window.requestAnimationFrame = requestAnimationFrame;
 })();
 
@@ -102,15 +100,16 @@ entities.push(new ShootingStar());
 
 // animate the background
 function animate() {
-  bgCtx.fillStyle = "#1101E19";
+  bgCtx.fillStyle = '#110E19';
   bgCtx.fillRect(0, 0, width, height);
-  bgCtx.fillStyle = "#FFFFFF";
-  bgCtx.strokeStyle = "#FFFFFF";
+  bgCtx.fillStyle = '#ffffff';
+  bgCtx.strokeStyle = '#ffffff';
 
-  // fetch all the entities
   var entLen = entities.length;
+
   while (entLen--) {
     entities[entLen].update();
   }
+  requestAnimationFrame(animate);
 }
-animate();
+ animate();
