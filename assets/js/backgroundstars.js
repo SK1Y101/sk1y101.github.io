@@ -10,6 +10,17 @@ var requestAnimFrame = (function(){
          };
 })();
 
+// function to get todays date
+function todaysDate(d) {
+  // fetch the day and month
+  var day = d.getDate(),
+      mon = d.getMonth();
+  // zero pad
+  (day < 10) ? day = "0"+day : day;
+  (mon < 10) ? mon = "0"+mon : mon;
+  return day+"/"+mon;
+}
+
 // fetch the background canvas
 var background = document.getElementById("bgCanvas"),
     bgCtx = background.getContext("2d"),
@@ -42,7 +53,10 @@ function Star() {
 }
 
 // function to draw shooting stars
-function ShootingStar() { this.reset(); }
+function ShootingStar(special = false) {
+  this.special = special;
+  this.reset();
+}
 
 // function to draw satellites
 function Satellite() {
@@ -120,11 +134,21 @@ ShootingStar.prototype.reset = function() {
   this.y = 0;
   this.x = Math.random() * width;
   this.len = (Math.random() * 80) + 10;
-  this.speed = (Math.random() * 10) + 5;
   this.size = (Math.random() * 1) + 0.1;
+  this.speed = (Math.random() * 10) + 5;
   this.colour = starColour[Math.floor(Math.random() * starColour.length)];
   this.waitTime = new Date().getTime() + (Math.random() * 3000) + 500;
   this.active = false;
+
+  // if we have a special shooting star on a valid date, let it go
+  if (this.special) {
+    if (todaysDate(new Date()) == "29/01") {
+      this.speed = (Math.random() * 10) + 5;
+    } else {
+      // otheriwse, keep it out of view
+      this.speed = 0;
+    }
+  }
 }
 
 // function to reset the satellites
@@ -145,10 +169,13 @@ var entities = [];
 for (var i = height; i >= 0; i--) { entities.push(new Star()); }
 
 // add a few satellites
-for (var i = 10; i >= 0; i--) { entities.push(new Satellite()); }
+for (var i = 20; i >= 0; i--) { entities.push(new Satellite()); }
 
 // add a shooting star
-for (var i = 1; i >= 0; i--) { entities.push(new ShootingStar()); }
+for (var i = 2; i >= 0; i--) { entities.push(new ShootingStar()); }
+
+// create the shooting stars for special occasions
+for (var i = 2; i >= 0; i--) { entities.push(new ShootingStar(true)); }
 
 // animate the background
 function animate() {
@@ -162,6 +189,7 @@ function animate() {
   var entLen = entities.length;
   while (entLen--) {
     entities[entLen].update();
+  }
   }
 
   //schedule the next animation frame
