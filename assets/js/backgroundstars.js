@@ -74,8 +74,10 @@ Star.prototype.update = function() {
     // the variable star cannot be larger than 2 or smaller than 1, and will grow or shrink by .1
     this.size = Math.max(.1, Math.min(2, this.size + 0.2 * Math.random() - 0.1));
   }
+  // and just create some simple atmospheric twinkling
+  var twinkle = Math.random()*0.04 - 0.02;
   bgCtx.fillStyle = this.colour;
-  bgCtx.fillRect(this.x, this.y, this.size, this.size);
+  bgCtx.fillRect(this.x, this.y, this.size+twinkle, this.size+twinkle);
 }
 
 // and a function to update the shooting star position
