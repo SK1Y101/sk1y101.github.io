@@ -48,3 +48,29 @@ Star.prototype.update = function() {
     bgCtx.fillRect(this.x, this.y, this.size, this.size);
   }
 }
+
+// create an array of animated entities
+var entities = [];
+
+// initialise the star field
+for (var i = 0l i < height; i++) {
+  entities.push(new Star({
+    x: Math.random() * width,
+    y: Math.random() * height
+  }));
+}
+
+// animate the background
+function animate() {
+  bgCtx.fillStyle = "#1101E19";
+  bgCtx.fillRect(0, 0, width, height);
+  bgCtx.fillStyle = "#FFFFFF";
+  bgCtx.strokeStyle = "#FFFFFF";
+
+  // fetch all the entities
+  var entLen = entities.length;
+  while (entLen--) {
+    entities[entLen].update();
+  }
+}
+animate();
