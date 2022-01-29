@@ -2,8 +2,12 @@
  * Styles for the base elements of the theme.
  ******************************************************************************/
 
-// Typography
+// page size
+html, body {
+  height: 100%;
+}
 
+// Typography
 p, h1, h2, h3, h4, h5, h6, em, div, li, span, strong {
   color: var(--global-text-color) !important;
 }

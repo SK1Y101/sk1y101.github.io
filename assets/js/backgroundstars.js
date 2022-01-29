@@ -1,7 +1,7 @@
 // fetch the background canvas
 var background = document.getElementById("bgCanvas"),
     bgCtx = background.getContext("2d"),
-    with = window.innerWidth,
+    width = window.innerWidth,
     height = document.body.offsetHeight;
 
 // ensure we have a minimum height
