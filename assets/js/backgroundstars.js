@@ -110,6 +110,6 @@ function animate() {
   while (entLen--) {
     entities[entLen].update();
   }
-  requestAnimationFrame(animate);
+  window.requestAnimationFrame(animate);
 }
- animate();
+animate();
