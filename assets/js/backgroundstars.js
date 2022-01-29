@@ -19,6 +19,9 @@ function today(d) {
   return day+"/"+mon;
 }
 
+// list of special dates
+var specialDates = ["26/10", "29/01"];
+
 // fetch the background canvas
 var background = document.getElementById("bgCanvas"),
     bgCtx = background.getContext("2d"),
@@ -90,7 +93,7 @@ ShootingStar.prototype.update = function() {
       this.speed = 0;
       // if the shooting star is special, and it's the right time
       if (this.special) {
-        if (today(new Date()) == "26/10") { this.reset();
+        if (specialDates.includes(today(new Date()))) { this.reset();
       // otherwise, just reset it
       } else { this.reset(); }
     } else {
