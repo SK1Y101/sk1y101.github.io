@@ -41,6 +41,12 @@ function Star() {
   this.colour = starColour[Math.floor(Math.random() * starColour.length)]
 }
 
+// function to draw shooting stars
+function ShootingStar() { this.reset(); }
+
+// function to draw satellites
+function Satellite() { this.reset(); }
+
 // update the star positions
 Star.prototype.update = function() {
   // if this star is a variable star, change it's size
@@ -52,39 +58,12 @@ Star.prototype.update = function() {
   bgCtx.fillRect(this.x, this.y, this.size, this.size);
 }
 
-// function to draw shooting stars
-function ShootingStar(satellite = false) {
-  this.satellite = satellite;
-  this.reset();
-}
-
-// function to reset the shooting stars
-ShootingStar.prototype.reset = function() {
-  if (this.satellite) {
-    this.y = Math.random() * height;
-    this.len = 0
-    this.xspeed = (Math.random() * 1) + 1;
-    this.yspeed = 0
-    this.colour = "white";
-  } else {
-    this.y = 0;
-    this.len = (Math.random() * 80) + 10;
-    this.xspeed = (Math.random() * 10) + 5;
-    this.yspeed = this.xspeed
-    this.colour = starColour[Math.floor(Math.random() * starColour.length)];
-  }
-  this.x = Math.random() * width;
-  this.size = (Math.random() * 1) + 0.1;
-  this.waitTime = new Date().getTime() + (Math.random() * 3000) + 500;
-  this.active = false;
-}
-
-// and a function to update their positions
+// and a function to update the shooting star position
 ShootingStar.prototype.update = function() {
   if (this.active) {
     // update it's position
-    this.x -= this.xspeed;
-    this.y += this.yspeed;
+    this.x -= this.speed;
+    this.y += this.speed;
     // if it goes out of the window, reset
     if (this.x < -this.len || this.y >= height+this.len) {
       this.reset();
@@ -107,15 +86,58 @@ ShootingStar.prototype.update = function() {
   }
 }
 
+// a function to update the satellite star position
+Satellite.prototype.update = function() {
+  if (this.active) {
+    // update it's position
+    this.x -= this.speed;
+    // if it goes out of the window, reset
+    if (this.x < 0 || this.y >= height) {
+      this.reset();
+    } else {
+      // set the colour
+      bgCtx.fillStyle = this.colour;
+      bgCtx.fillRect(this.x, this.y, this.size, this.size);
+    }
+  // wait for it to be active again
+  } else {
+    if (this.waitTime < new Date().getTime()) {
+      this.active = true;
+    }
+  }
+}
+
+// function to reset the shooting stars
+ShootingStar.prototype.reset = function() {
+  this.y = 0;
+  this.x = Math.random() * width;
+  this.len = (Math.random() * 80) + 10;
+  this.speed = (Math.random() * 10) + 5;
+  this.size = (Math.random() * 1) + 0.1;
+  this.colour = starColour[Math.floor(Math.random() * starColour.length)];
+  this.waitTime = new Date().getTime() + (Math.random() * 3000) + 500;
+  this.active = false;
+}
+
+// function to reset the satellites
+Satellite.prototype.reset = function() {
+  this.y = Math.random() * height;
+  this.x = 0;
+  this.speed = (Math.random() * 2) + 1;
+  this.size = (Math.random() * 1) + 0.1;
+  this.colour = "white";
+  this.waitTime = new Date().getTime() + (Math.random() * 3000) + 500;
+  this.active = false;
+}
+
 // create an array of animated entities
 var entities = [];
 
 // initialise the star field
 for (var i = height; i >= 0; i--) { entities.push(new Star()); }
 
-for (var i = 2; i >= 0; i--) { entities.push(new ShootingStar(true)); }
-
 // add a few satellites
+for (var i = 10; i >= 0; i--) { entities.push(new Satellite()); }
 
 // add a shooting star
 for (var i = 1; i >= 0; i--) { entities.push(new ShootingStar()); }
