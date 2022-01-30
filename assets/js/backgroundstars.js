@@ -58,7 +58,7 @@ function ShootingStar(special = false) {
 function Satellite() {
   this.y = Math.random() * height;
   this.x = Math.random() * width;
-  this.speed = (Math.random() * .19) + .01;
+  this.speed = (Math.random() * .29) + .01;
   this.size = (Math.random() * 2) + 0.1;
   this.colour = "white";
   this.waitTime = new Date().getTime() + (Math.random() * 20000);
