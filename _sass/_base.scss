@@ -134,7 +134,7 @@ blockquote {
   }
   .cv {
     .card {
-      padding: .5rem 0rem .5rem 0rem;
+      margin: .5rem 0rem .5rem 0rem;
     }
   }
 }
@@ -460,8 +460,8 @@ footer.sticky-bottom {
   .card {
     background-color: var(--global-card-color) !important;
     border-radius: 1.5rem;
-    padding: .5rem -.5rem .5rem -.5rem;
-    margin: .5rem .5rem .5rem .5rem;
+    padding: .5rem .5rem .5rem .5rem;
+    margin: .5rem -1.5rem .5rem -1.5rem;
     .card-title {
       color: var(--global-theme-color);
     }
