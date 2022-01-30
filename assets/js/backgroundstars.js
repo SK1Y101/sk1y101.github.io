@@ -61,8 +61,8 @@ function Satellite() {
   this.speed = (Math.random() * .29) + .01;
   this.size = (Math.random() * 2) + 0.1;
   this.colour = "white";
-  this.waitTime = new Date().getTime() + (Math.random() * 20000);
-  this.active = false;
+  this.waitTime = new Date().getTime();
+  this.active = true;
 }
 
 // update the star positions
