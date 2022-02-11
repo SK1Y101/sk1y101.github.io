@@ -3,7 +3,7 @@ layout: distill
 title: Masters Thesis
 longtitle: Timing Transit Variation Project
 description: Searching for Transit Timing Variations to determine the parameters of additional exoplanets in a system.
-img: assets/img/TransitProject/KeplerLightCurve.png
+img: assets/img/TransitProject/KeplerLightCurve.jpg
 importance: 1
 category: work
 
