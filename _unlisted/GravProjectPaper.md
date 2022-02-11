@@ -4,7 +4,7 @@ title: Bachelors Thesis
 longtitle: Distinguishing Intermediate Mass Black Hole Mergers from Short Duration Glitches
 description: Using LIGO data to filter glitch events when searching for intermediate mass black holes
 img:
-importance: 1
+importance: 2
 category: work
 
 date: 2021-12-24
@@ -15,7 +15,7 @@ authors:
 
 links:
   github: SK1Y101/GWProject
-  pdf: GWProjectFinalReport.pdf
+  pdf: GWProject/GWProjectFinalReport.pdf
   url:
 
 # Optionally, you can add a table of contents to your post.

@@ -73,6 +73,40 @@ nav: true
 					<div class="row">
 						<div	 class="col-sm-2 abbr">
 							<abbr class="badge">
+								2022-02 - present
+							</abbr>
+						</div>
+						<div class="col-xs-10 cl-sm-10 col-md mt-2 mt-md-0">
+							<h3 class="title font-weight-bold ml-1 ml-md-4">AI & Data Engineering - AiCore</h3>
+							<ul class="items">
+								<li>
+									Certified in the practical application of AI & Data Engineering using industry-standard tools including:
+									<ul>
+										<li>
+											Software engineering (Git & GitHub, advanced Python, algorithms & data structures)
+										</li>
+										<li>
+											Data engineering (SQL, data lakes, data warehousing, web scraping)
+										</li>
+										<li>
+											Data science (Data cleaning, preprocessing & visualisation, A/B testing, feature engineering, statistical modelling, model selection and implementation)
+										</li>
+										<li>
+											Cloud Engineering (cloud computing, designing and building APIs, Docker, Apache Airflow, AWS Serverless Stack)
+										</li>
+									</ul>
+								</li>
+    						<li>
+									Worked on multiple industry projects throughout.
+								</li>
+							</ul>
+						</div>
+					</div>
+				</li>
+				<li class="list-group-item">
+					<div class="row">
+						<div	 class="col-sm-2 abbr">
+							<abbr class="badge">
 								2018 - present
 							</abbr>
 						</div>
