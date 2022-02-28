@@ -2,7 +2,7 @@
 layout: project
 title: Skiylia Site
 description: The Website for my custom Language (PySkiylia)
-img: https://github.com/Skiylia-Lang/skiylia-lang.github.com/blob/main/Skiylia_Logo.svg
+img: assets/img/Skiylia/Skiylia_Logo_text.svg
 importance: 1
 category: fun
 redirect: https://skiylia-lang.github.io/

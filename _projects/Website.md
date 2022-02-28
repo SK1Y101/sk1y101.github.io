@@ -2,7 +2,7 @@
 layout: project
 title: This Website
 description: This website has a github repo where all the code is!
-img:
+img: assets/img/milky-way_1f30c.png
 importance: 
 category: fun
 redirect: https://github.com/SK1Y101/sk1y101.github.io
