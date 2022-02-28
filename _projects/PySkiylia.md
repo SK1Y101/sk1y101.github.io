@@ -3,7 +3,7 @@ layout: project
 title: Skiylia Lang
 description: My custom programming language, written in python.
 img: assets/img/Skiylia/PySkiyliaLogo.png
-importance: 2
+importance: 1
 category: fun
 github: https://github.com/Skiylia-Lang/PySkiylia
 date: 2021-12-10
