@@ -5,6 +5,8 @@ longtitle: Distinguishing Intermediate Mass Black Hole Mergers from Short Durati
 description: Using LIGO data to filter glitch events when searching for intermediate mass black holes
 img: assets/img/GWProject/190521-3hr-GravPlot.png
 importance: 2
+github: https://github.com/SK1Y101/GWProject
+github_stars: 0
 category: work
 
 date: 2021-12-24

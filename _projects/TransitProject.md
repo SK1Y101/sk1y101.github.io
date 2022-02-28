@@ -5,6 +5,8 @@ longtitle: Determining The Parameters of Exoplanetary Candidates From Transit Ti
 description: Searching for Transit Timing Variations to determine the parameters of additional exoplanets in a system.
 img: assets/img/TransitProject/KeplerLightCurve.jpg
 importance: 1
+github: https://github.com/SK1Y101/TransitProject
+github_stars: 0
 category: work
 
 date: 2021-02-11

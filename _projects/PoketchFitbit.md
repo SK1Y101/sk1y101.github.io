@@ -3,8 +3,10 @@ layout: project
 title: Pokétch FitBit
 description: A clock-face based on the Pokémon watch from Diamond, Pearl, and Platinum.
 img: assets/img/PoketchFitbit/poketchfitbit.png
-importance: 4
+importance: 5
 category: fun
+github: https://github.com/SK1Y101/PoketchFitbit
+github_stars: 2
 date: 2022-01-27
 
 authors:

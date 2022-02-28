@@ -1,13 +1,14 @@
 ---
 layout: project
-title: VerboScript
-description: A custom programming language designed around plain english.
-img:
-importance: 4
+title: Skiylia Site
+description: The Website for my custom Language (PySkiylia)
+img: https://github.com/Skiylia-Lang/skiylia-lang.github.com/blob/main/Skiylia_Logo.svg
+importance: 1
 category: fun
-github: https://github.com/Skiylia-Lang/Verboscript
-github_stars: 2
-date: 2022-01-27
+redirect: https://skiylia-lang.github.io/
+github: https://github.com/Skiylia-Lang/skiylia-lang.github.com
+github_stars: 0
+date: 2021-03-20
 
 authors:
   - name: Jack Lloyd-Walters
@@ -19,13 +20,11 @@ authors:
 #     for hyperlinks within the post to work correctly.
 #   - we may want to automate TOC generation in the future using
 #     jekyll-toc plugin (https://github.com/toshimaru/jekyll-toc).
-toc:
-  - name:
+#toc:
+#  - name:
     # if a section has subsections, you can add them as follows:
     # subsections:
     #   - name: Example Child Subsection 1
     #   - name: Example Child Subsection 2
 
 ---
-
-This page is a work in progress.

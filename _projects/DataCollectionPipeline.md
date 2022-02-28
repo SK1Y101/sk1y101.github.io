@@ -1,13 +1,14 @@
 ---
 layout: project
-title: VerboScript
-description: A custom programming language designed around plain english.
+title: Data Collection Pipeline
+description: Scrape the web, from the cloud!
 img:
-importance: 4
+importance:
 category: fun
-github: https://github.com/Skiylia-Lang/Verboscript
-github_stars: 2
-date: 2022-01-27
+redirect: https://github.com/SK1Y101/Data_Collection_Pipeline
+github: https://github.com/SK1Y101/Data_Collection_Pipeline
+github_stars: 0
+date: 2022-02-10
 
 authors:
   - name: Jack Lloyd-Walters
@@ -19,13 +20,11 @@ authors:
 #     for hyperlinks within the post to work correctly.
 #   - we may want to automate TOC generation in the future using
 #     jekyll-toc plugin (https://github.com/toshimaru/jekyll-toc).
-toc:
-  - name:
+#toc:
+#  - name:
     # if a section has subsections, you can add them as follows:
     # subsections:
     #   - name: Example Child Subsection 1
     #   - name: Example Child Subsection 2
 
 ---
-
-This page is a work in progress.

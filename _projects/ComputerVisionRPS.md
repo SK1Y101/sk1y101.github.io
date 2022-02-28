@@ -1,13 +1,14 @@
 ---
 layout: project
-title: VerboScript
-description: A custom programming language designed around plain english.
+title: Computer Vision Rock-Paper-Scissors
+description: Play against a computer, using a Webcam
 img:
-importance: 4
-category: fun
-github: https://github.com/Skiylia-Lang/Verboscript
-github_stars: 2
-date: 2022-01-27
+importance: 10
+category: training
+redirect: https://github.com/SK1Y101/Computer-Vision-Rock-Paper-Scissors
+github: https://github.com/SK1Y101/Computer-Vision-Rock-Paper-Scissors
+github_stars: 0
+date: 2022-02-08
 
 authors:
   - name: Jack Lloyd-Walters
@@ -19,13 +20,11 @@ authors:
 #     for hyperlinks within the post to work correctly.
 #   - we may want to automate TOC generation in the future using
 #     jekyll-toc plugin (https://github.com/toshimaru/jekyll-toc).
-toc:
-  - name:
+#toc:
+#  - name:
     # if a section has subsections, you can add them as follows:
     # subsections:
     #   - name: Example Child Subsection 1
     #   - name: Example Child Subsection 2
 
 ---
-
-This page is a work in progress.
