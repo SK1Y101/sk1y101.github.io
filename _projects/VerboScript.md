@@ -3,10 +3,9 @@ layout: project
 title: VerboScript
 description: A custom programming language designed around plain english.
 img:
-importance: 4
+importance:
 category: fun
 github: https://github.com/Skiylia-Lang/Verboscript
-github_stars: 2
 date: 2022-01-27
 
 authors:

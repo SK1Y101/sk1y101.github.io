@@ -3,10 +3,9 @@ layout: project
 title: KOS Flight Controller
 description: An autopilot script written for KSP + RSS.
 img: assets/img/FlightControllerUI.png
-importance: 3
+importance:
 category: fun
 github: https://github.com/SK1Y101/KOSFlightController
-github_stars: 1
 date: 2022-01-27
 
 authors:

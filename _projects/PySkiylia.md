@@ -6,7 +6,6 @@ img: assets/img/Skiylia/PySkiyliaLogo.png
 importance: 2
 category: fun
 github: https://github.com/Skiylia-Lang/PySkiylia
-github_stars: 5
 date: 2021-12-10
 
 authors:

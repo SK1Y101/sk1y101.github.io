@@ -4,10 +4,9 @@ title: Data Collection Pipeline
 description: Scrape the web, from the cloud!
 img:
 importance:
-category: fun
+category: training
 redirect: https://github.com/SK1Y101/Data_Collection_Pipeline
 github: https://github.com/SK1Y101/Data_Collection_Pipeline
-github_stars: 0
 date: 2022-02-10
 
 authors:
