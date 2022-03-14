@@ -48,31 +48,19 @@ I will write my own python software that will extract transit timing variations 
 
 A short list of observation candidates was made by comparing exoplanet data with both [ExoClock](https://www.exoclock.space/) and [NASA Exoplanet Archive](https://exoplanetarchive.ipac.caltech.edu/), for which an application for telescope time was made.
 
-The full document is accessible from the PDF link below.
-
-<a href="assets/pdf/TransitProject/TransitProjectProposal.pdf" title="PDF"">
-  <i class="fab fa-file-pdf"></i>
-</a>
+The full document is accessible as a PDF from the link [Here](assets/pdf/TransitProject/TransitProjectProposal.pdf)
 
 ---
 
 ## Literature Review
 
-The full document is accessible from the PDF link below.
-
-<a href="assets/pdf/TransitProject/TransitProjectLiteratureReview.pdf" title="PDF"">
-  <i class="fab fa-file-pdf"></i>
-</a>
+The full document is accessible as a PDF from the link [Here](assets/pdf/TransitProject/TransitProjectLiteratureReview.pdf)
 
 ---
 
 ## Poster
 
-The full document is accessible from the PDF link below.
-
-<a href="assets/pdf/TransitProject/TransitProjectPoster.pdf" title="PDF"">
-  <i class="fab fa-file-pdf"></i>
-</a>
+The full document is accessible as a PDF from the link [Here](assets/pdf/TransitProject/TransitProjectPoster.pdf)
 
 ---
 

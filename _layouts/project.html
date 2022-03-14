@@ -12,7 +12,7 @@ layout: default
 
   {% if page.toc %}
   <d-contents>
-    <nav class="l-text figcaption">
+    <nav class="l-text figcaption sidenav">
     <h3>Contents</h3>
       {% for section in page.toc %}
       <div><a href="#{{ section.name | downcase | replace: ' ','-' }}">{{ section.name }}</a></div>
