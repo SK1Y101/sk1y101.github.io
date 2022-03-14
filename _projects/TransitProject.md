@@ -38,7 +38,7 @@ toc:
 
 It should be noted, this project is a work in progress, and many things are subject to change.
 
-## Project proposal
+## Project Proposal
 
 The overarching goal of this project is to attempt to measure transit timing variations of exoplanets, to determine the parameters of other exoplanet candidates in the system.
 
@@ -48,6 +48,42 @@ I will write my own python software that will extract transit timing variations 
 
 A short list of observation candidates was made by comparing exoplanet data with both [ExoClock](https://www.exoclock.space/) and [NASA Exoplanet Archive](https://exoplanetarchive.ipac.caltech.edu/), for which an application for telescope time was made.
 
-The full project proposal document can also be found [Here](assets/pdf/TransitProject/TransitProjectProposal.pdf).
+The full document is accessible from the PDF link below.
+
+<a href="assets/pdf/TransitProject/TransitProjectProposal.pdf" title="PDF"">
+  <i class="fab fa-file-pdf"></i>
+</a>
+
+---
+
+## Literature Review
+
+The full document is accessible from the PDF link below.
+
+<a href="assets/pdf/TransitProject/TransitProjectLiteratureReview.pdf" title="PDF"">
+  <i class="fab fa-file-pdf"></i>
+</a>
+
+---
+
+## Poster
+
+The full document is accessible from the PDF link below.
+
+<a href="assets/pdf/TransitProject/TransitProjectPoster.pdf" title="PDF"">
+  <i class="fab fa-file-pdf"></i>
+</a>
+
+---
+
+## Presentation
+
+Work in progress, has not yet been completed
+
+---
+
+## Dissertation
+
+Work in progress, has not yet been completed
 
 ---
