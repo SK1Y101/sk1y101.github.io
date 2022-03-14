@@ -31,7 +31,7 @@ hr {
 }
 
 a, table.table a {
-  color: var(--global-text-color);
+  color: var(--global-unhover-color);
   &:hover {
     color: var(--global-theme-color) !important;
     text-decoration: underline;
