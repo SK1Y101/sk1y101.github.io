@@ -5,7 +5,9 @@ description: A clock-face based on the Pokémon watch from Diamond, Pearl, and P
 img: assets/img/PoketchFitbit/poketchfitbit.png
 importance: 2
 category: fun
-github: https://github.com/SK1Y101/PoketchFitbit
+github:
+  - user: SK1Y101
+  - repo: PoketchFitbit
 date: 2022-01-27
 
 authors:
@@ -13,7 +15,6 @@ authors:
     url: "https://sk1y101.github.io"
 
 links:
-  github: SK1Y101/PoketchFitbit
   url: https://gallery.fitbit.com/details/c69cadcb-a312-4be3-a51f-681b259364c4
   pdf:
 

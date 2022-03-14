@@ -41,13 +41,6 @@ a, table.table a {
   }
 }
 
-.sidebar {
-  position: fixed;
-  top: 20%;
-  left:10%;
-  width:15%
-}
-
 blockquote {
   background: var(--global-bg-color);
   border-left: 2px solid var(--global-theme-color);
@@ -719,6 +712,12 @@ html.transition *:after {
 
 // Extra Markdown style (post Customization)
 .post{
+  .sidebar {
+    position: fixed;
+    top: 20%;
+    left:10%;
+    width:15%;
+  }
   .post-meta{
     color: var(--global-text-color-light);
     font-size: 0.875rem;

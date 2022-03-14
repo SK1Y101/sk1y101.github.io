@@ -5,7 +5,10 @@ description: An autopilot script written for KSP + RSS.
 img: assets/img/FlightControllerUI.png
 importance: 3
 category: fun
-github: https://github.com/SK1Y101/KOSFlightController
+github:
+  - user: SK1Y101
+  - repo: KOSFlightController
+  - onpage: true
 date: 2022-01-27
 
 authors:
@@ -18,8 +21,8 @@ authors:
 #     for hyperlinks within the post to work correctly.
 #   - we may want to automate TOC generation in the future using
 #     jekyll-toc plugin (https://github.com/toshimaru/jekyll-toc).
-toc:
-  - name:
+#toc:
+#  - name:
     # if a section has subsections, you can add them as follows:
     # subsections:
     #   - name: Example Child Subsection 1

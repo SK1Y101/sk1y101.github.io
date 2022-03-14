@@ -5,7 +5,9 @@ description: My custom programming language, written in python.
 img: assets/img/Skiylia/PySkiyliaLogo.png
 importance: 1
 category: fun
-github: https://github.com/Skiylia-Lang/PySkiylia
+github:
+  - user: Skiylia-Lang
+  - repo: PySkiylia
 date: 2021-12-10
 
 authors:
@@ -13,7 +15,6 @@ authors:
     url: "https://sk1y101.github.io"
 
 links:
-  github: Skiylia-Lang/PySkiylia
   pdf:
   url: https://skiylia-lang.github.io/
 

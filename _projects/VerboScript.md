@@ -5,7 +5,9 @@ description: A custom programming language designed around plain english.
 img:
 importance:
 category: fun
-github: https://github.com/Skiylia-Lang/Verboscript
+github:
+  - user: Skiylia-Lang
+  - repo: Verboscript
 date: 2022-01-27
 
 authors:
@@ -18,8 +20,8 @@ authors:
 #     for hyperlinks within the post to work correctly.
 #   - we may want to automate TOC generation in the future using
 #     jekyll-toc plugin (https://github.com/toshimaru/jekyll-toc).
-toc:
-  - name:
+#toc:
+#  - name:
     # if a section has subsections, you can add them as follows:
     # subsections:
     #   - name: Example Child Subsection 1
