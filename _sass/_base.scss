@@ -33,12 +33,19 @@ hr {
 a, table.table a {
   color: var(--global-unhover-color);
   &:hover {
-    color: var(--global-theme-color) !important;
+    color: var(--global-hover-color) !important;
     text-decoration: underline;
   }
   &:hover:after :not(.nav-item.dropdown) {
     width: 100%;
   }
+}
+
+.sidebar {
+  position: fixed;
+  top: 20%;
+  left:10%;
+  width:15%
 }
 
 blockquote {

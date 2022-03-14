@@ -30,6 +30,10 @@ bibliography:
 
 toc:
   - name: Project proposal
+  - name: Literature Review
+  - name: Poster
+  - name: Presentation
+  - name: Dissertation
 
 # Below is an example of injecting additional post-specific styles.
 # If you use this post as a template, delete this _styles block.

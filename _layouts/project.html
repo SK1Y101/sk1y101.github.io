@@ -11,8 +11,8 @@ layout: default
   <hr/>
 
   {% if page.toc %}
-  <d-contents>
-    <nav class="l-text figcaption sidenav">
+  <div class="content-card p-3 sidebar">
+    <nav class="l-text figcaption">
     <h3>Contents</h3>
       {% for section in page.toc %}
       <div><a href="#{{ section.name | downcase | replace: ' ','-' }}">{{ section.name }}</a></div>
@@ -32,7 +32,7 @@ layout: default
       {% endif %}
       {% endfor %}
     </nav>
-  </d-contents>
+  </div>
   <hr/>
   {% endif %}
 
