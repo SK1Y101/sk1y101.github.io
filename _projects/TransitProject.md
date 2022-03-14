@@ -6,8 +6,8 @@ description: Searching for Transit Timing Variations to determine the parameters
 img: assets/img/TransitProject/KeplerLightCurve.jpg
 importance: 1
 github:
-  - user: SK1Y101
-  - repo: TransitProject
+  user: SK1Y101
+  repo: TransitProject
 category: work
 
 date: 2021-02-11
