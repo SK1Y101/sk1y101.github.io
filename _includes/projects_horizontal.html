@@ -24,7 +24,7 @@
               {% if project.github %}
               <div class="github-icon">
                 <div class="icon" data-toggle="tooltip" title="Code Repository">
-                  <a href="{{ 'https://github.com/' | append: page.github.user | append: '/' | append: page.github.repo }}">
+                  <a href="{{ 'https://github.com/' | append: project.github.user | append: '/' | append: project.github.repo }}">
                     <i class="fab fa-github gh-icon"></i>
                   </a>
                 </div>

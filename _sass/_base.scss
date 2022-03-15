@@ -240,7 +240,7 @@ blockquote {
     color: var(--global-text-color);
   }
   a:hover {
-    color: var(--global-theme-color);
+    color: var(--global-theme-color) !important;
   }
   .dropdown-divider {
     border-top: 1px solid var(--global-divider-color) !important;
