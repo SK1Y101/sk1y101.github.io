@@ -6,9 +6,9 @@ img: assets/img/FlightControllerUI.png
 importance: 3
 category: fun
 github:
-  - user: SK1Y101
-  - repo: KOSFlightController
-  - onpage: true
+  user: SK1Y101
+  repo: KOSFlightController
+  onpage: true
 date: 2022-01-27
 
 authors:

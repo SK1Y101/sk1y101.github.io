@@ -6,8 +6,9 @@ img: assets/img/Skiylia/PySkiyliaLogo.png
 importance: 1
 category: fun
 github:
-  - user: Skiylia-Lang
-  - repo: PySkiylia
+  user: Skiylia-Lang
+  repo: PySkiylia
+  onpage: true
 date: 2021-12-10
 
 authors:

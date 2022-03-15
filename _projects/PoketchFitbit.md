@@ -6,8 +6,9 @@ img: assets/img/PoketchFitbit/poketchfitbit.png
 importance: 2
 category: fun
 github:
-  - user: SK1Y101
-  - repo: PoketchFitbit
+  user: SK1Y101
+  repo: PoketchFitbit
+  onpage: false
 date: 2022-01-27
 
 authors:

@@ -6,8 +6,9 @@ img:
 importance:
 category: fun
 github:
-  - user: Skiylia-Lang
-  - repo: Verboscript
+  user: Skiylia-Lang
+  repo: Verboscript
+  onpage: true
 date: 2022-01-27
 
 authors:

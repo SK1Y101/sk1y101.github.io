@@ -24,7 +24,9 @@
               {% if project.github %}
               <div class="github-icon">
                 <div class="icon" data-toggle="tooltip" title="Code Repository">
-                  <a href="https://github.com/{{ page.github.user }}/{{ page.github.repo }}"><i class="fab fa-github gh-icon"></i></a>
+                  <a href="{{ 'https://github.com/' | append: page.github.user | append: '/' | append: page.github.repo }}">
+                    <i class="fab fa-github gh-icon"></i>
+                  </a>
                 </div>
                 {% if project.github_stars %}
                 <span class="stars" data-toggle="tooltip" title="GitHub Stars">

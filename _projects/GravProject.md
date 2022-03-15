@@ -6,8 +6,9 @@ description: Using LIGO data to filter glitch events when searching for intermed
 img: assets/img/GWProject/190521-3hr-GravPlot.png
 importance: 2
 github:
-  - user: SK1Y101
-  - repo: GWProject
+  user: SK1Y101
+  repo: GWProject
+  onpage: true
 category: work
 
 date: 2021-12-24
