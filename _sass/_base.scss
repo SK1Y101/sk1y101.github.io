@@ -139,10 +139,10 @@ blockquote {
   }
   .post {
     .sidebar {
-      position: fixed;
+      position: fixed !important;
       top: 20%;
       left:10%;
-      width:15%;
+      width:15% !important;
       background-color: var(--global-card-color) !important;
       border-radius: 1.5rem;
       padding: 1rem !important;
@@ -726,8 +726,8 @@ html.transition *:after {
   // what it looks like on mobile devices
   .sidebar {
     position: inherit;
-    width:10%;
-    padding: 0rem !important;
+    width:100%;
+    padding: 0rem;
   }
   .post-meta{
     color: var(--global-text-color-light);
