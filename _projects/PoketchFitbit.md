@@ -41,6 +41,10 @@ When I first started this project, Pokémon Brilliant Diamond and Shining Pearl 
 
 ***
 
+This page is a work in progress.
+
+***
+
 ## Links
 
 While there are links to the project in the header of this page, I'll also add the links here!
@@ -63,7 +67,3 @@ As there are two versions of the Fitbit OS currently used, there are two store l
     </a>
   </div>
 </div>
-
-***
-
-This page is a work in progress.

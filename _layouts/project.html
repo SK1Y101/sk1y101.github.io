@@ -41,6 +41,7 @@ layout: default
 
   {% if page.github.onpage %}
     <hr/>
+    Github Repo
     <!-- Github card if given -->
     <a href="{{ 'https://github.com/' | append: page.github.user | append: '/' | append: page.github.repo }}">
       <img align="center" class="imgresize ghcard-light" src="{{ 'https://github-readme-stats.vercel.app/api/pin/?username=' | append: page.github.user | append: '&repo=' | append: page.github.repo | append: '&border_radius=20&title_color=2698BA&icon_color=2698BA&text_color=000000&bg_color=EEEEEE&border_color=2A2A2B' }}">
