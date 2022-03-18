@@ -137,6 +137,17 @@ blockquote {
       margin: .5rem 0rem .5rem 0rem;
     }
   }
+  .post {
+    .sidebar {
+      position: fixed;
+      top: 20%;
+      left:10%;
+      width:15%;
+      background-color: var(--global-card-color) !important;
+      border-radius: 1.5rem;
+      padding: 1rem !important;
+    }
+  }
 }
 
 .post-description {
@@ -712,11 +723,11 @@ html.transition *:after {
 
 // Extra Markdown style (post Customization)
 .post{
+  // what it looks like on mobile devices
   .sidebar {
-    position: fixed;
-    top: 20%;
-    left:10%;
-    width:15%;
+    position: inherit;
+    width:10%;
+    padding: 0rem !important;
   }
   .post-meta{
     color: var(--global-text-color-light);
