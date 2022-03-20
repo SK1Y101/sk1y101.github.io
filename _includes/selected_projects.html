@@ -1,0 +1,19 @@
+<div class="news">
+  {% if site.projects  %}
+    <div class="table-responsive">
+      <table class="table table-sm table-borderless">
+      {% assign projects = site.projects | reverse %}
+      {% for item in projects limit: site.project_limit %}
+        <tr>
+          <th scope="row">{{ item.date | date: "%b %-d, %Y" }}</th>
+          <td>
+            <a class="news-title" href="{{ item.url | relative_url }}">{{ item.title }}</a>
+          </td>
+        </tr>
+      {% endfor %}
+      </table>
+    </div>
+  {% else %}
+    <p>No projects so far...</p>
+  {% endif %}
+</div>
