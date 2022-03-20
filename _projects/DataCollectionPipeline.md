@@ -7,6 +7,9 @@ importance: 1
 category: training
 redirect: https://github.com/SK1Y101/Data_Collection_Pipeline
 date: 2022-02-10
+github:
+  user: SK1Y101
+  repo: Data_Collection_Pipeline
 
 authors:
   - name: Jack Lloyd-Walters

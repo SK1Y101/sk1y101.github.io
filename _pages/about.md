@@ -21,8 +21,6 @@ For any employers looking at this page, feel free to send a job posting to me vi
 
 ### Projects
 
-A small selection of projects I'm proud of
-
 {% if site.projects %}
   {% include selected_projects.html %}
 {% endif %}

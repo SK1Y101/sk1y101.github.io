@@ -6,6 +6,9 @@ img:
 importance: 2
 category: training
 redirect: https://github.com/SK1Y101/Computer-Vision-Rock-Paper-Scissors
+github:
+  user: SK1Y101
+  repo: Computer-Vision-Rock-Paper-Scissors
 date: 2022-02-08
 
 authors:

@@ -7,6 +7,9 @@ importance:
 category: fun
 redirect: https://github.com/SK1Y101/sk1y101.github.io
 date: 2021-12-01
+github:
+  user: SK1Y101
+  repo: sk1y101.github.io
 
 authors:
   - name: Jack Lloyd-Walters
