@@ -23,7 +23,7 @@ For any employers looking at this page, feel free to send a job posting to me vi
 
 A small selection of projects I'm proud of
 
-{% if page.projects %}
+{% if site.projects %}
   {% include selected_projects.html %}
 {% endif %}
 
