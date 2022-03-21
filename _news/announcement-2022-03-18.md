@@ -6,4 +6,4 @@ inline: true
 
 Just this Thursday I had the absolute pleasure of joining a poster presentation for my masters degree.
 Everyone produced such excellent work, I was very happy to show off my own master project alongside!
-Do check out my [Masters project section](https://sk1y101.github.io/projects/TransitProject/) to see my poster, I thought it was quite nice
+Do check out my [Masters project section](../projects/TransitProject/) to see my poster, I thought it was quite nice
