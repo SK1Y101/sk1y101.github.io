@@ -9,7 +9,7 @@ github:
   user: SK1Y101
   repo: PoketchFitbit
   onpage: true
-date: 2022-01-27
+date: 2021-08-25
 
 authors:
   - name: Jack Lloyd-Walters

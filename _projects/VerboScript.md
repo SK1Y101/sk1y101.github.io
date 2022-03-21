@@ -9,7 +9,7 @@ github:
   user: Skiylia-Lang
   repo: Verboscript
   onpage: true
-date: 2022-01-27
+date: 2021-05-05
 
 authors:
   - name: Jack Lloyd-Walters

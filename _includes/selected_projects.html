@@ -8,7 +8,7 @@ My most recent Projects
       {% for item in projects limit: site.project_limit %}
         <tr>
           <th scope="row">{{ item.date | date: "%b %-d, %Y" }}</th>
-          <td>
+          <td style="padding: 0rem;">
             {% if item.redirect %}
               {% if item.github %}
                 <a class="news-title" href="{{ item.redirect }}">

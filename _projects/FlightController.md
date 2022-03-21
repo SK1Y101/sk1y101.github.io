@@ -9,7 +9,7 @@ github:
   user: SK1Y101
   repo: KOSFlightController
   onpage: true
-date: 2022-01-27
+date: 2022-01-02
 
 authors:
   - name: Jack Lloyd-Walters

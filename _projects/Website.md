@@ -6,7 +6,7 @@ img: assets/img/milky-way_1f30c.png
 importance:
 category: fun
 redirect: https://github.com/SK1Y101/sk1y101.github.io
-date: 2021-12-01
+date: 2021-12-08
 github:
   user: SK1Y101
   repo: sk1y101.github.io
