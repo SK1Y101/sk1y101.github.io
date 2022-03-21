@@ -11,6 +11,10 @@ github:
   onpage: true
 date: 2021-03-18
 
+dropdown:
+  - title: Skiylia Site
+    url: "https://skiylia-lang.github.io/"
+
 authors:
   - name: Jack Lloyd-Walters
     url: "https://sk1y101.github.io"

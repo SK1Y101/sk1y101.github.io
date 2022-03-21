@@ -29,11 +29,14 @@ links:
 bibliography:
 
 toc:
-  - name: Project proposal
-  - name: Literature Review
-  - name: Poster
-  - name: Presentation
-  - name: Dissertation
+  - name: Overview
+  - name: Documents
+    subsections:
+      - name: Project proposal
+      - name: Literature Review
+      - name: Poster
+      - name: Presentation
+      - name: Dissertation
 
 # Below is an example of injecting additional post-specific styles.
 # If you use this post as a template, delete this _styles block.
@@ -42,7 +45,31 @@ toc:
 
 It should be noted, this project is a work in progress, and many things are subject to change.
 
-## Project Proposal
+## Overview
+
+The (Current) High-level plan for this project is (as everything else is) subject to change. It is as follows:
+
+- Find suitable observation targets (See [Project Proposal](#project-proposal)).
+- Observe targets to collect data.
+- Fit data to transit model and upload to Exoclock (See [Literature Review](#literature-review)).
+- Summarise methodology (See [Poster](#poster)).
+- Write code.
+  - Select target planetary system
+  - Find all ExoClock/ETD data for the planetary system.
+  - Find the known system information (ie: NASA Exoplanet Archive search).
+  - Simulate the known parts of the system.
+  - Fit the simulation to the ExoClock/ETD data.
+  - Determine whether the system does exhibit TTV.
+  - Run hundreds of simulations to suggest possible system layout.
+  - Summarise every stage with graphs and charts.
+- Compile results (see [Presentation](#presentation)).
+- Summarise findings and results, and suggest options for future work (see [Dissertation](#dissertation)).
+
+## Documents
+
+As part of this project, I have had to create several pieces of documentation, which can be found in each section below. Additionally, a summary of the document -if applicable- is given.
+
+### Project Proposal
 
 The overarching goal of this project is to attempt to measure transit timing variations of exoplanets, to determine the parameters of other exoplanet candidates in the system.
 
@@ -56,25 +83,25 @@ The full document is accessible as a PDF from the link [Here](../../assets/pdf/T
 
 ---
 
-## Literature Review
+### Literature Review
 
 The full document is accessible as a PDF from the link [Here](../../assets/pdf/TransitProject/LiteratureReview.pdf)
 
 ---
 
-## Poster
+### Poster
 
 The full document is accessible as a PDF from the link [Here](../../assets/pdf/TransitProject/Poster.pdf)
 
 ---
 
-## Presentation
+### Presentation
 
 Work in progress, has not yet been completed
 
 ---
 
-## Dissertation
+### Dissertation
 
 Work in progress, has not yet been completed
 
