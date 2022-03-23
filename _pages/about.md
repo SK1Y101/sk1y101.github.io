@@ -7,6 +7,12 @@ description: Welcome to my personal website.
 profile:
   align: right
   image: prof_pic.jpg
+  address: >
+    <p><a href="https://wakatime.com/@83d59565-ae76-4745-b10d-0c9776c223f1"><img src="https://wakatime.com/badge/user/83d59565-ae76-4745-b10d-0c9776c223f1.svg" alt="Total time coded since Mar 16 2021" /></a></p>
+    <p>A programmer for fun, occasionally doing things that aren't useless</p>
+    {% if site.email %}
+      <p><a href="mailto:{{ site.email | encode_email }}" title="email">{{ site.email }}</a></p>
+    {% endif %}
 
 news: true  # includes a list of news items
 selected_papers: true # includes a list of papers marked as "selected={true}"
