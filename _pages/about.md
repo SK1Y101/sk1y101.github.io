@@ -28,8 +28,6 @@ For any employers looking at this page, feel free to send a job posting to me vi
   {% include selected_projects.html %}
 {% endif %}
 
-for an extended list of things I'm working on, or have previously worked with, see <a href="sk1y101.github.io/projects">the projects section</a> of this website.
-
 ### Activity
 
 I love a good graph, Especially ones that I can directly influence with programming. So here's a few graphs of my programming over time. It's wonderfully interesting, I would say.
