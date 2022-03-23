@@ -2,7 +2,7 @@
 layout: about
 title: About
 permalink: /
-description: Welcome to my personal website.
+description:
 
 profile:
   align: right
@@ -40,7 +40,7 @@ I love a good graph, Especially ones that I can directly influence with programm
 <link rel="stylesheet" href="https://unpkg.com/github-calendar@latest/dist/github-calendar-responsive.css"/>
 <!-- Prepare a container for your calendar. -->
 <div class="calendar"> Loading the data just for you. </div>
-<script>GitHubCalendar(".calendar", "your-username", { responsive: true });</script>
+<script>GitHubCalendar(".calendar", "sk1y101", { responsive: true });</script>
 
 This wonderful chart is courtesy of [Bloggify](https://github.com/Bloggify), and can be found [here](https://github.com/Bloggify/github-calendar)
 
