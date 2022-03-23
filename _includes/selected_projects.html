@@ -1,37 +1,31 @@
-My most recent Projects
+An ordered list of my most recent projects. Included is a github repo badge (If possible)
 
-<div class="news">
+<div class="projects">
   {% if site.projects  %}
-    <div class="table-responsive">
-      <table class="table table-sm table-borderless">
+    <div class="grid">
       {% assign projects = site.projects | reverse %}
       {% for item in projects limit: site.project_limit %}
-        <tr>
-          <th scope="row">{{ item.date | date: "%b %-d, %Y" }}</th>
-          <td style="padding: 0rem;">
-            {% if item.redirect %}
-              {% if item.github %}
-                <a class="news-title" href="{{ item.redirect }}">
-                  <img align="center" class="imgresize ghcard-light" src="{{ 'https://github-readme-stats.vercel.app/api/pin/?username=' | append: item.github.user | append: '&repo=' | append: item.github.repo | append: '&border_radius=20&title_color=2698BA&icon_color=2698BA&text_color=000000&bg_color=EEEEEE&border_color=2A2A2B' }}">
-                  <img align="center" class="imgresize ghcard-dark" src="{{ 'https://github-readme-stats.vercel.app/api/pin/?username=' | append: item.github.user | append: '&repo=' | append: item.github.repo | append: '&border_radius=20&title_color=B3FFFF&icon_color=B3FFFF&text_color=A3A3A6&bg_color=2A2A2B&border_color=EEEEEE' }}"/>
-                </a>
-              {% else %}
-                <a class="news-title" href="{{ item.redirect }}">{{ item.title }}</a>
-              {% endif %}
-            {% else %}
-              {% if item.github %}
-                <a class="news-title" href="{{ item.url | relative_url }}">
-                  <img align="center" class="imgresize ghcard-light" src="{{ 'https://github-readme-stats.vercel.app/api/pin/?username=' | append: item.github.user | append: '&repo=' | append: item.github.repo | append: '&border_radius=20&title_color=2698BA&icon_color=2698BA&text_color=000000&bg_color=EEEEEE&border_color=2A2A2B' }}">
-                  <img align="center" class="imgresize ghcard-dark" src="{{ 'https://github-readme-stats.vercel.app/api/pin/?username=' | append: item.github.user | append: '&repo=' | append: item.github.repo | append: '&border_radius=20&title_color=B3FFFF&icon_color=B3FFFF&text_color=A3A3A6&bg_color=2A2A2B&border_color=EEEEEE' }}"/>
-                </a>
-              {% else %}
-                <a class="news-title" href="{{ item.url | relative_url }}">{{ item.title }}</a>
-              {% endif %}
+        <div class="grid-item">
+          <!-- Setup clickable links -->
+          {% if item.redirect %}
+            <a href="{{ item.redirect }}">
+          {% else %}
+            <a href="{{ item.url | relative_url }}">
+          {% endif %}
+          <!-- show image badge if possible -->
+          <div class="card hoverable">
+            {% if item.github %}
+              <img align="center" class="imgresize ghcard-light" src="{{ 'https://github-readme-stats.vercel.app/api/pin/?username=' | append: item.github.user | append: '&repo=' | append: item.github.repo | append: '&border_radius=20&title_color=2698BA&icon_color=2698BA&text_color=000000&bg_color=EEEEEE&border_color=2A2A2B' }}">
+              <img align="center" class="imgresize ghcard-dark" src="{{ 'https://github-readme-stats.vercel.app/api/pin/?username=' | append: item.github.user | append: '&repo=' | append: item.github.repo | append: '&border_radius=20&title_color=B3FFFF&icon_color=B3FFFF&text_color=A3A3A6&bg_color=2A2A2B&border_color=EEEEEE' }}"/>
             {% endif %}
-          </td>
-        </tr>
+            <!-- Card text if given -->
+            <div class="card-body">
+              <h2 class="card-title text-capitalize">{{ item.title }}</h2>
+              <p class="card-text">{{ item.description }}</p>
+            </div>
+          </div>
+        </div>
       {% endfor %}
-      </table>
     </div>
   {% else %}
     <p>No projects so far...</p>
