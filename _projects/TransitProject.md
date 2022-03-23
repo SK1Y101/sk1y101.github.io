@@ -145,5 +145,3 @@ Work in progress, has not yet been completed
 ### Dissertation
 
 Work in progress, has not yet been completed
-
----
