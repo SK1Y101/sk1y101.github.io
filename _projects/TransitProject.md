@@ -29,7 +29,9 @@ links:
 bibliography:
 
 toc:
-  - name: Overview
+  - name: Motivation
+  - name: Overview and Plans
+  - name: Code
   - name: Documents
     subsections:
       - name: Project proposal
@@ -45,7 +47,17 @@ toc:
 
 It should be noted, this project is a work in progress, and many things are subject to change.
 
-## Overview
+## Motivation
+
+[![forthebadge](https://forthebadge.com/images/badges/built-with-science.svg)](https://forthebadge.com)
+[![forthebadge](https://forthebadge.com/images/badges/made-with-python.svg)](https://forthebadge.com)
+[![forthebadge](https://forthebadge.com/images/badges/powered-by-coffee.svg)](https://forthebadge.com)
+
+Transiting exoplanets are growing ever more numerous, since *Kepler* launched in 2009, we have seen an explosive growth in the number of them detected. There are thousands visible in any single patch of the sky, and that's awesome.
+
+What interests me, however, is the potential hidden planets in those systems. The planets whose transit is off axis to our line of sight, and slip past silent in the night. Through their gravitational influence on the planets we can see, hints of their presence are evident, hints that we will attempt to locate programmatically.
+
+## Overview and Plans
 
 The (Current) High-level plan for this project is (as everything else is) subject to change. It is as follows:
 
@@ -64,6 +76,24 @@ The (Current) High-level plan for this project is (as everything else is) subjec
   - Summarise every stage with graphs and charts.
 - Compile results (see [Presentation](#presentation)).
 - Summarise findings and results, and suggest options for future work (see [Dissertation](#dissertation)).
+
+## Code
+
+Because I'm me, and I love an excuse to program, this project will make use of every possible code technique I can. This involves simulation, signal processing, curve fitting, data collection, and even some pretty graphing. Almost enough to make an entire code library!
+
+Also because it's me, and I love badges, here's a few summarising the repo.
+
+![GitHub](https://img.shields.io/github/license/SK1Y101/TransitProject)
+[![CodeFactor](https://www.codefactor.io/repository/github/SK1Y101/TransitProject/badge)](https://www.codefactor.io/repository/github/SK1Y101/TransitProject)
+[![wakatime](https://wakatime.com/badge/github/SK1Y101/TransitProject.svg)](https://wakatime.com/badge/github/SK1Y101/TransitProject)
+
+![GitHub language count](https://img.shields.io/github/languages/count/SK1Y101/TransitProject)
+![GitHub top language](https://img.shields.io/github/languages/top/SK1Y101/TransitProject)
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/SK1Y101/TransitProject)
+![Lines of code](https://img.shields.io/tokei/lines/github.com/SK1Y101/TransitProject)
+
+![GitHub commit activity](https://img.shields.io/github/commit-activity/w/SK1Y101/TransitProject)
+![GitHub last commit](https://img.shields.io/github/last-commit/SK1Y101/TransitProject)
 
 ## Documents
 
@@ -85,11 +115,17 @@ The full document is accessible as a PDF from the link [Here](../../assets/pdf/T
 
 ### Literature Review
 
+The literature review is my chance to demonstrate knowledge of the subject, and any learned topics since begining. As I have already a lot of experience with exoplanets [see my EPQ for the first documented example](../../assets/pdf/EPQ.pdf), I summarised that knowledge and attempted to explain trainsit timing variations, and their causes, which I have had to learn over the few weeks before writing the literature review.
+
+In short, there are a multitude of reasons: Other planets, general relativity, non-gravitational perturbations, properties of the planetary atmosphere that change how the light-curve looks, and many others. Even among the list just given, I did not delve into everything.
+
 The full document is accessible as a PDF from the link [Here](../../assets/pdf/TransitProject/LiteratureReview.pdf)
 
 ---
 
 ### Poster
+
+I needed to summarise my work done, and a quick idea of my project moving forward. Of course, I noted ExoClock and my tranist observations, and gave a quick summary of (what was essentially) the literature review.
 
 The full document is accessible as a PDF from the link [Here](../../assets/pdf/TransitProject/Poster.pdf)
 
