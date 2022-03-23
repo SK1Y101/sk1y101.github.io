@@ -106,7 +106,7 @@ collections:
     permalink: /projects/:path/
 
 news_limit: 5
-project_limit: 5
+project_limit: 6
 
 # -----------------------------------------------------------------------------
 # Jekyll settings
