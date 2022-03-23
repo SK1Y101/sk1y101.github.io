@@ -21,9 +21,8 @@ for an extended list of things I'm working on, or have previously worked with, s
               <img align="center" class="imgresize ghcard-dark" src="{{ 'https://github-readme-stats.vercel.app/api/pin/?username=' | append: item.github.user | append: '&repo=' | append: item.github.repo | append: '&border_radius=20&title_color=B3FFFF&icon_color=B3FFFF&text_color=A3A3A6&bg_color=2A2A2B&border_color=EEEEEE' }}"/>
             {% endif %}
             <!-- Card text if given -->
-            <div class="card-body">
-              <h2 class="card-title text-capitalize">{{ item.title }}</h2>
-              <p class="card-text">{{ item.date | date: "%b %-d, %Y" }}</p>
+            <div class="card-body text-capitalize">
+              {{ item.date | date: "%b %-d, %Y" }} - {{ item.title }}
             </div>
           </div>
           </a>
