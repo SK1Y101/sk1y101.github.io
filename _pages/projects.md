@@ -5,7 +5,7 @@ permalink: /projects/
 description: An incomplete list of things I've done.
 nav: true
 display_categories: [work, training, fun]
-horizontal: false
+horizontal: true
 ---
 <div class="projects">
   {% if site.enable_project_categories and page.display_categories %}
