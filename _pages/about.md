@@ -37,16 +37,16 @@ I love a good graph, Especially ones that I can directly influence with programm
 <!-- Optionally, include the theme (if you don't want to struggle to write the CSS) -->
 <link rel="stylesheet" href="https://unpkg.com/github-calendar@latest/dist/github-calendar-responsive.css"/>
 <!-- Prepare a container for your calendar. -->
-<div class="calendar"> Loading the data just for you. </div>
+<div class="calendar"> Loading the data just for you.</div>
 <script>GitHubCalendar(".calendar", "sk1y101", { responsive: true });</script>
 
 This wonderful chart is courtesy of [Bloggify](https://github.com/Bloggify), and can be found [here](https://github.com/Bloggify/github-calendar)
 
-<img align="center" class="ghcard-light" src="https://wakatime.com/share/@SK1Y101/e5c5cfbd-56b2-4479-bae6-b6f1a5cbdbbc.svg">
-<img align="center" class="ghcard-dark" src="https://wakatime.com/share/@SK1Y101/ba725dc4-a1cc-4648-9e2a-4f7f5ece0e72.svg"/>
+<img align="center" class="ghcard-light" style="border-radius: 1.5rem;" src="https://wakatime.com/share/@SK1Y101/e5c5cfbd-56b2-4479-bae6-b6f1a5cbdbbc.svg"/>
+<img align="center" class="ghcard-dark" style="border-radius: 1.5rem;" src="https://wakatime.com/share/@SK1Y101/ba725dc4-a1cc-4648-9e2a-4f7f5ece0e72.svg"/>
 
-<img align="center" class="ghcard-light" src="https://wakatime.com/share/@SK1Y101/551c0fe1-6ef1-4474-9881-54c8e0f24dfd.svg">
-<img align="center" class="ghcard-dark" src="https://wakatime.com/share/@SK1Y101/8cd65eff-c82f-4dd0-99b0-da4c3f3a3e1a.svg"/>
+<img align="center" class="ghcard-light" style="border-radius: 1.5rem;" src="https://wakatime.com/share/@SK1Y101/551c0fe1-6ef1-4474-9881-54c8e0f24dfd.svg"/>
+<img align="center" class="ghcard-dark" style="border-radius: 1.5rem;" src="https://wakatime.com/share/@SK1Y101/8cd65eff-c82f-4dd0-99b0-da4c3f3a3e1a.svg"/>
 
 ### Support me
 
