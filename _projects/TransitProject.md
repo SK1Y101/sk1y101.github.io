@@ -86,14 +86,13 @@ Also because it's me, and I love badges, here's a few summarising the repo.
 ![GitHub](https://img.shields.io/github/license/SK1Y101/TransitProject)
 [![CodeFactor](https://www.codefactor.io/repository/github/SK1Y101/TransitProject/badge)](https://www.codefactor.io/repository/github/SK1Y101/TransitProject)
 [![wakatime](https://wakatime.com/badge/github/SK1Y101/TransitProject.svg)](https://wakatime.com/badge/github/SK1Y101/TransitProject)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/w/SK1Y101/TransitProject)
+![GitHub last commit](https://img.shields.io/github/last-commit/SK1Y101/TransitProject)
 
 ![GitHub language count](https://img.shields.io/github/languages/count/SK1Y101/TransitProject)
 ![GitHub top language](https://img.shields.io/github/languages/top/SK1Y101/TransitProject)
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/SK1Y101/TransitProject)
 ![Lines of code](https://img.shields.io/tokei/lines/github.com/SK1Y101/TransitProject)
-
-![GitHub commit activity](https://img.shields.io/github/commit-activity/w/SK1Y101/TransitProject)
-![GitHub last commit](https://img.shields.io/github/last-commit/SK1Y101/TransitProject)
 
 ## Documents
 
