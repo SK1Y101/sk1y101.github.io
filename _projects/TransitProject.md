@@ -61,7 +61,7 @@ What interests me, however, is the potential hidden planets in those systems. Th
 
 ## Overview and Plans
 
-The (Current) High-level plan for this project is (as everything else is) subject to change. It is as follows:
+The (Current) High-level plan for this project is -as everything else is- subject to change. It is as follows:
 
 - Find suitable observation targets (See [Project Proposal](#project-proposal)).
 - Observe targets to collect data.
