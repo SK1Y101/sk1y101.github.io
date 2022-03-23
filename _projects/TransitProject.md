@@ -57,6 +57,8 @@ Transiting exoplanets are growing ever more numerous, since *Kepler* launched in
 
 What interests me, however, is the potential hidden planets in those systems. The planets whose transit is off axis to our line of sight, and slip past silent in the night. Through their gravitational influence on the planets we can see, hints of their presence are evident, hints that we will attempt to locate programmatically.
 
+***
+
 ## Overview and Plans
 
 The (Current) High-level plan for this project is (as everything else is) subject to change. It is as follows:
@@ -77,6 +79,8 @@ The (Current) High-level plan for this project is (as everything else is) subjec
 - Compile results (see [Presentation](#presentation)).
 - Summarise findings and results, and suggest options for future work (see [Dissertation](#dissertation)).
 
+***
+
 ## Code
 
 Because I'm me, and I love an excuse to program, this project will make use of every possible code technique I can. This involves simulation, signal processing, curve fitting, data collection, and even some pretty graphing. Almost enough to make an entire code library!
@@ -93,6 +97,8 @@ Also because it's me, and I love badges, here's a few summarising the repo.
 ![GitHub top language](https://img.shields.io/github/languages/top/SK1Y101/TransitProject)
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/SK1Y101/TransitProject)
 ![Lines of code](https://img.shields.io/tokei/lines/github.com/SK1Y101/TransitProject)
+
+***
 
 ## Documents
 
