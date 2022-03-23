@@ -7,7 +7,7 @@ for an extended list of things I'm working on, or have previously worked with, s
     <div class="grid">
       {% assign projects = site.projects | reverse %}
       {% for item in projects limit: site.project_limit %}
-        <div class="grid-item">
+        <div class="grid-item" style="width: 50% !important;">
           <!-- Setup clickable links -->
           {% if item.redirect %}
             <a href="{{ item.redirect }}">
