@@ -97,7 +97,7 @@ Also because it's me, and I love badges, here's a few summarising the repo.
 ![GitHub top language](https://img.shields.io/github/languages/top/SK1Y101/TransitProject)
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/SK1Y101/TransitProject)
 ![Lines of code](https://img.shields.io/tokei/lines/github.com/SK1Y101/TransitProject)
-<script type='text/javascript' src='https://www.openhub.net/p/GWProject/widgets/project_partner_badge?format=js'></script>
+<script type='text/javascript' src='https://www.openhub.net/p/TransitProject/widgets/project_partner_badge?format=js'></script>
 
 ***
 
