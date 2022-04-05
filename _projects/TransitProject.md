@@ -97,7 +97,7 @@ Also because it's me, and I love badges, here's a few summarising the repo.
 ![GitHub top language](https://img.shields.io/github/languages/top/SK1Y101/TransitProject)
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/SK1Y101/TransitProject)
 ![Lines of code](https://img.shields.io/tokei/lines/github.com/SK1Y101/TransitProject)
-<script type='text/javascript' src='https://www.openhub.net/p/TransitProject/widgets/project_thin_badge?format=js'></script>
+<img src="https://www.openhub.net/p/TransitProject/widgets/project_thin_badge?format=gif" alt="https://www.openhub.net/p/TransitProject/widgets/project_thin_badge?format=gif" style="border-radius: 0.25rem;">
 
 ***
 
