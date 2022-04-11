@@ -9,6 +9,7 @@ github:
   user: SK1Y101
   repo: TransitProject
   onpage: true
+  showbadges: false
 category: work
 date: 2022-02-11
 

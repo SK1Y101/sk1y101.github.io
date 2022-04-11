@@ -9,6 +9,7 @@ github:
   user: Skiylia-Lang
   repo: Verboscript
   onpage: true
+  showbadges: true
 date: 2021-05-05
 
 authors:

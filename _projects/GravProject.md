@@ -9,6 +9,7 @@ github:
   user: SK1Y101
   repo: GWProject
   onpage: true
+  showbadges: true
 category: work
 date: 2021-06-03
 

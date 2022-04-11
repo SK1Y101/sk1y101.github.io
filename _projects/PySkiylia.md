@@ -9,6 +9,7 @@ github:
   user: Skiylia-Lang
   repo: PySkiylia
   onpage: true
+  showbadges: true
 date: 2021-03-18
 
 dropdown:

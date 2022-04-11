@@ -9,6 +9,7 @@ github:
   user: SK1Y101
   repo: KOSFlightController
   onpage: true
+  showbadges: true
 date: 2022-01-02
 
 authors:

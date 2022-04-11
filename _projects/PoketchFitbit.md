@@ -9,6 +9,7 @@ github:
   user: SK1Y101
   repo: PoketchFitbit
   onpage: true
+  showbadges: true
 date: 2021-08-25
 
 authors:

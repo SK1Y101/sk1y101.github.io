@@ -41,12 +41,29 @@ layout: default
 
   {% if page.github.onpage %}
     <hr/>
-    Github Repo
+    <h3 id="GitHub Repo">GitHub Repo</h3>
     <!-- Github card if given -->
     <a href="{{ 'https://github.com/' | append: page.github.user | append: '/' | append: page.github.repo }}">
-      <img align="center" class="imgresize ghcard-light" src="{{ 'https://github-readme-stats.vercel.app/api/pin/?username=' | append: page.github.user | append: '&repo=' | append: page.github.repo | append: '&border_radius=20&title_color=2698BA&icon_color=2698BA&text_color=000000&bg_color=EEEEEE&border_color=2A2A2B' }}">
-      <img align="center" class="imgresize ghcard-dark" src="{{ 'https://github-readme-stats.vercel.app/api/pin/?username=' | append: page.github.user | append: '&repo=' | append: page.github.repo | append: '&border_radius=20&title_color=B3FFFF&icon_color=B3FFFF&text_color=A3A3A6&bg_color=2A2A2B&border_color=EEEEEE' }}"/>
+      <img align="center" class="imgresize ghcard-light"  src="{{ 'https://github-readme-stats.vercel.app/api/pin/?username=' | append: page.github.user | append: '&repo=' | append: page.github.repo | append: '&border_radius=20&title_color=2698BA&icon_color=2698BA&text_color=000000&bg_color=EEEEEE&border_color=2A2A2B' }}">
+      <img align="center" class="imgresize ghcard-dark"   src="{{ 'https://github-readme-stats.vercel.app/api/pin/?username=' | append: page.github.user | append: '&repo=' | append: page.github.repo | append: '&border_radius=20&title_color=B3FFFF&icon_color=B3FFFF&text_color=A3A3A6&bg_color=2A2A2B&border_color=EEEEEE' }}"/>
     </a>
+    {% if page.github.showbadges %}
+      <img alt="GitHub license"         src="{{ 'https://img.shields.io/github/license/' | append: page.github.user | append: '/' | append: page.github.repo }}"/>
+      <img alt="CodeFactor"             src="{{ 'https://www.codefactor.io/repository/github/' | append: page.github.user | append: '/' | append: page.github.repo | append: '/badge' }}"/>
+      <img alt="wakatime"               src="{{ 'https://wakatime.com/badge/github/' | append: page.github.user | append: '/' | append: page.github.repo | append: '.svg' }}"/>
+      <img alt="GitHub commit activity" src="{{ 'https://img.shields.io/github/commit-activity/w/' | append: page.github.user | append: '/' | append: page.github.repo"/>
+      <img alt="GitHub last commit"     src="{{ 'https://img.shields.io/github/last-commit/' | append: page.github.user | append: '/' | append: page.github.repo"/>
+
+      <img alt="GitHub language count"  src="{{ 'https://img.shields.io/github/languages/count/' | append: page.github.user | append: '/' | append: page.github.repo"/>
+      <img alt="GitHub top language"    src="{{ 'https://img.shields.io/github/languages/top/' | append: page.github.user | append: '/' | append: page.github.repo"/>
+      <img alt="GitHub code size"       src="{{ 'https://img.shields.io/github/languages/code-size/' | append: page.github.user | append: '/' | append: page.github.repo"/>
+      <img alt="Lines of code"          src="{{ 'https://img.shields.io/tokei/lines/github.com/' | append: page.github.user | append: '/' | append: page.github.repo"/>
+      {% if page.github.openhub %}
+        <img alt="OpenHub statistics"   src="{{ 'https://www.openhub.net/p/' | append: page.github.openhub | append: '/widgets/project_thin_badge?format=gif' }}" style="border-radius: 0.25rem;">
+      {% else %}
+        <img alt="OpenHub statistics"   src="{{ 'https://www.openhub.net/p/' | append: page.github.repo | append: '/widgets/project_thin_badge?format=gif' }}" style="border-radius: 0.25rem;">
+      {% endif %}
+    {% endif %}
   {% endif %}
 
 </div>
