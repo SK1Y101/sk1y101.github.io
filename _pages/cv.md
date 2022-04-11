@@ -55,7 +55,9 @@ nav: true
 			<br />
 			I have nearly 12 years of programming experience, primarily Python, that I used to great effect in my 2021 bachelors project "Distinguishing Intermediate Mass Black Hole Mergers From Short Duration Glitches".
 			<br />
-			In 2020 I became a fellow of the Royal Astronomical Society and a member of theEuropean Astronomical Society to further my interest and professional options, asI aim to pursue a research career in astrophysics after graduation.
+			In 2020, I became a fellow of the Royal Astronomical Society and a member of theEuropean Astronomical Society to further my interest and professional options, as I aim to pursue a research career in astrophysics after graduation.
+			<br />
+			In 2022, I Joined the AiCore Graduate Accelerator scheme to become and AI and Data engineer, with the completion date of summer 2022.
 			<br />
 			I am currently a beginner learner of Japanese, with the aim of passing the JLPT N5 by the summer of 2022.
 			<br />
