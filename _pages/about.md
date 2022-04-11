@@ -6,7 +6,7 @@ description:
 
 profile:
   align: right
-  image: prof_pic.jpg
+  image: Profile_Image.JPG
   address: >
     <p><a href="https://wakatime.com/@83d59565-ae76-4745-b10d-0c9776c223f1"><img src="https://wakatime.com/badge/user/83d59565-ae76-4745-b10d-0c9776c223f1.svg" alt="Total time coded since Mar 16 2021" /></a></p>
     <p>A programmer for fun, occasionally doing things that aren't useless</p>
