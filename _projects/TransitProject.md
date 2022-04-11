@@ -10,6 +10,7 @@ github:
   repo: TransitProject
   onpage: true
   showbadges: false
+  contributors: true
 category: work
 date: 2022-02-11
 

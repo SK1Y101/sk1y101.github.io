@@ -50,8 +50,12 @@ layout: default
     {% if page.github.showbadges %}
       <br>
       <img alt="GitHub license"         src="{{ 'https://img.shields.io/github/license/' | append: page.github.user | append: '/' | append: page.github.repo }}"/>
-      <img alt="CodeFactor"             src="{{ 'https://www.codefactor.io/repository/github/' | append: page.github.user | append: '/' | append: page.github.repo | append: '/badge' }}"/>
-      <img alt="wakatime"               src="{{ 'https://wakatime.com/badge/github/' | append: page.github.user | append: '/' | append: page.github.repo | append: '.svg' }}"/>
+      <a href="{{ 'https://www.codefactor.io/repository/github/' | append: page.github.user | append: '/' | append: page.github.repo }}">
+        <img alt="CodeFactor"           src="{{ 'https://www.codefactor.io/repository/github/' | append: page.github.user | append: '/' | append: page.github.repo | append: '/badge' }}"/>
+      </a>
+      <a href="{{ 'https://wakatime.com/badge/github/' | append: page.github.user | append: '/' | append: page.github.repo }}">
+        <img alt="wakatime"             src="{{ 'https://wakatime.com/badge/github/' | append: page.github.user | append: '/' | append: page.github.repo | append: '.svg' }}"/>
+      </a>
       <img alt="GitHub commit activity" src="{{ 'https://img.shields.io/github/commit-activity/w/' | append: page.github.user | append: '/' | append: page.github.repo }}"/>
       <img alt="GitHub last commit"     src="{{ 'https://img.shields.io/github/last-commit/' | append: page.github.user | append: '/' | append: page.github.repo }}"/>
       <br>
@@ -60,9 +64,19 @@ layout: default
       <img alt="GitHub code size"       src="{{ 'https://img.shields.io/github/languages/code-size/' | append: page.github.user | append: '/' | append: page.github.repo }}"/>
       <img alt="Lines of code"          src="{{ 'https://img.shields.io/tokei/lines/github.com/' | append: page.github.user | append: '/' | append: page.github.repo }}"/>
       {% if page.github.openhub %}
-        <img alt="OpenHub statistics"   src="{{ 'https://www.openhub.net/p/' | append: page.github.openhub | append: '/widgets/project_thin_badge?format=gif' }}" style="border-radius: 0.25rem;">
+        <a href="{{ 'https://www.openhub.net/p/' | append: page.github.openhub }}">
+          <img alt="OpenHub statistics" src="{{ 'https://www.openhub.net/p/' | append: page.github.openhub | append: '/widgets/project_thin_badge?format=gif' }}" style="border-radius: 0.25rem;">
+        </a>
       {% else %}
-        <img alt="OpenHub statistics"   src="{{ 'https://www.openhub.net/p/' | append: page.github.repo | append: '/widgets/project_thin_badge?format=gif' }}" style="border-radius: 0.25rem;">
+        <a href="{{ 'https://www.openhub.net/p/' | append: page.github.repo }}">
+          <img alt="OpenHub statistics" src="{{ 'https://www.openhub.net/p/' | append: page.github.repo | append: '/widgets/project_thin_badge?format=gif' }}" style="border-radius: 0.25rem;">
+        </a>
+      {% endif %}
+      {% if page.github.contributors %}
+        <br>
+        <a href="{{ 'https://github.com/' | append: page.github.user | append: '/' | append: page.github.repo | append: '/graphs/contributors' }}">
+          <img src="{{ 'https://contrib.rocks/image?repo=' | append: page.github.user | append: '/' | append: page.github.repo }}"/>
+        </a>
       {% endif %}
     {% endif %}
   {% endif %}

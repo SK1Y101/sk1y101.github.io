@@ -10,6 +10,7 @@ github:
   repo: PoketchFitbit
   onpage: true
   showbadges: true
+  contributors: true
 date: 2021-08-25
 
 authors:

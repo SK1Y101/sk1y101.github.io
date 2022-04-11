@@ -10,6 +10,7 @@ github:
   repo: KOSFlightController
   onpage: true
   showbadges: true
+  contributors: true
 date: 2022-01-02
 
 authors:

@@ -10,6 +10,7 @@ github:
   repo: Verboscript
   onpage: true
   showbadges: true
+  contributors: true
 date: 2021-05-05
 
 authors:

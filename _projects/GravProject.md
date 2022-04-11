@@ -10,6 +10,7 @@ github:
   repo: GWProject
   onpage: true
   showbadges: true
+  contributors: true
 category: work
 date: 2021-06-03
 
