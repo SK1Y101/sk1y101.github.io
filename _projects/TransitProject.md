@@ -3,7 +3,7 @@ layout: project
 title: Masters Thesis
 longtitle: Determining The Parameters of Exoplanetary Candidates From Transit Timing Variations
 description: Searching for Transit Timing Variations to determine the parameters of additional exoplanets in a system.
-img: assets/img/TransitProject/KeplerLightCurve.jpg
+img: assets/img/TransitProject/TTVModelAnimation.gif
 importance: 1
 github:
   user: SK1Y101

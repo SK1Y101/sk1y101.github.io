@@ -39,7 +39,7 @@ def fetchNames():
     files = nested_to_linear([[(root+"/").replace(os.getcwd()+"/", "")+f for f in file] \
                                 for root, dir, file in os.walk(os.getcwd())])
     # Filter to only images
-    files = [file for file in files if contains(file, ".png", ".jpg", ".svg")]
+    files = [file for file in files if contains(file, ".png", ".jpg", ".svg", ".gif")]
     print("found {} files".format(len(files)), files, sep="\n")
     # and return
     return files
