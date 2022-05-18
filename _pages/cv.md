@@ -51,17 +51,15 @@ nav: true
 	<div class="card p-3">
 		<h3 class="card-title">About Me</h3>
 		<div class="card-text p-3">
-			I am a final year masters student with a strong passion for computational physics, particularly focused on astronomy, exoplanetary science, and other space-based endeavours.
-			<br />
-			I have nearly 12 years of programming experience, primarily Python, that I used to great effect in my 2021 bachelors project "Distinguishing Intermediate Mass Black Hole Mergers From Short Duration Glitches".
-			<br />
-			In 2020, I became a fellow of the Royal Astronomical Society and a member of theEuropean Astronomical Society to further my interest and professional options, as I aim to pursue a research career in astrophysics after graduation.
-			<br />
-			In 2022, I Joined the AiCore Graduate Accelerator scheme to become and AI and Data engineer, with the completion date of summer 2022.
-			<br />
-			I am currently a beginner learner of Japanese, with the aim of passing the JLPT N5 by the summer of 2022.
-			<br />
-			My eventual goal is to find a career in computational astrophysics, preferably within the exoplanetary sector, and push the boundaries of human knowledge.
+		I am a final year masters student with a strong passion for computational physics, particularly focused on astronomy, exoplanetary science, and other space-based endeavours.
+		<br/>
+		I have nearly 12 years of programming experience, primarily Python, that I used to great effect in my 2021 bachelors project ”Distinguishing Intermediate Mass Black Hole Mergers From Short Duration Glitches”, and my ongoing 2022 Masters Project “Determining The Parameters of Exoplanetary Candidates From Transit Timing Variations”.
+		<br/>
+		In 2020 I became a fellow of the Royal Astronomical Society and a member of the European Astronomical Society to further my interest and professional options, as I have a strong interest in astrophysics research.
+		<br/>
+		In February 2022 I joined the AiCore Training scheme to become an Ai & Data Engineer, to eventually pursue a career in software engineering.
+		<br/>
+		I am also a beginner learner of Japanese, having undertaken extracurricular language modules that I intend to continue after graduation.
 		</div>
 	</div>
 
@@ -116,7 +114,7 @@ nav: true
 							<h3 class="title font-weight-bold ml-1 ml-md-4">MPhys (Hons) Physics, Astronomy, and Cosmology - University of Portsmouth</h3>
 							<ul class="items">
 								<li>
-									Level 7 Masters Project utilising Computational modelling and a combination of first hand telescopic observation and supplementary data to Locate and measure the properties of exoplanets, with specific attention given to transit timing variations to investigate the implied existence of other planets within the system, Due to start February 2022.
+								Level 7 Masters Project utilising Computational modelling and a combination of first hand telescopic observation and supplementary data to measure the properties of transiting exoplanets, and develop analytical models of transit timing variations to investigate the potential properties of other bodies in the system, and computational methods for recovering them. This project was summarised with a 6000 word dissertation, 10 minute presentation/discussion, and scientific poster presentation.
 								</li>
 								<li>
 									Level 6 Bachelors Project utilising Computational modelling and signal processing to identify Glitch events within the LIGO Dataset. This project was summarised with a 5000 word dissertation, 10 minute presentation/discussion, and LaTeX Compatible result list.
