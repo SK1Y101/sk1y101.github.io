@@ -141,10 +141,19 @@ The full document is accessible as a PDF from the link [Here](../../assets/pdf/T
 
 ### Presentation
 
-Work in progress, has not yet been completed
+As part of a demonstration of both the skills earned and progress made, a PowerPoint presentation had to be given.
+A brief overview of the motivation for the project, the methodology, results, and conclusions, as well as the future steps for the project, were given in an eight minute talk, with two additional minutes for audience questions.
+
+The full document is accessible as a PDF from the link [Here](../../assets/pdf/TransitProject/TransitPresentation.pdf)
 
 ---
 
 ### Dissertation
 
+As the final stage in the masters project, a final thesis needed to be written.
+
+This 6000 word dissertation would highlight the entire process, give detail to the findings and methods, and update literature, hopefully furthering the bounds of scientific knowledge.
+
 Work in progress, has not yet been completed
+
+The full document will eventually be accessible as a PDF from the link [Here](../../assets/pdf/TransitProject/TransitDissertation.pdf)
