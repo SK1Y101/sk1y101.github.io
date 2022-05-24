@@ -152,8 +152,6 @@ The full document is accessible as a PDF from the link [Here](../../assets/pdf/T
 
 As the final stage in the masters project, a final thesis needed to be written.
 
-This 6000 word dissertation would highlight the entire process, give detail to the findings and methods, and update literature, hopefully furthering the bounds of scientific knowledge.
+This 6500 word dissertation would highlight the entire process, give detail to the findings and methods, and update literature, hopefully furthering the bounds of scientific knowledge.
 
-Work in progress, has not yet been completed
-
-The full document will eventually be accessible as a PDF from the link [Here](../../assets/pdf/TransitProject/TransitDissertation.pdf)
+The full document is accessible as a PDF from the link [Here](../../assets/pdf/TransitProject/TransitDissertation.pdf)
