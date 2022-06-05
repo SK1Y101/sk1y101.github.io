@@ -9,7 +9,6 @@ profile:
   image: Profile_Image.JPG
   address: >
     <p><a href="https://wakatime.com/@83d59565-ae76-4745-b10d-0c9776c223f1"><img src="https://wakatime.com/badge/user/83d59565-ae76-4745-b10d-0c9776c223f1.svg" alt="Total time coded since Mar 16 2021" /></a></p>
-    <p>A programmer for fun, occasionally doing things that aren't useless</p>
 
 news: true  # includes a list of news items
 selected_papers: true # includes a list of papers marked as "selected={true}"
@@ -18,9 +17,7 @@ social: true  # includes social icons at the bottom of the page
 
 Hi there, I'm Jack!
 
-I'm a Final year masters student in astrophysics at Portsmouth university with a strong passion for Python programming, exoplanetary science, and gravitational wave astronomy. I'm currently looking to begin a career in computational physics, focusing primarily on astronomical research or spacecraft operations.
-
-For any employers looking at this page, feel free to send a job posting to me via email. I only consider jobs that are fully remote work, but may be willing to enter negotiations if the position allows remote working for a large fraction of the total time.
+I'm a Final year masters student in astrophysics at Portsmouth university with a strong passion for Python programming, exoplanetary science, and gravitational wave astronomy. I'm currently pursuing a career in software engineering, and aim to eventually return to computational physics with a focus on astronomical research (Exoplanets probably) or spacecraft operations.
 
 ### Projects
 
