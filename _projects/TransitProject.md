@@ -21,7 +21,7 @@ authors:
       name: Royal Astronomical Society, Portsmouth University
 links:
   pdf: TransitProject/TransitDissertation.pdf
-  url:
+  url: _unlisted/TransitProjectPaper
 
 # Optionally, you can add a table of contents to your post.
 # NOTES:
