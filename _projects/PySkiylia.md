@@ -16,6 +16,8 @@ date: 2021-03-18
 dropdown:
   - title: Skiylia Site
     url: "https://skiylia-lang.github.io/"
+    affiliations:
+      name: Royal Astronomical Society
 
 authors:
   - name: Jack Lloyd-Walters

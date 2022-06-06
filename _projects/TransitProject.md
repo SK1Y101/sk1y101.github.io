@@ -17,8 +17,10 @@ date: 2022-02-11
 authors:
   - name: Jack Lloyd-Walters
     url: "https://sk1y101.github.io"
+    affiliations:
+      name: Royal Astronomical Society, Portsmouth University
 links:
-  pdf:
+  pdf: TransitProject/TransitDissertation.pdf
   url:
 
 # Optionally, you can add a table of contents to your post.
@@ -46,8 +48,6 @@ toc:
 # If you use this post as a template, delete this _styles block.
 
 ---
-
-It should be noted, this project is a work in progress, and many things are subject to change.
 
 ## Motivation
 

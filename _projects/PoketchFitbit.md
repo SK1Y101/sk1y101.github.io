@@ -16,6 +16,8 @@ date: 2021-08-25
 authors:
   - name: Jack Lloyd-Walters
     url: "https://sk1y101.github.io"
+    affiliations:
+      name: Royal Astronomical Society
 
 links:
   url: https://gallery.fitbit.com/details/c69cadcb-a312-4be3-a51f-681b259364c4

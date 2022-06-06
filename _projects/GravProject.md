@@ -17,6 +17,8 @@ date: 2021-06-03
 authors:
   - name: Jack Lloyd-Walters
     url: "https://sk1y101.github.io"
+    affiliations:
+      name: Royal Astronomical Society, University of Portsmouth
 
 links:
   pdf: GWProject/GWProjectFinalReport.pdf
