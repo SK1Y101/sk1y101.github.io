@@ -360,29 +360,29 @@ $$
 
 To derive the effects of orbital perturbation, we follow a derivation for a two-planet case <d-cite key="agol2018}, and extend this to $$n$$ planets. We assume the transiting planet to have zero eccentricity and all planets are on coplanar orbits. We give the equation of motion for a body acting under gravity in equation \ref{eq:gravity}.
 
-$$
-    \ddot{\bf{R}} = \sum_{j \ne i} \left[G m_j \frac{\bf{R}_j - \bf{R}_i}{{| \bf{R}_j - \bf{R}_i|}^3}\right]
+<!--$$
+    \ddot{\mathbf{R}} = \sum_{j \ne i} \left[G m_j \frac{\mathbf{R}_j - \mathbf{R}_i}{{| \mathbf{R}_j - \mathbf{R}_i|}^3}\right]
     \label{eq:gravity}
-$$
+$$-->
 
-Where the bold indicates that the position of the planet, $$\bf{R}$$, is a vector. This can trivially be shown to satisfy \ref{eq:barycentrefixed}
+Where the bold indicates that the position of the planet, $$\mathbf{R}$$, is a vector. This can trivially be shown to satisfy \ref{eq:barycentrefixed}
 
 $$
-    \sum_{i} m_i \bf{\ddot{R}}_i = 0
+    \sum_{i} m_i \mathbf{\ddot{R}}_i = 0
     \label{eq:barycentrefixed}
 $$
 
-Which is a demonstration that the centre of mass of the system, $$\bf{R}_{C.o.M}$$ is fixed, and no external forces are at play. This set of equations are most commonly used in numerical approaches; for an analytical approach to perturbation, it is more convenient to deal with the Jacobi coordinates of the system <d-cite key="3bodypulsar, murraybook}.
+Which is a demonstration that the centre of mass of the system, $$\mathbf{R}_{C.o.M}$$ is fixed, and no external forces are at play. This set of equations are most commonly used in numerical approaches; for an analytical approach to perturbation, it is more convenient to deal with the Jacobi coordinates of the system <d-cite key="3bodypulsar, murraybook}.
 
 This gives a set of new coordinates, $$r_i$$, describing the position of the $$i^{th}$$ body relative to the mass interior to its orbit, as given in equation \ref{eq:jacobi}.
 
 $$
     \begin{aligned}
-        \bf{r}_0 &= \bf{R}_{C.o.M} = 0 \\
-        \bf{r}_1 &= \bf{R}_1 - \frac{m_0\bf{R}_0}{m_0} = \bf{R}_1 - \bf{R}_0 \\
-        \bf{r}_2 &= \bf{R}_2 - \frac{m_0\bf{R}_0+m_1\bf{R}_1}{m_0+m_1} \\
+        \mathbf{r}_0 &= \mathbf{R}_{C.o.M} = 0 \\
+        \mathbf{r}_1 &= \mathbf{R}_1 - \frac{m_0\mathbf{R}_0}{m_0} = \mathbf{R}_1 - \mathbf{R}_0 \\
+        \mathbf{r}_2 &= \mathbf{R}_2 - \frac{m_0\mathbf{R}_0+m_1\mathbf{R}_1}{m_0+m_1} \\
         &\shortvdotswithin{=} \\[-2em]
-        \bf{r}_{n+1} &= \bf{R}_{n+1} - \frac{\sum^n_{j=0}m_j\bf{R}_j}{\sum^n_{j=0}m_j}
+        \mathbf{r}_{n+1} &= \mathbf{R}_{n+1} - \frac{\sum^n_{j=0}m_j\mathbf{R}_j}{\sum^n_{j=0}m_j}
         \label{eq:jacobi}
     \end{aligned}
 $$
@@ -390,55 +390,55 @@ $$
 We can reformulate the equations of motion in Jacobi coordinates, given in equation \ref{eq:jacobimotion}.
 
 $$
-    \ddot{\bf{r}}_{n+1} = \ddot{\bf{R}}_{n+1} - \frac{\sum^n_{j=0}m_j\ddot{\bf{R}}_j}{\sum^n_{j=0}m_j}
+    \ddot{\mathbf{r}}_{n+1} = \ddot{\mathbf{R}}_{n+1} - \frac{\sum^n_{j=0}m_j\ddot{\mathbf{R}}_j}{\sum^n_{j=0}m_j}
     \label{eq:jacobimotion}
 $$
 
-As we are investigating the case of an exterior perturbation, we only consider the equation for the innermost body, $$\ddot{\bf{r}}_1$$, given in equation \ref{eq:perturb}.
+As we are investigating the case of an exterior perturbation, we only consider the equation for the innermost body, $$\ddot{\mathbf{r}}_1$$, given in equation \ref{eq:perturb}.
 
-$$
+<!--$$
     \begin{aligned}
-        \ddot{\bf{r}}_1 &= \ddot{\bf{R}}_1 - \ddot{\bf{R}}_0 \\
-        \ddot{\bf{r}}_1 &= \sum_{j \ne 1} \left[G m_j \frac{\bf{R}_j - \bf{R}_1}{{| \bf{R}_j - \bf{R}_1|}^3}\right] - \sum_{j \ne 0} \left[G m_j \frac{\bf{R}_j - \bf{R}_0}{{| \bf{R}_j - \bf{R}_0|}^3}\right]
+        \ddot{\mathbf{r}}_1 &= \ddot{\mathbf{R}}_1 - \ddot{\mathbf{R}}_0 \\
+        \ddot{\mathbf{r}}_1 &= \sum_{j \ne 1} \left[G m_j \frac{\mathbf{R}_j - \mathbf{R}_1}{{| \mathbf{R}_j - \mathbf{R}_1|}^3}\right] - \sum_{j \ne 0} \left[G m_j \frac{\mathbf{R}_j - \mathbf{R}_0}{{| \mathbf{R}_j - \mathbf{R}_0|}^3}\right]
     \end{aligned}
     \label{eq:perturb}
-$$
+$$-->
 
 The double summation terms can be collected, to give equation \ref{eq:perturbCollected},
 
-$$
+<!--$$
     \begin{split}
-        \ddot{\bf{r}}_1 &= Gm_0 \frac{\bf{R}_0 - \bf{R}_1}{|\bf{R}_0 - \bf{R}_1|^3} - Gm_1 \frac{\bf{R}_1 - \bf{R}_0}{|\bf{R}_1 - \bf{R}_0|^3} \\
-        & + \sum_{j=2} \left[ Gm_j \frac{\bf{R}_j - \bf{R}_1}{{| \bf{R}_j - \bf{R}_1|}^3} - G m_j \frac{\bf{R}_j - \bf{R}_0}{{| \bf{R}_j - \bf{R}_0|}^3} \right]
+        \ddot{\mathbf{r}}_1 &= Gm_0 \frac{\mathbf{R}_0 - \mathbf{R}_1}{|\mathbf{R}_0 - \mathbf{R}_1|^3} - Gm_1 \frac{\mathbf{R}_1 - \mathbf{R}_0}{|\mathbf{R}_1 - \mathbf{R}_0|^3} \\
+        & + \sum_{j=2} \left[ Gm_j \frac{\mathbf{R}_j - \mathbf{R}_1}{{| \mathbf{R}_j - \mathbf{R}_1|}^3} - G m_j \frac{\mathbf{R}_j - \mathbf{R}_0}{{| \mathbf{R}_j - \mathbf{R}_0|}^3} \right]
     \end{split}
     \label{eq:perturbCollected}
-$$
+$$-->
 
-For the Jacobian coordinates, We introduce the notation $$|\bf{r}_i| \equiv r_i$. That is to say, coordinates in bold is the vector position, while non-bold is the magnitude of that vector. We also introduce the reduced mass, $$\mu$$, given as $$\mu_i = \nicefrac{m_i}{M}$$, where $$M$$ is the total mass of the system. As the central star typically dominates the mass of the system, this can also be written $$\mu_i \approx \nicefrac{m_i}{m_0}$.
+For the Jacobian coordinates, We introduce the notation <!--$$|\mathbf{r}_i| \equiv r_i$-->. That is to say, coordinates in bold is the vector position, while non-bold is the magnitude of that vector. We also introduce the reduced mass, $$\mu$$, given as $$\mu_i = \nicefrac{m_i}{M}$$, where $$M$$ is the total mass of the system. As the central star typically dominates the mass of the system, this can also be written $$\mu_i \approx \nicefrac{m_i}{m_0}$.
 
-$$
+<!--$$
     \begin{split}
-        \ddot{\bf{r}}_1 &= -Gm_0 \frac{\bf{r}_1}{r_1^3} - Gm_1 \frac{\bf{r}_1}{r_1^3} \\
-        & + \sum_{j=2} \left[ Gm_j \frac{\bf{R}_j - \bf{R}_1}{{| \bf{R}_j - \bf{R}_1|}^3} - G m_j \frac{\bf{R}_j - \bf{R}_0}{{| \bf{R}_j - \bf{R}_0|}^3} \right]
+        \ddot{\mathbf{r}}_1 &= -Gm_0 \frac{\mathbf{r}_1}{r_1^3} - Gm_1 \frac{\mathbf{r}_1}{r_1^3} \\
+        & + \sum_{j=2} \left[ Gm_j \frac{\mathbf{R}_j - \mathbf{R}_1}{{| \mathbf{R}_j - \mathbf{R}_1|}^3} - G m_j \frac{\mathbf{R}_j - \mathbf{R}_0}{{| \mathbf{R}_j - \mathbf{R}_0|}^3} \right]
     \end{split}
-$$
+$$-->
 
 This can be further simplified to equation \ref{eq:keplerandperturb},
 
-$$
+<!--$$
     \begin{split}
-        \ddot{\bf{r}}_1 &= -G\left(m_0 + m_1\right)\frac{\bf{r}_1}{r_1^3} \\
-        & + \sum_{j=2} \left[ Gm_j \frac{\bf{R}_j - \bf{R}_1}{{| \bf{R}_j - \bf{R}_1|}^3} - Gm_j \frac{\bf{R}_j - \bf{R}_0}{{| \bf{R}_j - \bf{R}_0|}^3} \right]
+        \ddot{\mathbf{r}}_1 &= -G\left(m_0 + m_1\right)\frac{\mathbf{r}_1}{r_1^3} \\
+        & + \sum_{j=2} \left[ Gm_j \frac{\mathbf{R}_j - \mathbf{R}_1}{{| \mathbf{R}_j - \mathbf{R}_1|}^3} - Gm_j \frac{\mathbf{R}_j - \mathbf{R}_0}{{| \mathbf{R}_j - \mathbf{R}_0|}^3} \right]
     \end{split}
     \label{eq:keplerandperturb}
-$$
+$$-->
 
 In the 2-body case, where there is only a single body and star, this equation is the Keplerian equation of motion, as given in equation \ref{eq:kepler}. As the central star dominates the mass of the system, we can use $$m_0 + m_i \approx m_0$$ to simplify.
 
 $$
     \begin{split}
-        \ddot{\bf{r}}_i &= -G\left(m_0+m_i\right)\frac{\bf{r}_i}{r_i^3} \\
-        & \approx -Gm_0\frac{\bf{r}_i}{r_i^3}
+        \ddot{\mathbf{r}}_i &= -G\left(m_0+m_i\right)\frac{\mathbf{r}_i}{r_i^3} \\
+        & \approx -Gm_0\frac{\mathbf{r}_i}{r_i^3}
     \end{split}
     \label{eq:kepler}
 $$
@@ -446,69 +446,69 @@ $$
 From this, we can see that the acceleration in Jacobian coordinates for an n-body system as given by equation \ref{eq:keplerandperturb} is the standard Keplerian with some perturbative acceleration applied,
 
 $$
-    \ddot{\bf{r}}_i = -G\left(m_0+m_1\right)\frac{\bf{r}_1}{r_1^3} + \delta\ddot{\bf{r}}_1
+    \ddot{\mathbf{r}}_i = -G\left(m_0+m_1\right)\frac{\mathbf{r}_1}{r_1^3} + \delta\ddot{\mathbf{r}}_1
 $$
 
 With the perturbing acceleration given in equation \ref{eq:perturbaccel},
 
-$$
-    \delta\ddot{\bf{r}}_1 = \sum_{j=2} \left[ Gm_j \frac{\bf{R}_j - \bf{R}_1}{{| \bf{R}_j - \bf{R}_1|}^3} - G m_j \frac{\bf{R}_j - \bf{R}_0}{{| \bf{R}_j - \bf{R}_0|}^3} \right]
+<!--$$
+    \delta\ddot{\mathbf{r}}_1 = \sum_{j=2} \left[ Gm_j \frac{\mathbf{R}_j - \mathbf{R}_1}{{| \mathbf{R}_j - \mathbf{R}_1|}^3} - G m_j \frac{\mathbf{R}_j - \mathbf{R}_0}{{| \mathbf{R}_j - \mathbf{R}_0|}^3} \right]
     \label{eq:perturbaccel}
-$$
+$$-->
 
 If we introduce terms to the first fractional part, we have equation \ref{eq:introducedterms}.
 
-$$
+<!--$$
     \begin{split}
-        \delta\ddot{\bf{r}}_1 &= \sum_{j=2} \left[ Gm_j \frac{\bf{R}_j - \bf{R}_1 + \bf{R}_0 - \bf{R}_0}{{| \bf{R}_j - \bf{R}_1 + \bf{R}_0 - \bf{R}_0|}^3} - G m_j \frac{\bf{R}_j - \bf{R}_0}{{| \bf{R}_j - \bf{R}_0|}^3} \right]\\
-        &= \sum_{j=2} \left[ Gm_j \frac{\bf{R}_j - \bf{R}_0 - \bf{r}_1}{{| \bf{R}_j - \bf{R}_0 - \bf{r}_1|}^3} - G m_j \frac{\bf{R}_j - \bf{R}_0}{{| \bf{R}_j - \bf{R}_0|}^3} \right]
+        \delta\ddot{\mathbf{r}}_1 &= \sum_{j=2} \left[ Gm_j \frac{\mathbf{R}_j - \mathbf{R}_1 + \mathbf{R}_0 - \mathbf{R}_0}{{| \mathbf{R}_j - \mathbf{R}_1 + \mathbf{R}_0 - \mathbf{R}_0|}^3} - G m_j \frac{\mathbf{R}_j - \mathbf{R}_0}{{| \mathbf{R}_j - \mathbf{R}_0|}^3} \right]\\
+        &= \sum_{j=2} \left[ Gm_j \frac{\mathbf{R}_j - \mathbf{R}_0 - \mathbf{r}_1}{{| \mathbf{R}_j - \mathbf{R}_0 - \mathbf{r}_1|}^3} - G m_j \frac{\mathbf{R}_j - \mathbf{R}_0}{{| \mathbf{R}_j - \mathbf{R}_0|}^3} \right]
     \end{split}
     \label{eq:introducedterms}
-$$
+$$-->
 
-We can consider the value of $$\bf{R}_j - \bf{R}_0$$ by using the general case in equation \ref{eq:jacobi}, to give the values for $$\bf{R}_j$,
+We can consider the value of $$\mathbf{R}_j - \mathbf{R}_0$$ by using the general case in equation \ref{eq:jacobi}, to give the values for $$\mathbf{R}_j$,
 
 $$
     \begin{split}
-        \bf{r}_{n+1} &= \bf{R}_{n+1} - \frac{\sum^n_{j=0}m_j\bf{R}_j}{\sum^n_{j=0}m_j}\\
-        \bf{R}_{n+1} &= \bf{r}_{n+1} + \frac{\sum^n_{j=0}m_j\bf{R}_j}{\sum^n_{j=0}m_j}
+        \mathbf{r}_{n+1} &= \mathbf{R}_{n+1} - \frac{\sum^n_{j=0}m_j\mathbf{R}_j}{\sum^n_{j=0}m_j}\\
+        \mathbf{R}_{n+1} &= \mathbf{r}_{n+1} + \frac{\sum^n_{j=0}m_j\mathbf{R}_j}{\sum^n_{j=0}m_j}
     \end{split}
 $$
 
-Which can be evaluated to give equation \ref{eq:rjr0}. Note the expression obtained in line 3, the value for $$\bf{R}_j - \bf{R}_0$$ is some combination of $$\bf{R}_k - \bf{R}_0$$ where $$0 < k < j$.
+Which can be evaluated to give equation \ref{eq:rjr0}. Note the expression obtained in line 3, the value for $$\mathbf{R}_j - \mathbf{R}_0$$ is some combination of $$\mathbf{R}_k - \mathbf{R}_0$$ where $$0 < k < j$.
 
 $$
     \begin{split}
-        \bf{R}_j - \bf{R}_0 &= \bf{r}_j + \frac{\sum^{j-1}_{k=0}m_k\bf{R}_k}{\sum^{j-1}_{k=0}m_k} - \bf{R}_0\\
-        &= \bf{r}_j + \frac{\sum^{j-1}_{k=1}m_k\bf{R}_k}{\sum^{j-1}_{k=0}m_k}\\
-        &= \bf{r}_j + \sum^{j-1}_{k=1}{\mu_k\left(\bf{R}_k-\bf{R}_0\right)}\\
+        \mathbf{R}_j - \mathbf{R}_0 &= \mathbf{r}_j + \frac{\sum^{j-1}_{k=0}m_k\mathbf{R}_k}{\sum^{j-1}_{k=0}m_k} - \mathbf{R}_0\\
+        &= \mathbf{r}_j + \frac{\sum^{j-1}_{k=1}m_k\mathbf{R}_k}{\sum^{j-1}_{k=0}m_k}\\
+        &= \mathbf{r}_j + \sum^{j-1}_{k=1}{\mu_k\left(\mathbf{R}_k-\mathbf{R}_0\right)}\\
     \end{split}
     \label{eq:rjr0}
 $$
 
-We define a new value $$\bf{r}_{j0}$$, as a shorthand for $$\bf{R}_j - \bf{R}_0$$, given in equation \ref{eq:rj0},
+We define a new value $$\mathbf{r}_{j0}$$, as a shorthand for $$\mathbf{R}_j - \mathbf{R}_0$$, given in equation \ref{eq:rj0},
 
 $$
-    \bf{r}_{j0} \equiv \bf{R}_j - \bf{R}_0 = \bf{r}_j + \sum^{j-1}_{k=1}{\mu_k\left(\bf{R}_k-\bf{R}_0\right)}
+    \mathbf{r}_{j0} \equiv \mathbf{R}_j - \mathbf{R}_0 = \mathbf{r}_j + \sum^{j-1}_{k=1}{\mu_k\left(\mathbf{R}_k-\mathbf{R}_0\right)}
     \label{eq:rj0}
 $$
 
 By combining equations \ref{eq:introducedterms} and \ref{eq:rjr0}, we obtain equation \ref{eq:jacobianmotion},
 
-$$
-    \delta\ddot{\bf{r}}_1 = \sum_{j=2} \left[ Gm_j \frac{\bf{r}_{j0} - \bf{r}_1}{{| \bf{r}_{j0} - \bf{r}_1|}^3} - G m_j \frac{\bf{r}_{j0}}{r_{j,0}^3} \right]
+<!--$$
+    \delta\ddot{\mathbf{r}}_1 = \sum_{j=2} \left[ Gm_j \frac{\mathbf{r}_{j0} - \mathbf{r}_1}{{| \mathbf{r}_{j0} - \mathbf{r}_1|}^3} - G m_j \frac{\mathbf{r}_{j0}}{r_{j,0}^3} \right]
     \label{eq:jacobianmotion}
-$$
+$$-->
 
 Which can be simplified slightly as equation \ref{eq:jacobianmotion2}, which gives the perturbing acceleration on the transiting planet. Additionally, this can be expanded in a Legendre series to first order, giving the second line in equation \ref{eq:jacobianmotion2}.
 
-$$
+<!--$$
     \begin{split}
-        \delta\ddot{\bf{r}}_1 &= \sum_{j=2} \left[ Gm_j\left( -\frac{\bf{r}_1 - \bf{r}_{j0}}{{| \bf{r}_1 - \bf{r}_{j0}|}^3} - \frac{\bf{r}_{j0}}{r_{j0}^3} \right)\right]\\
-        &= \sum_{j=2} \left[ -\frac{Gm_j}{r_j^3}\left( \bf{r}_1 - 3\frac{\bf{r}_1\cdot\bf{r}_j}{r_j^2}\bf{r}_j \right) + \mathcal{O}\left(\nicefrac{r_1}{r_j}\right)^2\right]
+        \delta\ddot{\mathbf{r}}_1 &= \sum_{j=2} \left[ Gm_j\left( -\frac{\mathbf{r}_1 - \mathbf{r}_{j0}}{{| \mathbf{r}_1 - \mathbf{r}_{j0}|}^3} - \frac{\mathbf{r}_{j0}}{r_{j0}^3} \right)\right]\\
+        &= \sum_{j=2} \left[ -\frac{Gm_j}{r_j^3}\left( \mathbf{r}_1 - 3\frac{\mathbf{r}_1\cdot\mathbf{r}_j}{r_j^2}\mathbf{r}_j \right) + \mathcal{O}\left(\nicefrac{r_1}{r_j}\right)^2\right]
     \end{split}
     \label{eq:jacobianmotion2}
-$$
+$$-->
 
 To find the perturbed period of the transiting planet, we compute how this acceleration changes when averaged over the orbital period. The angular position of the transiting planet from the vantage point of earth, $$\theta_1$$, is given by the sum of its true anomaly, $$f_1$$, and argument of periapsis, $$\omega_1$. This is gives equation \ref{eq:angpos}. As the eccentricity of this planet is assumed zero, the true and mean anomaly are equal. We can also introduce the transit number, $$n_1$$, and epoch $$\tau_1$$, to this expression.
 
@@ -627,10 +627,10 @@ This method will also often under- or over-estimate the fitting parameters, as t
 
 Maximum likelihood estimation, or MLE, provides a numerical optimisation method for models that more accurately describe real world data, as opposed to the more idealised case within which linear regression was originally formulated. The logarithm of the likelihood function for Bayesian analysis is given in equation \ref{eq:likelihood}
 
-$$
+<!--$$
     \label{eq:likelihood}
     \ln{p(y | x, \theta, M)} = -\frac{1}{2}\sum_n\left[\frac{\left(y_n - M(x, \theta)\right)^2}{s_n^2} + \ln{\left(2\pi s_n^2\right)}\right]
-$$
+$$-->
 
 Where $$x$$ and $$y$$ is the set of data, $$M$$ is the model to be fit, $$\theta$$ the parameters of the model, and $$s$$ is given by:
 
