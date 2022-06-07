@@ -361,7 +361,7 @@ $$
 To derive the effects of orbital perturbation, we follow a derivation for a two-planet case <d-cite key="agol2018}, and extend this to $$n$$ planets. We assume the transiting planet to have zero eccentricity and all planets are on coplanar orbits. We give the equation of motion for a body acting under gravity in equation \ref{eq:gravity}.
 
 <!--$$
-    \ddot{\mathbf{R}} = \sum_{j \ne i} \left[G m_j \frac{\mathbf{R}_j - \mathbf{R}_i}{{| \mathbf{R}_j - \mathbf{R}_i|}^3}\right]
+    \ddot{\mathbf{R}} = \sum_{j \ne i} \left[G m_j \frac{\mathbf{R}_j - \mathbf{R}_i}{| \mathbf{R}_j - \mathbf{R}_i|}^3 \right]
     \label{eq:gravity}
 $$-->
 
