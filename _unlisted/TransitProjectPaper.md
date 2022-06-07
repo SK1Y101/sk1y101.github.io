@@ -1,6 +1,7 @@
 ---
 layout: distill
 title: Masters Thesis
+permalink: /_unlisted/TransitProjectPaper/
 longtitle: Determining The Parameters of Exoplanetary Candidates From Transit Timing Variations
 description: >
   <p>Searching for Transit Timing Variations to determine the parameters of additional exoplanets in a system.</p>
