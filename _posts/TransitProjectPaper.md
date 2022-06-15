@@ -1,7 +1,6 @@
 ---
 layout: distill
 title: Masters Thesis
-permalink: /_unlisted/TransitProjectPaper/
 longtitle: Determining The Parameters of Exoplanetary Candidates From Transit Timing Variations
 description: >
   <p>Searching for Transit Timing Variations to determine the parameters of additional exoplanets in a system.</p>
@@ -126,15 +125,15 @@ Future work will allow extensions to these models, providing a more powerful sui
 
 In the last quarter-century, exoplanet detections have seen astronomical success, in no small part due to the launch of several space bourne telescopes. Of the 5000 planets found within 3800 planetary systems, around three quarters have been discovered through transit photometry <d-cite key="exoplanetArchive"></d-cite>. To this day, over 130 million light curves have been observed, providing a large base for historical analysis.
 
-Of particular interest for this project is a specific subset of transit photometry that makes heavy use of this historical data. ``Transit Timing Variation'', or ``TTV'', reanalyses historical transit observations for deviation from 2-body Keplerian motion to provide an insight into the dynamics of an exoplanetary system.
+Of particular interest for this project is a specific subset of transit photometry that makes heavy use of this historical data. "Transit Timing Variation", or "TTV", reanalyses historical transit observations for deviation from 2-body Keplerian motion to provide an insight into the dynamics of an exoplanetary system.
 
 ## Transit photometry
 
-In the case that an exoplanetary system is oriented `edge on` from our vantage point on earth, then planets within the system will periodically occlude the central star. By observing the occlusion, it is possible to determine many of the physical and orbital parameters of an exoplanet.
+In the case that an exoplanetary system is oriented "edge on" from our vantage point on earth, then planets within the system will periodically occlude the central star. By observing the occlusion, it is possible to determine many of the physical and orbital parameters of an exoplanet.
 
 {% capture occdepth %}{% increment equation_num %}{% endcapture %}
 $$
     \Delta_L = \frac{\theta_{planet}}{\theta_{star}} = \frac{R_{planet}^2}{R_{star}^2} \approx \frac{r_{planet}^2}{r_{star}^2} \text{\color{aqua}[ {{ complexmod }} ]}
 $$
 
-The reduction in stellar light observed during each transit, ``Occlusion depth'', is proportional to the angular areas of both the planet and star. An expression for this is given in equation <fig>[ {{ occdepth }} ]</fig>, where $$\theta$$ is the angular area, and $$R$$ the angular radius of each object. In the small angle approximation, the ratio of $$R$$ becomes equal to the ratio of $$r$$, the true radii of each object.
+The reduction in stellar light observed during each transit, "Occlusion depth", is proportional to the angular areas of both the planet and star. An expression for this is given in equation <fig>[ {{ occdepth }} ]</fig>, where $$\theta$$ is the angular area, and $$R$$ the angular radius of each object. In the small angle approximation, the ratio of $$R$$ becomes equal to the ratio of $$r$$, the true radii of each object.
