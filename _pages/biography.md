@@ -2,6 +2,9 @@
 layout: page
 title: About me
 permalink: /about/
-description: Who I am
+description: A short history of me!
 nav: false
 ---
+
+<div class="timeline">
+</div>

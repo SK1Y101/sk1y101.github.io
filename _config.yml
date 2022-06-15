@@ -104,6 +104,9 @@ collections:
   projects:
     output: true
     permalink: /projects/:path/
+  timeline:
+    output: true
+    permalink: /timeline/:path/
 
 news_limit: 5
 project_limit: 6
@@ -127,7 +130,7 @@ kramdown:
       start_line: 1
 
 # Includes & excludes
-include: ['_pages', '_unlisted']
+include: ['_pages', '_unlisted', '_timeline']
 exclude:
   - bin
   - Gemfile
@@ -187,7 +190,7 @@ scholar:
   last_name: Lloyd-Walters
   first_name: [Jack]
 
-  style: apa
+  style: ras
   locale: en
 
   source: /_bibliography/
