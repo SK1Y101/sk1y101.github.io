@@ -7,12 +7,6 @@ nav: false
 ---
 
 {% assign thisyear = "now" | date: "%Y" | plus: 0 %}
+{% assign timeline = site.timeline | sort: "date" %}
 
-<!-- Itterate on all years -->
-{% for y in (2000..thisyear) reversed %}
-	<!-- Create a year heading -->
-	<h2 class="year">{{y}}</h2>
-	<!-- Fetch this year's content-->
-	{% assign sortedTimeline = site.timeline | where: "year", y %}
-	{{ sortedTimeline }}
-{% endfor %}
+{{ timeline }}
