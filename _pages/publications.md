@@ -11,7 +11,7 @@ nav: true
 {% assign thisyear = "now" | date: "%Y" | plus: 0 %}
 
 <!-- Itterate on all page years -->
-{% for y in (2016..thisyear) reversed %}
+{% for y in (2000..thisyear) reversed %}
   <!-- fetch the number of objects for this year -->
   {%- capture refs -%}{%- bibliography_count -f papers -q @*[year={{y}}]* -%}{%- endcapture -%}
   {% assign refs = refs | plus: 0 %}

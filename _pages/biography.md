@@ -6,5 +6,5 @@ description: A short history of me!
 nav: false
 ---
 
-<div class="timeline">
-</div>
+{{ site.projects }}
+{{ site.timeline }}
