@@ -14,6 +14,10 @@ nav: false
 {% assign categorized_projects = site.projects | where: "category", category %}
 {% assign sorted_projects = categorized_projects | sort: "importance" %}
 
-{% for y in (2000..thisyear) reversed %}
-	{{ y }}
-{% endfor %}
+<div class="publications">
+	<!-- Itterate on all page years -->
+	{% for y in (2000..thisyear) reversed %}
+	  <!-- Create a year heading -->
+	  <h2 class="year">{{y}}</h2>
+	{% endfor %}
+</div>
