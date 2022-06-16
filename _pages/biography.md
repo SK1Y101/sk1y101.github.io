@@ -20,13 +20,13 @@ nav: false
 			<h2 class="year">{{ y }}</h2>
 		{% endif %}
 		<!-- Content -->
-		<div class="container {{ item.education }}">
+		<div class="container {{ item.category | downcase }}">
 			<!-- If we have a timeline object -->
 			{% if item.timeline %}
 				{{ item.content | remove: '<p>' | remove: '</p>' | emojify }}
 			<!-- If we have a project object -->
 			{% else %}
-				{{ item.title | emojify | prepend: "Project: "}}
+				{{ item.title | emojify | prepend: "Started project: "}}
 			{% endif %}
 		</div>
 	{% endfor %}
