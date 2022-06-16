@@ -1,7 +1,8 @@
 ---
 timeline: true
-date: 2020-05-02
+date: 2018-08-01
 category: membership
+title: Institute of Physics
 ---
 
-Became an associate member of the Institute of Physics
+Became an associate member

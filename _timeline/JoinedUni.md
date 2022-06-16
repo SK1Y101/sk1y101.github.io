@@ -2,6 +2,7 @@
 timeline: true
 date: 2018-09-01
 category: education
+title: Portsmouth University
 ---
 
-Joined Portsmouth university
+Started an integrated masters degree: MPhys (Hons) Physics, Astronomy, and Cosmology

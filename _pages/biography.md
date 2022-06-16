@@ -23,10 +23,12 @@ nav: false
 		<div class="container {{ item.category | downcase }}">
 			<!-- If we have a timeline object -->
 			{% if item.timeline %}
+				{{ item.title | emojify}}
 				{{ item.content | remove: '<p>' | remove: '</p>' | emojify }}
 			<!-- If we have a project object -->
 			{% else %}
-				{{ item.title | emojify | prepend: "Started project: "}}
+				{{ item.title | emojify}}
+				{{ item.description | remove: '<p>' | remove: '</p>' }}
 			{% endif %}
 		</div>
 	{% endfor %}

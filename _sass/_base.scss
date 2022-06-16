@@ -715,8 +715,9 @@ footer.sticky-bottom {
     left: -15px;
     width: 30px;
     height: 30px;
-    background: var(--global-text-color);
+    background: var(--global-footer-bg-color);
     border-radius: 50%;
+    z-index: 1;
   }
   .education::after { border: 4px solid #FE9720; }
   .membership::after { border: 4px solid #A7E22E; }
@@ -736,7 +737,8 @@ footer.sticky-bottom {
   width: 6px;
   border-radius: 3px;
   margin: -10px 0px -10px -3px;
-  background: var(--global-text-color);
+  background: var(--global-footer-bg-color);
+  z-index: 0;
 }
 
 // Rouge Color Customization
