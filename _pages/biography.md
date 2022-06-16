@@ -5,10 +5,13 @@ permalink: /about/
 description: A short history of me!
 nav: false
 ---
+<!-- fetch timeline objects -->
+{% assign timeline = site.timeline | concat: site.projects | sort: "date" %}
 
+<!-- Timeline display -->
 <div class="timeline">
-	<!-- Itterate on all page years -->
-	{% for item in site.timeline | sort: "date" | reversed %}
+	<!-- Iterate on all page years -->
+	{% for item in timeline reversed%}
 		<!-- update year tag -->
 		{% assign thisyear = item.date | date: "%Y" %}
 		<!-- Create a year heading if needed -->
@@ -18,7 +21,13 @@ nav: false
 		{% endif %}
 		<!-- Content -->
 		<div class="container">
-			{{ item.content | remove: '<p>' | remove: '</p>' | emojify }}
+			<!-- If we have a timeline object -->
+			{% if item.timeline %}
+				{{ item.content | remove: '<p>' | remove: '</p>' | emojify }}
+			<!-- If we have a project object -->
+			{% else %}
+				{{ item.title | emojify | prepend: "Project: "}}
+			{% endif %}
 		</div>
 	{% endfor %}
 </div>
