@@ -14,9 +14,11 @@ nav: false
 		<!-- Create a year heading if needed -->
 		{% if thisyear != y %}
 			{% assign y = thisyear %}
-			<h2 class="year">{{ y }}</h2>
+			<!--<h2 class="year">{{ y }}</h2>-->
 		{% endif %}
 		<!-- Content -->
-		{{ item.content | remove: '<p>' | remove: '</p>' | emojify }}
+		<div class="container">
+			{{ item.content | remove: '<p>' | remove: '</p>' | emojify }}
+		</div>
 	{% endfor %}
 </div>
