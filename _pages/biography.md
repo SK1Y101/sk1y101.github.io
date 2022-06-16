@@ -11,7 +11,7 @@ nav: false
 <!-- Timeline display -->
 <div class="timeline">
 	<!-- Iterate on all page years -->
-	{% for item in timeline reversed%}
+	{% for item in timeline reversed %}
 		<!-- update year tag -->
 		{% assign thisyear = item.date | date: "%Y" %}
 		<!-- Create a year heading if needed -->
@@ -20,7 +20,7 @@ nav: false
 			<h2 class="year">{{ y }}</h2>
 		{% endif %}
 		<!-- Content -->
-		<div class="container">
+		<div class="container {{ item.education }}">
 			<!-- If we have a timeline object -->
 			{% if item.timeline %}
 				{{ item.content | remove: '<p>' | remove: '</p>' | emojify }}

@@ -711,13 +711,19 @@ footer.sticky-bottom {
   .container::after {
     content: '';
     position: absolute;
+    top: -3px;
     left: -15px;
     width: 30px;
     height: 30px;
     background: var(--global-text-color);
     border-radius: 50%;
-    border: 4px solid var(--global-hover-color);
   }
+  .education::after { border: 4px solid #FE9720; }
+  .membership::after { border: 4px solid #A7E22E; }
+  .work::after { border: 4px solid #36AF90; }
+  .project::after { border: 4px solid #66D9EE; }
+  .hobby::after { border: 4px solid #C8A2C8; }
+  .skills::after { border: 4px solid #9358FE; }
 }
 .timeline::after {
   content: '';
