@@ -14,7 +14,7 @@ nav: false
 	<!-- Itterate on all page years -->
 	{% for y in (2000..thisyear) reversed %}
 		<!-- fetch the object for this year -->
-		{% assign thisyear = timeline | where: "item", "item.year == y" %}
+		{% assign thisyear = timeline | where_exp: "post”, “post.date contains y” %}
 		<!-- if we have content -->
 		{% if thisyear.size > 0 %}
 		  <!-- Create a year heading -->
