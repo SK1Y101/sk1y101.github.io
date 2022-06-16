@@ -6,16 +6,17 @@ description: A short history of me!
 nav: false
 ---
 
-<div class="publications">
+<div class="timeline">
 	<!-- Itterate on all page years -->
-	{% for post in site.timeline | sort: "date" %}
+	{% for item in site.timeline | sort: "date" %}
 		<!-- update year tag -->
-		{% assign thisyear = post.date | date: "%Y" %}
+		{% assign thisyear = item.date | date: "%Y" %}
 		<!-- Create a year heading if needed -->
 		{% if thisyear != y %}
 			{% assign y = thisyear %}
 			<h2 class="year">{{ y }}</h2>
 		{% endif %}
 		<!-- Content -->
+		{{ item.content | remove: '<p>' | remove: '</p>' | emojify }}
 	{% endfor %}
 </div>
