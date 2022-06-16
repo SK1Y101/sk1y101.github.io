@@ -1,6 +1,6 @@
 ---
 layout: page
-title: About me
+title: About
 permalink: /about/
 description: A short history of me!
 nav: false
