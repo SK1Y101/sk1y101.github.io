@@ -5,5 +5,4 @@ category: education
 title: Peter Symonds College
 ---
 
-Undertook A-Levels in Physics, EPQ, Maths, and Further Maths
-Additionally undertook an AS-Level in Chemistry
+Undertook A-Levels in Physics, EPQ, Maths, and Further Maths, and an AS-Level in Chemistry
