@@ -9,7 +9,7 @@ nav: false
 {% assign timeline = site.timeline | concat: site.projects | sort: "date" %}
 
 <!-- Timeline display -->
-<div class="timeline">
+<div class="timeline ongoing">
 	<!-- Iterate on all page years -->
 	{% for item in timeline reversed %}
 		<!-- update year tag -->

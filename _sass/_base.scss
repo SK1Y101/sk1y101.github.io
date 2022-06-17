@@ -728,6 +728,7 @@ footer.sticky-bottom {
   .hobby::after { border: 5px solid #C8A2C8; }
   .fun::after { border: 5px solid #C8A2C8; }
   .skills::after { border: 5px solid #9358FE; }
+  .ongoing::after{ clip-path: polygon(0% var(--hwidth), 50% 0px, 100% var(--hwidth), 100% 100%, 0% 100%); }
 }
 .timeline::after {
   content: '';
@@ -741,7 +742,6 @@ footer.sticky-bottom {
   border-radius: var(--hwidth);
   margin: -10px 0px -10px calc(0px - var(--hwidth));
   background: var(--global-unhover-color);
-  clip-path: polygon(0% var(--hwidth), 50% 0px, 100% var(--hwidth), 100% 100%, 0% 100%);
 }
 
 // Rouge Color Customization
