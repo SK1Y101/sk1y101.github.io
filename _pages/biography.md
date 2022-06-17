@@ -30,12 +30,8 @@ Items on the timeline follow the same colour scheme as my CV.
 				{{ item.content | remove: '<p>' | remove: '</p>' | emojify }}
 			<!-- If we have a project object -->
 			{% else %}
-				<!-- Link to project -->
-				{% if item.redirect %}
-				<a href="{{ item.redirect }}">{% else %}<a href="{{ item.url | relative_url }}">{% endif %}
-					<h4>{{ item.title | emojify}}</h4>
-					{{ item.description | remove: '<p>' | remove: '</p>' }}
-			  </a>
+				<h4>{{ item.title | emojify}}</h4>
+				{{ item.description | remove: '<p>' | remove: '</p>' }}
 			{% endif %}
 		</div>
 	{% endfor %}
