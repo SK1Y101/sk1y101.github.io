@@ -700,14 +700,16 @@ footer.sticky-bottom {
   h2.year {
     color: var(--global-divider-color);
     border-top: 1px solid var(--global-divider-color);
-    margin-bottom: -1em;
+    margin-bottom: -.75em;
     text-align: right;
   }
   .container {
     position: relative;
-    width: 90%;
+    width: 88%;
     margin: 1em 0em;
-    margin-left: 1em;
+    margin-left: 1.5em;
+    background: var(--global-card-color);
+
   }
   .container::after {
     content: '';
@@ -718,7 +720,7 @@ footer.sticky-bottom {
     height: 30px;
     border-radius: 50%;
     z-index: 1;
-    margin-left: -1em;
+    margin-left: -1.5em;
   }
   .education::after { border: 5px solid #FE9720; }
   .membership::after { border: 5px solid #A7E22E; }
@@ -728,7 +730,6 @@ footer.sticky-bottom {
   .hobby::after { border: 5px solid #C8A2C8; }
   .fun::after { border: 5px solid #C8A2C8; }
   .skills::after { border: 5px solid #9358FE; }
-  .ongoing::after{ clip-path: polygon(0% var(--hwidth), 50% 0px, 100% var(--hwidth), 100% 100%, 0% 100%); }
 }
 .timeline::after {
   content: '';
@@ -742,6 +743,7 @@ footer.sticky-bottom {
   border-radius: var(--hwidth);
   margin: -10px 0px -10px calc(0px - var(--hwidth));
   background: var(--global-unhover-color);
+  .ongoing::after{ clip-path: polygon(0% var(--hwidth), 50% 0px, 100% var(--hwidth), 100% 100%, 0% 100%); }
 }
 
 // Rouge Color Customization
