@@ -1,8 +1,8 @@
 ---
 layout: page
-title: About
+title: About Me
 permalink: /about/
-description: A short history of me!
+description: A short history of me, in timeline form!
 nav: true
 ---
 
