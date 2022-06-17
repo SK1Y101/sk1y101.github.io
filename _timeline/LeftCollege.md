@@ -1,10 +1,8 @@
 ---
 timeline: true
-date: 2016-09-01
+date: 2018-06-01
 category: education
 title: Peter Symonds College
 ---
 
-Left College, having achieved
-Undertook A-Levels in Physics, EPQ, Maths, and Further Maths
-Additionally undertook an AS-Level in Chemistry
+Left College, having achieved an A in Physics, EPQ, and AS Chemistry, B in Maths, and D in Further Maths.

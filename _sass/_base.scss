@@ -731,15 +731,17 @@ footer.sticky-bottom {
 }
 .timeline::after {
   content: '';
+  --hwidth: 3px;
   position: absolute;
   top: 0;
   left: 0;
   bottom: 0;
-  width: 6px;
-  border-radius: 3px;
-  margin: -10px 0px -10px -3px;
-  background: var(--global-text-color);
   z-index: 0;
+  width: calc(2*var(--hwidth));
+  border-radius: var(--hwidth);
+  margin: -10px 0px -10px calc(0px - var(--hwidth));
+  background: var(--global-unhover-color);
+  clip-path: polygon(0% var(--hwidth), 50% 0px, 100% var(--hwidth), 100% 100%, 0% 100%);
 }
 
 // Rouge Color Customization
