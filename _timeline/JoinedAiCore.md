@@ -1,6 +1,6 @@
 ---
 timeline: true
-date: 2022-02-28
+date: 2022-02-01
 category: education
 title: AiCore
 ---

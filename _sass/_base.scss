@@ -743,7 +743,7 @@ footer.sticky-bottom {
   border-radius: var(--hwidth);
   margin: -10px 0px -10px calc(0px - var(--hwidth));
   background: var(--global-unhover-color);
-  .ongoing::after{ clip-path: polygon(0% var(--hwidth), 50% 0px, 100% var(--hwidth), 100% 100%, 0% 100%); }
+  clip-path: polygon(0% var(--hwidth), 50% 0px, 100% var(--hwidth), 100% 100%, 0% 100%);
 }
 
 // Rouge Color Customization
