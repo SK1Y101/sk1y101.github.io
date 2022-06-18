@@ -73,7 +73,7 @@ nav: true
 					<div class="row">
 						<div	 class="col-sm-2 abbr">
 							<abbr class="badge">
-								2022-02 - present
+								2022-02 - 2022-06
 							</abbr>
 						</div>
 						<div class="col-xs-10 cl-sm-10 col-md mt-2 mt-md-0">
@@ -107,7 +107,7 @@ nav: true
 					<div class="row">
 						<div	 class="col-sm-2 abbr">
 							<abbr class="badge">
-								2018 - present
+								2018 - 2022
 							</abbr>
 						</div>
 						<div class="col-xs-10 cl-sm-10 col-md mt-2 mt-md-0">
