@@ -51,13 +51,14 @@ nav: true
 	<div class="card p-3">
 		<h3 class="card-title">About Me</h3>
 		<div class="card-text p-3">
-		I am a final year masters student with a strong passion for computational physics, particularly focused on astronomy, exoplanetary science, and other space-based endeavours.
+		I’m an associate software engineer for the Metal as a Service team at Canonical, with a strong passion for computational physics, particularly focused on astronomy, exoplanetary science, and other space-based endeavours.
 		<br/>
 		I have nearly 12 years of programming experience, primarily Python, that I used to great effect in my 2021 bachelors project ”Distinguishing Intermediate Mass Black Hole Mergers From Short Duration Glitches”, and my ongoing 2022 Masters Project “Determining The Parameters of Exoplanetary Candidates From Transit Timing Variations”.
 		<br/>
 		In 2020 I became a fellow of the Royal Astronomical Society and a member of the European Astronomical Society to further my interest and professional options, as I have a strong interest in astrophysics research.
 		<br/>
 		In February 2022 I joined the AiCore Training scheme to become an Ai & Data Engineer, to eventually pursue a career in software engineering.
+		In July 2022 I graduated with <Grade> as Mphys (Hons) Physics, Astronomy, and Cosmology at Portsmouth University.
 		<br/>
 		I am also a beginner learner of Japanese, having undertaken extracurricular language modules that I intend to continue after graduation.
 		</div>
@@ -174,12 +175,29 @@ nav: true
 					<div class="row">
 						<div	 class="col-sm-2 abbr">
 							<abbr class="badge">
-								2017 - 2019
+								2022 - present
 							</abbr>
 						</div>
 						<div class="col-xs-10 cl-sm-10 col-md mt-2 mt-md-0">
-							<h3 class="title font-weight-bold ml-1 ml-md-4">Floor Staff - B&M</h3>
+							<h3 class="title font-weight-bold ml-1 ml-md-4">Associate software engineer — Canonical</h3>
 							<ul class="items">
+								<li>
+									Joined the Metal as a Service team.
+								</li>
+							</ul>
+						</div>
+					</div>
+				</li>
+				<li class=“list-group-item”>
+					<div class=“row”>
+						<div	 class=“col-sm-2 abbr”>
+							<abbr class=“badge”>
+								2017 - 2019
+							</abbr>
+						</div>
+						<div class=“col-xs-10 cl-sm-10 col-md mt-2 mt-md-0”>
+							<h3 class=“title font-weight-bold ml-1 ml-md-4”>Floor Staff - B&M</h3>
+							<ul class=“items”>
 								<li>
 									Managed fast moving customer goods primarily, seasonal stock for the four months leading up to the new year secondarily.
 								</li>

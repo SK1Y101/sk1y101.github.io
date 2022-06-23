@@ -17,7 +17,9 @@ social: true  # includes social icons at the bottom of the page
 
 Hi there, I'm Jack!
 
-I'm a Final year masters student in astrophysics at Portsmouth university with a strong passion for Python programming, exoplanetary science, and gravitational wave astronomy. I'm currently pursuing a career in software engineering, and aim to eventually return to computational physics with a focus on astronomical research (Exoplanets probably) or spacecraft operations.
+I’m an associate software engineer for the Metal as a Service team at Canonical, with a strong passion for Python programming, exoplanetary science, and gravitational wave astronomy.
+
+I very recently completed my masters in astrophysics at Portsmouth university, and will be graduating in July. My eventual aim is to purse a doctorate in computational physics with a focus on astronomical research (Exoplanets probably) or spacecraft operations.
 
 ### Projects
 
