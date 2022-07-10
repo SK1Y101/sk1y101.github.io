@@ -17,7 +17,7 @@ dropdown:
   - title: Skiylia Site
     url: "https://skiylia-lang.github.io/"
     affiliations:
-      name: Royal Astronomical Society
+      name: Royal Astronomical Society, Portsmouth University, Institute of Physics
 
 authors:
   - name: Jack Lloyd-Walters

@@ -1,15 +1,12 @@
 ---
 layout: project
-title: Data Science Project
-description: Do science on data, make predictions!
-img:
-importance: 1
-category: training
-redirect: https://github.com/SK1Y101/Data_Science_Project
-date: 2022-05-01
-github:
-  user: SK1Y101
-  repo: Data_Science_Project
+title: MAAS
+description: Metal As A Service
+img: assets/img/maas-logo-64-fs8.png
+importance:
+category: work
+redirect: https://launchpad.net/maas
+date: 2022-06-20
 
 authors:
   - name: Jack Lloyd-Walters

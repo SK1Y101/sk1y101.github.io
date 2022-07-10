@@ -18,7 +18,7 @@ authors:
   - name: Jack Lloyd-Walters
     url: "https://sk1y101.github.io"
     affiliations:
-      name: Royal Astronomical Society, University of Portsmouth
+      name: Royal Astronomical Society, Portsmouth University, Institute of Physics
 
 links:
   pdf: GWProject/GWProjectFinalReport.pdf

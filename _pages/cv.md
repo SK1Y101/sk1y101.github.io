@@ -58,7 +58,7 @@ nav: true
 		In 2020 I became a fellow of the Royal Astronomical Society and a member of the European Astronomical Society to further my interest and professional options, as I have a strong interest in astrophysics research.
 		<br/>
 		In February 2022 I joined the AiCore Training scheme to become an Ai & Data Engineer, to eventually pursue a career in software engineering.
-		In July 2022 I graduated with <Grade> as Mphys (Hons) Physics, Astronomy, and Cosmology at Portsmouth University.
+		In July 2022 I graduated First class as Mphys (Hons) Physics, Astronomy, and Cosmology at Portsmouth University.
 		<br/>
 		I am also a beginner learner of Japanese, having undertaken extracurricular language modules that I intend to continue after graduation.
 		</div>
@@ -228,6 +228,23 @@ nav: true
 					<div class="row">
 						<div	 class="col-sm-2 abbr">
 							<abbr class="badge">
+								2022 - present
+							</abbr>
+						</div>
+						<div class="col-xs-10 cl-sm-10 col-md mt-2 mt-md-0">
+							<h3 class="title font-weight-bold ml-1 ml-md-4">Member of the Institue of Physics</h3>
+							<ul class="items">
+								<li>
+									Allows the use of the post-nomen "MInstP".
+								</li>
+							</ul>
+						</div>
+					</div>
+				</li>
+				<li class="list-group-item">
+					<div class="row">
+						<div	 class="col-sm-2 abbr">
+							<abbr class="badge">
 								2020 - present
 							</abbr>
 						</div>
@@ -259,7 +276,7 @@ nav: true
 					<div class="row">
 						<div	 class="col-sm-2 abbr">
 							<abbr class="badge">
-								2018 - present
+								2018 - 2022
 							</abbr>
 						</div>
 						<div class="col-xs-10 cl-sm-10 col-md mt-2 mt-md-0">
@@ -283,7 +300,7 @@ nav: true
 					<b>Programming</b>
 				</td>
 				<td class="p-0 pl-2 text-left">
-					Excellent knowledge of programming began in early 2011 with Python and HTML/CSS and have steadily picked up other languages as time has passed. Have gained familiarity with Unix due to using Ubuntu as the OS on my Personal Machine from early 2021 onwards.
+					Excellent knowledge of programming began in early 2011 with Python and HTML/CSS and have steadily picked up other languages as time has passed. Have gained familiarity with Unix due to using Ubuntu as the OS on my Personal Machine from early 2021 onwards,.
 				</td>
 			</tr>
 			<tr>

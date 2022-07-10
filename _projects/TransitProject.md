@@ -18,7 +18,7 @@ authors:
   - name: Jack Lloyd-Walters
     url: "https://sk1y101.github.io"
     affiliations:
-      name: Royal Astronomical Society, Portsmouth University
+      name: Royal Astronomical Society, Portsmouth University, Institute of Physics
 links:
   pdf: TransitProject/TransitDissertation.pdf
   url: _unlisted/TransitProjectPaper
