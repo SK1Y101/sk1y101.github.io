@@ -97,7 +97,7 @@ nav: true
 										</li>
 									</ul>
 								</li>
-    						<li>
+    							<li>
 									Worked on multiple industry projects throughout.
 								</li>
 							</ul>
@@ -171,16 +171,16 @@ nav: true
 		<h3 class="card-title">Work</h3>
 		<div>
 			<ul class="card-text list-group list-group-flush">
-				<li class=“list-group-item”>
-					<div class=“row”>
-						<div	 class=“col-sm-2 abbr”>
-							<abbr class=“badge”>
+				<li class="list-group-item">
+					<div class="row">
+						<div	 class="col-sm-2 abbr">
+							<abbr class="badge">
 								2022 - present
 							</abbr>
 						</div>
-						<div class=“col-xs-10 cl-sm-10 col-md mt-2 mt-md-0”>
-							<h3 class=“title font-weight-bold ml-1 ml-md-4”>Associate Software Engineer - Canonical</h3>
-							<ul class=“items”>
+						<div class="col-xs-10 cl-sm-10 col-md mt-2 mt-md-0">
+							<h3 class="title font-weight-bold ml-1 ml-md-4">Associate Software Engineer - Canonical</h3>
+							<ul class="items">
 								<li>
 									Working as part of the <a href="https://maas.io/">Metal as a Service</a> team
 								</li>
@@ -191,16 +191,17 @@ nav: true
 						</div>
 					</div>
 				</li>
-				<li class=“list-group-item”>
-					<div class=“row”>
-						<div	 class=“col-sm-2 abbr”>
-							<abbr class=“badge”>
+				<li class="list-group-item">
+					<div class="row">
+						<div	 class="col-sm-2 abbr">
+							<abbr class="badge">
 								2017 - 2019
 							</abbr>
 						</div>
-						<div class=“col-xs-10 cl-sm-10 col-md mt-2 mt-md-0”>
-							<h3 class=“title font-weight-bold ml-1 ml-md-4”>Floor Staff - B&M</h3>
-							<ul class=“items”>
+						<div class="col-xs-10 cl-sm-10 col-md mt-2 mt-md-0">
+							<h3 class="title font-weight-bold ml-1 ml-md-4">Floor Staff - B&M</h3>
+							<ul class="items">
+								<li>
 								<li>
 									Managed fast moving customer goods primarily, seasonal stock for the four months leading up to the new year secondarily.
 								</li>
