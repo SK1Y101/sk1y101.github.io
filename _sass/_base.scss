@@ -726,11 +726,12 @@ footer.sticky-bottom {
   .education::after { border: 5px solid #FE9720; }
   .membership::after { border: 5px solid #A7E22E; }
   .work::after { border: 5px solid #36AF90; }
-  .project::after { border: 5px solid #66D9EE; }
-  .training::after { border: 5px solid #66D9EE; }
-  .hobby::after { border: 5px solid #C8A2C8; }
-  .fun::after { border: 5px solid #C8A2C8; }
-  .skills::after { border: 5px solid #9358FE; }
+  .award::after { border: 5px solid #66D9EE; }
+  .project::after { border: 5px solid #C8A2C8; }
+  .training::after { border: 5px solid #C8A2C8; }
+  .hobby::after { border: 5px solid #9358FE; }
+  .fun::after { border: 5px solid #9358FE; }
+  .skills::after { border: 5px solid #999999; }
 }
 .timeline::after {
   content: '';

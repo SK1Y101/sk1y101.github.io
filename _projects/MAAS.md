@@ -2,7 +2,7 @@
 layout: project
 title: MAAS
 description: Metal As A Service
-img: assets/img/maas-logo-64-fs8.png
+img: assets/img/Canonical-MAAS-logo-2022.png
 importance:
 category: work
 redirect: https://launchpad.net/maas

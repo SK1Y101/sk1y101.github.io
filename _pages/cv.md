@@ -171,18 +171,21 @@ nav: true
 		<h3 class="card-title">Work</h3>
 		<div>
 			<ul class="card-text list-group list-group-flush">
-				<li class="list-group-item">
-					<div class="row">
-						<div	 class="col-sm-2 abbr">
-							<abbr class="badge">
+				<li class=“list-group-item”>
+					<div class=“row”>
+						<div	 class=“col-sm-2 abbr”>
+							<abbr class=“badge”>
 								2022 - present
 							</abbr>
 						</div>
-						<div class="col-xs-10 cl-sm-10 col-md mt-2 mt-md-0">
-							<h3 class="title font-weight-bold ml-1 ml-md-4">Associate software engineer — Canonical</h3>
-							<ul class="items">
+						<div class=“col-xs-10 cl-sm-10 col-md mt-2 mt-md-0”>
+							<h3 class=“title font-weight-bold ml-1 ml-md-4”>Associate Software Engineer - Canonical</h3>
+							<ul class=“items”>
 								<li>
-									Joined the Metal as a Service team.
+									Working as part of the <a href="https://maas.io/">Metal as a Service</a> team
+								</li>
+								<li>
+									Applied to the Graduate Fast Track role.
 								</li>
 							</ul>
 						</div>
