@@ -33,12 +33,12 @@
     display : block;
   }
   .customghcard {
-    background-color: rgba(238, 238, 238, 0.5);
+    background-color: rgba(238, 238, 238, 1);
     border-color: rgba(42, 42, 43, 0.5);
     color: #000 !important;
-    .h5 {
-      color: #2698BA !important;
-    }
+  }
+  .h6 {
+    color: #2698BA !important;
   }
   .ghcard-dark {
     display : none;
@@ -76,12 +76,12 @@ html[data-theme='dark'] {
     display : none;
   }
   .customghcard {
-    background-color: rgba(42, 42, 43, 0.5);
+    background-color: rgba(42, 42, 43, 1);
     border-color: rgba(238, 238, 238, 0.5);
-    .h5 {
-      color: #B3FFFF !important;
-    }
     color: #A3A3A6 !important;
+  }
+  .h6 {
+    color: #B3FFFF !important;
   }
   .ghcard-dark {
     display : block;

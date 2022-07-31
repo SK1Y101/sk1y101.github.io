@@ -8,8 +8,11 @@ html, body {
 }
 
 // Typography
-p, h1, h2, h3, h4, h5, h6, em, div, li, span, strong {
+p, h1, h2, h3, h4, h5, em, div, li, span, strong {
   color: var(--global-text-color) !important;
+}
+h6 {
+  font-size: small;
 }
 
 katex {
@@ -119,9 +122,6 @@ blockquote {
   border-width: 1px;
   padding: 0.5em;
   font-size: xx-small;
-  .h5 {
-    font-size: small;
-  }
 }
 
 // Desktop-only display
