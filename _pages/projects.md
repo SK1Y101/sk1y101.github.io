@@ -12,7 +12,7 @@ horizontal: false
   <!-- Display categorized projects -->
     {% for category in page.display_categories %}
       <h2 class="category">{{ category | capitalize }}</h2>
-      {% assign categorized_projects = site.projects | where: "category" %}
+      {% assign categorized_projects = site.projects | where: "category", category %}
       {% assign sorted_projects = categorized_projects | reverse %}
       <!-- Generate cards for each project -->
       {% if page.horizontal %}
