@@ -32,6 +32,14 @@
   .ghcard-light {
     display : block;
   }
+  .customghcard {
+    background-color: #EEEEEE;
+    border-color: #2A2A2B;
+    color: #000;
+    .h5 {
+      color: #2698BA;
+    }
+  }
   .ghcard-dark {
     display : none;
   }
@@ -66,6 +74,14 @@ html[data-theme='dark'] {
   }
   .ghcard-light {
     display : none;
+  }
+  .customghcard {
+    background-color: #2A2A2B;
+    border-color: #EEEEEE;
+    .h5 {
+      color: #B3FFFF;
+    }
+    color: #A3A3A6;
   }
   .ghcard-dark {
     display : block;
