@@ -35,9 +35,9 @@
   .customghcard {
     background-color: rgba(238, 238, 238, 0.5);
     border-color: rgba(42, 42, 43, 0.5);
-    color: #000;
+    color: #000 !important;
     .h5 {
-      color: #2698BA;
+      color: #2698BA !important;
     }
   }
   .ghcard-dark {
@@ -79,9 +79,9 @@ html[data-theme='dark'] {
     background-color: rgba(42, 42, 43, 0.5);
     border-color: rgba(238, 238, 238, 0.5);
     .h5 {
-      color: #B3FFFF;
+      color: #B3FFFF !important;
     }
-    color: #A3A3A6;
+    color: #A3A3A6 !important;
   }
   .ghcard-dark {
     display : block;
