@@ -3,7 +3,7 @@ layout: project
 title: Computer Vision Rock-Paper-Scissors
 description: Play against a computer, using a Webcam
 img:
-importance: 2
+importance:
 category: training
 redirect: https://github.com/SK1Y101/Computer-Vision-Rock-Paper-Scissors
 github:

@@ -3,7 +3,7 @@ layout: project
 title: Data Science Project
 description: Do science on data, make predictions!
 img:
-importance: 1
+importance:
 category: training
 redirect: https://github.com/SK1Y101/Data_Science_Project
 date: 2022-05-01
