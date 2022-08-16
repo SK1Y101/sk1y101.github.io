@@ -85,8 +85,8 @@ blockquote {
 
 // default page content
 .content-div { // phone size
-  margin-left: 0%;
-  margin-right: 0%;
+  margin-left: auto;
+  margin-right: auto;
 }
 .content-card {
   background-color: var(--global-card-color) !important;
@@ -136,8 +136,8 @@ blockquote {
     right: 2rem;
   }
   .content-div {
-    margin-left: 25%;
-    margin-right: 25%;
+    margin-left: auto;
+    margin-right: auto;
   }
   .profile {
     width: 30%;
