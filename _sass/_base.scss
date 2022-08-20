@@ -13,6 +13,8 @@ p, h1, h2, h3, h4, h5, em, div, li, span, strong {
 }
 h6 {
   font-size: small;
+  font-weight: bold;
+  color: var(--global-theme-color) !important;
 }
 
 katex {

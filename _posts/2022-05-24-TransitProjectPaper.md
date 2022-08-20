@@ -112,5 +112,28 @@ toc:
 # If you use this post as a template, delete this _styles block.
 
 ---
+{% capture figurenums %}{% increment figure_num %}{% increment equation_num %}{% increment table_num %}{% endcapture %}
 
-This is a test
+# Abstract
+Transit Timing Variation (TTV) provides a powerful tool to probe the dynamical configuration of exoplanetary systems from historical transit data <d-cite key="firstTTVPaper"></d-cite>;<d-cite key="secondTTVPaper"></d-cite>. TTV analysis has allowed both verification of planetary parameters <d-cite key="TrappistMass"></d-cite> and the discovery of new planetary bodies <d-cite key="Keplerc"></d-cite> from transit observation alone.
+As part of this work, additional transit light curves have been collected with the 24" Ritchey-Chrétien telescope at Clanfield observatory and combined with the ExoClock database <d-cite key="ExoClockI"></d-cite>;<d-cite key="ExoClockII"></d-cite>, Exoplanet transit database <d-cite key="ETD"></d-cite>, and *TESS* light curves <d-cite key="tess"></d-cite> to create a set of historical TTV data for analysis.
+A set of extensible TTV models have been developed to analytically approximate the chaotic n-body nature of real planetary systems. A computational pipeline to automate model fitting using various parameter optimisation <d-cite key="diffEvo"></d-cite>;<d-cite key="dualAnnealing"></d-cite> and model comparison <d-cite key="AIC"></d-cite>;<d-cite key="AIC2"></d-cite>;<d-cite key="AICC"></d-cite>;<d-cite key="BIC"></d-cite> techniques has been developed in-situ, allowing verification of model validity and analysis of TTV candidates using a combination of simulation and historical TTV data.
+The models developed were found to accurately describe TTV, and could determine the initial system parameters of simulated TTV systems to reasonable accuracy.
+Future work will allow extensions to these models, providing a more powerful suite of analytical tools for exoplanetary science, and the application of these methods to real exoplanetary systems with the possibility of new planetary discoveries.
+
+# Introduction
+
+In the last quarter-century, exoplanet detections have seen astronomical success, in no small part due to the launch of several space bourne telescopes. Of the 5000 planets found within 3800 planetary systems, around three quarters have been discovered through transit photometry <d-cite key="exoplanetArchive"></d-cite>. To this day, over 130 million light curves have been observed, providing a large base for historical analysis.
+
+Of particular interest for this project is a specific subset of transit photometry that makes heavy use of this historical data. "Transit Timing Variation", or "TTV", reanalyses historical transit observations for deviation from 2-body Keplerian motion to provide an insight into the dynamics of an exoplanetary system.
+
+## Transit photometry
+
+In the case that an exoplanetary system is oriented "edge on" from our vantage point on earth, then planets within the system will periodically occlude the central star. By observing the occlusion, it is possible to determine many of the physical and orbital parameters of an exoplanet.
+
+{% capture occdepth %}{% increment equation_num %}{% endcapture %}
+$$
+    \Delta_L = \frac{\theta_{planet}}{\theta_{star}} = \frac{R_{planet}^2}{R_{star}^2} \approx \frac{r_{planet}^2}{r_{star}^2} \text{\color{aqua}[ {{ complexmod }} ]}
+$$
+
+The reduction in stellar light observed during each transit, "Occlusion depth", is proportional to the angular areas of both the planet and star. An expression for this is given in equation <fig>[ {{ occdepth }} ]</fig>, where $$\theta$$ is the angular area, and $$R$$ the angular radius of each object. In the small angle approximation, the ratio of $$R$$ becomes equal to the ratio of $$r$$, the true radii of each object.
