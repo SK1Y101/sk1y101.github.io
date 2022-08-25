@@ -15,10 +15,24 @@ category: work
 date: 2022-02-11
 
 authors:
-  - name: Jack Lloyd-Walters
+  - name: Jack Lloyd-Walters FRAS
     url: "https://sk1y101.github.io"
     affiliations:
-      name: Royal Astronomical Society, Portsmouth University, Institute of Physics
+      name: Royal Astronomical Society, University of Portsmouth, Institute of Physics
+  - name: Stephen Futcher FCA FRAS
+    url:
+    affiliations:
+      name: Royal Astronomical Society, Hampshire Astronomical Group
+  - name: Dr. Hooshyar Assadullahi
+    url:
+    affiliations:
+      name: University of Portsmouth
+  - name: Prof. Daniel Thomas
+    url:
+    affiliations:
+      name: University of Portsmouth
+
+
 links:
   pdf: TransitProject/TransitDissertation.pdf
   url: _unlisted/TransitProjectPaper

@@ -1,5 +1,5 @@
 ---
-layout: distill
+layout: project
 title: Bachelors Thesis
 longtitle: Distinguishing Intermediate Mass Black Hole Mergers from Short Duration Glitches
 description: Using LIGO data to filter glitch events when searching for intermediate mass black holes

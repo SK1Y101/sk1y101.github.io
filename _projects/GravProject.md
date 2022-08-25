@@ -22,7 +22,7 @@ authors:
 
 links:
   pdf: GWProject/GWProjectFinalReport.pdf
-  url:
+  url: _unlisted/GravProject
 
 # Optionally, you can add a table of contents to your post.
 # NOTES:
