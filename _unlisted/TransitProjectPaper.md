@@ -6,7 +6,7 @@ description: >
   <p>Searching for Transit Timing Variations to determine the parameters of additional exoplanets in a system.</p>
   <p><small>astronomical databases: miscellaneous -- software: development -- software: simulations -- techniques: photometric</small></p>
 img: assets/img/TransitProject/TTVModelAnimation.gif
-permalink: /unlisted/TransitProjectPaper/
+permalink: /projects/TransitProject/paper/
 importance:
 github:
   user: SK1Y101

@@ -35,7 +35,7 @@ authors:
 
 links:
   pdf: TransitProject/TransitDissertation.pdf
-  url: _unlisted/TransitProjectPaper
+  url: paper
 
 # Optionally, you can add a table of contents to your post.
 # NOTES:
