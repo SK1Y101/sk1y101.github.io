@@ -8,6 +8,10 @@ category: work
 redirect: https://launchpad.net/maas
 date: 2022-06-20
 
+github:
+  user: maas
+  repo: maas
+
 authors:
   - name: Jack Lloyd-Walters
     url: "https://sk1y101.github.io"
