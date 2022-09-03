@@ -69,7 +69,7 @@
 
       <d-article>
         {% if page.toc %}
-        <div class="sidebar">
+        <d-contents>
           <nav class="l-text figcaption">
           <h3>Contents</h3>
             {% for section in page.toc %}
@@ -90,7 +90,7 @@
             {% endif %}
             {% endfor %}
           </nav>
-        </div>
+        </d-contents>
         {% endif %}
 
         {{ content }}
