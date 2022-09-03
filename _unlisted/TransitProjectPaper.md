@@ -18,29 +18,24 @@ category: work
 date: 2022-05-24
 
 authors:
-  - name: Albert Einstein
+  - name: Jack Lloyd-Walters
+    url: "https://lloydwaltersj.com"
     affiliations:
-      name: IAS, Princeton
-  - name: Boris Podolsky
-    affiliations:
-      name: IAS, Princeton
-  - name: Nathan Rosen
-    affiliations:
-      name: IAS, Princeton
+      name: Royal Astronomical Society, Portsmouth University, Institute of Physics
 
-  # - name: Jack Lloyd-Walters FRAS
-  #   url: "https://lloydwaltersj.com"
-  #   affiliations:
-  #     name: Royal Astronomical Society, Portsmouth University, Institute of Physics
-  # - name: Stephen Futcher FCA FRAS
-  #   affiliations:
-  #     name: Royal Astronomical Society, Portsmouth University, Hampshire Astronomical Group
-  # - name: Dr. Hooshyar Assadullahi
-  #   affiliations:
-  #     name: Portsmouth University
-  # - name: Prof. Daniel Thomas
-  #   affiliations:
-      # name: Portsmouth University
+# - name: Jack Lloyd-Walters FRAS
+#   url: "https://lloydwaltersj.com"
+#   affiliations:
+#     name: Royal Astronomical Society, Portsmouth University, Institute of Physics
+# - name: Stephen Futcher FCA FRAS
+#   affiliations:
+#     name: Royal Astronomical Society, Portsmouth University, Hampshire Astronomical Group
+# - name: Dr. Hooshyar Assadullahi
+#   affiliations:
+#     name: Portsmouth University
+# - name: Prof. Daniel Thomas
+#  affiliations:
+#    name: Portsmouth University
 
 links:
   pdf: TransitProject/TransitDissertation.pdf
@@ -103,11 +98,9 @@ toc:
           - name: Errors
   - name: Conclusion
   - name: Acknowledgements
-  - name: A - List of Figures
-  - name: B - List of Tables
-  - name: C - Extra material
+  - name: Extra material
     subsections:
-      - name: C1 - Transit duration derivation
+      - name: Transit duration derivation
   
 
 # Below is an example of injecting additional post-specific styles.
@@ -115,8 +108,9 @@ toc:
 
 ---
 {% assign figure_num = 1 %}{% assign equation_num = 1 %}
-<div class="fake-img l-gutter">
-  <p>.l-gutter</p>
+<div class="l-gutter">
+  ![University of Portsmouth](assets/img/TransitProject/uop-logo-stacked.png)
+  ![Hampshire Astronomical Group](assets/img/TransitProject/HAGLogo.jpg)
 </div>
 
 ## Abstract
