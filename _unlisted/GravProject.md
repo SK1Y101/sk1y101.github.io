@@ -64,7 +64,7 @@ toc:
 # If you use this post as a template, delete this _styles block.
 
 ---
-{% assign grav_figure_num = 1 %}{% assign grav_equation_num = 1 %}
+{% capture figurenums %}{% increment grav_figure_num %}{% increment grav_equation_num %}{% endcapture %}
 
 ## Abstract
 

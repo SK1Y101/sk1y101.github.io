@@ -111,7 +111,7 @@ toc:
 # If you use this post as a template, delete this _styles block.
 
 ---
-{% assign transit_figure_num = 1 %}{% assign transit_equation_num = 1 %}
+{% capture figurenums %}{% increment transit_figure_num %}{% increment transit_equation_num %}{% endcapture %}
 
 ## Abstract
 
