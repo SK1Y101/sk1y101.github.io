@@ -1,21 +1,19 @@
 ---
 layout: distill
 title: Masters Thesis
-longtitle: Determining The Parameters of Exoplanetary Candidates From Transit Timing Variations
-description: >
-  <p>Searching for Transit Timing Variations to determine the parameters of additional exoplanets in a system.</p>
-  <p><small>astronomical databases: miscellaneous -- software: development -- software: simulations -- techniques: photometric</small></p>
-img: assets/img/TransitProject/TTVModelAnimation.gif
-permalink: /projects/TransitProject/paper/
+longtitle: Distinguishing Intermediate Mass Black Hole Mergers from Short Duration Glitches
+description: Using LIGO data to filter glitch events when searching for intermediate mass black holes
+img: assets/img/GWProject/190521-3hr-GravPlot.png
+permalink: /unlisted/GravProject/
 importance:
 github:
   user: SK1Y101
-  repo: TransitProject
+  repo: GWProject
   onpage: true
   showbadges: true
   contributors: true
 category: work
-date: 2022-05-24
+date: 2021-06-03
 
 authors:
   - name: Jack Lloyd-Walters
@@ -23,23 +21,9 @@ authors:
     affiliations:
       name: Royal Astronomical Society, Portsmouth University, Institute of Physics
 
-# - name: Jack Lloyd-Walters FRAS
-#   url: "https://lloydwaltersj.com"
-#   affiliations:
-#     name: Royal Astronomical Society, Portsmouth University, Institute of Physics
-# - name: Stephen Futcher FCA FRAS
-#   affiliations:
-#     name: Royal Astronomical Society, Portsmouth University, Hampshire Astronomical Group
-# - name: Dr. Hooshyar Assadullahi
-#   affiliations:
-#     name: Portsmouth University
-# - name: Prof. Daniel Thomas
-#  affiliations:
-#    name: Portsmouth University
-
 links:
-  pdf: TransitProject/TransitDissertation.pdf
-  url: _unlisted/TransitProjectPaper
+  pdf: GWProject/GWProjectFinalReport.pdf
+  url:
 
 # Optionally, you can add a table of contents to your post.
 # NOTES:
@@ -48,7 +32,58 @@ links:
 #   - we may want to automate TOC generation in the future using
 #     jekyll-toc plugin (https://github.com/toshimaru/jekyll-toc).
 
-bibliography: transitproject.bib
+bibliography: gravproject.bib
+
+# layout: distill
+# title: Masters Thesis
+# longtitle: Determining The Parameters of Exoplanetary Candidates From Transit Timing Variations
+# description: >
+#   <p>Searching for Transit Timing Variations to determine the parameters of additional exoplanets in a system.</p>
+#   <p><small>astronomical databases: miscellaneous -- software: development -- software: simulations -- techniques: photometric</small></p>
+# img: assets/img/TransitProject/TTVModelAnimation.gif
+# permalink: /projects/TransitProject/paper/
+# importance:
+# github:
+#   user: SK1Y101
+#   repo: TransitProject
+#   onpage: true
+#   showbadges: true
+#   contributors: true
+# category: work
+# date: 2022-05-24
+
+# authors:
+#   - name: Jack Lloyd-Walters
+#     url: "https://lloydwaltersj.com"
+#     affiliations:
+#       name: Royal Astronomical Society, Portsmouth University, Institute of Physics
+
+# # - name: Jack Lloyd-Walters FRAS
+# #   url: "https://lloydwaltersj.com"
+# #   affiliations:
+# #     name: Royal Astronomical Society, Portsmouth University, Institute of Physics
+# # - name: Stephen Futcher FCA FRAS
+# #   affiliations:
+# #     name: Royal Astronomical Society, Portsmouth University, Hampshire Astronomical Group
+# # - name: Dr. Hooshyar Assadullahi
+# #   affiliations:
+# #     name: Portsmouth University
+# # - name: Prof. Daniel Thomas
+# #  affiliations:
+# #    name: Portsmouth University
+
+# links:
+#   pdf: TransitProject/TransitDissertation.pdf
+#   url: _unlisted/TransitProjectPaper
+
+# # Optionally, you can add a table of contents to your post.
+# # NOTES:
+# #   - make sure that TOC names match the actual section names
+# #     for hyperlinks within the post to work correctly.
+# #   - we may want to automate TOC generation in the future using
+# #     jekyll-toc plugin (https://github.com/toshimaru/jekyll-toc).
+
+# bibliography: transitproject.bib
 
 toc:
   - name: Abstract
@@ -109,8 +144,8 @@ toc:
 ---
 {% assign figure_num = 1 %}{% assign equation_num = 1 %}
 <div class="l-gutter">
-  ![University of Portsmouth](assets/img/TransitProject/uop-logo-stacked.png)
-  ![Hampshire Astronomical Group](assets/img/TransitProject/HAGLogo.jpg)
+  {% include figure.html path="assets/img/TransitProject/uop-logo-stacked.png" %}
+  {% include figure.html path="assets/img/TransitProject/HAGLogo.jpg" %}
 </div>
 
 ## Abstract
