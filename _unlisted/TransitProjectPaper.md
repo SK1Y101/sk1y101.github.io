@@ -18,19 +18,29 @@ category: work
 date: 2022-05-24
 
 authors:
-  - name: Jack Lloyd-Walters FRAS
-    url: "https://lloydwaltersj.com"
+  - name: Albert Einstein
     affiliations:
-      name: Royal Astronomical Society, Portsmouth University, Institute of Physics
-  - name: Stephen Futcher FCA FRAS
+      name: IAS, Princeton
+  - name: Boris Podolsky
     affiliations:
-      name: Royal Astronomical Society, Portsmouth University, Hampshire Astronomical Group
-  - name: Dr. Hooshyar Assadullahi
+      name: IAS, Princeton
+  - name: Nathan Rosen
     affiliations:
-      name: Portsmouth University
-  - name: Prof. Daniel Thomas
-    affiliations:
-      name: Portsmouth University
+      name: IAS, Princeton
+
+  # - name: Jack Lloyd-Walters FRAS
+  #   url: "https://lloydwaltersj.com"
+  #   affiliations:
+  #     name: Royal Astronomical Society, Portsmouth University, Institute of Physics
+  # - name: Stephen Futcher FCA FRAS
+  #   affiliations:
+  #     name: Royal Astronomical Society, Portsmouth University, Hampshire Astronomical Group
+  # - name: Dr. Hooshyar Assadullahi
+  #   affiliations:
+  #     name: Portsmouth University
+  # - name: Prof. Daniel Thomas
+  #   affiliations:
+      # name: Portsmouth University
 
 links:
   pdf: TransitProject/TransitDissertation.pdf
@@ -105,6 +115,9 @@ toc:
 
 ---
 {% assign figure_num = 1 %}{% assign equation_num = 1 %}
+<div class="fake-img l-gutter">
+  <p>.l-gutter</p>
+</div>
 
 ## Abstract
 
@@ -150,3 +163,5 @@ $$ T_{transit} = \frac{2 \left(R_{star} + R_{planet}\right)}{v_{planet}} \text{[
 By instead considering the transit as a circular arc (and assuming the orbital eccentricity is low), the expression for transit duration is given in equation <fig>[ {{ transitduration2 }} ]</fig>, where $a$ is the semi-major axis of the orbit.
 
 $$ T_{transit} = \frac{2a}{v_{planet}}\arcsin\frac{R_{star}+R_{planet}}{a}  \text{[ {{ transitduration2 }} ]} $$
+
+{% assign figure_num = 1 %}{% assign equation_num = 1 %}

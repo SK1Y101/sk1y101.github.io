@@ -477,3 +477,5 @@ Without actively trying to ensure its safety, the glitch model did not misidenti
 While no additional IMBH mergers have been identified in the limited scope of this paper, it would require only computational time and very minimal effort to extend the search over (potentially) the entirety of the O3 run and beyond, which should provide a definitive answer to the question as to IMBH mergers.
 
 Following this, a larger suite of glitched templates with varying properties could be created and searched for as part of the main LIGO search pipeline. While such a model can be extended to even higher masses, it should be noted that, from figure <fig>[ {{ Epsilon }} ]</fig>, we can see that glitches generated via this model and real mergers rapidly converge. By performing a quick calculation, we can note that an $$ \epsilon = 0.95 $$ is reached for symmetric masses over $$ 800 M_\odot $$.
+
+{% assign figure_num = 1 %}{% assign equation_num = 1 %}
