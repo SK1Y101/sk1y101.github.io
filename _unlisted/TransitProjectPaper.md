@@ -190,7 +190,7 @@ Of particular interest for this project are the three following causes for trans
 {% capture interiorTTV %}{% increment transit_figure_num %}{% endcapture %}
 <div class="row">
     <div class="col-sm g-0 imgfig">
-        {% include figure.html path="assets/img/TransitProject/TTVDueToInnerBarycentre" %}
+        {% include figure.html path="assets/img/TransitProject/TTVDueToInnerBarycentre.pdf" %}
     </div>
 </div>
 <div class="caption">
@@ -206,7 +206,7 @@ As a transit occurs when the star and planet are aligned, the motion of the star
 {% capture exteriorTTV %}{% increment transit_figure_num %}{% endcapture %}
 <div class="row">
     <div class="col-sm g-0 imgfig">
-        {% include figure.html path="assets/img/TransitProject/TTVDueToPerturbation" %}
+        {% include figure.html path="assets/img/TransitProject/TTVDueToPerturbation.pdf" %}
     </div>
 </div>
 <div class="caption">
@@ -230,7 +230,7 @@ As the detection and analysis of transit timing variations rely on historical da
 
 Transit data from both ExoClock and the exoplanet transit database (ETD) <d-cite key="ETD"></d-cite> have been combined with light curves from the *TESS* spacecraft <d-cite key="tess"></d-cite>. These light curves have been analysed with the Juliet python package to obtain mid-transit times <d-cite key="juliet"></d-cite>. A set of linear ephemerides were fit with linear regression to the observed transit data and compared with those published in both the ExoClock database and the NASA Exoplanet Archive <d-cite key="exoplanetArchive"></d-cite>. Computing predicted transit times from these linear ephemerides have allowed a set of TTV to be computed for each planetary target.
 
-A set of analytical TTV Models have been developed to fit to this TTV data, providing a method for determining the configuration of each exoplanetary system from transit observation. These models have had parameters determined through various minimisation techniques using the SciPy package <d-cite key="scipy"></d-cite>, such as least squares regression <d-cite key="leastSquare"></d-cite>, bounded limited memory Broyden–Fletcher–Goldfarb–Shanno <d-cite key="ByrdALM"></d-cite><d-cite key="ZhuAlgorithmL"</d-cite>, differential evolution <d-cite key="diffEvo"></d-cite>, and dual annealing <d-cite key="dualAnnealing"</d-cite>. The parameter distribution was determined with Markov Chain Monte Carlo (MCMC) analysis using the emcee package <d-cite key="emcee"</d-cite>. This was used to provide uncertainty bounds on reported values by taking the $$ 16^\text{th} $$, $$ 50^\text{th} $$, and $$ 84^\text{th} $$ quantiles of the MCMC samples.
+A set of analytical TTV Models have been developed to fit to this TTV data, providing a method for determining the configuration of each exoplanetary system from transit observation. These models have had parameters determined through various minimisation techniques using the SciPy package <d-cite key="scipy"></d-cite>, such as least squares regression <d-cite key="leastSquare"></d-cite>, bounded limited memory Broyden–Fletcher–Goldfarb–Shanno <d-cite key="ByrdALM"></d-cite><d-cite key="ZhuAlgorithmL"></d-cite>, differential evolution <d-cite key="diffEvo"></d-cite>, and dual annealing <d-cite key="dualAnnealing"></d-cite>. The parameter distribution was determined with Markov Chain Monte Carlo (MCMC) analysis using the emcee package <d-cite key="emcee"></d-cite>. This was used to provide uncertainty bounds on reported values by taking the $$ 16^\text{th} $$, $$ 50^\text{th} $$, and $$ 84^\text{th} $$ quantiles of the MCMC samples.
 
 ## Methodology
 
@@ -258,128 +258,97 @@ Strictly speaking, there are three categories into which TTV models can be subdi
 
 In the case where a transiting exoplanet orbits exterior to the perturbing planets, the transit timing variations seen will be dominated by the motion of the barycentre, as mentioned in section \ref{section:barycentre}. This setup is the most intuitive to understand, and makes a useful starting point.
 
-\paragraph{Initial derivation}
+##### Initial derivation
 
-The distance between the barycentre and primary body is given in equation \ref{eq:barycentre}, where $r$ is the distance between the primary and secondary, $m_0$ and $m_1$ are the masses of the primary and secondary respectively, and $\mu$ is the reduced mass of the secondary.
+{% capture eq_barycentre %}{% increment transit_equation_num %}{% endcapture %}
+The distance between the barycentre and primary body is given in equation <fig>[{{ eq_barycentre }}]</fig>, where $r$ is the distance between the primary and secondary, $$ m_0 $$ and $$ m_1 $$ are the masses of the primary and secondary respectively, and $$ \mu $$ is the reduced mass of the secondary.
 
-\begin{equation}
-    r_b = r \frac{m_1}{m_1 + m_0} = r \mu_1
-    \label{eq:barycentre}
-\end{equation}
+$$ r_b = r \frac{m_1}{m_1 + m_0} = r \mu_1  \text{[{{ eq_barycentre }}]} $$
 
-If we take the assumption that gravitational influences are dominated by that of the central star, any effects between planets will be negligible. Thus, the position of the global barycentre can be described as a linear combination of each planet in the system, as given in equation \ref{eq:multibarycentre}.
+{% capture eq_multibarycentre %}{% increment transit_equation_num %}{% endcapture %}
+If we take the assumption that gravitational influences are dominated by that of the central star, any effects between planets will be negligible. Thus, the position of the global barycentre can be described as a linear combination of each planet in the system, as given in equation <fig>[{{ eq_multibarycentre }}]</fig>.
 
-\begin{equation}
-    r_b = \sum_i^n  r_i \mu_i
-    \label{eq:multibarycentre}
-\end{equation}
+$$ r_b = \sum_i^n  r_i \mu_i  \text{[{{ eq_multibarycentre }}]} $$
 
-The position of an exoplanet along its orbit is given in equation \ref{eq:orbitpos}, where $P_i$ is the orbital period of the planet, $t_{0, i}$ is the initial transit time of the planet, and $\phi$ is the angle between the planet, and the closest point of its orbit as seen from earth.
+{% capture eq_orbitpos %}{% increment transit_equation_num %}{% endcapture %}
+The position of an exoplanet along its orbit is given in equation <fig>[{{ eq_orbitpos }}]</fig>, where $$ P_i $$ is the orbital period of the planet, $$ t_{0, i} $$ is the initial transit time of the planet, and $$ \phi $$ is the angle between the planet, and the closest point of its orbit as seen from earth.
 
-\begin{equation}
-    \phi = \frac{2 \pi \left(t - t_{0,i} \right)}{P_i}
-    \label{eq:orbitpos}
-\end{equation}
+$$ \phi = \frac{2 \pi \left(t - t_{0,i} \right)}{P_i}  \text{[{{ eq_orbitpos }}]} $$
 
-This expression of the angle of exoplanet position is equivalent to the mean anomaly of the planet, and can be combined with equation \ref{eq:multibarycentre} to obtain an expression for the position of the barycentre of the system at any given time, $t$, as given in equation \ref{eq:projbarycentre}. The introduction of the sine term is due to the nature of TTV. Only the motion of the barycentre perpendicular to the vantage point of the earth is relevant.
+{% capture eq_projbarycentre %}{% increment transit_equation_num %}{% endcapture %}
+This expression of the angle of exoplanet position is equivalent to the mean anomaly of the planet, and can be combined with equation <fig>[{{ eq_multibarycentre }}]</fig> to obtain an expression for the position of the barycentre of the system at any given time, $$ t $$, as given in equation <fig>[{{ eq_projbarycentre }}]</fig>. The introduction of the sine term is due to the nature of TTV. Only the motion of the barycentre perpendicular to the vantage point of the earth is relevant.
 
-\begin{equation}
-    r_b = \sum_i^n \left[ r_i \mu_i \sin \frac{2 \pi \left(t - t_{0,i} \right)}{P_i}\right]
-    \label{eq:projbarycentre}
-\end{equation}
+$$ r_b = \sum_i^n \left[ r_i \mu_i \sin \frac{2 \pi \left(t - t_{0,i} \right)}{P_i}\right]  \text{[{{ eq_projbarycentre }}]} $$
 
 As this is the distance of the barycentre from the star, we can negate the expression to obtain the distance of the star from the barycentre. This also defines the additional distance the transiting planet must cover for the transit to occur.
 
-\begin{equation}
-    \delta_x = -\sum_i^n \left[ r_i \mu_i \sin \frac{2 \pi \left(t - t_{0,i} \right)}{P_i}\right]
-    \label{eq:ttvdist}
-\end{equation}
+{% capture eq_ttvdist %}{% increment transit_equation_num %}{% endcapture %}
+$$ \delta_x = -\sum_i^n \left[ r_i \mu_i \sin \frac{2 \pi \left(t - t_{0,i} \right)}{P_i}\right]  \text{[{{ eq_ttvdist }}]} $$
 
-If we assume the distance associated with a transit is small compared to the size of the orbit of the transiting planet, the velocity of all bodies in the system will remain constant during the transit. Thus, to convert the distance, $\delta_x$, to a transit timing variation, we can apply standard equations of motion, as given in equation \ref{eq:suvat}. As the stellar mass will be many orders of magnitude larger than the planet, it's velocity contribution to the TTV will be negligible.
+{% capture eq_suvat %}{% increment transit_equation_num %}{% endcapture %}
+If we assume the distance associated with a transit is small compared to the size of the orbit of the transiting planet, the velocity of all bodies in the system will remain constant during the transit. Thus, to convert the distance, $$ \delta_x $$, to a transit timing variation, we can apply standard equations of motion, as given in equation <fig>[{{ eq_suvat }}]</fig>. As the stellar mass will be many orders of magnitude larger than the planet, it's velocity contribution to the TTV will be negligible.
 
-\begin{equation}
-    t = \frac{\delta_x}{v_{planet} - v_{star}} \approx \frac{\delta_x}{v_{planet}}
-    \label{eq:suvat}
-\end{equation}
+$$ t = \frac{\delta_x}{v_{planet} - v_{star}} \approx \frac{\delta_x}{v_{planet}}  \text{[{{ eq_suvat }}]} $$
 
-\begin{equation}
-    \label{eq:circorbitvel}
-    v_{planet} = \sqrt{\frac{G\left(m_{star} + m_{planet}\right)}{a_{planet}}} = \frac{2 \pi a}{P_{planet}}
-\end{equation}
+{% capture eq_circorbitvel %}{% increment transit_equation_num %}{% endcapture %}
+$$ v_{planet} = \sqrt{\frac{G\left(m_{star} + m_{planet}\right)}{a_{planet}}} = \frac{2 \pi a}{P_{planet}}  \text{[{{ eq_circorbitvel }}]} $$
 
-If we assume the orbit of the transiting planet to be circular, the orbital velocity is that given in equation \ref{eq:circorbitvel}. This can be combined with equation \ref{eq:suvat} and equation \ref{eq:ttvdist} to provide an expression for the transit timing variation in this case, as given in equation \ref{eq:ttvbarycentre}.
+{% capture eq_ttvbarycentre %}{% increment transit_equation_num %}{% endcapture %}
+If we assume the orbit of the transiting planet to be circular, the orbital velocity is that given in equation <fig>[{{ eq_circorbitvel }}]</fig>. This can be combined with equation <fig>[{{ eq_suvat }}]</fig> and equation <fig>[{{ eq_ttvdist }}]</fig> to provide an expression for the transit timing variation in this case, as given in equation <fig>[{{ eq_ttvbarycentre }}]</fig>.
 
-\begin{equation}
-    \delta_T = -\frac{P_T}{2 \pi a_T}\sum_i^n \left[ a_i \mu_i \sin \frac{2 \pi \left(t - t_{0,i} \right)}{P_i}\right]
-    \label{eq:ttvbarycentre}
-\end{equation}
+$$ \delta_T = -\frac{P_T}{2 \pi a_T}\sum_i^n \left[ a_i \mu_i \sin \frac{2 \pi \left(t - t_{0,i} \right)}{P_i}\right]  \text{[{{ eq_ttvbarycentre }}]} $$
 
-\paragraph{Extension to eccentric orbits}
+##### Extension to eccentric orbits
 
-While many of the approximations and assumptions made in the derivation of equation \ref{eq:ttvbarycentre} are valid for real planetary systems, the exclusion of orbital eccentricity will cause measurable deviation.
+While many of the approximations and assumptions made in the derivation of equation <fig>[{{ eq_ttvbarycentre }}]</fig> are valid for real planetary systems, the exclusion of orbital eccentricity will cause measurable deviation.
 
-As the orbits are no longer circular, we cannot use $a$ and $r$ interchangeably, instead, we must use the planets' true anomaly, $f$, and eccentricity, $e$, as given in equation \ref{eq:orbitalradius}. Additionally, as orbital velocity varies over an elliptical orbit, we need to use the vis-viva equation as given in equation \ref{eq:visviva}.
+{% capture eq_orbitalradius %}{% increment transit_equation_num %}{% endcapture %}
+{% capture eq_visviva %}{% increment transit_equation_num %}{% endcapture %}
+As the orbits are no longer circular, we cannot use $$ a $$ and $$ r $$ interchangeably, instead, we must use the planets' true anomaly, $$ f $$, and eccentricity, $$ e $$, as given in equation <fig>[{{ eq_orbitalradius }}]</fig>. Additionally, as orbital velocity varies over an elliptical orbit, we need to use the vis-viva equation as given in equation <fig>[{{ eq_visviva }}]</fig>.
 
-\begin{equation}
-    \label{eq:orbitalradius}
-    r = \frac{a \left(1 - e^2\right)}{1 + e \cos f}
-\end{equation}
+$$ r = \frac{a \left(1 - e^2\right)}{1 + e \cos f}  \text{[{{ eq_orbitalradius }}]} $$
 
-\begin{equation}
-    \label{eq:visviva}
-    v = \sqrt{G\left(m_{star} + m_{planet}\right) \left(\frac{2}{r} - \frac{1}{a}\right)}
-\end{equation}
+$$ v = \sqrt{G\left(m_{star} + m_{planet}\right) \left(\frac{2}{r} - \frac{1}{a}\right)}  \text{[{{ eq_visviva }}]} $$
 
-Introducing equation \ref{eq:orbitalradius} to equation \ref{eq:ttvbarycentre} gives the following expression for TTV, given in equation \ref{eq:partialeccentricity}. As the orbital distance equation requires introduction of the true anomaly, the term, $\sin\frac{2\pi\left(t-t_{0,i}\right)}{P_i}$, has also been replaced with the equivalent but more accurate expression using true anomaly and argument of periapsis, $\sin\left(f_i + \omega_i\right)$.
+{% capture eq_partialeccentricity %}{% increment transit_equation_num %}{% endcapture %}
+Introducing equation <fig>[{{ eq_orbitalradius }}]</fig> to equation <fig>[{{ eq_ttvbarycentre }}]</fig> gives the following expression for TTV, given in equation <fig>[{{ eq_partialeccentricity }}]</fig>. As the orbital distance equation requires introduction of the true anomaly, the term, $$ \sin\frac{2\pi\left(t-t_{0,i}\right)}{P_i} $$, has also been replaced with the equivalent but more accurate expression using true anomaly and argument of periapsis, $$ \sin\left(f_i + \omega_i\right) $$.
 
-\begin{equation}
-    \label{eq:partialeccentricity}
-    \delta_T = -\frac{P_T}{2 \pi a_T}\sum_i^n \left[ a_i \mu_i \frac{1 - e_i^2}{1 + e_i \cos f_i} \sin \left(f_i + \omega_i\right) \right]
-\end{equation}
+$$ \delta_T = -\frac{P_T}{2 \pi a_T}\sum_i^n \left[ a_i \mu_i \frac{1 - e_i^2}{1 + e_i \cos f_i} \sin \left(f_i + \omega_i\right) \right]  \text{[{{ eq_partialeccentricity }}]} $$
 
-Combining the vis-viva equation with the equation for orbital period, $P = 2\pi\sqrt{a^3 / G\left(m_{star} + m_{planet}\right)}$, gives equation \ref{eq:velocitynoG}, where the gravitational constant, $G$, is abstracted away.
+{% capture eq_velocitynoG %}{% increment transit_equation_num %}{% endcapture %}
+Combining the vis-viva equation with the equation for orbital period, $$ P = 2\pi\sqrt{a^3 / G\left(m_{star} + m_{planet}\right)} $$, gives equation <fig>[{{ eq_velocitynoG }}]</fig>, where the gravitational constant, $$ G $$, is abstracted away.
 
-\begin{equation}
-    \label{eq:velocitynoG}
-    v = \frac{2\pi a}{P}\sqrt{\left(\frac{2a - r}{r}\right)}
-\end{equation}
+$$ v = \frac{2\pi a}{P}\sqrt{\left(\frac{2a - r}{r}\right)}  \text{[{{ eq_velocitynoG }}]} $$
 
-Introducing equation \ref{eq:orbitalradius} to equation \ref{eq:velocitynoG} gives equation \ref{eq:velocitynoR}, an expression for orbital velocity that does not require knowledge of distance from the star.
+{% capture eq_velocitynoR %}{% increment transit_equation_num %}{% endcapture %}
+Introducing equation <fig>[{{ eq_orbitalradius }}]</fig> to equation <fig>[{{ eq_velocitynoG }}]</fig> gives equation <fig>[{{ eq_velocitynoR }}]</fig>], an expression for orbital velocity that does not require knowledge of distance from the star.
 
-\begin{equation}
-    \label{eq:velocitynoR}
-    v = \frac{2\pi a}{P}\sqrt{\frac{1 + 2 e \cos f + e^2}{1 - e^2}}
-\end{equation}
+$$ v = \frac{2\pi a}{P}\sqrt{\frac{1 + 2 e \cos f + e^2}{1 - e^2}}  \text{[{{ eq_velocitynoR }}]} $$
 
-This can be further combined with equation \ref{eq:partialeccentricity}, replacing our circular orbital velocity with the new eccentric orbital velocity, to give equation \ref{eq:TTVeccentric}, which is our model for TTV extended to include orbital eccentricity.
+{% capture eq_TTVeccentric %}{% increment transit_equation_num %}{% endcapture %}
+This can be further combined with equation <fig>[{{ eq_partialeccentricity }}]</fig>, replacing our circular orbital velocity with the new eccentric orbital velocity, to give equation <fig>[{{ eq_TTVeccentric }}]</fig>, which is our model for TTV extended to include orbital eccentricity.
 
-\begin{equation}
-    \label{eq:TTVeccentric}
-    \begin{split}
-        \delta_T &= -\frac{P_T}{2 \pi a_T}\left(\frac{1 - e_T^2}{1 + 2 e_T \cos f_T + e_T^2}\right)^\frac{1}{2}\\
-        & \cdot\sum_i^n \left[ a_i \mu_i \frac{1 - e_i^2}{1 + e_i \cos f_i} \sin \left(f_i + \omega_i\right) \right]
-    \end{split}
-\end{equation}
+$$ \delta_T = -\frac{P_T}{2 \pi a_T}\left(\frac{1 - e_T^2}{1 + 2 e_T \cos f_T + e_T^2}\right)^\frac{1}{2} \cdot\sum_i^n \left[ a_i \mu_i \frac{1 - e_i^2}{1 + e_i \cos f_i} \sin \left(f_i + \omega_i\right) \right]  \text{[{{ eq_TTVeccentric }}]} $$
 
-\subsubsection{Exterior perturbation}
+#### Exterior perturbation
 
-To derive the effects of orbital perturbation, we follow a derivation for a two-planet case \citep{agol2018}, and extend this to $n$ planets. We assume the transiting planet to have zero eccentricity and all planets are on coplanar orbits. We give the equation of motion for a body acting under gravity in equation \ref{eq:gravity}.
+To derive the effects of orbital perturbation, we follow a derivation for a two-planet case \citep{agol2018}, and extend this to $n$ planets. We assume the transiting planet to have zero eccentricity and all planets are on coplanar orbits. We give the equation of motion for a body acting under gravity in equation \ref{eq_gravity}.
 
 \begin{equation}
     \ddot{\pmb{R}} = \sum_{j \ne i} \left[G m_j \frac{\pmb{R}_j - \pmb{R}_i}{{| \pmb{R}_j - \pmb{R}_i|}^3}\right]
-    \label{eq:gravity}
+    \label{eq_gravity}
 \end{equation}
 
-Where the bold indicates that the position of the planet, $\pmb{R}$, is a vector. This can trivially be shown to satisfy \ref{eq:barycentrefixed}
+Where the bold indicates that the position of the planet, $\pmb{R}$, is a vector. This can trivially be shown to satisfy \ref{eq_barycentrefixed}
 
 \begin{equation}
     \sum_{i} m_i \pmb{\ddot{R}}_i = 0
-    \label{eq:barycentrefixed}
+    \label{eq_barycentrefixed}
 \end{equation}
 
 Which is a demonstration that the centre of mass of the system, $\pmb{R}_{C.o.M}$ is fixed, and no external forces are at play. This set of equations are most commonly used in numerical approaches; for an analytical approach to perturbation, it is more convenient to deal with the Jacobi coordinates of the system \citep{3bodypulsar, murraybook}.
 
-This gives a set of new coordinates, $r_i$, describing the position of the $i^{th}$ body relative to the mass interior to its orbit, as given in equation \ref{eq:jacobi}.
+This gives a set of new coordinates, $r_i$, describing the position of the $i^{th}$ body relative to the mass interior to its orbit, as given in equation \ref{eq_jacobi}.
 
 \begin{equation}
     \begin{aligned}
@@ -388,35 +357,35 @@ This gives a set of new coordinates, $r_i$, describing the position of the $i^{t
         \pmb{r}_2 &= \pmb{R}_2 - \frac{m_0\pmb{R}_0+m_1\pmb{R}_1}{m_0+m_1} \\
         &\shortvdotswithin{=} \\[-2em]
         \pmb{r}_{n+1} &= \pmb{R}_{n+1} - \frac{\sum^n_{j=0}m_j\pmb{R}_j}{\sum^n_{j=0}m_j}
-        \label{eq:jacobi}
+        \label{eq_jacobi}
     \end{aligned}
 \end{equation}
 
-We can reformulate the equations of motion in Jacobi coordinates, given in equation \ref{eq:jacobimotion}.
+We can reformulate the equations of motion in Jacobi coordinates, given in equation \ref{eq_jacobimotion}.
 
 \begin{equation}
     \ddot{\pmb{r}}_{n+1} = \ddot{\pmb{R}}_{n+1} - \frac{\sum^n_{j=0}m_j\ddot{\pmb{R}}_j}{\sum^n_{j=0}m_j}
-    \label{eq:jacobimotion}
+    \label{eq_jacobimotion}
 \end{equation}
 
-As we are investigating the case of an exterior perturbation, we only consider the equation for the innermost body, $\ddot{\pmb{r}}_1$, given in equation \ref{eq:perturb}.
+As we are investigating the case of an exterior perturbation, we only consider the equation for the innermost body, $\ddot{\pmb{r}}_1$, given in equation \ref{eq_perturb}.
 
 \begin{equation}
     \begin{aligned}
         \ddot{\pmb{r}}_1 &= \ddot{\pmb{R}}_1 - \ddot{\pmb{R}}_0 \\
         \ddot{\pmb{r}}_1 &= \sum_{j \ne 1} \left[G m_j \frac{\pmb{R}_j - \pmb{R}_1}{{| \pmb{R}_j - \pmb{R}_1|}^3}\right] - \sum_{j \ne 0} \left[G m_j \frac{\pmb{R}_j - \pmb{R}_0}{{| \pmb{R}_j - \pmb{R}_0|}^3}\right]
     \end{aligned}
-    \label{eq:perturb}
+    \label{eq_perturb}
 \end{equation}
 
-The double summation terms can be collected, to give equation \ref{eq:perturbCollected}, 
+The double summation terms can be collected, to give equation \ref{eq_perturbCollected}, 
 
 \begin{equation}
     \begin{split}
         \ddot{\pmb{r}}_1 &= Gm_0 \frac{\pmb{R}_0 - \pmb{R}_1}{|\pmb{R}_0 - \pmb{R}_1|^3} - Gm_1 \frac{\pmb{R}_1 - \pmb{R}_0}{|\pmb{R}_1 - \pmb{R}_0|^3} \\
         & + \sum_{j=2} \left[ Gm_j \frac{\pmb{R}_j - \pmb{R}_1}{{| \pmb{R}_j - \pmb{R}_1|}^3} - G m_j \frac{\pmb{R}_j - \pmb{R}_0}{{| \pmb{R}_j - \pmb{R}_0|}^3} \right]
     \end{split}
-    \label{eq:perturbCollected}
+    \label{eq_perturbCollected}
 \end{equation}
 
 For the Jacobian coordinates, We introduce the notation $|\pmb{r}_i| \equiv r_i$. That is to say, coordinates in bold is the vector position, while non-bold is the magnitude of that vector. We also introduce the reduced mass, $\mu$, given as $\mu_i = \nicefrac{m_i}{M}$, where $M$ is the total mass of the system. As the central star typically dominates the mass of the system, this can also be written $\mu_i \approx \nicefrac{m_i}{m_0}$.
@@ -428,50 +397,50 @@ For the Jacobian coordinates, We introduce the notation $|\pmb{r}_i| \equiv r_i$
     \end{split}
 \end{equation}
 
-This can be further simplified to equation \ref{eq:keplerandperturb},
+This can be further simplified to equation \ref{eq_keplerandperturb},
 
 \begin{equation}
     \begin{split}
         \ddot{\pmb{r}}_1 &= -G\left(m_0 + m_1\right)\frac{\pmb{r}_1}{r_1^3} \\
         & + \sum_{j=2} \left[ Gm_j \frac{\pmb{R}_j - \pmb{R}_1}{{| \pmb{R}_j - \pmb{R}_1|}^3} - Gm_j \frac{\pmb{R}_j - \pmb{R}_0}{{| \pmb{R}_j - \pmb{R}_0|}^3} \right]
     \end{split}
-    \label{eq:keplerandperturb}
+    \label{eq_keplerandperturb}
 \end{equation}
 
-In the 2-body case, where there is only a single body and star, this equation is the Keplerian equation of motion, as given in equation \ref{eq:kepler}. As the central star dominates the mass of the system, we can use $m_0 + m_i \approx m_0$ to simplify.
+In the 2-body case, where there is only a single body and star, this equation is the Keplerian equation of motion, as given in equation \ref{eq_kepler}. As the central star dominates the mass of the system, we can use $m_0 + m_i \approx m_0$ to simplify.
 
 \begin{equation}
     \begin{split}
         \ddot{\pmb{r}}_i &= -G\left(m_0+m_i\right)\frac{\pmb{r}_i}{r_i^3} \\
         & \approx -Gm_0\frac{\pmb{r}_i}{r_i^3}
     \end{split}
-    \label{eq:kepler}
+    \label{eq_kepler}
 \end{equation}
 
-From this, we can see that the acceleration in Jacobian coordinates for an n-body system as given by equation \ref{eq:keplerandperturb} is the standard Keplerian with some perturbative acceleration applied,
+From this, we can see that the acceleration in Jacobian coordinates for an n-body system as given by equation \ref{eq_keplerandperturb} is the standard Keplerian with some perturbative acceleration applied,
 
 \begin{equation}
     \ddot{\pmb{r}}_i = -G\left(m_0+m_1\right)\frac{\pmb{r}_1}{r_1^3} + \delta\ddot{\pmb{r}}_1
 \end{equation}
 
-With the perturbing acceleration given in equation \ref{eq:perturbaccel},
+With the perturbing acceleration given in equation \ref{eq_perturbaccel},
 
 \begin{equation}
     \delta\ddot{\pmb{r}}_1 = \sum_{j=2} \left[ Gm_j \frac{\pmb{R}_j - \pmb{R}_1}{{| \pmb{R}_j - \pmb{R}_1|}^3} - G m_j \frac{\pmb{R}_j - \pmb{R}_0}{{| \pmb{R}_j - \pmb{R}_0|}^3} \right]
-    \label{eq:perturbaccel}
+    \label{eq_perturbaccel}
 \end{equation}
 
-If we introduce terms to the first fractional part, we have equation \ref{eq:introducedterms}.
+If we introduce terms to the first fractional part, we have equation \ref{eq_introducedterms}.
 
 \begin{equation}
     \begin{split}
         \delta\ddot{\pmb{r}}_1 &= \sum_{j=2} \left[ Gm_j \frac{\pmb{R}_j - \pmb{R}_1 + \pmb{R}_0 - \pmb{R}_0}{{| \pmb{R}_j - \pmb{R}_1 + \pmb{R}_0 - \pmb{R}_0|}^3} - G m_j \frac{\pmb{R}_j - \pmb{R}_0}{{| \pmb{R}_j - \pmb{R}_0|}^3} \right]\\
         &= \sum_{j=2} \left[ Gm_j \frac{\pmb{R}_j - \pmb{R}_0 - \pmb{r}_1}{{| \pmb{R}_j - \pmb{R}_0 - \pmb{r}_1|}^3} - G m_j \frac{\pmb{R}_j - \pmb{R}_0}{{| \pmb{R}_j - \pmb{R}_0|}^3} \right]
     \end{split}
-    \label{eq:introducedterms}
+    \label{eq_introducedterms}
 \end{equation}
 
-We can consider the value of $\pmb{R}_j - \pmb{R}_0$ by using the general case in equation \ref{eq:jacobi}, to give the values for $\pmb{R}_j$,
+We can consider the value of $\pmb{R}_j - \pmb{R}_0$ by using the general case in equation \ref{eq_jacobi}, to give the values for $\pmb{R}_j$,
 
 \begin{equation}
     \begin{split}
@@ -480,7 +449,7 @@ We can consider the value of $\pmb{R}_j - \pmb{R}_0$ by using the general case i
     \end{split}
 \end{equation}
 
-Which can be evaluated to give equation \ref{eq:rjr0}. Note the expression obtained in line 3, the value for $\pmb{R}_j - \pmb{R}_0$ is some combination of $\pmb{R}_k - \pmb{R}_0$ where $0 < k < j$.
+Which can be evaluated to give equation \ref{eq_rjr0}. Note the expression obtained in line 3, the value for $\pmb{R}_j - \pmb{R}_0$ is some combination of $\pmb{R}_k - \pmb{R}_0$ where $0 < k < j$.
 
 \begin{equation}
     \begin{split}
@@ -488,48 +457,48 @@ Which can be evaluated to give equation \ref{eq:rjr0}. Note the expression obtai
         &= \pmb{r}_j + \frac{\sum^{j-1}_{k=1}m_k\pmb{R}_k}{\sum^{j-1}_{k=0}m_k}\\
         &= \pmb{r}_j + \sum^{j-1}_{k=1}{\mu_k\left(\pmb{R}_k-\pmb{R}_0\right)}\\
     \end{split}
-    \label{eq:rjr0}
+    \label{eq_rjr0}
 \end{equation}
 
-We define a new value $\pmb{r}_{j0}$, as a shorthand for $\pmb{R}_j - \pmb{R}_0$, given in equation \ref{eq:rj0},
+We define a new value $\pmb{r}_{j0}$, as a shorthand for $\pmb{R}_j - \pmb{R}_0$, given in equation \ref{eq_rj0},
 
 \begin{equation}
     \pmb{r}_{j0} \equiv \pmb{R}_j - \pmb{R}_0 = \pmb{r}_j + \sum^{j-1}_{k=1}{\mu_k\left(\pmb{R}_k-\pmb{R}_0\right)}
-    \label{eq:rj0}
+    \label{eq_rj0}
 \end{equation}
 
-By combining equations \ref{eq:introducedterms} and \ref{eq:rjr0}, we obtain equation \ref{eq:jacobianmotion},
+By combining equations \ref{eq_introducedterms} and \ref{eq_rjr0}, we obtain equation \ref{eq_jacobianmotion},
 
 \begin{equation}
     \delta\ddot{\pmb{r}}_1 = \sum_{j=2} \left[ Gm_j \frac{\pmb{r}_{j0} - \pmb{r}_1}{{| \pmb{r}_{j0} - \pmb{r}_1|}^3} - G m_j \frac{\pmb{r}_{j0}}{r_{j,0}^3} \right]
-    \label{eq:jacobianmotion}
+    \label{eq_jacobianmotion}
 \end{equation}
 
-Which can be simplified slightly as equation \ref{eq:jacobianmotion2}, which gives the perturbing acceleration on the transiting planet. Additionally, this can be expanded in a Legendre series to first order, giving the second line in equation \ref{eq:jacobianmotion2}. 
+Which can be simplified slightly as equation \ref{eq_jacobianmotion2}, which gives the perturbing acceleration on the transiting planet. Additionally, this can be expanded in a Legendre series to first order, giving the second line in equation \ref{eq_jacobianmotion2}. 
 
 \begin{equation}
     \begin{split}
         \delta\ddot{\pmb{r}}_1 &= \sum_{j=2} \left[ Gm_j\left( -\frac{\pmb{r}_1 - \pmb{r}_{j0}}{{| \pmb{r}_1 - \pmb{r}_{j0}|}^3} - \frac{\pmb{r}_{j0}}{r_{j0}^3} \right)\right]\\
         &= \sum_{j=2} \left[ -\frac{Gm_j}{r_j^3}\left( \pmb{r}_1 - 3\frac{\pmb{r}_1\cdot\pmb{r}_j}{r_j^2}\pmb{r}_j \right) + \mathcal{O}\left(\nicefrac{r_1}{r_j}\right)^2\right]
     \end{split}
-    \label{eq:jacobianmotion2}
+    \label{eq_jacobianmotion2}
 \end{equation}
 
-To find the perturbed period of the transiting planet, we compute how this acceleration changes when averaged over the orbital period. The angular position of the transiting planet from the vantage point of earth, $\theta_1$, is given by the sum of its true anomaly, $f_1$, and argument of periapsis, $\omega_1$. This is gives equation \ref{eq:angpos}. As the eccentricity of this planet is assumed zero, the true and mean anomaly are equal. We can also introduce the transit number, $n_1$, and epoch $\tau_1$, to this expression.
+To find the perturbed period of the transiting planet, we compute how this acceleration changes when averaged over the orbital period. The angular position of the transiting planet from the vantage point of earth, $\theta_1$, is given by the sum of its true anomaly, $f_1$, and argument of periapsis, $\omega_1$. This is gives equation \ref{eq_angpos}. As the eccentricity of this planet is assumed zero, the true and mean anomaly are equal. We can also introduce the transit number, $n_1$, and epoch $\tau_1$, to this expression.
 
 \begin{equation}
     \begin{split}
         \theta_1 &= f_1 + \omega_1\\
                  &= n_1\left(t - \tau_1\right)\omega_1
     \end{split}
-    \label{eq:angpos}
+    \label{eq_angpos}
 \end{equation}
 
-Differentiating equation \ref{eq:angpos} with respect to time gives equation \ref{eq:difangpos}.
+Differentiating equation \ref{eq_angpos} with respect to time gives equation \ref{eq_difangpos}.
 
 \begin{equation}
     \dot{\theta}_1 = \dot{n}_1\left(t - \tau_1\right) + n_1 - n_1\dot{t}_{0,1}
-    \label{eq:difangpos}
+    \label{eq_difangpos}
 \end{equation}
 
 Following \cite[section.~2.9]{murraybook}, we express $\dot{n}$ as a function of the semimajor axis: $\dot{n}_1 = -\nicefrac{3n_1}{2a_1}\dot{a}_1$,
@@ -541,33 +510,33 @@ Following \cite[section.~2.9]{murraybook}, we express $\dot{n}$ as a function of
     \end{split}
 \end{equation}
 
-Expressing the time derivatives $\dot{a_1}$, $\dot{\tau}$, and $\dot{\omega}$ in terms of $\ddot{r}_1$ gives equation \ref{eq:thetadot},
+Expressing the time derivatives $\dot{a_1}$, $\dot{\tau}$, and $\dot{\omega}$ in terms of $\ddot{r}_1$ gives equation \ref{eq_thetadot},
 
 \begin{equation}
     \dot{\theta}_1 = n_1\left(1 - \frac{2a_1^2}{G\left(m_0+m_1\right)}\sum_{j=2}\left[\frac{1}{2}\frac{Gm_ja_1}{r_j^3}\right]\right)
-    \label{eq:thetadot}
+    \label{eq_thetadot}
 \end{equation}
 
 This demonstrates why the orbital period of the transiting planet increases, the addition of planets in the system causes an increase in the effective mass interior to its orbit by $\frac{1}{2}m_j\left(\nicefrac{a_1}{r_j}\right)^3$.
 
-We can finally obtain the timing of the (N+1)th transit, given in equation \ref{eq:perturbtransittime} \citep[see][Section~4]{agol2018}.
+We can finally obtain the timing of the (N+1)th transit, given in equation \ref{eq_perturbtransittime} \citep[see][Section~4]{agol2018}.
 
 \begin{equation}
     \begin{split}
         t - t_0 &= \int_{f_0}^{f_0 + 2\pi N}df_1\dot{\theta}_1^{-1}\\
         &= \int_{f_0}^{f_0 + 2\pi N}df_1n_1^{-1}\left[1+\frac{1}{m_0+m_1}\sum_{j=2}\left[m_j\left(\frac{a_1}{r_j}\right)^3\right]\right]
     \end{split}
-    \label{eq:perturbtransittime}
+    \label{eq_perturbtransittime}
 \end{equation}
 
 Following \citep{borkovits}, we can express the true anomaly of the transiting planet in terms of the true anomalies of the perturbing planets,
 
 \begin{equation}
     df_1 = \sum_{j=2} \left[\frac{P_j}{P_1} \frac{r_j^2}{a_j^2\left(1-e_j^2\right)^{\nicefrac{1}{2}}} df_j\right]
-    \label{eq:trueanomfromother}
+    \label{eq_trueanomfromother}
 \end{equation}
 
-As $r$ depends on $f$, we can introduce equation \ref{eq:orbitpos} (also given below as equation \ref{orbitpos2}) to equation \ref{eq:trueanomfromother}, giving equation \ref{eq:newtrueanom}.
+As $r$ depends on $f$, we can introduce equation \ref{eq_orbitpos} (also given below as equation \ref{orbitpos2}) to equation \ref{eq_trueanomfromother}, giving equation \ref{eq_newtrueanom}.
 
 \begin{equation}
     r_i = \frac{a_i\left(1-e_i^2\right)}{1+e_i\cos{f_i}}
@@ -579,37 +548,37 @@ As $r$ depends on $f$, we can introduce equation \ref{eq:orbitpos} (also given b
         df_1 &= \sum_{j=2} \left[\frac{P_j}{P_1} \frac{1}{a_j^2\left(1-e_j^2\right)^{\nicefrac{1}{2}}} \left(\frac{a_j\left(1-e_j^2\right)}{1+e_j\cos{f_j}}\right)^2 df_j \right] \\
         &= \sum_{j=2} \left[ \frac{P_j}{P_1} \frac{\left(1-e_j^2\right)^{\nicefrac{3}{2}}}{\left(1+e_j\cos{f_j}\right)^2} df_j\right]
     \end{split}
-    \label{eq:newtrueanom}
+    \label{eq_newtrueanom}
 \end{equation}
 
-As the original variable of integration in equation \ref{eq:perturbtransittime}, $f_1$, changes due to the perturbation, we rewrite the integral in terms of the unperturbed $f_j$. As an approximation, we consider only the gravitational forces acting on the transiting planet, and treat the perturbing planets as following Keplerian orbits. The substitution for $df_1$ is given in equation \ref{eq:newtrueanom}, and gives equation \ref{eq:perturbtimenewvar}.
+As the original variable of integration in equation \ref{eq_perturbtransittime}, $f_1$, changes due to the perturbation, we rewrite the integral in terms of the unperturbed $f_j$. As an approximation, we consider only the gravitational forces acting on the transiting planet, and treat the perturbing planets as following Keplerian orbits. The substitution for $df_1$ is given in equation \ref{eq_newtrueanom}, and gives equation \ref{eq_perturbtimenewvar}.
 
 \begin{equation}
     \begin{split}
         t-t_0 &= \sum_{j=2}\left[\int_{f_0}^{f_0 + 2\pi N}\right.&\left( df_jn_1^{-1}\frac{P_j}{P_1}\frac{\left(1-e_j^2\right)^{\nicefrac{3}{2}}}{\left(1+e_j\cos{f_j}\right)^2} \right.\\
         & & \left. \left. \cdot \left(1+\frac{m_j}{m_0+m_1}\left(\frac{a_1}{r_j}\right)^3\right)\right)\right]\\
     \end{split}
-    \label{eq:perturbtimenewvar}
+    \label{eq_perturbtimenewvar}
 \end{equation}
 
-Which can be evaluated to give the timing of the (N+1)th transit, as shown in equation \ref{eq:finaltransittime}.
+Which can be evaluated to give the timing of the (N+1)th transit, as shown in equation \ref{eq_finaltransittime}.
 
 \begin{equation}
     \begin{split}
         t - t_0 &= NP_1 + \frac{P_1^2}{2\pi\left(m_0+m_1\right)} \\
         &\cdot \sum_{j=2}\left[\frac{m_j \left(f_j+e_j\sin{f_j}\right)\left(1-e_j^2\right)^{\nicefrac{-3}{2}}}{P_j}\right]
     \end{split}
-    \label{eq:finaltransittime}
+    \label{eq_finaltransittime}
 \end{equation}
 
-To find the departure from linear ephemerides, and thus obtain the TTV, we subtract the mean transit time $NP_1$ from equation \ref{eq:finaltransittime}. As the $f_j$ terms also includes the mean motion, $n\left(t-\tau_j\right)$, of the perturbing planets, we subtract that too, giving equation \ref{eq:TTVperturb}. We have now found a model of TTV caused by the perturbation due to outer planets.
+To find the departure from linear ephemerides, and thus obtain the TTV, we subtract the mean transit time $NP_1$ from equation \ref{eq_finaltransittime}. As the $f_j$ terms also includes the mean motion, $n\left(t-\tau_j\right)$, of the perturbing planets, we subtract that too, giving equation \ref{eq_TTVperturb}. We have now found a model of TTV caused by the perturbation due to outer planets.
 
 \begin{equation}
     \begin{split}
         \delta{t_1} &= \frac{P_1^2}{2\pi\left(m_0+m_1\right)}\\
         &\cdot\sum_{j=2}\left[\frac{m_j\left(f_j - n_j\left(t-\tau_j\right)+e_j\sin{f_j}\right)\left(1-e_j^2\right)^{\nicefrac{-3}{2}}}{P_j}\right]
     \end{split}
-    \label{eq:TTVperturb}
+    \label{eq_TTVperturb}
 \end{equation}
 
 \subsection{Parameter search}
@@ -630,10 +599,10 @@ This method will also often under- or over-estimate the fitting parameters, as t
 
 \paragraph{Maximum likelihood}
 
-Maximum likelihood estimation, or MLE, provides a numerical optimisation method for models that more accurately describe real world data, as opposed to the more idealised case within which linear regression was originally formulated. The logarithm of the likelihood function for Bayesian analysis is given in equation \ref{eq:likelihood}
+Maximum likelihood estimation, or MLE, provides a numerical optimisation method for models that more accurately describe real world data, as opposed to the more idealised case within which linear regression was originally formulated. The logarithm of the likelihood function for Bayesian analysis is given in equation \ref{eq_likelihood}
 
 \begin{equation}
-    \label{eq:likelihood}
+    \label{eq_likelihood}
     \ln{p(y | x, \theta, M)} = -\frac{1}{2}\sum_n\left[\frac{\left(y_n - M(x, \theta)\right)^2}{s_n^2} + \ln{\left(2\pi s_n^2\right)}\right]
 \end{equation}
 
@@ -661,48 +630,48 @@ As a typical final step in global optimisation, we polish the found parameters w
 
 In the case where models have an equivalent set of parameters, simply comparing the value of the maximum likelihood is sufficient to draw conclusions about their accuracy. If the number of parameters between models is inconsistent, this approach will naturally result in overfitting.
 
-This is especially relevant for our transit models. For example, the initial TTV model seen in equation \ref{eq:ttvbarycentre} has two fixed parameters and an additional four free parameters per body in the system, while the extension to this, as seen in equation \ref{eq:TTVeccentric} has four fixed parameters and an additional five free parameters per body in the system. As the number of bodies in the system is an additional free parameter, some method of comparison is required.
+This is especially relevant for our transit models. For example, the initial TTV model seen in equation \ref{eq_ttvbarycentre} has two fixed parameters and an additional four free parameters per body in the system, while the extension to this, as seen in equation \ref{eq_TTVeccentric} has four fixed parameters and an additional five free parameters per body in the system. As the number of bodies in the system is an additional free parameter, some method of comparison is required.
 
 \paragraph{Akaike information criterion}
 
 To determine the quality for each model, some weighting dependent on their free parameters is introduced to the likelihood value \citep{AIC, AIC2}.
 
 \begin{equation}
-    \label{eq:aic}
+    \label{eq_aic}
     \text{AIC} = 2 k - 2 \ln{L}
 \end{equation}
 
-In the case where a model has $k$ free parameters, with a maximum likelihood $L$, the AIC value is as given in equation \ref{eq:aic}. This provides a middle ground between goodness of fit, and model simplicity, handling both under- and over-fitting simultaneously.
+In the case where a model has $k$ free parameters, with a maximum likelihood $L$, the AIC value is as given in equation \ref{eq_aic}. This provides a middle ground between goodness of fit, and model simplicity, handling both under- and over-fitting simultaneously.
 
 \paragraph{Corrected Akaike information criterion}
 
-Where the sample size is small, the standard AIC method can lead to overfitting, and a correction is required to better describe the fit \citep{AICC}. This extension to AIC attempts to fix the overfitting by introducing a further penalty from the number of data points, $n$, as seen in equation \ref{eq:aicc}.
+Where the sample size is small, the standard AIC method can lead to overfitting, and a correction is required to better describe the fit \citep{AICC}. This extension to AIC attempts to fix the overfitting by introducing a further penalty from the number of data points, $n$, as seen in equation \ref{eq_aicc}.
 
 \begin{equation}
-    \label{eq:aicc}
+    \label{eq_aicc}
     \text{AICc} = AIC + \frac{2k^2 + 2k}{n-k-1} = \frac{2kn}{n-k-1} - 2 \ln{L}
 \end{equation}
 
-The exact form of the expression for the corrected Akaike information criterion (AICc) is not fixed, but is determined for the individual models to be scored. The equation given in \ref{eq:aicc} is the one used in this project, and is not representative of some general AICc expression. The commonality between all AICc expressions is the dependence on $k^2$, as all AICc are second-order estimates.
+The exact form of the expression for the corrected Akaike information criterion (AICc) is not fixed, but is determined for the individual models to be scored. The equation given in \ref{eq_aicc} is the one used in this project, and is not representative of some general AICc expression. The commonality between all AICc expressions is the dependence on $k^2$, as all AICc are second-order estimates.
 
 \paragraph{Bayesian information criterion}
 
 Another model selection metric closely related to the corrected Akaike information criterion, BIC introduces a larger penalty for free parameters by weighting them with the number of observed data points \citep{BIC}.
 
 \begin{equation}
-    \label{eq:bic}
+    \label{eq_bic}
     \text{BIC} = k \ln{n} - 2 \ln{L}
 \end{equation}
 
-In the case where a model has $k$ free parameters, $n$ data points, and a maximum likelihood $L$, the BIC value is as given in equation \ref{eq:bic}. Models that have lower BIC values are generally preferred, though this does not always yield the optimal fit.
+In the case where a model has $k$ free parameters, $n$ data points, and a maximum likelihood $L$, the BIC value is as given in equation \ref{eq_bic}. Models that have lower BIC values are generally preferred, though this does not always yield the optimal fit.
 
 \subsubsection{Markov Chain, Monte Carlo}
 
 To determine parameter bounds, a Markov Chain Monte Carlo (MCMC) method is used through the $Emcee$ package \citep{emcee}. This class of algorithms use the probability distribution of a function to construct a sample chain that converges to the desired distribution, typically one that is normally distributed around the true parameters. This begins very similarly to the differential evolution optimisation technique described in section \ref{diffevo}, where a set of ``walkers'' are initialised with arbitrary starting parameters, and allowed to walk around the parameter space according to some ensemble method.
 
-The ensemble method used for this project is the stretch move \citep{stretchMove}, a method that significantly outperforms the more traditional Metropolis-Hastings algorithm \citep{MH-MCMC}. The position of a walker, $X_k$, is determined by randomly selecting another walker, $X_j$, and proposing a new position by interpolating between the two with some variable randomly drawn from the distribution, as given in equation \ref{eq:stretch}, \citep[see][eq.~7]{emcee}.
+The ensemble method used for this project is the stretch move \citep{stretchMove}, a method that significantly outperforms the more traditional Metropolis-Hastings algorithm \citep{MH-MCMC}. The position of a walker, $X_k$, is determined by randomly selecting another walker, $X_j$, and proposing a new position by interpolating between the two with some variable randomly drawn from the distribution, as given in equation \ref{eq_stretch}, \citep[see][eq.~7]{emcee}.
 
 \begin{equation}
-    \label{eq:stretch}
+    \label{eq_stretch}
     X_k(t) \xrightarrow{} Y = X_j + Z\left[X_k(t) - X_j\right]
 \end{equation}
