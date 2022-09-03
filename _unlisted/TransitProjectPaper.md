@@ -334,6 +334,7 @@ $$ \delta_T = -\frac{P_T}{2 \pi a_T}\left(\frac{1 - e_T^2}{1 + 2 e_T \cos f_T + 
 
 To derive the effects of orbital perturbation, we follow a derivation for a two-planet case \citep{agol2018}, and extend this to $n$ planets. We assume the transiting planet to have zero eccentricity and all planets are on coplanar orbits. We give the equation of motion for a body acting under gravity in equation \ref{eq_gravity}.
 
+<!--
 \begin{equation}
     \ddot{\pmb{R}} = \sum_{j \ne i} \left[G m_j \frac{\pmb{R}_j - \pmb{R}_i}{{| \pmb{R}_j - \pmb{R}_i|}^3}\right]
     \label{eq_gravity}
@@ -675,3 +676,4 @@ The ensemble method used for this project is the stretch move \citep{stretchMove
     \label{eq_stretch}
     X_k(t) \xrightarrow{} Y = X_j + Z\left[X_k(t) - X_j\right]
 \end{equation}
+-->
