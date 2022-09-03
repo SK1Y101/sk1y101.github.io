@@ -104,7 +104,11 @@ toc:
 
 ---
 {% capture figurenums %}{% increment transit_figure_num %}{% increment transit_equation_num %}{% increment transit_table_num %}{% endcapture %}
-
+\(
+  \newcommand{\errorvalue}[3]{
+    $#1$ {\raisebox{0.5ex}{\tiny$\substack{+#2 \\ -#3}$} }
+  }
+\)
 ## Abstract
 
 Transit Timing Variation (TTV) provides a powerful tool to probe the dynamical configuration of exoplanetary systems from historical transit data <d-cite key="firstTTVPaper"></d-cite><d-cite key="secondTTVPaper"></d-cite>. TTV analysis has allowed both verification of planetary parameters <d-cite key="TrappistMass"></d-cite> and the discovery of new planetary bodies <d-cite key="Keplerc"></d-cite> from transit observation alone.
@@ -118,7 +122,7 @@ Future work will allow extensions to these models, providing a more powerful sui
   {% include figure.html path="assets/img/TransitProject/HAGLogo.jpg" %}
 </div>
 
-*
+***
 
 ## Introduction
 
@@ -177,7 +181,7 @@ Introducing the impact parameter, $$ b $$, to equation <fig>[{{ transitduration2
     </div>
 </div>
 <div class="caption">
-    Figure {{ inclinedtransit }}. How the orbital inclination affects the length of a transit. The axis scale is in stellar radii, and it can be seen in this configuration that a transit would only be visible if the relative inclination were in the region of ±1 degree.
+    Figure {{ inclinedtransit }}. How the orbital inclination affects the length of a transit. The axis scale is in stellar radii, and it can be seen in this configuration that a transit would only be visible if the relative inclination were in the region of $$\pm{1}$$ degree.
 </div>
 
 ### Transit timing
@@ -623,117 +627,132 @@ Where the sample size is small, the standard AIC method can lead to overfitting,
 $$ \text{AICc} = AIC + \frac{2k^2 + 2k}{n-k-1} = \frac{2kn}{n-k-1} - 2 \ln{L} $$
 <div class="l-gutter"><fig>({{ eq_aicc }})</fig></div>
 
-The exact form of the expression for the corrected Akaike information criterion (AICc) is not fixed, but is determined for the individual models to be scored. The equation given in \ref{eq_aicc} is the one used in this project, and is not representative of some general AICc expression. The commonality between all AICc expressions is the dependence on $k^2$, as all AICc are second-order estimates.
+The exact form of the expression for the corrected Akaike information criterion (AICc) is not fixed, but is determined for the individual models to be scored. The equation given in <fig>[{{ eq_aicc }}]</fig> is the one used in this project, and is not representative of some general AICc expression. The commonality between all AICc expressions is the dependence on $$ k^2 $$, as all AICc are second-order estimates.
 
-\paragraph{Bayesian information criterion}
+##### Bayesian information criterion
 
-Another model selection metric closely related to the corrected Akaike information criterion, BIC introduces a larger penalty for free parameters by weighting them with the number of observed data points \citep{BIC}.
+Another model selection metric closely related to the corrected Akaike information criterion, BIC introduces a larger penalty for free parameters by weighting them with the number of observed data points <d-cite key="BIC"></d-cite>.
 
-\begin{equation}
-    \label{eq_bic}
-    \text{BIC} = k \ln{n} - 2 \ln{L}
-\end{equation}
+{% capture eq_bic %}{% increment transit_equation_num %}{% endcapture %}
+$$ \text{BIC} = k \ln{n} - 2 \ln{L} $$
+<div class="l-gutter"><fig>({{ eq_bic }})</fig></div>
 
-In the case where a model has $k$ free parameters, $n$ data points, and a maximum likelihood $L$, the BIC value is as given in equation \ref{eq_bic}. Models that have lower BIC values are generally preferred, though this does not always yield the optimal fit.
+In the case where a model has $k$ free parameters, $n$ data points, and a maximum likelihood $L$, the BIC value is as given in equation <fig>[{{ eq_bic }}]</fig>. Models that have lower BIC values are generally preferred, though this does not always yield the optimal fit.
 
-\subsubsection{Markov Chain, Monte Carlo}
+#### Markov Chain, Monte Carlo
 
-To determine parameter bounds, a Markov Chain Monte Carlo (MCMC) method is used through the $Emcee$ package \citep{emcee}. This class of algorithms use the probability distribution of a function to construct a sample chain that converges to the desired distribution, typically one that is normally distributed around the true parameters. This begins very similarly to the differential evolution optimisation technique described in section \ref{diffevo}, where a set of "walkers" are initialised with arbitrary starting parameters, and allowed to walk around the parameter space according to some ensemble method.
+To determine parameter bounds, a Markov Chain Monte Carlo (MCMC) method is used through the *Emcee* package <d-cite key="emcee"></d-cite>. This class of algorithms use the probability distribution of a function to construct a sample chain that converges to the desired distribution, typically one that is normally distributed around the true parameters. This begins very similarly to the differential evolution optimisation technique described in [this section](#Minimisation), where a set of "walkers" are initialised with arbitrary starting parameters, and allowed to walk around the parameter space according to some ensemble method.
 
-The ensemble method used for this project is the stretch move \citep{stretchMove}, a method that significantly outperforms the more traditional Metropolis-Hastings algorithm \citep{MH-MCMC}. The position of a walker, $X_k$, is determined by randomly selecting another walker, $X_j$, and proposing a new position by interpolating between the two with some variable randomly drawn from the distribution, as given in equation \ref{eq_stretch}, \citep[see][eq.~7]{emcee}.
+{% capture eq_stretch %}{% increment transit_equation_num %}{% endcapture %}
+The ensemble method used for this project is the stretch move <d-cite key="stretchMove"></d-cite>, a method that significantly outperforms the more traditional Metropolis-Hastings algorithm <d-cite key="MH-MCMC"></d-cite>. The position of a walker, $$ X_k $$, is determined by randomly selecting another walker, $$ X_j $$, and proposing a new position by interpolating between the two with some variable randomly drawn from the distribution, as given in equation <fig>[{{ eq_stretch }}]</fig>, also see equation 7 in <d-cite key="emcee"></d-cite>.
 
-\begin{equation}
-    \label{eq_stretch}
-    X_k(t) \xrightarrow{} Y = X_j + Z\left[X_k(t) - X_j\right]
-\end{equation}
+$$ X_k(t) \xrightarrow{} Y = X_j + Z\left[X_k(t) - X_j\right] $$
+<div class="l-gutter"><fig>({{ eq_stretch }})</fig></div>
 
-\section{Results / Discussion}
+## Results / Discussion
 
-\subsection{Observations}\label{observations}
+### Observations
 
-Six transit observations were planned at the beginning of this project to observe four different exoplanetary systems: HAT-P-13b, HAT-P-44b, and K2-19b. Of those, only two observations were made, both of HAT-P-13b, and are given in figures \ref{fig:hatp13b1} and \ref{fig:hatp13b2}. Significant cloud cover prevented further observations, and severely hampered the observation made on 2022-02-27 (figure \ref{fig:hatp13b2}).
+{% capture fig_hatp13b1 %}{% increment transit_figure_num %}{% endcapture %}
+{% capture fig_hatp13b2 %}{% increment transit_figure_num %}{% endcapture %}
+Six transit observations were planned at the beginning of this project to observe four different exoplanetary systems: HAT-P-13b, HAT-P-44b, and K2-19b. Of those, only two observations were made, both of HAT-P-13b, and are given in figures <fig>[{{ fig_hatp13b1 }}]</fig> and <fig>[{{ fig_hatp13b2 }}]</fig>. Significant cloud cover prevented further observations, and severely hampered the observation made on 2022-02-27 (figure <fig>[{{ fig_hatp13b2 }}]</fig>>).
 
-\begin{figure}
-	\includegraphics[width=\columnwidth]{Images/detrended_model.jpg}
-    \caption[De-trended transit curve for HAT-P-13b, observed 2022-02-24]{De-trended transit light curve for an observation of HAT-P-13b taken 2022-02-24 and analysed with HOPS \citep{HOPS}. Note the anomaly near the mid-transit time due to light cloud cover. Reported $\nicefrac{R_p}{R_*}$ is $0.0844 \pm 0.0013$ \citep{hat-p-13b}.}
-    \label{fig:hatp13b1}
-\end{figure}
+<div class="row">
+    <div class="col-sm g-0 imgfig">
+        {% include figure.html path="assets/img/TransitProject/detrended_model.jpg" %}
+    </div>
+</div>
+<div class="caption">
+    Figure {{ fig_hatp13b1 }}. De-trended transit light curve for an observation of HAT-P-13b taken 2022-02-24 and analysed with HOPS <d-cite key="HOPS"></d-cite>. Note the anomaly near the mid-transit time due to light cloud cover. Reported $$\nicefrac{R_p}{R_*}$$ is $0.0844\pm{0.0013}$ <d-cite key="hat-p-13b"></d-cite>.
+</div>
 
-\begin{figure}
-	\includegraphics[width=\columnwidth]{Images/detrended_model2.jpg}
-    \caption[De-trended transit curve for HAT-P-13b, observed 2022-02-27]{De-trended transit light curve for an observation of HAT-P-13b taken 2022-02-27 and analysed with HOPS \citep{HOPS}. Note the large residuals and missing data in the second half of the transit, caused by clouds completely obscuring the star for several hours.}
-    \label{fig:hatp13b2}
-\end{figure}
+<div class="row">
+    <div class="col-sm g-0 imgfig">
+        {% include figure.html path="assets/img/TransitProject/detrended_model2.jpg" %}
+    </div>
+</div>
+<div class="caption">
+    Figure {{ fig_hatp13b2 }}. De-trended transit light curve for an observation of HAT-P-13b taken 2022-02-27 and analysed with HOPS <d-cite key="HOPS"></d-cite>. Note the large residuals and missing data in the second half of the transit, caused by clouds completely obscuring the star for several hours.
+</div>
 
-The light-curves have been fit with HOPS \citep{HOPS}, and have provided values for $\nicefrac{R_p}{R_*}$ close to the reported literature \citep{hat-p-13b} when considering the large variance in flux caused by suboptimal weather conditions.
+The light-curves have been fit with HOPS <d-cite key="HOPS"></d-cite>, and have provided values for $$\nicefrac{R_p}{R_*}$$ close to the reported literature <d-cite key="hat-p-13b"></d-cite> when considering the large variance in flux caused by suboptimal weather conditions.
 
-The observation on 2022-02-27, given in figure \ref{fig:hatp13b2}, shows large residuals and has had data points after the mid-transit time removed. This was due to large cloud cover that reduced sky visibility to $0\%$ for several hours during the middle of the transit. Re-introducing these data points to the HOPS fitting, the result in figure \ref{fig:hatp13b2error} is obtained. The relative change in flux due to the cloud cover is larger than the occlusion depth of the transit by a significant factor, causing hops to fit transit egress to this position.
+{% capture fig_hatp13b2error %}{% increment transit_figure_num %}{% endcapture %}
+The observation on 2022-02-27, given in figure <fig>[{{ fig_hatp13b2 }}]</fig>, shows large residuals and has had data points after the mid-transit time removed. This was due to large cloud cover that reduced sky visibility to $$ 0\% $$ for several hours during the middle of the transit. Re-introducing these data points to the HOPS fitting, the result in figure <fig>[{{ fig_hatp13b2error }}]</fig> is obtained. The relative change in flux due to the cloud cover is larger than the occlusion depth of the transit by a significant factor, causing hops to fit transit egress to this position.
 
-\begin{figure}
-	\includegraphics[width=\columnwidth]{Images/detrended_model2_error.jpg}
-    \caption[De-trended transit curve for HAT-P-13b, observed 2022-02-27, without removed data points]{De-trended transit light curve for the observation of HAT-P-13b taken 2022-02-27 without the central data points removed. Note how the relative change in flux due to the cloud-cover is larger than the predicted occlusion depth.}
-    \label{fig:hatp13b2error}
-\end{figure}
+<div class="row">
+    <div class="col-sm g-0 imgfig">
+        {% include figure.html path="assets/img/TransitProject/detrended_model2_error.jpg" %}
+    </div>
+</div>
+<div class="caption">
+    Figure {{ fig_hatp13b2error }}. De-trended transit light curve for the observation of HAT-P-13b taken 2022-02-27 without the central data points removed. Note how the relative change in flux due to the cloud-cover is larger than the predicted occlusion depth.
+</div>
 
-\subsection{Light curve analysis}
+### Light curve analysis
 
-\begin{figure}
-	\includegraphics[width=\columnwidth]{Images/TESSLightcurve_Hats-46}
-    \caption[Combined light curve and TTV data for HATS-46]{Combined light curve (top) and TTV data (bottom) for HATS-46, as observed by the \textit{TESS} spacecraft. Only HATS-46b transits the star, and a large disparity is noted in the middle of the dataset due to observations over multiple \textit{TESS} sectors.}
-    \label{fig:hats46tess}
-\end{figure}
+{% capture fig_hats46tess %}{% increment transit_figure_num %}{% endcapture %}
+<div class="row">
+    <div class="col-sm g-0 imgfig">
+        {% include figure.html path="assets/img/TransitProject/TESSLightcurve_Hats-46.pdf" %}
+    </div>
+</div>
+<div class="caption">
+    Figure {{ fig_hats46tess }}. Combined light curve (top) and TTV data (bottom) for HATS-46, as observed by the *TESS* spacecraft. Only HATS-46b transits the star, and a large disparity is noted in the middle of the dataset due to observations over multiple *TESS* sectors.
+</div>
 
-\begin{figure}
-	\includegraphics[width=\columnwidth]{Images/TESSLightcurve_Wasp-8}
-    \caption[Combined light curve and TTV data for Wasp-8]{Combined light curve (top) and TTV data (bottom) for Wasp-8, as observed by the \textit{TESS} spacecraft. Note the large transit depths as compared to HATS-46, and the correspondingly small uncertainties in the TTV residuals that result from that.}
-    \label{fig:Wasp8tess}
-\end{figure}
+{% capture fig_Wasp8tess %}{% increment transit_figure_num %}{% endcapture %}
+<div class="row">
+    <div class="col-sm g-0 imgfig">
+        {% include figure.html path="assets/img/TransitProject/TESSLightcurve_Wasp-8.pdf" %}
+    </div>
+</div>
+<div class="caption">
+    Figure {{ fig_Wasp8tess }}. Combined light curve (top) and TTV data (bottom) for Wasp-8, as observed by the *TESS* spacecraft. Note the large transit depths as compared to HATS-46, and the correspondingly small uncertainties in the TTV residuals that result from that.
+</div>
 
-With \textit{TESS} light curves collected from the Mikulski archive for space telescopes, additional mid-transit times could be computed to complement those collected from the exoplanet transit database and ExoClock database, as was briefly touched upon in section \ref{objectives}.
+With *TESS* light curves collected from the Mikulski archive for space telescopes, additional mid-transit times could be computed to complement those collected from the exoplanet transit database and ExoClock database, as was briefly touched upon in [this section](#Project-objectives).
 
-\subsubsection{De-trending}
+#### De-trending
 
-Many of the \textit{TESS} light curves show strong long-term trends that can make transit detection difficult. To de-trend the data, a Gaussian process is fit to the out-of transit data, using the linear ephemerides for the planetary system to deduce the locations of transits. This was performed using an approximate Matern kernel using the Juliet wrapper \citep{juliet} to the Celerite package \citep{celerite}. This gives the black line seen in figures \ref{fig:hats46tess}, and \ref{fig:Wasp8tess}, which very closely matches the overall light curve trend.
+Many of the *TESS* light curves show strong long-term trends that can make transit detection difficult. To de-trend the data, a Gaussian process is fit to the out-of transit data, using the linear ephemerides for the planetary system to deduce the locations of transits. This was performed using an approximate Matern kernel using the Juliet wrapper <d-cite key="juliet"><d-cite> to the Celerite package <d-cite key="celerite"><d-cite>. This gives the black line seen in figures <fig>[{{ fig_hats46tess }}]</fig>, and <fig>[{{ fig_Wasp8tess }}]</fig>, which very closely matches the overall light curve trend.
 
-\subsubsection{Transit fitting}
+#### Transit fitting
 
-Transit fits were then performed on the de-trended data, using the Juliet wrapper to both the Batman \citep{batman} and Dynesty \citep{dynesty} packages. The parameters for the transit models are initialised by randomly selecting from the priors, and iteratively walked through parameter space. The general parameters for the exoplanet are returned to the posteriors of the fit, which adequately match the confirmed literature despite having few transits and no initial parameters to work from.
+Transit fits were then performed on the de-trended data, using the Juliet wrapper to both the Batman <d-cite key="batman"></d-cite>and Dynesty <d-cite key="dynesty"></d-cite> packages. The parameters for the transit models are initialised by randomly selecting from the priors, and iteratively walked through parameter space. The general parameters for the exoplanet are returned to the posteriors of the fit, which adequately match the confirmed literature despite having few transits and no initial parameters to work from.
 
-Taking the posteriors found for HATS-46b, as compared to the detection paper \citep{hats46b}, we have the results as given in table \ref{tab:hats46b}
+{% capture tab_hats46b %}{% increment transit_table_num %}{% endcapture %}
+Taking the posteriors found for HATS-46b, as compared to the detection paper <d-cite key="hats46b"></d-cite>, we have the results as given in table <fig>[{{ tab_hats46b }}]</fig>
 
-\begin{table}
-	\centering
-	\begin{tabular}{lccr} % four columns, alignment for each
-    	\multicolumn{3}{c}{Juliet-Literature comparison} \\
-		\hline
-		Source & \citep{hats46b} & Juliet posteriors \\
-		\hline
-		$a / R_*$   & \errorvalue{13.55}{0.45}{0.65}  & \errorvalue{14.699}{1.541}{1.830} \\
-		$b$         & \errorvalue{0.63}{0.042}{0.034} & \errorvalue{0.480}{0.266}{0.171}  \\
-		$i$         & \errorvalue{87.32}{0.22}{0.31}  & \errorvalue{88.126}{1.119}{1.014} \\
-		$R_p / R_*$ & $0.1088 \pm 0.0027$       & \errorvalue{0.10369}{0.00496}{0.00444} \\
-		$P$         & $4.7423729 \pm 0.0000049$ & \errorvalue{4.7423836070}{0.0000139110}{0.0000114410} \\
-		\hline
-	\end{tabular}
-	\caption[Comparison between literature and computed transit data for HATS-46b]{Comparison between literature parameters and Juliet parameters from \textit{TESS} for HATS-46b. Many of the values satisfy the `Good enough' criterion despite not having the complementary radial velocity measurements used in the detection paper to refine the parameters.}
-	\label{tab:hats46b}
-\end{table}
+
+##### Juliet-Literature comparison
+| Source          | <d-cite> key="hats46b"></d-cite>      | Juliet posteriors                                     |
+|:----------------|:-------------------------------------:|:-------------------------------------------:|
+| $$ a / R_* $$ | $$ \errorvalue{13.55}{0.45}{0.65} $$ | $$ \errorvalue{14.699}{1.541}{1.830} $$ |
+| $$ b $$ | $$ \errorvalue{0.63}{0.042}{0.034} $$ | $$ \errorvalue{0.480}{0.266}{0.171}  $$ |
+| $$ i $$ | $$ \errorvalue{87.32}{0.22}{0.31} $$ | $$ \errorvalue{88.126}{1.119}{1.014} $$ |
+| $$ R_p / R_* $$ | $$ 0.1088 \pm 0.0027 $$ | $$ \errorvalue{0.10369}{0.00496}{0.00444}  $$ |
+| $$ P $$ | $$ 4.7423729 \pm 0.0000049 $$ | $$ \errorvalue{4.7423836070}{0.0000139110}{0.0000114410} $$ |
+|-----------------|---------------------------------------|------------------------------------------|
+<div class="caption">
+    Figure {{ tab_hats46b }}. Comparison between literature parameters and Juliet parameters from *TESS* for HATS-46b. Many of the values satisfy the `Good enough' criterion despite not having the complementary radial velocity measurements used in the detection paper to refine the parameters.
+</div>
 
 \subsubsection{TTV Residuals}
 
-By subtracting the found transit times from computed ephemerides, TTV residuals are computed for each transit. The transit uncertainty is read directly from the Juliet posteriors, and can be seen in the bottom half of figures \ref{fig:hats46tess}, and \ref{fig:Wasp8tess}.
+By subtracting the found transit times from computed ephemerides, TTV residuals are computed for each transit. The transit uncertainty is read directly from the Juliet posteriors, and can be seen in the bottom half of figures \ref{fig_hats46tess}, and \ref{fig_Wasp8tess}.
 
 The uncertainty in the residuals are proportional to the depth of the transit divided by the variance in the data, as seen in the two provided figures. From this, we would expect the magnitude and standard deviation of TTV to be approximately the same order of magnitude. Of particular note in that regard are the Wasp-8 TTV residuals: all of them lie more than one sigma from the centre of the O-C diagram.
 
 \subsection{Simulation pipeline}
 
 \subsubsection{Initialisation}
-The simulation pipeline makes use of the REBOUND \citep{rebound} and REBOUNDx \citep{reboundx} packages for numerical integration. The pipeline has been created to accept either a given planetary system, as seen in figure \ref{fig:trappistlayout}, or a $.csv$ file holding orbital elements.
+The simulation pipeline makes use of the REBOUND \citep{rebound} and REBOUNDx \citep{reboundx} packages for numerical integration. The pipeline has been created to accept either a given planetary system, as seen in figure \ref{fig_trappistlayout}, or a $.csv$ file holding orbital elements.
 
 \begin{figure}
 	\includegraphics[width=\columnwidth]{Images/TRAPPIST-1_layout}
     \caption[TRAPPIST-1 System Layout]{system layout as generated by the simulation pipeline for TRAPPIST-1.}
-    \label{fig:trappistlayout}
+    \label{fig_trappistlayout}
 \end{figure}
 
 The system is set up from provided parameters, and iterated forward using IAS15 \citep{reboundias15}. Transits are evaluated where the position of the star, $\hat{R_*}$, and position of the target, $\hat{R_T}$, satisfy the following,
@@ -746,12 +765,12 @@ The system is set up from provided parameters, and iterated forward using IAS15 
 \end{equation}
 
 \subsubsection{Simulated TTV}
-The transit time is found by iteratively decreasing simulation step time, and integrating until the desired precision is met, which is 1 millisecond by default. This provides a set of simulated transit times which are fit to TTV using least squares regression as mentioned in section \ref{lsq}. In the case of TRAPPIST-1b, the simulation output is as seen in figure \ref{fig:trappistTTV}.
+The transit time is found by iteratively decreasing simulation step time, and integrating until the desired precision is met, which is 1 millisecond by default. This provides a set of simulated transit times which are fit to TTV using least squares regression as mentioned in section \ref{lsq}. In the case of TRAPPIST-1b, the simulation output is as seen in figure \ref{fig_trappistTTV}.
 
 \begin{figure}
 	\includegraphics[width=\columnwidth]{Images/TTVSimulation_trappist-1b}
     \caption[TRAPPIST-1b simulated TTV]{TTV Residuals for TRAPPIST-1b according to simulation. Note the complex sinusoidal motion and large magnitudes due to the highly-resonant nature of the system. Additionally, note the thickness of the TTV curve, caused by low period variations due to non-resonant interactions. }
-    \label{fig:trappistTTV}
+    \label{fig_trappistTTV}
 \end{figure}
 
 The simulation pipeline integrates the effect of General Relativity, but could be further extended to include effects such as tidal deformation, stellar evolution, to even those as subtle as the Yarkovsky effect.
@@ -762,22 +781,22 @@ Following the derivations in section \ref{ttvmodels}, analytical models were con
 
 \subsubsection{System and TTV}
 
-To demonstrate the capabilities of the model, we selected exoplanetary systems with known TTV signals and generated synthetic systems whose properties were representative of the real systems, to allow precise control of TTV magnitude during testing phases. An example system layout is given in figure \ref{fig:examplelayout}.
+To demonstrate the capabilities of the model, we selected exoplanetary systems with known TTV signals and generated synthetic systems whose properties were representative of the real systems, to allow precise control of TTV magnitude during testing phases. An example system layout is given in figure \ref{fig_examplelayout}.
 
-Running the TTV simulation over a timescale of 200 years gives the residuals seen in figure \ref{fig:exampleTTVSim}. A 200-year integration is not representative of any known transiting planet, the earliest transiting data dates to 1999 \citep{firstTransit}, and was simply chosen to better demonstrate the long-term evolution of the transit timing variation. The variance of data returned by the simulation is the standard deviation of measured TTV. For real systems, however, this variance is computed from the uncertainties of known parameters.
+Running the TTV simulation over a timescale of 200 years gives the residuals seen in figure \ref{fig_exampleTTVSim}. A 200-year integration is not representative of any known transiting planet, the earliest transiting data dates to 1999 \citep{firstTransit}, and was simply chosen to better demonstrate the long-term evolution of the transit timing variation. The variance of data returned by the simulation is the standard deviation of measured TTV. For real systems, however, this variance is computed from the uncertainties of known parameters.
 
-The initial parameters used in this synthetic system are given in table \ref{tab:systemparams}.
+The initial parameters used in this synthetic system are given in table \ref{tab_systemparams}.
 
 \begin{figure}
 	\includegraphics[width=\columnwidth]{Images/example_system_layout}
     \caption[System layout for one of the synthetic systems]{The system layout for one of the synthetic test systems. The exoplanets in this example were initialised in low-eccentricity non-resonant orbits, with masses of 0.8, 0.5, and 5 Jupiter mass from inner to outer.}
-    \label{fig:examplelayout}
+    \label{fig_examplelayout}
 \end{figure}
 
 \begin{figure}
 	\includegraphics[width=\columnwidth]{Images/TTVSimulation_transiting_planet}
-    \caption[TTV Residuals for the synthetic system]{Simulated TTV residuals for the synthetic system used in model testing. The TTV simulated are for the outermost planet in the system, as seen in figure \ref{fig:examplelayout}.}
-    \label{fig:exampleTTVSim}
+    \caption[TTV Residuals for the synthetic system]{Simulated TTV residuals for the synthetic system used in model testing. The TTV simulated are for the outermost planet in the system, as seen in figure \ref{fig_examplelayout}.}
+    \label{fig_exampleTTVSim}
 \end{figure}
 
 \begin{table}
@@ -785,16 +804,16 @@ The initial parameters used in this synthetic system are given in table \ref{tab
 	\begin{tabular}{lccccc} % four columns, alignment for each
 	    \multicolumn{5}{c}{Initialisation parameters} \\
 		\hline
-		Body        & $m$            & $p$ (Days) & $e$    & $\omega$ (Radians) \\
+		Body        | $m$            | $p$ (Days) | $e$    | $\omega$ (Radians) \\
 		\hline
-		Star        & $1.32 M_\odot$ &            &        &           \\
-		Perturber 1 & $0.8 M_J$      & $9$        & $0.15$ & $0$       \\
-		Perturber 2 & $0.5 M_J$      & $65$       & $0.15$ & $1$       \\
-		Target      & $5 M_J$        & $537$      & $0.30$ & $\pi / 2$ \\
+		Star        | $1.32 M_\odot$ |            |        |           \\
+		Perturber 1 | $0.8 M_J$      | $9$        | $0.15$ | $0$       \\
+		Perturber 2 | $0.5 M_J$      | $65$       | $0.15$ | $1$       \\
+		Target      | $5 M_J$        | $537$      | $0.30$ | $\pi / 2$ \\
 		\hline
 	\end{tabular}
 	\caption[Synthetic system parameters]{Initial parameters for the synthetic system: mass, orbital period, eccentricity, and argument of periapsis. Other parameters not given here are initialised to zero, or (in the case of $a$, computed in-situ).}
-	\label{tab:systemparams}
+	\label{tab_systemparams}
 \end{table}
 
 \subsubsection{Model comparison}
@@ -810,18 +829,15 @@ To determine the validity of the analytical models, they were executed with the 
 \end{equation}
 
 \begin{equation}
-    \begin{split}
-        \delta_T &= -\frac{P_T}{2 \pi a_T}\left(\frac{1 - e_T^2}{1 + 2 e_T \cos f_T + e_T^2}\right)^\frac{1}{2}\\
-        & \cdot\sum_i^n \left[ a_i \mu_i \frac{1 - e_i^2}{1 + e_i \cos f_i} \sin \left(f_i + \omega_i\right) \right]
-    \end{split}
+\delta_T = -\frac{P_T}{2 \pi a_T}\left(\frac{1 - e_T^2}{1 + 2 e_T \cos f_T + e_T^2}\right)^\frac{1}{2} \cdot\sum_i^n \left[ a_i \mu_i \frac{1 - e_i^2}{1 + e_i \cos f_i} \sin \left(f_i + \omega_i\right) \right]
 \end{equation}
 
-The TTV curves generated by these models are shown in figure \ref{fig:testmodelcomparisonold}. Despite the various approximations used in the derivation for each model, and the subsequent applicability space for which they are valid, they match the simulated TTV to within the 1-sigma bounds.
+The TTV curves generated by these models are shown in figure \ref{fig_testmodelcomparisonold}. Despite the various approximations used in the derivation for each model, and the subsequent applicability space for which they are valid, they match the simulated TTV to within the 1-sigma bounds.
 
 \begin{figure}
 	\includegraphics[width=\columnwidth]{Images/TTVTestModelComparisonold}
     \caption[Analytical TTV given synthetic system initial parameters]{Analytical TTV curves for the synthetic system, using the initial parameters. Model1, Model2, and Model3 are the models described in equations \ref{eq:ttvbarycentre}, \ref{eq:partialeccentricity}, and \ref{eq:TTVeccentric} respectively. Each graph shows a 5 transit snippet from the TTV curve. Simulated TTV times are overlaid in black.}
-    \label{fig:testmodelcomparisonold}
+    \label{fig_testmodelcomparisonold}
 \end{figure}
 
 Additionally, note how the overall shape of the analytical curves change as a result of first introducing perturbed eccentricity, and then transiting planet eccentricity. Strictly speaking, the sections of the analytical curves between each transit do not correspond to anything physically within the system. They describe the predicted TTV, were the transiting planet to have a slightly offset time of periapsis passage.
@@ -831,25 +847,25 @@ As we have now demonstrated the accuracy of the models, to some set of initial p
 
 To do this, the three models were each initialised with the fixed parameters, those being the properties of the host star and transiting planet, and three sets of arbitrary initial parameters corresponding to a system with one, two, and three planets additional to the transiting target, giving an effective set of 9 models to optimise. Each of these were optimised with both dual annealing \citep{dualAnnealing} and differential evolution \citep{diffEvo}, for which the best fit of the two methods was selected as that model's maximum likelihood solution.
 
-The optimal TTV curves found for each model are given in figure \ref{fig:modelcurves}, where the table of the optimal solution values for each model is given in tables \ref{tab:1planetcorrectedfittingparameters}, \ref{tab:2planetcorrectedfittingparameters}, and \ref{tab:3planetcorrectedfittingparameters}.
+The optimal TTV curves found for each model are given in figure \ref{fig_modelcurves}, where the table of the optimal solution values for each model is given in tables \ref{tab_1planetcorrectedfittingparameters}, \ref{tab_2planetcorrectedfittingparameters}, and \ref{tab_3planetcorrectedfittingparameters}.
 
 \begin{table}
 	\centering
 	\begin{tabular}{llcccc}
 	    \multicolumn{6}{c}{One perturbing planet} \\
 		\hline
-		Model & Method & $\mu$ ($10^{-6}$) & $a$ ($10^{-6}$ AU) & $e$ & $\omega$ \\
+		Model | Method | $\mu$ ($10^{-6}$) | $a$ ($10^{-6}$ AU) | $e$ | $\omega$ \\
 		\hline
-		Model 1 &  diff. evo.  &  348.996 &  380017.037 &  0.245 &  6.083 \\
-        Model 1 &    dual an.  &  612.062 &  216632.299 &  0.033 &  5.589 \\
-        Model 2 &  diff. evo.  &  504.325 &  185229.581 &  0.344 &  2.018 \\
-        Model 2 &    dual an.  &  321.476 &  419718.646 &  0.116 & -0.019 \\
-        Model 3 &  diff. evo.  &  428.884 &  225677.205 &  0.043 & -4.821 \\
-        Model 3 &    dual an.  &  625.847 &  158625.666 &  0.114 & -3.129 \\
+		Model 1 |  diff. evo.  |  348.996 |  380017.037 |  0.245 |  6.083 \\
+        Model 1 |    dual an.  |  612.062 |  216632.299 |  0.033 |  5.589 \\
+        Model 2 |  diff. evo.  |  504.325 |  185229.581 |  0.344 |  2.018 \\
+        Model 2 |    dual an.  |  321.476 |  419718.646 |  0.116 | -0.019 \\
+        Model 3 |  diff. evo.  |  428.884 |  225677.205 |  0.043 | -4.821 \\
+        Model 3 |    dual an.  |  625.847 |  158625.666 |  0.114 | -3.129 \\
 		\hline
 	\end{tabular}
 	\caption{Best fit parameters for the synthetic system TTV with only a single perturbing planet.}
-	\label{tab:1planetcorrectedfittingparameters}
+	\label{tab_1planetcorrectedfittingparameters}
 \end{table}
 
 \begin{table}
@@ -857,24 +873,24 @@ The optimal TTV curves found for each model are given in figure \ref{fig:modelcu
 	\begin{tabular}{llcccc}
 	    \multicolumn{6}{c}{Two perturbing planets} \\
 		\hline
-		Model & Method & $\mu$ ($10^{-6}$) & $a$ ($10^{-6}$ AU) & $e$ & $\omega$ \\
+		Model | Method | $\mu$ ($10^{-6}$) | $a$ ($10^{-6}$ AU) | $e$ | $\omega$ \\
 		\hline
-		Model 1 &  diff. evo.  &   75.484 &  1242571.08 &  0.239 & -0.864 \\
-                &              &   41.269 &  135176.665 &  0.195 & -1.165 \\
-        Model 1 &    dual an.  &  206.855 &  226389.639 &  0.463 & -6.241 \\
-                &              &  227.427 &  585132.122 &  0.483 &  -2.24 \\
-        Model 2 &  diff. evo.  &  398.235 &  118829.517 &  0.019 & -0.285 \\
-                &              &  146.886 &  833966.926 &  0.135 &  1.518 \\
-        Model 2 &    dual an.  &  268.507 &  500367.032 &  0.101 & -2.655 \\
-                &              &  138.984 &   335523.36 &  0.142 &  1.404 \\
-        Model 3 &  diff. evo.  &  427.237 &  225677.039 &    0.0 &  6.283 \\
-                &              &    0.001 &   58070.523 &  0.085 &  4.119 \\
-        Model 3 &    dual an.  &   35.051 &  995449.059 &  0.113 &   3.73 \\
-                &              &  102.098 &  966847.114 &  0.082 &    2.8 \\
+		Model 1 |  diff. evo.  |   75.484 |  1242571.08 |  0.239 | -0.864 \\
+                |              |   41.269 |  135176.665 |  0.195 | -1.165 \\
+        Model 1 |    dual an.  |  206.855 |  226389.639 |  0.463 | -6.241 \\
+                |              |  227.427 |  585132.122 |  0.483 |  -2.24 \\
+        Model 2 |  diff. evo.  |  398.235 |  118829.517 |  0.019 | -0.285 \\
+                |              |  146.886 |  833966.926 |  0.135 |  1.518 \\
+        Model 2 |    dual an.  |  268.507 |  500367.032 |  0.101 | -2.655 \\
+                |              |  138.984 |   335523.36 |  0.142 |  1.404 \\
+        Model 3 |  diff. evo.  |  427.237 |  225677.039 |    0.0 |  6.283 \\
+                |              |    0.001 |   58070.523 |  0.085 |  4.119 \\
+        Model 3 |    dual an.  |   35.051 |  995449.059 |  0.113 |   3.73 \\
+                |              |  102.098 |  966847.114 |  0.082 |    2.8 \\
 		\hline
 	\end{tabular}
 	\caption{Best fit parameters for the synthetic system TTV with two perturbing planets.}
-	\label{tab:2planetcorrectedfittingparameters}
+	\label{tab_2planetcorrectedfittingparameters}
 \end{table}
 
 \begin{table}
@@ -882,120 +898,120 @@ The optimal TTV curves found for each model are given in figure \ref{fig:modelcu
 	\begin{tabular}{llcccc}
 	    \multicolumn{6}{c}{Three perturbing planets} \\
 		\hline
-		Model & Method & $\mu$ ($10^{-6}$) & $a$ ($10^{-6}$ AU) & $e$ & $\omega$ \\
+		Model | Method | $\mu$ ($10^{-6}$) | $a$ ($10^{-6}$ AU) | $e$ | $\omega$ \\
 		\hline
-		Model 1 &  diff. evo.  &  589.909 &  241886.321 &  0.386 & -2.961 \\
-                &              &    7.508 &  263814.017 &  0.449 &  -5.18 \\
-                &              &   53.287 &  236535.741 &  0.009 &  0.337 \\
-        Model 1 &    dual an.  &   19.684 &  1411636.58 &  0.205 &   3.55 \\
-                &              &   196.18 &  240995.442 &  0.354 &  0.185 \\
-                &              &  428.518 &  310462.859 &  0.059 & -6.026 \\
-        Model 2 &  diff. evo.  &  145.253 &  833960.172 &  0.262 &  2.613 \\
-                &              &    0.001 &  134746.642 &  0.288 &  -3.71 \\
-                &              &  103.699 &  109160.755 &  0.142 & -1.761 \\
-        Model 2 &    dual an.  &  286.502 &   167374.87 &   0.14 &  2.521 \\
-                &              &  625.306 &  212912.077 &  0.001 & -4.735 \\
-                &              &  471.528 &   67248.984 &  0.434 &  0.301 \\
-        Model 3 &  diff. evo.  &     5.06 &  216218.273 &  0.311 &  1.451 \\
-                &              &    18.73 &   240838.21 &  0.309 &  4.963 \\
-                &              &  616.988 &  100349.363 &  0.021 & -4.403 \\
-        Model 3 &    dual an.  &    78.76 &  1242718.32 &  0.012 &   2.37 \\
-                &              &   123.85 &  281959.982 &  0.192 & -4.953 \\
-                &              &   602.58 &   95865.617 &    0.5 &  1.574 \\
+		Model 1 |  diff. evo.  |  589.909 |  241886.321 |  0.386 | -2.961 \\
+                |              |    7.508 |  263814.017 |  0.449 |  -5.18 \\
+                |              |   53.287 |  236535.741 |  0.009 |  0.337 \\
+        Model 1 |    dual an.  |   19.684 |  1411636.58 |  0.205 |   3.55 \\
+                |              |   196.18 |  240995.442 |  0.354 |  0.185 \\
+                |              |  428.518 |  310462.859 |  0.059 | -6.026 \\
+        Model 2 |  diff. evo.  |  145.253 |  833960.172 |  0.262 |  2.613 \\
+                |              |    0.001 |  134746.642 |  0.288 |  -3.71 \\
+                |              |  103.699 |  109160.755 |  0.142 | -1.761 \\
+        Model 2 |    dual an.  |  286.502 |   167374.87 |   0.14 |  2.521 \\
+                |              |  625.306 |  212912.077 |  0.001 | -4.735 \\
+                |              |  471.528 |   67248.984 |  0.434 |  0.301 \\
+        Model 3 |  diff. evo.  |     5.06 |  216218.273 |  0.311 |  1.451 \\
+                |              |    18.73 |   240838.21 |  0.309 |  4.963 \\
+                |              |  616.988 |  100349.363 |  0.021 | -4.403 \\
+        Model 3 |    dual an.  |    78.76 |  1242718.32 |  0.012 |   2.37 \\
+                |              |   123.85 |  281959.982 |  0.192 | -4.953 \\
+                |              |   602.58 |   95865.617 |    0.5 |  1.574 \\
 		\hline
 	\end{tabular}
 	\caption[Best fit parameters for models for the synthetic system]{Best fit parameters for the synthetic system TTV with three perturbing planets.}
-	\label{tab:3planetcorrectedfittingparameters}
+	\label{tab_3planetcorrectedfittingparameters}
 \end{table}
 
 \begin{figure}
     \centering
 	\includegraphics[width=.89\columnwidth]{Images/TTVTestModelFitting}
     \caption[Best fit curves for the 18 models with the synthetic data set]{Fit TTV curves from the set of 18 models after being optimised with the synthetic system.}
-    \label{fig:modelcurves}
+    \label{fig_modelcurves}
 \end{figure}
 
 \subsubsection{Model selection}
 
 How a model is selected as most likely is two-fold. To begin with, we sample the solutions for each model to determine marginalisation and uncertainties. The parameter space is sampled using MCMC \citep{emcee}, and a normal parameter distribution constructed from the sampler. This is then converted to a set of quantiles, specifically $16\%$, $50\%$, and $84\%$, representing the reportable parameters and one sigma variance. The entire normal distribution is reported in a corner plot using the corner package \citep{corner}.
 
-With the set of best fit parameters and error bounds for each model, the accuracy of their fit is determined by scoring with the three information criterion discussed earlier: AIC \citep{AIC, AIC2}, AICc \citep{AICC}, and BIC \citep{BIC}. The information criterion values for each model for this data is given in table \ref{tab:informationCriterion}
+With the set of best fit parameters and error bounds for each model, the accuracy of their fit is determined by scoring with the three information criterion discussed earlier: AIC \citep{AIC, AIC2}, AICc \citep{AICC}, and BIC \citep{BIC}. The information criterion values for each model for this data is given in table \ref{tab_informationCriterion}
 
 \begin{table}
 	\centering
 	\begin{tabular}{llccccc}
 	    \multicolumn{6}{c}{Information criterion} \\
 		\hline
-		Model & Method & $k$ & $AIC$ & $AICc$ & $BIC$ \\
+		Model | Method | $k$ | $AIC$ | $AICc$ | $BIC$ \\
 		\hline
-		Model 1 &  diff. evo.  &  4 &  1430.588159 &  1430.961991 &  1441.462154 \\
-        Model 1 &    dual an.  &  4 &  1430.953796 &  1431.327627 &  1441.827791 \\
-        Model 1 &  diff. evo.  &  7 &  1642.175578 &  1643.252501 &   1661.20507 \\
-        Model 1 &    dual an.  &  7 &  1606.839154 &  1607.916077 &  1625.868646 \\
-        Model 1 &  diff. evo.  & 10 &  1460.812691 &  1462.990909 &   1487.99768 \\
-        Model 1 &    dual an.  & 10 &  1512.057709 &  1514.235926 &  1539.242697 \\
-        Model 2 &  diff. evo.  &  5 &  1465.179736 &  1465.745774 &  1478.772231 \\
-        Model 2 &    dual an.  &  5 &  1464.585283 &  1465.151321 &  1478.177777 \\
-        Model 2 &  diff. evo.  &  9 &  1452.463533 &  1454.228239 &  1476.930023 \\
-        Model 2 &    dual an.  &  9 &  1454.402606 &  1456.167312 &  1478.869096 \\
-        Model 2 &  diff. evo.  & 13 &  1472.298081 &  1476.012367 &  1507.638567 \\
-        Model 2 &    dual an.  & 13 &  1727.322675 &   1731.03696 &   1762.66316 \\
-        Model 3 &  diff. evo.  &  5 &  1477.916183 &   1478.48222 &  1491.508677 \\
-        Model 3 &    dual an.  &  5 &  1454.979605 &  1455.545643 &    1468.5721 \\
-        Model 3 &  diff. evo.  &  9 &  1620.473796 &  1622.238502 &  1644.940286 \\
-        Model 3 &    dual an.  &  9 &  1564.258843 &  1566.023549 &  1588.725333 \\
-        Model 3 &  diff. evo.  & 13 &  1592.098363 &  1595.812649 &  1627.438849 \\
-        Model 3 &    dual an.  & 13 &  1697.010862 &  1700.725148 &  1732.351348 \\
+		Model 1 |  diff. evo.  |  4 |  1430.588159 |  1430.961991 |  1441.462154 \\
+        Model 1 |    dual an.  |  4 |  1430.953796 |  1431.327627 |  1441.827791 \\
+        Model 1 |  diff. evo.  |  7 |  1642.175578 |  1643.252501 |   1661.20507 \\
+        Model 1 |    dual an.  |  7 |  1606.839154 |  1607.916077 |  1625.868646 \\
+        Model 1 |  diff. evo.  | 10 |  1460.812691 |  1462.990909 |   1487.99768 \\
+        Model 1 |    dual an.  | 10 |  1512.057709 |  1514.235926 |  1539.242697 \\
+        Model 2 |  diff. evo.  |  5 |  1465.179736 |  1465.745774 |  1478.772231 \\
+        Model 2 |    dual an.  |  5 |  1464.585283 |  1465.151321 |  1478.177777 \\
+        Model 2 |  diff. evo.  |  9 |  1452.463533 |  1454.228239 |  1476.930023 \\
+        Model 2 |    dual an.  |  9 |  1454.402606 |  1456.167312 |  1478.869096 \\
+        Model 2 |  diff. evo.  | 13 |  1472.298081 |  1476.012367 |  1507.638567 \\
+        Model 2 |    dual an.  | 13 |  1727.322675 |   1731.03696 |   1762.66316 \\
+        Model 3 |  diff. evo.  |  5 |  1477.916183 |   1478.48222 |  1491.508677 \\
+        Model 3 |    dual an.  |  5 |  1454.979605 |  1455.545643 |    1468.5721 \\
+        Model 3 |  diff. evo.  |  9 |  1620.473796 |  1622.238502 |  1644.940286 \\
+        Model 3 |    dual an.  |  9 |  1564.258843 |  1566.023549 |  1588.725333 \\
+        Model 3 |  diff. evo.  | 13 |  1592.098363 |  1595.812649 |  1627.438849 \\
+        Model 3 |    dual an.  | 13 |  1697.010862 |  1700.725148 |  1732.351348 \\
 		\hline
 	\end{tabular}
 	\caption[Information criterion for fitting models for the synthetic system]{Free parameter count, maximum log likelihood, and information criterion scores for each of the 18 models. The number of data-points used was $112$, corresponding to a simulation time of around $200$ years.}
-	\label{tab:informationCriterion}
+	\label{tab_informationCriterion}
 \end{table}
 
 \subsubsection{Most likely system}
 
-We can determine the most likely model by selecting that with the lowest AIC, AICc, and BIC from the information criterion table \ref{tab:informationCriterion}. The parameters for the best fit model are given in table \ref{tab:bestfitparams}, with the initial system parameters also listed. Additionally, the corner plot for the best-fit model is given in figure \ref{fig:modelcorner}, and the system layout is given in figure \ref{fig:modelsystemlayout}. As a comparison, the second-bet fit model parameters are also listed in figure \ref{tab:bestfitparams}, with the system layout given in \ref{fig:modelsystemlayout2}.
+We can determine the most likely model by selecting that with the lowest AIC, AICc, and BIC from the information criterion table \ref{tab_informationCriterion}. The parameters for the best fit model are given in table \ref{tab_bestfitparams}, with the initial system parameters also listed. Additionally, the corner plot for the best-fit model is given in figure \ref{fig_modelcorner}, and the system layout is given in figure \ref{fig_modelsystemlayout}. As a comparison, the second-bet fit model parameters are also listed in figure \ref{tab_bestfitparams}, with the system layout given in \ref{fig_modelsystemlayout2}.
 
 \begin{table}
 	\centering
 	\begin{tabular}{lccc}
 	    \multicolumn{4}{c}{Initial-`best fit' parameters} \\
 		\hline
-		Source & Initial  & best-fit & second-contender \\
+		Source | Initial  | best-fit | second-contender \\
 		\hline
-		perturbers        & 2          & 1                                       & 2 \\
-		$\mu$ $(10^{-6})$ & 763.834    & \errorvalue{347.104}{42.043}{36.969}    &  \errorvalue{307.455}{266.399}{179.331} \\
-		                  & 477.396    &                                         &  \errorvalue{142.286}{66.645}{39.806} \\
-		$a$ $(10^{-6})$   & 902905.881 & \errorvalue{380015.561}{22.941}{21.390} &  \errorvalue{118936.225}{6823.023}{65818.750} \\
-		                  & 347103.538 &                                         &  \errorvalue{833957.621}{144.770}{192.663} \\
-		$p$ Days          & 65.002     & \errorvalue{74.471}{0.007}{0.006}       &  \errorvalue{13.040}{1.002}{9.002} \\
-		                  & 8.999      &                                         &  \errorvalue{242.119}{0.058}{0.081} \\
-		$e$               & 0.15       & \errorvalue{0.245}{0.159}{0.170}        &  \errorvalue{0.019}{0.000}{0.220} \\
-		                  & 0.15       &                                         &  \errorvalue{0.135}{0.080}{0.002} \\
-		$\omega$          & 1          & \errorvalue{1.082}{5.132}{4.661}        &  \errorvalue{-0.285}{0.826}{0.0368} \\
-		                  & 0          &                                         &  \errorvalue{1.518}{0.593}{0.013} \\
+		perturbers        | 2          | 1                                       | 2 \\
+		$\mu$ $(10^{-6})$ | 763.834    | \errorvalue{347.104}{42.043}{36.969}    |  \errorvalue{307.455}{266.399}{179.331} \\
+		                  | 477.396    |                                         |  \errorvalue{142.286}{66.645}{39.806} \\
+		$a$ $(10^{-6})$   | 902905.881 | \errorvalue{380015.561}{22.941}{21.390} |  \errorvalue{118936.225}{6823.023}{65818.750} \\
+		                  | 347103.538 |                                         |  \errorvalue{833957.621}{144.770}{192.663} \\
+		$p$ Days          | 65.002     | \errorvalue{74.471}{0.007}{0.006}       |  \errorvalue{13.040}{1.002}{9.002} \\
+		                  | 8.999      |                                         |  \errorvalue{242.119}{0.058}{0.081} \\
+		$e$               | 0.15       | \errorvalue{0.245}{0.159}{0.170}        |  \errorvalue{0.019}{0.000}{0.220} \\
+		                  | 0.15       |                                         |  \errorvalue{0.135}{0.080}{0.002} \\
+		$\omega$          | 1          | \errorvalue{1.082}{5.132}{4.661}        |  \errorvalue{-0.285}{0.826}{0.0368} \\
+		                  | 0          |                                         |  \errorvalue{1.518}{0.593}{0.013} \\
 		\hline
 	\end{tabular}
 	\caption[Comparison between best fit and initial parameters for the synthetic system]{Comparison of the found parameters, with uncertainties, and the initial parameters used for system setup. The periods are computed from the semimajor axes, and each planet is given its own row. Model 1 with a single perturber produced the best fit parameter, while Model 2 with two perturbers produced the second-contender}
-	\label{tab:bestfitparams}
+	\label{tab_bestfitparams}
 \end{table}
 
 \begin{figure}
 	\includegraphics[width=\columnwidth]{Images/TTVTestModelFittingCorner}
     \caption[Corner-plot for best-fit model output]{Sample corner plot for the best-fit model output. Along the diagonal is the normal distribution for each parameter, with the remainder filled out with two-dimensional slices of the parameter space. The \nth{16}, \nth{50}, and \nth{84} quantiles are marked with the dashed lines.}
-    \label{fig:modelcorner}
+    \label{fig_modelcorner}
 \end{figure}
 
 \begin{figure}
 	\includegraphics[width=\columnwidth]{Images/example_system_BestFitLayout}
     \caption[Best fit system layout]{System layout for the best-fit model parameters for the synthetic system. Note how the found planet roughly correlates to the second transiting planet in the system.}
-    \label{fig:modelsystemlayout}
+    \label{fig_modelsystemlayout}
 \end{figure}
 
 \begin{figure}
 	\includegraphics[width=\columnwidth]{Images/ExampleSystem_SecondBestFitLayout}
-    \caption[Second Best fit system layout]{System layout for the second-best-fit model parameters for the synthetic system. Note how both of the found planets have slightly larger orbits than the initial system layout in figure \ref{fig:examplelayout}, due to the lower $\mu$ found by the optimiser, as seen in table \ref{tab:bestfitparams}.}
-    \label{fig:modelsystemlayout2}
+    \caption[Second Best fit system layout]{System layout for the second-best-fit model parameters for the synthetic system. Note how both of the found planets have slightly larger orbits than the initial system layout in figure \ref{fig_examplelayout}, due to the lower $\mu$ found by the optimiser, as seen in table \ref{tab_bestfitparams}.}
+    \label{fig_modelsystemlayout2}
 \end{figure}
 
 %A clear description of the results obtained needs to be provided in the context of previous state of the art, including advantages, and limits/errors. Summaries of important results should be included in tables and figures in the main text. Discuss the implications of the results obtained. What do the results mean? How well do the results obtained correspond with expectations? What can justifiably be deduced from the work carried out? What is the impact of the work?
@@ -1004,7 +1020,7 @@ We can determine the most likely model by selecting that with the lowest AIC, AI
 
 \subsubsection{Evaluation}
 
-We have successfully demonstrated the accuracy of analytical transit timing variation models as compared to TTV signals, seen in figure \ref{fig:testmodelcomparisonold}, as well as the potential for this methodology to be applied to determining the parameters of TTV systems, seen in figure \ref{fig:modelsystemlayout}. We have also demonstrated the capabilities of our computational pipeline, and the possibilities for further work that could be implemented using it.
+We have successfully demonstrated the accuracy of analytical transit timing variation models as compared to TTV signals, seen in figure \ref{fig_testmodelcomparisonold}, as well as the potential for this methodology to be applied to determining the parameters of TTV systems, seen in figure \ref{fig_modelsystemlayout}. We have also demonstrated the capabilities of our computational pipeline, and the possibilities for further work that could be implemented using it.
 
 Therefore, although it has not yet been demonstrated for a known exoplanetary system, the method and computational pipeline outlined in this paper should be capable of producing similar results when using real transit timing variation data. Further study in this field would allow this to be proven, and further refinements should reduce the computational time required to perform each analysis.
 
@@ -1016,33 +1032,33 @@ While part of this project focused on finding the globally optimal solution, thi
 
 This demonstrates a possible drawback of this method, and would require additional constraints based on complementary observations for any tentative detections made using transit timing variations to be considered.
 
-The best-fit for the synthetic system, given in table \ref{tab:bestfitparams}, gave only a single perturbing planet as the maximum likelihood, as opposed to the two that were used to initialise the simulation. This is due to the outer perturbing planet dominating the TTV signal, as seen in figure \ref{fig:exampleTTVSim}, due to its larger semi-major axis. This demonstrates the second drawback of this methodology, and ties into the statement about non-unique TTV solutions: the additional effect on TTV due to more than one perturber can become negligible.
+The best-fit for the synthetic system, given in table \ref{tab_bestfitparams}, gave only a single perturbing planet as the maximum likelihood, as opposed to the two that were used to initialise the simulation. This is due to the outer perturbing planet dominating the TTV signal, as seen in figure \ref{fig_exampleTTVSim}, due to its larger semi-major axis. This demonstrates the second drawback of this methodology, and ties into the statement about non-unique TTV solutions: the additional effect on TTV due to more than one perturber can become negligible.
 
 This could be circumvented by fitting for a TTV cause to find the most dominant planetary effect, and then subtracting that from the known TTV signal. This would leave only the effects of other planets in the system, which could be fed back into the fitting pipeline to determine the parameters of the second perturber, and so on. This would, however, require a longer integration time for the computational pipeline.
 
-As an additional point, we see the second-best fit given in table \ref{tab:bestfitparams} \textit{does} pick out the second planetary signal. The higher Akaike information criterion for this model is almost singularly decided by the model having 9 free parameters, as opposed to 4. Further research may benefit from re-evaluating the information criterion used. A disparity in our implementation may come from the assumptions made when determining the number of free parameters for each model: The original AIC assumed each free parameter contributed an additional polynomial power, while our paper assumed each orbital element contributed an additional free parameter.
+As an additional point, we see the second-best fit given in table \ref{tab_bestfitparams} \textit{does} pick out the second planetary signal. The higher Akaike information criterion for this model is almost singularly decided by the model having 9 free parameters, as opposed to 4. Further research may benefit from re-evaluating the information criterion used. A disparity in our implementation may come from the assumptions made when determining the number of free parameters for each model: The original AIC assumed each free parameter contributed an additional polynomial power, while our paper assumed each orbital element contributed an additional free parameter.
 
 \subsubsection{Errors}
 
-A sample output was generated while writing this paper to show some problems associated with the TTV fitting pipeline during its development. For this broken state, Figure \ref{fig:testmodelfittingcomparisonold} shows the best-fit TTV curves generated by model 1, and tables \ref{tab:1planetfittingparameters}, \ref{tab:2planetfittingparameters}, and \ref{tab:3planetfittingparameters}, show the output parameters found.
+A sample output was generated while writing this paper to show some problems associated with the TTV fitting pipeline during its development. For this broken state, Figure \ref{fig_testmodelfittingcomparisonold} shows the best-fit TTV curves generated by model 1, and tables \ref{tab_1planetfittingparameters}, \ref{tab_2planetfittingparameters}, and \ref{tab_3planetfittingparameters}, show the output parameters found.
 
 \begin{table}
 	\centering
 	\begin{tabular}{llcccc}
 	    \multicolumn{6}{c}{One perturbing planet with broken pipeline} \\
 		\hline
-		Model & Method & $\mu$ ($10^{-6}$) & $a$ ($10^{-6}$ AU) & $e$ & $\omega$ \\
+		Model | Method | $\mu$ ($10^{-6}$) | $a$ ($10^{-6}$ AU) | $e$ | $\omega$ \\
 		\hline
-		Model 1 &  diff. evo.  &    1.035 &     96.079 &  0.328 &  5.544 \\
-        Model 1 &    dual an.  &    6.705 &    492.195 &  0.247 &  4.653 \\
-        Model 2 &  diff. evo.  &     1.87 &      16.48 &   0.05 & -1.199 \\
-        Model 2 &    dual an.  &      0.0 &  1000000.0 &    0.0 & -6.283 \\
-        Model 3 &  diff. evo.  &    7.159 &     25.489 &  0.721 &  0.331 \\
-        Model 3 &    dual an.  &  230.674 &     32.877 &   0.95 & -1.076 \\
+		Model 1 |  diff. evo.  |    1.035 |     96.079 |  0.328 |  5.544 \\
+        Model 1 |    dual an.  |    6.705 |    492.195 |  0.247 |  4.653 \\
+        Model 2 |  diff. evo.  |     1.87 |      16.48 |   0.05 | -1.199 \\
+        Model 2 |    dual an.  |      0.0 |  1000000.0 |    0.0 | -6.283 \\
+        Model 3 |  diff. evo.  |    7.159 |     25.489 |  0.721 |  0.331 \\
+        Model 3 |    dual an.  |  230.674 |     32.877 |   0.95 | -1.076 \\
 		\hline
 	\end{tabular}
 	\caption{Best fit parameters for the synthetic system TTV with only a single perturbing planet, generated with a version of the fitting pipeline that was not working correctly.}
-	\label{tab:1planetfittingparameters}
+	\label{tab_1planetfittingparameters}
 \end{table}
 
 \begin{table}
@@ -1050,24 +1066,24 @@ A sample output was generated while writing this paper to show some problems ass
 	\begin{tabular}{llcccc}
 	    \multicolumn{6}{c}{Two perturbing planets with broken pipeline} \\
 		\hline
-		Model & Method & $\mu$ ($10^{-6}$) & $a$ ($10^{-6}$ AU) & $e$ & $\omega$ \\
+		Model | Method | $\mu$ ($10^{-6}$) | $a$ ($10^{-6}$ AU) | $e$ | $\omega$ \\
 		\hline
-		Model 1 &  diff. evo.  &      4.25 &      6.047 &  0.689 & -0.429 \\
-                &              &     5.191 &      13.68 &  0.682 &  3.073 \\
-        Model 1 &    dual an.  &   10000.0 &  1000000.0 &  0.089 &  3.107 \\
-                &              &       0.0 &  1000000.0 &  0.168 &  3.556 \\
-        Model 2 &  diff. evo.  &     8.378 &      5.079 &  0.334 & -4.329 \\
-                &              &     3.081 &      3.842 &  0.315 &  3.798 \\
-        Model 2 &    dual an.  &   142.003 &   1470.238 &  0.904 & -6.245 \\
-                &              &   135.908 &    363.211 &  0.446 & -2.719 \\
-        Model 3 &  diff. evo.  &     1.242 &     91.763 &  0.345 &  3.337 \\
-                &              &    69.118 &       1.51 &  0.774 & -0.539 \\
-        Model 3 &    dual an.  &  9566.976 &   1749.583 &  0.946 & -6.156 \\
-                &              &    44.774 &  39782.621 &  0.021 & -1.303 \\
+		Model 1 |  diff. evo.  |      4.25 |      6.047 |  0.689 | -0.429 \\
+                |              |     5.191 |      13.68 |  0.682 |  3.073 \\
+        Model 1 |    dual an.  |   10000.0 |  1000000.0 |  0.089 |  3.107 \\
+                |              |       0.0 |  1000000.0 |  0.168 |  3.556 \\
+        Model 2 |  diff. evo.  |     8.378 |      5.079 |  0.334 | -4.329 \\
+                |              |     3.081 |      3.842 |  0.315 |  3.798 \\
+        Model 2 |    dual an.  |   142.003 |   1470.238 |  0.904 | -6.245 \\
+                |              |   135.908 |    363.211 |  0.446 | -2.719 \\
+        Model 3 |  diff. evo.  |     1.242 |     91.763 |  0.345 |  3.337 \\
+                |              |    69.118 |       1.51 |  0.774 | -0.539 \\
+        Model 3 |    dual an.  |  9566.976 |   1749.583 |  0.946 | -6.156 \\
+                |              |    44.774 |  39782.621 |  0.021 | -1.303 \\
 		\hline
 	\end{tabular}
 	\caption{Best fit parameters for the synthetic system TTV with two perturbing planets, generated with a version of the fitting pipeline that was not working correctly.}
-	\label{tab:2planetfittingparameters}
+	\label{tab_2planetfittingparameters}
 \end{table}
 
 \begin{table}
@@ -1075,36 +1091,36 @@ A sample output was generated while writing this paper to show some problems ass
 	\begin{tabular}{llcccc}
 	    \multicolumn{6}{c}{Three perturbing planets with broken pipeline} \\
 		\hline
-		Model & Method & $\mu$ ($10^{-6}$) & $a$ ($10^{-6}$ AU) & $e$ & $\omega$ \\
+		Model | Method | $\mu$ ($10^{-6}$) | $a$ ($10^{-6}$ AU) | $e$ | $\omega$ \\
 		\hline
-		Model 1 &  diff. evo.  &     14.363 &       5.521 &  0.713 &  3.778 \\
-                &              &     26.087 &        1.68 &   0.07 & -0.992 \\
-                &              &     54.047 &       1.908 &  0.472 &  0.803 \\
-        Model 1 &    dual an.  &    373.562 &    1019.304 &   0.09 &  4.129 \\
-                &              &    460.821 &     3787.52 &   0.63 & -0.409 \\
-                &              &    429.981 &    4730.766 &  0.856 &  5.576 \\
-        Model 2 &  diff. evo.  &      0.031 &     651.633 &  0.438 &  1.067 \\
-                &              &      3.066 &       8.581 &  0.609 &  1.124 \\
-                &              &    667.252 &       0.164 &  0.076 & -1.809 \\
-        Model 2 &    dual an.  &  10876.298 &   19380.767 &  0.948 &  0.079 \\
-                &              &   2263.278 &  116193.389 &   0.91 & -0.201 \\
-                &              &     52.942 &  199344.612 &   0.38 &  -3.02 \\
-        Model 3 &  diff. evo.  &      0.933 &       5.807 &  0.346 &  1.041 \\
-                &              &     13.972 &       0.649 &  0.606 &  5.087 \\
-                &              &      0.0   &      25.101 &  0.786 & -0.541 \\
-        Model 3 &    dual an.  &   1963.766 &   49260.785 &   0.95 &  -3.42 \\
-                &              &   2002.719 &    33767.03 &  0.948 & -0.245 \\
-                &              &   1268.371 &    5562.579 &  0.935 & -3.162 \\
+		Model 1 |  diff. evo.  |     14.363 |       5.521 |  0.713 |  3.778 \\
+                |              |     26.087 |        1.68 |   0.07 | -0.992 \\
+                |              |     54.047 |       1.908 |  0.472 |  0.803 \\
+        Model 1 |    dual an.  |    373.562 |    1019.304 |   0.09 |  4.129 \\
+                |              |    460.821 |     3787.52 |   0.63 | -0.409 \\
+                |              |    429.981 |    4730.766 |  0.856 |  5.576 \\
+        Model 2 |  diff. evo.  |      0.031 |     651.633 |  0.438 |  1.067 \\
+                |              |      3.066 |       8.581 |  0.609 |  1.124 \\
+                |              |    667.252 |       0.164 |  0.076 | -1.809 \\
+        Model 2 |    dual an.  |  10876.298 |   19380.767 |  0.948 |  0.079 \\
+                |              |   2263.278 |  116193.389 |   0.91 | -0.201 \\
+                |              |     52.942 |  199344.612 |   0.38 |  -3.02 \\
+        Model 3 |  diff. evo.  |      0.933 |       5.807 |  0.346 |  1.041 \\
+                |              |     13.972 |       0.649 |  0.606 |  5.087 \\
+                |              |      0.0   |      25.101 |  0.786 | -0.541 \\
+        Model 3 |    dual an.  |   1963.766 |   49260.785 |   0.95 |  -3.42 \\
+                |              |   2002.719 |    33767.03 |  0.948 | -0.245 \\
+                |              |   1268.371 |    5562.579 |  0.935 | -3.162 \\
 		\hline
 	\end{tabular}
 	\caption{Best fit parameters for the synthetic system TTV with three perturbing planets, generated with a version of the fitting pipeline that was not working correctly.}
-	\label{tab:3planetfittingparameters}
+	\label{tab_3planetfittingparameters}
 \end{table}
 
 \begin{figure}
 	\includegraphics[width=\columnwidth]{Images/TTVTestModelFittingold}
     \caption[Fitted curves for the six fitting sets for model 1 for the synthetic system, generated with broken fitting pipeline.]{Fitted TTV Curves for the six fitting sets for model 1, generated with a version of the fitting pipeline that was not working correctly, where the number of perturbing bodies and the fitting method are given. Simulated TTV times are overlaid in black.}
-    \label{fig:testmodelfittingcomparisonold}
+    \label{fig_testmodelfittingcomparisonold}
 \end{figure}
 
 We can see that some magnitudes predicted are on the order of $10^9$ seconds, and some did not generate a TTV at all.
@@ -1139,7 +1155,7 @@ The aim of this project was to increase historical transit data by observing exo
 
 We have demonstrated that the analytical models are a valid descriptor for TTV signals, provided they are used within the bounds of their approximation, and that the computational pipeline is adequate for fitting those models to data. As the main programming objectives have been met, further development with the computational pipeline would focus on code optimisation and refactoring.
 
-Although real TTV data was used to test the computational pipeline and models, no analysis was performed on them due to time constraints, especially the length of time required to fit light curves to \textit{TESS} data when using the Gaussian process. Further research would build on this project and perform analysis of real planetary systems, as we have demonstrated the methodology to be sound.
+Although real TTV data was used to test the computational pipeline and models, no analysis was performed on them due to time constraints, especially the length of time required to fit light curves to *TESS* data when using the Gaussian process. Further research would build on this project and perform analysis of real planetary systems, as we have demonstrated the methodology to be sound.
 
 %tc:ignore
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1212,7 +1228,7 @@ Additionally, the data and software underlying this project are available in Git
 
 \subsection{Transit duration derivation}\label{transitderiv}
 
-As demonstrated in figure \ref{fig:transitLoc}, a transit begins the moment the planetary disk overlaps the stellar disk, reaches maximum occlusion when the centres of the star and planet are aligned, and ends once the planetary disk no longer overlaps the stellar disk. The centre-to-centre distance between the exoplanet and star at transit ingress and egress is thus the sum of their angular radii,
+As demonstrated in figure \ref{fig_transitLoc}, a transit begins the moment the planetary disk overlaps the stellar disk, reaches maximum occlusion when the centres of the star and planet are aligned, and ends once the planetary disk no longer overlaps the stellar disk. The centre-to-centre distance between the exoplanet and star at transit ingress and egress is thus the sum of their angular radii,
 
 \begin{equation}
     s_{ingress} = s_{egress} = R_{star} + R_{planet}
