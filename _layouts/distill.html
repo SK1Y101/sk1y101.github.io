@@ -96,8 +96,9 @@
         {{ content }}
       </d-article>
 
-      <d-article>
-        {% if page.github.onpage %}
+      {% if page.github.onpage %}
+        </hr>
+        <div style="display: inline-table; margin: 0 25% 0 25%;">
           <h3 id="GitHub Repo">GitHub Repo</h3>
           <!-- Github card if given -->
           <a href="{{ 'https://github.com/' | append: page.github.user | append: '/' | append: page.github.repo }}">
@@ -136,8 +137,8 @@
               </a>
             {% endif %}
           {% endif %}
-        {% endif %}
-      </d-article>
+            </div>
+      {% endif %}
 
       <d-appendix>
         <d-footnote-list></d-footnote-list>

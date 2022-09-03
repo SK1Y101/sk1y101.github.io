@@ -104,11 +104,11 @@ toc:
 
 ---
 {% capture figurenums %}{% increment transit_figure_num %}{% increment transit_equation_num %}{% increment transit_table_num %}{% endcapture %}
-\(
+$$
   \newcommand{\errorvalue}[3]{
     $#1$ {\raisebox{0.5ex}{\tiny$\substack{+#2 \\ -#3}$} }
   }
-\)
+$$
 ## Abstract
 
 Transit Timing Variation (TTV) provides a powerful tool to probe the dynamical configuration of exoplanetary systems from historical transit data <d-cite key="firstTTVPaper"></d-cite><d-cite key="secondTTVPaper"></d-cite>. TTV analysis has allowed both verification of planetary parameters <d-cite key="TrappistMass"></d-cite> and the discovery of new planetary bodies <d-cite key="Keplerc"></d-cite> from transit observation alone.
@@ -402,7 +402,7 @@ The double summation terms can be collected, to give equation <fig>[{{ eq_pertur
 $$ \ddot{\pmb{r}}_1 = Gm_0 \frac{\pmb{R}_0 - \pmb{R}_1}{|\pmb{R}_0 - \pmb{R}_1|^3} - Gm_1 \frac{\pmb{R}_1 - \pmb{R}_0}{|\pmb{R}_1 - \pmb{R}_0|^3} + \sum_{j=2} \left[ Gm_j \frac{\pmb{R}_j - \pmb{R}_1}{ {| \pmb{R}_j - \pmb{R}_1|}^3} - G m_j \frac{\pmb{R}_j - \pmb{R}_0}{ {| \pmb{R}_j - \pmb{R}_0|}^3} \right] $$
 <div class="l-gutter"><fig>({{ eq_perturbCollected }})</fig></div>
 
-For the Jacobian coordinates, We introduce the notation $$ |\pmb{r}_i| \equiv r_i $$. That is to say, coordinates in bold is the vector position, while non-bold is the magnitude of that vector. We also introduce the reduced mass, $$ \mu $$, given as $$ \mu_i = \nicefrac{m_i}{M} $$, where $$ M $$ is the total mass of the system. As the central star typically dominates the mass of the system, this can also be written $$ \mu_i \approx \nicefrac{m_i}{m_0} $$.
+For the Jacobian coordinates, We introduce the notation $$ |\pmb{r}_i| \equiv r_i $$. That is to say, coordinates in bold is the vector position, while non-bold is the magnitude of that vector. We also introduce the reduced mass, $$ \mu $$, given as $$ \mu_i = \frac{m_i}{M} $$, where $$ M $$ is the total mass of the system. As the central star typically dominates the mass of the system, this can also be written $$ \mu_i \approx \frac{m_i}{m_0} $$.
 
 {% capture eq_njsakd %}{% increment transit_equation_num %}{% endcapture %}
 $$ \ddot{\pmb{r}}_1 &= -Gm_0 \frac{\pmb{r}_1}{r_1^3} - Gm_1 \frac{\pmb{r}_1}{r_1^3} + \sum_{j=2} \left[ Gm_j \frac{\pmb{R}_j - \pmb{R}_1}{ {| \pmb{R}_j - \pmb{R}_1|}^3} - G m_j \frac{\pmb{R}_j - \pmb{R}_0}{ {| \pmb{R}_j - \pmb{R}_0|}^3} \right] $$
@@ -477,7 +477,7 @@ Which can be simplified slightly as equation <fig>[{{ eq_jacobianmotion2 }}]</fi
 
 $$\begin{split}
 \delta\ddot{\pmb{r}}_1 &= \sum_{j=2} \left[ Gm_j\left( -\frac{\pmb{r}_1 - \pmb{r}_{j0}}{ {| \pmb{r}_1 - \pmb{r}_{j0}|}^3} - \frac{\pmb{r}_{j0}}{r_{j0}^3} \right)\right]\\
-&= \sum_{j=2} \left[ -\frac{Gm_j}{r_j^3}\left( \pmb{r}_1 - 3\frac{\pmb{r}_1\cdot\pmb{r}_j}{r_j^2}\pmb{r}_j \right) + \mathcal{O}\left(\nicefrac{r_1}{r_j}\right)^2\right]
+&= \sum_{j=2} \left[ -\frac{Gm_j}{r_j^3}\left( \pmb{r}_1 - 3\frac{\pmb{r}_1\cdot\pmb{r}_j}{r_j^2}\pmb{r}_j \right) + \mathcal{O}\left(\frac{r_1}{r_j}\right)^2\right]
 \end{split}$$
 <div class="l-gutter"><fig>({{ eq_jacobianmotion2 }})</fig></div>
 
@@ -496,7 +496,7 @@ Differentiating equation <fig>[{{ eq_angpos }}]</fig> with respect to time gives
 $$ \dot{\theta}_1 = \dot{n}_1\left(t - \tau_1\right) + n_1 - n_1\dot{t}_{0,1} $$
 <div class="l-gutter"><fig>({{ eq_difangpos }})</fig></div>
 
-Following section 2.9 of <d-cite key="murraybook"></d-cite>, we express $$ \dot{n} $$ as a function of the semimajor axis: $$ \dot{n}_1 = -\nicefrac{3n_1}{2a_1}\dot{a}_1 $$,
+Following section 2.9 of <d-cite key="murraybook"></d-cite>, we express $$ \dot{n} $$ as a function of the semimajor axis: $$ \dot{n}_1 = -\frac{3n_1}{2a_1}\dot{a}_1 $$,
 
 {% capture eq_mskofa %}{% increment transit_equation_num %}{% endcapture %}
 $$\begin{split}
@@ -511,7 +511,7 @@ Expressing the time derivatives $$ \dot{a_1} $$, $$ \dot{\tau} $$, and $$ \dot{\
 $$ \dot{\theta}_1 = n_1\left(1 - \frac{2a_1^2}{G\left(m_0+m_1\right)}\sum_{j=2}\left[\frac{1}{2}\frac{Gm_ja_1}{r_j^3}\right]\right) $$
 <div class="l-gutter"><fig>({{ eq_thetadot }})</fig></div>
 
-This demonstrates why the orbital period of the transiting planet increases, the addition of planets in the system causes an increase in the effective mass interior to its orbit by $$ \frac{1}{2}m_j\left(\nicefrac{a_1}{r_j}\right)^3 $$.
+This demonstrates why the orbital period of the transiting planet increases, the addition of planets in the system causes an increase in the effective mass interior to its orbit by $$ \frac{1}{2}m_j\left(\frac{a_1}{r_j}\right)^3 $$.
 
 {% capture eq_perturbtransittime %}{% increment transit_equation_num %}{% endcapture %}
 We can finally obtain the timing of the (N+1)th transit, given in equation <fig>[{{ eq_perturbtransittime }}]</fig> see Section 4 of <d-cite key="agol2018"></d-cite>.
@@ -525,7 +525,7 @@ t - t_0 &= \int_{f_0}^{f_0 + 2\pi N}df_1\dot{\theta}_1^{-1}\\
 Following <d-cite key="borkovits"></d-cite>, we can express the true anomaly of the transiting planet in terms of the true anomalies of the perturbing planets,
 
 {% capture eq_trueanomfromother %}{% increment transit_equation_num %}{% endcapture %}
-$$ df_1 = \sum_{j=2} \left[\frac{P_j}{P_1} \frac{r_j^2}{a_j^2\left(1-e_j^2\right)^{\nicefrac{1}{2}}} df_j\right] $$
+$$ df_1 = \sum_{j=2} \left[\frac{P_j}{P_1} \frac{r_j^2}{a_j^2\left(1-e_j^2\right)^{\frac{1}{2}}} df_j\right] $$
 <div class="l-gutter"><fig>({{ eq_trueanomfromother }})</fig></div>
 
 {% capture eq_orbitpos2 %}{% increment transit_equation_num %}{% endcapture %}
@@ -536,27 +536,27 @@ $$ r_i = \frac{a_i\left(1-e_i^2\right)}{1+e_i\cos{f_i}} $$
 <div class="l-gutter"><fig>({{ eq_orbitpos2 }})</fig></div>
 
 $$\begin{split}
-df_1 &= \sum_{j=2} \left[\frac{P_j}{P_1} \frac{1}{a_j^2\left(1-e_j^2\right)^{\nicefrac{1}{2}}} \left(\frac{a_j\left(1-e_j^2\right)}{1+e_j\cos{f_j}}\right)^2 df_j \right] \\
-&= \sum_{j=2} \left[ \frac{P_j}{P_1} \frac{\left(1-e_j^2\right)^{\nicefrac{3}{2}}}{\left(1+e_j\cos{f_j}\right)^2} df_j\right]
+df_1 &= \sum_{j=2} \left[\frac{P_j}{P_1} \frac{1}{a_j^2\left(1-e_j^2\right)^{\frac{1}{2}}} \left(\frac{a_j\left(1-e_j^2\right)}{1+e_j\cos{f_j}}\right)^2 df_j \right] \\
+&= \sum_{j=2} \left[ \frac{P_j}{P_1} \frac{\left(1-e_j^2\right)^{\frac{3}{2}}}{\left(1+e_j\cos{f_j}\right)^2} df_j\right]
 \end{split}$$
 <div class="l-gutter"><fig>({{ eq_newtrueanom }})</fig></div>
 
 {% capture eq_perturbtimenewvar %}{% increment transit_equation_num %}{% endcapture %}
 As the original variable of integration in equation <fig>[{{ eq_perturbtransittime }}]</fig>, $$ f_1 $$, changes due to the perturbation, we rewrite the integral in terms of the unperturbed $$ f_j $$. As an approximation, we consider only the gravitational forces acting on the transiting planet, and treat the perturbing planets as following Keplerian orbits. The substitution for $$ df_1 $$ is given in equation <fig>[{{ eq_newtrueanom }}]</fig>, and gives equation <fig>[{{ eq_perturbtimenewvar }}]</fig>.
 
-$$ t-t_0 &= \sum_{j=2}\left[\int_{f_0}^{f_0 + 2\pi N}\right.&\left( df_jn_1^{-1}\frac{P_j}{P_1}\frac{\left(1-e_j^2\right)^{\nicefrac{3}{2}}}{\left(1+e_j\cos{f_j}\right)^2} \right. \left. \left. \cdot \left(1+\frac{m_j}{m_0+m_1}\left(\frac{a_1}{r_j}\right)^3\right)\right)\right] $$
+$$ t-t_0 &= \sum_{j=2}\left[\int_{f_0}^{f_0 + 2\pi N}\right.&\left( df_jn_1^{-1}\frac{P_j}{P_1}\frac{\left(1-e_j^2\right)^{\frac{3}{2}}}{\left(1+e_j\cos{f_j}\right)^2} \right. \left. \left. \cdot \left(1+\frac{m_j}{m_0+m_1}\left(\frac{a_1}{r_j}\right)^3\right)\right)\right] $$
 <div class="l-gutter"><fig>({{ eq_perturbtimenewvar }})</fig></div>
 
 {% capture eq_finaltransittime %}{% increment transit_equation_num %}{% endcapture %}
 Which can be evaluated to give the timing of the (N+1)th transit, as shown in equation <fig>[{{ eq_finaltransittime }}]</fig>.
 
-$$ t - t_0 &= NP_1 + \frac{P_1^2}{2\pi\left(m_0+m_1\right)} \cdot \sum_{j=2}\left[\frac{m_j \left(f_j+e_j\sin{f_j}\right)\left(1-e_j^2\right)^{\nicefrac{-3}{2}}}{P_j}\right] $$
+$$ t - t_0 &= NP_1 + \frac{P_1^2}{2\pi\left(m_0+m_1\right)} \cdot \sum_{j=2}\left[\frac{m_j \left(f_j+e_j\sin{f_j}\right)\left(1-e_j^2\right)^{\frac{-3}{2}}}{P_j}\right] $$
 <div class="l-gutter"><fig>({{ eq_finaltransittime }})</fig></div>
 
 {% capture eq_TTVperturb %}{% increment transit_equation_num %}{% endcapture %}
 To find the departure from linear ephemerides, and thus obtain the TTV, we subtract the mean transit time $$ NP_1 $$ from equation <fig>[{{ eq_finaltransittime }}]</fig>. As the $$ f_j $$ terms also includes the mean motion, $$ n\left(t-\tau_j\right) $$, of the perturbing planets, we subtract that too, giving equation <fig>[{{ eq_TTVperturb }}]</fig>. We have now found a model of TTV caused by the perturbation due to outer planets.
 
-$$ \delta{t_1} &= \frac{P_1^2}{2\pi\left(m_0+m_1\right)} \cdot\sum_{j=2}\left[\frac{m_j\left(f_j - n_j\left(t-\tau_j\right)+e_j\sin{f_j}\right)\left(1-e_j^2\right)^{\nicefrac{-3}{2}}}{P_j}\right] $$
+$$ \delta{t_1} &= \frac{P_1^2}{2\pi\left(m_0+m_1\right)} \cdot\sum_{j=2}\left[\frac{m_j\left(f_j - n_j\left(t-\tau_j\right)+e_j\sin{f_j}\right)\left(1-e_j^2\right)^{\frac{-3}{2}}}{P_j}\right] $$
 <div class="l-gutter"><fig>({{ eq_TTVperturb }})</fig></div>
 
 ### Parameter search
@@ -663,7 +663,7 @@ Six transit observations were planned at the beginning of this project to observ
     </div>
 </div>
 <div class="caption">
-    Figure {{ fig_hatp13b1 }}. De-trended transit light curve for an observation of HAT-P-13b taken 2022-02-24 and analysed with HOPS <d-cite key="HOPS"></d-cite>. Note the anomaly near the mid-transit time due to light cloud cover. Reported $$\nicefrac{R_p}{R_*}$$ is $0.0844\pm{0.0013}$ <d-cite key="hat-p-13b"></d-cite>.
+    Figure {{ fig_hatp13b1 }}. De-trended transit light curve for an observation of HAT-P-13b taken 2022-02-24 and analysed with HOPS <d-cite key="HOPS"></d-cite>. Note the anomaly near the mid-transit time due to light cloud cover. Reported $$\frac{R_p}{R_*}$$ is $0.0844\pm{0.0013}$ <d-cite key="hat-p-13b"></d-cite>.
 </div>
 
 <div class="row">
@@ -675,7 +675,7 @@ Six transit observations were planned at the beginning of this project to observ
     Figure {{ fig_hatp13b2 }}. De-trended transit light curve for an observation of HAT-P-13b taken 2022-02-27 and analysed with HOPS <d-cite key="HOPS"></d-cite>. Note the large residuals and missing data in the second half of the transit, caused by clouds completely obscuring the star for several hours.
 </div>
 
-The light-curves have been fit with HOPS <d-cite key="HOPS"></d-cite>, and have provided values for $$\nicefrac{R_p}{R_*}$$ close to the reported literature <d-cite key="hat-p-13b"></d-cite> when considering the large variance in flux caused by suboptimal weather conditions.
+The light-curves have been fit with HOPS <d-cite key="HOPS"></d-cite>, and have provided values for $$\frac{R_p}{R_*}$$ close to the reported literature <d-cite key="hat-p-13b"></d-cite> when considering the large variance in flux caused by suboptimal weather conditions.
 
 {% capture fig_hatp13b2error %}{% increment transit_figure_num %}{% endcapture %}
 The observation on 2022-02-27, given in figure <fig>[{{ fig_hatp13b2 }}]</fig>, shows large residuals and has had data points after the mid-transit time removed. This was due to large cloud cover that reduced sky visibility to $$ 0\% $$ for several hours during the middle of the transit. Re-introducing these data points to the HOPS fitting, the result in figure <fig>[{{ fig_hatp13b2error }}]</fig> is obtained. The relative change in flux due to the cloud cover is larger than the occlusion depth of the transit by a significant factor, causing hops to fit transit egress to this position.
@@ -726,16 +726,15 @@ Taking the posteriors found for HATS-46b, as compared to the detection paper <d-
 
 
 ##### Juliet-Literature comparison
-| Source          | <d-cite> key="hats46b"></d-cite>      | Juliet posteriors                                     |
+| Source          | <d-cite> key="hats46b"></d-cite>      | Juliet posteriors |
 |:----------------|:-------------------------------------:|:-------------------------------------------:|
 | $$ a / R_* $$ | $$ \errorvalue{13.55}{0.45}{0.65} $$ | $$ \errorvalue{14.699}{1.541}{1.830} $$ |
 | $$ b $$ | $$ \errorvalue{0.63}{0.042}{0.034} $$ | $$ \errorvalue{0.480}{0.266}{0.171}  $$ |
-| $$ i $$ | $$ \errorvalue{87.32}{0.22}{0.31} $$ | $$ \errorvalue{88.126}{1.119}{1.014} $$ |
+| $$ i $$ | $$ \errorvalue{87.32}{0.22}{0.31} $$ | $$ \errorvalue{88.126}{1.119}{1.014} $$  |
 | $$ R_p / R_* $$ | $$ 0.1088 \pm 0.0027 $$ | $$ \errorvalue{0.10369}{0.00496}{0.00444}  $$ |
 | $$ P $$ | $$ 4.7423729 \pm 0.0000049 $$ | $$ \errorvalue{4.7423836070}{0.0000139110}{0.0000114410} $$ |
-|-----------------|---------------------------------------|------------------------------------------|
 <div class="caption">
-    Figure {{ tab_hats46b }}. Comparison between literature parameters and Juliet parameters from *TESS* for HATS-46b. Many of the values satisfy the `Good enough' criterion despite not having the complementary radial velocity measurements used in the detection paper to refine the parameters.
+    Table {{ tab_hats46b }}. Comparison between literature parameters and Juliet parameters from *TESS* for HATS-46b. Many of the values satisfy the `Good enough' criterion despite not having the complementary radial velocity measurements used in the detection paper to refine the parameters.
 </div>
 
 \subsubsection{TTV Residuals}
