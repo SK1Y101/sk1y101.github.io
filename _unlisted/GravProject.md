@@ -64,8 +64,7 @@ toc:
 # If you use this post as a template, delete this _styles block.
 
 ---
-{% figure_num = 0 %}{% equation_num = 0 %}
-{% capture figurenums %}{% increment figure_num %}{% increment equation_num %}{% endcapture %}
+{% assign figure_num = 1 %}{% assign equation_num = 1 %}
 
 ## Abstract
 
