@@ -28,12 +28,10 @@
               <span id="{{ project.github_stars }}-stars"></span>
             </span>
             {% endif %}
-          </div>
-          {% endif %}
-          {% if not project.redirect %}
-          <div class="row ml-1 mr-1 p-0">
-            {% assign read_time = project.content | number_of_words | divided_by: 180 | plus: 1 %}
-            {{read_time}} min reads
+            {% if not project.redirect %}
+              {% assign read_time = project.content | number_of_words | divided_by: 180 | plus: 1 %}
+              &nbsp; &middot; &nbsp; {{read_time}} min read
+            {% endif %}
           </div>
           {% endif %}
         </div>
