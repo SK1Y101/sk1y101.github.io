@@ -28,7 +28,7 @@
               <span id="{{ project.github_stars }}-stars"></span>
             </span>
             {% endif %}
-            {% if not project.redirect %}
+            {% unless project.redirect %}
               {% assign read_time = project.content | number_of_words | divided_by: 180 | plus: 1 %}
               &nbsp; &middot; &nbsp; {{read_time}} min read
             {% endif %}
