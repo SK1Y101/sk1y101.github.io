@@ -21,7 +21,7 @@ dropdown:
 
 authors:
   - name: Jack Lloyd-Walters
-    url: "https://sk1y101.github.io"
+    url: "https://lloydwaltersj.com"
 
 links:
   pdf:

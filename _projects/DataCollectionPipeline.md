@@ -13,7 +13,7 @@ github:
 
 authors:
   - name: Jack Lloyd-Walters
-    url: "https://sk1y101.github.io"
+    url: "https://lloydwaltersj.com"
     affiliations:
       name: Royal Astronomical Society, Portsmouth University, Institute of Physics
 

@@ -14,6 +14,7 @@ github:
   contributors: true
 category: work
 date: 2021-06-03
+showauthors: true
 
 authors:
   - name: Jack Lloyd-Walters

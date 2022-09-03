@@ -16,7 +16,7 @@ date: 2022-02-11
 
 authors:
   - name: Jack Lloyd-Walters FRAS
-    url: "https://sk1y101.github.io"
+    url: "https://lloydwaltersj.com"
     affiliations:
       name: Royal Astronomical Society, University of Portsmouth, Institute of Physics
   - name: Stephen Futcher FCA FRAS

@@ -53,14 +53,14 @@ nav: true
 		<div class="card-text p-3">
 		I’m an associate software engineer for the Metal as a Service team at Canonical, with a strong passion for computational physics, particularly focused on astronomy, exoplanetary science, and other space-based endeavours.
 		<br/>
-		I have nearly 12 years of programming experience, primarily Python, that I used to great effect in my 2021 bachelors project ”Distinguishing Intermediate Mass Black Hole Mergers From Short Duration Glitches”, and my ongoing 2022 Masters Project “Determining The Parameters of Exoplanetary Candidates From Transit Timing Variations”.
+		I began programming in 2011 with Python, and have developed extensive programming experience that I used to great effect in my 2021 bachelors project ”Distinguishing Intermediate Mass Black Hole Mergers From Short Duration Glitches”, my 2022 Masters Project “Determining The Parameters of Exoplanetary Candidates From Transit Timing Variations”, and my career as software engineer.
 		<br/>
 		In 2020 I became a fellow of the Royal Astronomical Society and a member of the European Astronomical Society to further my interest and professional options, as I have a strong interest in astrophysics research.
 		<br/>
 		In February 2022 I joined the AiCore Training scheme to become an Ai & Data Engineer, to eventually pursue a career in software engineering.
-		In July 2022 I graduated First class as Mphys (Hons) Physics, Astronomy, and Cosmology at Portsmouth University.
+		In July 2022 I graduated First class as Mphys (Hons) Physics, Astronomy, and Cosmology at Portsmouth University, which additionally granted me status as a member of the Institue of Physics.
 		<br/>
-		I am also a beginner learner of Japanese, having undertaken extracurricular language modules that I intend to continue after graduation.
+		I am also a beginner learner of Japanese, having undertaken extracurricular language modules during my final year of university, with a long term goal of bilinguality.
 		</div>
 	</div>
 
@@ -72,7 +72,7 @@ nav: true
 			<ul class="card-text list-group list-group-flush">
 				<li class="list-group-item">
 					<div class="row">
-						<div	 class="col-sm-2 abbr">
+						<div class="col-sm-2 abbr">
 							<abbr class="badge">
 								2022-02 - 2022-06
 							</abbr>
@@ -115,7 +115,7 @@ nav: true
 							<h3 class="title font-weight-bold ml-1 ml-md-4">MPhys (Hons) Physics, Astronomy, and Cosmology - University of Portsmouth</h3>
 							<ul class="items">
 								<li>
-								Level 7 Masters Project utilising Computational modelling and a combination of first hand telescopic observation and supplementary data to measure the properties of transiting exoplanets, and develop analytical models of transit timing variations to investigate the potential properties of other bodies in the system, and computational methods for recovering them. This project was summarised with a 6000 word dissertation, 10 minute presentation/discussion, and scientific poster presentation.
+									Level 7 Masters Project utilising Computational modelling and a combination of first hand telescopic observation and supplementary data to measure the properties of transiting exoplanets, and develop analytical models of transit timing variations to investigate the potential properties of other bodies in the system, and computational methods for recovering them. This project was summarised with a 6000 word dissertation, 10 minute presentation/discussion, and scientific poster presentation.
 								</li>
 								<li>
 									Level 6 Bachelors Project utilising Computational modelling and signal processing to identify Glitch events within the LIGO Dataset. This project was summarised with a 5000 word dissertation, 10 minute presentation/discussion, and LaTeX Compatible result list.
@@ -126,7 +126,7 @@ nav: true
 				</li>
 				<li class="list-group-item">
 					<div class="row">
-						<div	 class="col-sm-2 abbr">
+						<div class="col-sm-2 abbr">
 							<abbr class="badge">
 								2016 - 2018
 							</abbr>
@@ -193,7 +193,7 @@ nav: true
 				</li>
 				<li class="list-group-item">
 					<div class="row">
-						<div	 class="col-sm-2 abbr">
+						< 	 class="col-sm-2 abbr">
 							<abbr class="badge">
 								2017 - 2019
 							</abbr>
@@ -201,7 +201,6 @@ nav: true
 						<div class="col-xs-10 cl-sm-10 col-md mt-2 mt-md-0">
 							<h3 class="title font-weight-bold ml-1 ml-md-4">Floor Staff - B&M</h3>
 							<ul class="items">
-								<li>
 								<li>
 									Managed fast moving customer goods primarily, seasonal stock for the four months leading up to the new year secondarily.
 								</li>
@@ -304,7 +303,7 @@ nav: true
 					<b>Programming</b>
 				</td>
 				<td class="p-0 pl-2 text-left">
-					Excellent knowledge of programming began in early 2011 with Python and HTML/CSS and have steadily picked up other languages as time has passed. Have gained familiarity with Unix due to using Ubuntu as the OS on my Personal Machine from early 2021 onwards,.
+					Excellent knowledge of programming having began in early 2011 with Python and HTML/CSS and steadily picking up other languages as time has passed. Have gained familiarity with Unix due to using Ubuntu as the OS on my Personal Machine from early 2021 onwards, and working as a software engineer in a linux development environment.
 				</td>
 			</tr>
 			<tr>
@@ -312,7 +311,7 @@ nav: true
 					<b>Languages</b>
 				</td>
 				<td class="p-0 pl-2 text-left">
-					English native speaker, with beginner Japanese that I am currently working on as part of a language course at university.
+					English native speaker, with beginner Japanese that I began working on as part of a language course at university. My eventual aim is bilingual fluency, but I am currently aiming to pass the Japanese N5.
 				</td>
 			</tr>
 			<tr>
