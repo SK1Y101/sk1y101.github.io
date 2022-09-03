@@ -1,5 +1,5 @@
 ---
-layout: project
+layout: distil
 title: Bachelors Thesis
 longtitle: Distinguishing Intermediate Mass Black Hole Mergers from Short Duration Glitches
 description: Using LIGO data to filter glitch events when searching for intermediate mass black holes
@@ -14,11 +14,10 @@ github:
   contributors: true
 category: work
 date: 2021-06-03
-showauthors: true
 
 authors:
   - name: Jack Lloyd-Walters
-    url: "https://sk1y101.github.io"
+    url: "https://lloydwaltersj.com"
     affiliations:
       name: Royal Astronomical Society, Portsmouth University, Institute of Physics
 
