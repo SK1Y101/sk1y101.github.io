@@ -373,7 +373,7 @@ As we are investigating the case of an exterior perturbation, we only consider t
 \begin{equation}
     \begin{aligned}
         \ddot{\pmb{r}}_1 &= \ddot{\pmb{R}}_1 - \ddot{\pmb{R}}_0 \\
-        \ddot{\pmb{r}}_1 &= \sum_{j \ne 1} \left[G m_j \frac{\pmb{R}_j - \pmb{R}_1}{{| \pmb{R}_j - \pmb{R}_1|}^3}\right] - \sum_{j \ne 0} \left[G m_j \frac{\pmb{R}_j - \pmb{R}_0}{{| \pmb{R}_j - \pmb{R}_0|}^3}\right]
+        \ddot{\pmb{r}}_1 &= \sum_{j \ne 1} \left[G m_j \frac{\pmb{R}_j - \pmb{R}_1}{ {| \pmb{R}_j - \pmb{R}_1|}^3}\right] - \sum_{j \ne 0} \left[G m_j \frac{\pmb{R}_j - \pmb{R}_0}{ {| \pmb{R}_j - \pmb{R}_0|}^3}\right]
     \end{aligned}
     \label{eq_perturb}
 \end{equation}
@@ -383,7 +383,7 @@ The double summation terms can be collected, to give equation \ref{eq_perturbCol
 \begin{equation}
     \begin{split}
         \ddot{\pmb{r}}_1 &= Gm_0 \frac{\pmb{R}_0 - \pmb{R}_1}{|\pmb{R}_0 - \pmb{R}_1|^3} - Gm_1 \frac{\pmb{R}_1 - \pmb{R}_0}{|\pmb{R}_1 - \pmb{R}_0|^3} \\
-        & + \sum_{j=2} \left[ Gm_j \frac{\pmb{R}_j - \pmb{R}_1}{{| \pmb{R}_j - \pmb{R}_1|}^3} - G m_j \frac{\pmb{R}_j - \pmb{R}_0}{{| \pmb{R}_j - \pmb{R}_0|}^3} \right]
+        & + \sum_{j=2} \left[ Gm_j \frac{\pmb{R}_j - \pmb{R}_1}{ {| \pmb{R}_j - \pmb{R}_1|}^3} - G m_j \frac{\pmb{R}_j - \pmb{R}_0}{ {| \pmb{R}_j - \pmb{R}_0|}^3} \right]
     \end{split}
     \label{eq_perturbCollected}
 \end{equation}
@@ -393,7 +393,7 @@ For the Jacobian coordinates, We introduce the notation $|\pmb{r}_i| \equiv r_i$
 \begin{equation}
     \begin{split}
         \ddot{\pmb{r}}_1 &= -Gm_0 \frac{\pmb{r}_1}{r_1^3} - Gm_1 \frac{\pmb{r}_1}{r_1^3} \\
-        & + \sum_{j=2} \left[ Gm_j \frac{\pmb{R}_j - \pmb{R}_1}{{| \pmb{R}_j - \pmb{R}_1|}^3} - G m_j \frac{\pmb{R}_j - \pmb{R}_0}{{| \pmb{R}_j - \pmb{R}_0|}^3} \right]
+        & + \sum_{j=2} \left[ Gm_j \frac{\pmb{R}_j - \pmb{R}_1}{ {| \pmb{R}_j - \pmb{R}_1|}^3} - G m_j \frac{\pmb{R}_j - \pmb{R}_0}{ {| \pmb{R}_j - \pmb{R}_0|}^3} \right]
     \end{split}
 \end{equation}
 
@@ -402,7 +402,7 @@ This can be further simplified to equation \ref{eq_keplerandperturb},
 \begin{equation}
     \begin{split}
         \ddot{\pmb{r}}_1 &= -G\left(m_0 + m_1\right)\frac{\pmb{r}_1}{r_1^3} \\
-        & + \sum_{j=2} \left[ Gm_j \frac{\pmb{R}_j - \pmb{R}_1}{{| \pmb{R}_j - \pmb{R}_1|}^3} - Gm_j \frac{\pmb{R}_j - \pmb{R}_0}{{| \pmb{R}_j - \pmb{R}_0|}^3} \right]
+        & + \sum_{j=2} \left[ Gm_j \frac{\pmb{R}_j - \pmb{R}_1}{ {| \pmb{R}_j - \pmb{R}_1|}^3} - Gm_j \frac{\pmb{R}_j - \pmb{R}_0}{ {| \pmb{R}_j - \pmb{R}_0|}^3} \right]
     \end{split}
     \label{eq_keplerandperturb}
 \end{equation}
@@ -426,7 +426,7 @@ From this, we can see that the acceleration in Jacobian coordinates for an n-bod
 With the perturbing acceleration given in equation \ref{eq_perturbaccel},
 
 \begin{equation}
-    \delta\ddot{\pmb{r}}_1 = \sum_{j=2} \left[ Gm_j \frac{\pmb{R}_j - \pmb{R}_1}{{| \pmb{R}_j - \pmb{R}_1|}^3} - G m_j \frac{\pmb{R}_j - \pmb{R}_0}{{| \pmb{R}_j - \pmb{R}_0|}^3} \right]
+    \delta\ddot{\pmb{r}}_1 = \sum_{j=2} \left[ Gm_j \frac{\pmb{R}_j - \pmb{R}_1}{ {| \pmb{R}_j - \pmb{R}_1|}^3} - G m_j \frac{\pmb{R}_j - \pmb{R}_0}{ {| \pmb{R}_j - \pmb{R}_0|}^3} \right]
     \label{eq_perturbaccel}
 \end{equation}
 
@@ -434,8 +434,8 @@ If we introduce terms to the first fractional part, we have equation \ref{eq_int
 
 \begin{equation}
     \begin{split}
-        \delta\ddot{\pmb{r}}_1 &= \sum_{j=2} \left[ Gm_j \frac{\pmb{R}_j - \pmb{R}_1 + \pmb{R}_0 - \pmb{R}_0}{{| \pmb{R}_j - \pmb{R}_1 + \pmb{R}_0 - \pmb{R}_0|}^3} - G m_j \frac{\pmb{R}_j - \pmb{R}_0}{{| \pmb{R}_j - \pmb{R}_0|}^3} \right]\\
-        &= \sum_{j=2} \left[ Gm_j \frac{\pmb{R}_j - \pmb{R}_0 - \pmb{r}_1}{{| \pmb{R}_j - \pmb{R}_0 - \pmb{r}_1|}^3} - G m_j \frac{\pmb{R}_j - \pmb{R}_0}{{| \pmb{R}_j - \pmb{R}_0|}^3} \right]
+        \delta\ddot{\pmb{r}}_1 &= \sum_{j=2} \left[ Gm_j \frac{\pmb{R}_j - \pmb{R}_1 + \pmb{R}_0 - \pmb{R}_0}{ {| \pmb{R}_j - \pmb{R}_1 + \pmb{R}_0 - \pmb{R}_0|}^3} - G m_j \frac{\pmb{R}_j - \pmb{R}_0}{ {| \pmb{R}_j - \pmb{R}_0|}^3} \right]\\
+        &= \sum_{j=2} \left[ Gm_j \frac{\pmb{R}_j - \pmb{R}_0 - \pmb{r}_1}{ {| \pmb{R}_j - \pmb{R}_0 - \pmb{r}_1|}^3} - G m_j \frac{\pmb{R}_j - \pmb{R}_0}{ {| \pmb{R}_j - \pmb{R}_0|}^3} \right]
     \end{split}
     \label{eq_introducedterms}
 \end{equation}
@@ -470,7 +470,7 @@ We define a new value $\pmb{r}_{j0}$, as a shorthand for $\pmb{R}_j - \pmb{R}_0$
 By combining equations \ref{eq_introducedterms} and \ref{eq_rjr0}, we obtain equation \ref{eq_jacobianmotion},
 
 \begin{equation}
-    \delta\ddot{\pmb{r}}_1 = \sum_{j=2} \left[ Gm_j \frac{\pmb{r}_{j0} - \pmb{r}_1}{{| \pmb{r}_{j0} - \pmb{r}_1|}^3} - G m_j \frac{\pmb{r}_{j0}}{r_{j,0}^3} \right]
+    \delta\ddot{\pmb{r}}_1 = \sum_{j=2} \left[ Gm_j \frac{\pmb{r}_{j0} - \pmb{r}_1}{ {| \pmb{r}_{j0} - \pmb{r}_1|}^3} - G m_j \frac{\pmb{r}_{j0}}{r_{j,0}^3} \right]
     \label{eq_jacobianmotion}
 \end{equation}
 
@@ -478,7 +478,7 @@ Which can be simplified slightly as equation \ref{eq_jacobianmotion2}, which giv
 
 \begin{equation}
     \begin{split}
-        \delta\ddot{\pmb{r}}_1 &= \sum_{j=2} \left[ Gm_j\left( -\frac{\pmb{r}_1 - \pmb{r}_{j0}}{{| \pmb{r}_1 - \pmb{r}_{j0}|}^3} - \frac{\pmb{r}_{j0}}{r_{j0}^3} \right)\right]\\
+        \delta\ddot{\pmb{r}}_1 &= \sum_{j=2} \left[ Gm_j\left( -\frac{\pmb{r}_1 - \pmb{r}_{j0}}{ {| \pmb{r}_1 - \pmb{r}_{j0}|}^3} - \frac{\pmb{r}_{j0}}{r_{j0}^3} \right)\right]\\
         &= \sum_{j=2} \left[ -\frac{Gm_j}{r_j^3}\left( \pmb{r}_1 - 3\frac{\pmb{r}_1\cdot\pmb{r}_j}{r_j^2}\pmb{r}_j \right) + \mathcal{O}\left(\nicefrac{r_1}{r_j}\right)^2\right]
     \end{split}
     \label{eq_jacobianmotion2}
