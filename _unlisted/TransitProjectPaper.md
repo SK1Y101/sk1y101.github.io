@@ -16,7 +16,7 @@ category: work
 date: 2022-05-24
 
 authors:
-  - name: Jack Lloyd-Walters
+  - name: Jack Lloyd-Walters FRAS
     url: "https://lloydwaltersj.com"
     affiliations:
       name: Royal Astronomical Society, Portsmouth University, Institute of Physics
