@@ -106,7 +106,7 @@ toc:
 {% capture figurenums %}{% increment transit_figure_num %}{% increment transit_equation_num %}{% increment transit_table_num %}{% endcapture %}
 $$
   \newcommand{\errorvalue}[3]{
-    $#1$ {\raisebox{0.5ex}{\tiny$\substack{+#2 \\ -#3}$} }
+    #1 {{\tiny\substack{+#2 \\ -#3}} }
   }
 $$
 ## Abstract
