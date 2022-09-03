@@ -351,34 +351,31 @@ $$ \delta_T = -\frac{P_T}{2 \pi a_T}\left(\frac{1 - e_T^2}{1 + 2 e_T \cos f_T + 
 
 #### Exterior perturbation
 
-To derive the effects of orbital perturbation, we follow a derivation for a two-planet case \citep{agol2018}, and extend this to $n$ planets. We assume the transiting planet to have zero eccentricity and all planets are on coplanar orbits. We give the equation of motion for a body acting under gravity in equation \ref{eq_gravity}.
+{% capture eq_gravity %}{% increment transit_equation_num %}{% endcapture %}
+To derive the effects of orbital perturbation, we follow a derivation for a two-planet case \citep{agol2018}, and extend this to $n$ planets. We assume the transiting planet to have zero eccentricity and all planets are on coplanar orbits. We give the equation of motion for a body acting under gravity in equation <fig>[{{ eq_gravity }}]</fig>.
 
-\begin{equation}
-    \ddot{\pmb{R}} = \sum_{j \ne i} \left[G m_j \frac{\pmb{R}_j - \pmb{R}_i}{ {| \pmb{R}_j - \pmb{R}_i|}^3}\right]
-    \label{eq_gravity}
-\end{equation}
+$$ \ddot{\pmb{R}} = \sum_{j \ne i} \left[G m_j \frac{\pmb{R}_j - \pmb{R}_i}{ {| \pmb{R}_j - \pmb{R}_i|}^3}\right] $$
+<div class="l-gutter"><fig>({{ eq_gravity }})</fig></div>
 
-Where the bold indicates that the position of the planet, $\pmb{R}$, is a vector. This can trivially be shown to satisfy \ref{eq_barycentrefixed}
+{% capture eq_barycentrefixed %}{% increment transit_equation_num %}{% endcapture %}
+Where the bold indicates that the position of the planet, $$ \pmb{R} $$, is a vector. This can trivially be shown to satisfy <fig>[{{ eq_barycentrefixed }}]</fig>
 
-\begin{equation}
-    \sum_{i} m_i \pmb{\ddot{R}}_i = 0
-    \label{eq_barycentrefixed}
-\end{equation}
+$$ \sum_{i} m_i \pmb{\ddot{R}}_i = 0 $$
+<div class="l-gutter"><fig>({{ eq_barycentrefixed }})</fig></div>
 
-Which is a demonstration that the centre of mass of the system, $\pmb{R}_{C.o.M}$ is fixed, and no external forces are at play. This set of equations are most commonly used in numerical approaches; for an analytical approach to perturbation, it is more convenient to deal with the Jacobi coordinates of the system \citep{3bodypulsar, murraybook}.
+Which is a demonstration that the centre of mass of the system, $$ \pmb{R}_{C.o.M} $$ is fixed, and no external forces are at play. This set of equations are most commonly used in numerical approaches; for an analytical approach to perturbation, it is more convenient to deal with the Jacobi coordinates of the system <d-cite key="3bodypulsar"></d-cite><d-cite key="murraybook"></d-cite>.
 
-This gives a set of new coordinates, $r_i$, describing the position of the $i^{th}$ body relative to the mass interior to its orbit, as given in equation \ref{eq_jacobi}.
+{% capture eq_jacobi %}{% increment transit_equation_num %}{% endcapture %}
+This gives a set of new coordinates, $r_i$, describing the position of the $$ i^{th} $$ body relative to the mass interior to its orbit, as given in equation <fig>[{{ eq_jacobi }}]</fig>.
 
-\begin{equation}
-    \begin{aligned}
-        \pmb{r}_0 &= \pmb{R}_{C.o.M} = 0 \\
-        \pmb{r}_1 &= \pmb{R}_1 - \frac{m_0\pmb{R}_0}{m_0} = \pmb{R}_1 - \pmb{R}_0 \\
-        \pmb{r}_2 &= \pmb{R}_2 - \frac{m_0\pmb{R}_0+m_1\pmb{R}_1}{m_0+m_1} \\
-        &\shortvdotswithin{=} \\[-2em]
-        \pmb{r}_{n+1} &= \pmb{R}_{n+1} - \frac{\sum^n_{j=0}m_j\pmb{R}_j}{\sum^n_{j=0}m_j}
-        \label{eq_jacobi}
-    \end{aligned}
-\end{equation}
+$$\begin{aligned}
+\pmb{r}_0 &= \pmb{R}_{C.o.M} = 0 \\
+\pmb{r}_1 &= \pmb{R}_1 - \frac{m_0\pmb{R}_0}{m_0} = \pmb{R}_1 - \pmb{R}_0 \\
+\pmb{r}_2 &= \pmb{R}_2 - \frac{m_0\pmb{R}_0+m_1\pmb{R}_1}{m_0+m_1} \\
+&\shortvdotswithin{=} \\[-2em]
+\pmb{r}_{n+1} &= \pmb{R}_{n+1} - \frac{\sum^n_{j=0}m_j\pmb{R}_j}{\sum^n_{j=0}m_j}
+\end{aligned}$$
+<div class="l-gutter"><fig>({{ eq_jacobi }})</fig></div>
 
 We can reformulate the equations of motion in Jacobi coordinates, given in equation \ref{eq_jacobimotion}.
 
