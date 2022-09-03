@@ -132,6 +132,7 @@ In the case that an exoplanetary system is oriented "edge on" from our vantage p
 
 {% capture occdepth %}{% increment transit_equation_num %}{% endcapture %}
 $$ \Delta_L = \frac{\theta_{planet}}{\theta_{star}} = \frac{R_{planet}^2}{R_{star}^2} \approx \frac{r_{planet}^2}{r_{star}^2} \text{[{{ occdepth }}]}$$
+<div class="l-gutter"><fig>[{{ occdepth }}]</fig></div>
 
 The reduction in stellar light observed during each transit, "Occlusion depth"", is proportional to the angular areas of both the planet and star. An expression for this is given in equation <fig>[{{ occdepth }}]</fig>, where $$ \theta $$ is the angular area, and $$ R $$ the angular radius of each object. In the small angle approximation, the ratio of $$ R $$ becomes equal to the ratio of $$ r $$, the true radii of each object.
 
@@ -155,24 +156,24 @@ By instead considering the transit as a circular arc (and assuming the orbital e
 
 $$ T_{transit} = \frac{2a}{v_{planet}}\arcsin\frac{R_{star}+R_{planet}}{a}  \text{[{{ transitduration2 }}]} $$
 
-{% capture impact %}{% increment transit_equation_num %}{% endcapture %}
-Introducing the effect of orbital inclination further complicates this approximation, as the exoplanet will not transit across the equator of the stellar disc, as demonstrated in figure <fig>[{{ inclinedtransit }}]</fig>. This introduces the quantity known as the "Impact parameter", and is given in equation <fig>[{{ impact }}]</fig>, where $$ i $$ is the orbital inclination and $$ \Omega $$ the longitude of the ascending node.
+{% capture eq_impact %}{% increment transit_equation_num %}{% endcapture %}
+{% capture inclinedtransit %}{% increment transit_figure_num %}{% endcapture %}
+Introducing the effect of orbital inclination further complicates this approximation, as the exoplanet will not transit across the equator of the stellar disc, as demonstrated in figure <fig>[{{ inclinedtransit }}]</fig>. This introduces the quantity known as the "Impact parameter", and is given in equation <fig>[{{ eq_impact }}]</fig>, where $$ i $$ is the orbital inclination and $$ \Omega $$ the longitude of the ascending node.
 
-$$ b = a \cos{i}\sin{\Omega}  \text{[{{ impact }}]} $$
+$$ b = a \cos{i}\sin{\Omega}  \text{[{{ eq_impact }}]} $$
 
 {% capture transitduration3 %}{% increment transit_equation_num %}{% endcapture %}
 $$ T_{transit} = \frac{2a}{v_{planet}}\arcsin\frac{\sqrt{ \left(R_{star}+R_{planet}\right)^2 - b^2 }}{a}  \text{[{{ transitduration3 }}]} $$
 
-Introducing the impact parameter, $$ b $$, to equation <fig>[{{ transitduration2 }}]</fig> gives the expression given in equation <fig>[{{ transitduration3 }}]</fig>. This allows information about both the inclination and radius of the orbit to be deduced from a single transit. A full derivation of equations <fig>[{{ transitduration }}]</fig>, <fig>[{{ transitduration2 }}]</fig>, and <fig>[{{ transitduration3 }}]</fig> is given in [this section]("transit-duration-derivation").
+Introducing the impact parameter, $$ b $$, to equation <fig>[{{ transitduration2 }}]</fig> gives the expression given in equation <fig>[{{ transitduration3 }}]</fig>. This allows information about both the inclination and radius of the orbit to be deduced from a single transit. A full derivation of equations <fig>[{{ transitduration }}]</fig>, <fig>[{{ transitduration2 }}]</fig>, and <fig>[{{ transitduration3 }}]</fig> is given in [this section](#transit-duration-derivation).
 
-{% capture inclinedtransit %}{% increment transit_figure_num %}{% endcapture %}
 <div class="row">
     <div class="col-sm g-0 imgfig">
         {% include figure.html path="assets/img/TransitProject/inclinedOrbit.png" %}
     </div>
 </div>
 <div class="caption">
-    <fig>[{{ inclinedtransit }}]</fig> How the orbital inclination affects the length of a transit. The axis scale is in stellar radii, and it can be seen in this configuration that a transit would only be visible if the relative inclination were in the region of $$ \pm 1 $$ degree.
+    <fig>[{{ inclinedtransit }}]</fig> How the orbital inclination affects the length of a transit. The axis scale is in stellar radii, and it can be seen in this configuration that a transit would only be visible if the relative inclination were in the region of ±1 degree.
 </div>
 
 ### Transit timing
@@ -256,7 +257,7 @@ Strictly speaking, there are three categories into which TTV models can be subdi
 
 #### Interior perturbation
 
-In the case where a transiting exoplanet orbits exterior to the perturbing planets, the transit timing variations seen will be dominated by the motion of the barycentre, as mentioned in section \ref{section:barycentre}. This setup is the most intuitive to understand, and makes a useful starting point.
+In the case where a transiting exoplanet orbits exterior to the perturbing planets, the transit timing variations seen will be dominated by the motion of the barycentre, as mentioned in [this section](#barycentre-motion). This setup is the most intuitive to understand, and makes a useful starting point.
 
 ##### Initial derivation
 
