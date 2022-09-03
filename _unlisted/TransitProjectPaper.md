@@ -1,5 +1,5 @@
 ---
-layout: distil
+layout: distill
 title: Masters Thesis
 longtitle: Determining The Parameters of Exoplanetary Candidates From Transit Timing Variations
 description: >
