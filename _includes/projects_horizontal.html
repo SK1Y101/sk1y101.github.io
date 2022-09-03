@@ -38,7 +38,7 @@
               {% endif %}
               {% unless project.redirect %}
                 {% assign read_time = project.content | number_of_words | divided_by: 180 | plus: 1 %}
-                &middot; {{read_time}} min read
+                &nbsp; &middot; &nbsp; {{read_time}} min read
               {% endunless %}
             </div>
           </div>
