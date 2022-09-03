@@ -30,6 +30,12 @@
             {% endif %}
           </div>
           {% endif %}
+          {% if not project.redirect %}
+          <div class="row ml-1 mr-1 p-0">
+            {% assign read_time = project.content | number_of_words | divided_by: 180 | plus: 1 %}
+            {{read_time}} min reads
+          </div>
+          {% endif %}
         </div>
       </div>
     </div>
