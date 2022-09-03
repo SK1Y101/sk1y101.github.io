@@ -1,19 +1,19 @@
 ---
 layout: distill
 title: Masters Thesis
-longtitle: Distinguishing Intermediate Mass Black Hole Mergers from Short Duration Glitches
-description: Using LIGO data to filter glitch events when searching for intermediate mass black holes
-img: assets/img/GWProject/190521-3hr-GravPlot.png
-permalink: /unlisted/GravProject/
+longtitle: Determining The Parameters of Exoplanetary Candidates From Transit Timing Variations
+description: Searching for Transit Timing Variations to determine the parameters of additional exoplanets in a system.
+img: assets/img/TransitProject/TTVModelAnimation.gif
+permalink: /projects/TransitProject/paper/
 importance:
 github:
   user: SK1Y101
-  repo: GWProject
+  repo: TransitProject
   onpage: true
   showbadges: true
   contributors: true
 category: work
-date: 2021-06-03
+date: 2022-05-24
 
 authors:
   - name: Jack Lloyd-Walters
@@ -22,35 +22,10 @@ authors:
       name: Royal Astronomical Society, Portsmouth University, Institute of Physics
 
 links:
-  pdf: GWProject/GWProjectFinalReport.pdf
+  pdf: TransitProject/TransitDissertation.pdf
   url:
 
-# Optionally, you can add a table of contents to your post.
-# NOTES:
-#   - make sure that TOC names match the actual section names
-#     for hyperlinks within the post to work correctly.
-#   - we may want to automate TOC generation in the future using
-#     jekyll-toc plugin (https://github.com/toshimaru/jekyll-toc).
-
-bibliography: gravproject.bib
-
-# layout: distill
-# title: Masters Thesis
-# longtitle: Determining The Parameters of Exoplanetary Candidates From Transit Timing Variations
-# description: >
-#   <p>Searching for Transit Timing Variations to determine the parameters of additional exoplanets in a system.</p>
-#   <p><small>astronomical databases: miscellaneous -- software: development -- software: simulations -- techniques: photometric</small></p>
-# img: assets/img/TransitProject/TTVModelAnimation.gif
-# permalink: /projects/TransitProject/paper/
-# importance:
-# github:
-#   user: SK1Y101
-#   repo: TransitProject
-#   onpage: true
-#   showbadges: true
-#   contributors: true
-# category: work
-# date: 2022-05-24
+bibliography: transitproject.bib
 
 # authors:
 #   - name: Jack Lloyd-Walters
@@ -72,18 +47,12 @@ bibliography: gravproject.bib
 # #  affiliations:
 # #    name: Portsmouth University
 
-# links:
-#   pdf: TransitProject/TransitDissertation.pdf
-#   url: _unlisted/TransitProjectPaper
-
-# # Optionally, you can add a table of contents to your post.
-# # NOTES:
-# #   - make sure that TOC names match the actual section names
-# #     for hyperlinks within the post to work correctly.
-# #   - we may want to automate TOC generation in the future using
-# #     jekyll-toc plugin (https://github.com/toshimaru/jekyll-toc).
-
-# bibliography: transitproject.bib
+# Optionally, you can add a table of contents to your post.
+# NOTES:
+#   - make sure that TOC names match the actual section names
+#     for hyperlinks within the post to work correctly.
+#   - we may want to automate TOC generation in the future using
+#     jekyll-toc plugin (https://github.com/toshimaru/jekyll-toc).
 
 toc:
   - name: Abstract
@@ -143,12 +112,13 @@ toc:
 
 ---
 {% assign transit_figure_num = 1 %}{% assign transit_equation_num = 1 %}
+
+## Abstract
+
 <div class="l-gutter">
   {% include figure.html path="assets/img/TransitProject/uop-logo-stacked.png" %}
   {% include figure.html path="assets/img/TransitProject/HAGLogo.jpg" %}
 </div>
-
-## Abstract
 
 Transit Timing Variation (TTV) provides a powerful tool to probe the dynamical configuration of exoplanetary systems from historical transit data <d-cite key="firstTTVPaper"></d-cite>, <d-cite key="secondTTVPaper"></d-cite>. TTV analysis has allowed both verification of planetary parameters <d-cite key="TrappistMass"></d-cite> and the discovery of new planetary bodies <d-cite key="Keplerc"></d-cite> from transit observation alone.
 As part of this work, additional transit light curves have been collected with the 24" Ritchey-Chrétien telescope at Clanfield observatory and combined with the ExoClock database <d-cite key="ExoClockI"></d-cite>, <d-cite key="ExoClockII"></d-cite>, Exoplanet transit database <d-cite key="ETD"></d-cite>, and *TESS* light curves <d-cite key="tess"></d-cite> to create a set of historical TTV data for analysis.
@@ -192,5 +162,3 @@ $$ T_{transit} = \frac{2 \left(R_{star} + R_{planet}\right)}{v_{planet}} \text{[
 By instead considering the transit as a circular arc (and assuming the orbital eccentricity is low), the expression for transit duration is given in equation <fig>[ {{ transitduration2 }} ]</fig>, where $a$ is the semi-major axis of the orbit.
 
 $$ T_{transit} = \frac{2a}{v_{planet}}\arcsin\frac{R_{star}+R_{planet}}{a}  \text{[ {{ transitduration2 }} ]} $$
-
-{% assign transit_figure_num = 1 %}{% assign transit_equation_num = 1 %}
