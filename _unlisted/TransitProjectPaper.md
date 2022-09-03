@@ -142,7 +142,7 @@ toc:
 # If you use this post as a template, delete this _styles block.
 
 ---
-{% assign figure_num = 1 %}{% assign equation_num = 1 %}
+{% assign transit_figure_num = 1 %}{% assign transit_equation_num = 1 %}
 <div class="l-gutter">
   {% include figure.html path="assets/img/TransitProject/uop-logo-stacked.png" %}
   {% include figure.html path="assets/img/TransitProject/HAGLogo.jpg" %}
@@ -168,12 +168,12 @@ Of particular interest for this project is a specific subset of transit photomet
 
 In the case that an exoplanetary system is oriented "edge on" from our vantage point on earth, then planets within the system will periodically occlude the central star. By observing the occlusion, it is possible to determine many of the physical and orbital parameters of an exoplanet.
 
-{% capture occdepth %}{% increment equation_num %}{% endcapture %}
+{% capture occdepth %}{% increment transit_equation_num %}{% endcapture %}
 $$ \Delta_L = \frac{\theta_{planet}}{\theta_{star}} = \frac{R_{planet}^2}{R_{star}^2} \approx \frac{r_{planet}^2}{r_{star}^2} \text{[ {{ occdepth }} ]}$$
 
 The reduction in stellar light observed during each transit, "Occlusion depth"", is proportional to the angular areas of both the planet and star. An expression for this is given in equation <fig>[ {{ occdepth }} ]</fig>, where $$ \theta $$ is the angular area, and $R$ the angular radius of each object. In the small angle approximation, the ratio of $R$ becomes equal to the ratio of $r$, the true radii of each object.
 
-{% capture transitLoc %}{% increment figure_num %}{% endcapture %}
+{% capture transitLoc %}{% increment transit_figure_num %}{% endcapture %}
 <div class="row">
     <div class="col-sm g-0 imgfig">
         {% include figure.html path="assets/img/TransitProject/TransitLocation.png" %}
@@ -183,14 +183,14 @@ The reduction in stellar light observed during each transit, "Occlusion depth"",
     <fig>[ {{ transitLoc }} ]</fig> Exoplanet location to observed light curve]{How the location of an exoplanet corresponds to the observed light curve. Stellar limb darkening was ignored for simplicity.
 </div>
 
-{% capture transitduration %}{% increment equation_num %}{% endcapture %}
+{% capture transitduration %}{% increment transit_equation_num %}{% endcapture %}
 Under the approximation that an exoplanetary transit is small compared to the size of its orbit, the velocity of the exoplanet, $$ v_{planet} $$, will remain constant. By approximating the transit as a line segment, the time duration of this transit will be proportional to the combined diameters of the body and star, as demonstrated by figure <fig>[ {{ transitLoc }} ]</fig>, and expressed in equation <fig>[ {{ transitduration }} ]</fig>.
 
 $$ T_{transit} = \frac{2 \left(R_{star} + R_{planet}\right)}{v_{planet}} \text{[ {{ transitduration }} ]} $$
 
-{% capture transitduration2 %}{% increment equation_num %}{% endcapture %}
+{% capture transitduration2 %}{% increment transit_equation_num %}{% endcapture %}
 By instead considering the transit as a circular arc (and assuming the orbital eccentricity is low), the expression for transit duration is given in equation <fig>[ {{ transitduration2 }} ]</fig>, where $a$ is the semi-major axis of the orbit.
 
 $$ T_{transit} = \frac{2a}{v_{planet}}\arcsin\frac{R_{star}+R_{planet}}{a}  \text{[ {{ transitduration2 }} ]} $$
 
-{% assign figure_num = 1 %}{% assign equation_num = 1 %}
+{% assign transit_figure_num = 1 %}{% assign transit_equation_num = 1 %}
