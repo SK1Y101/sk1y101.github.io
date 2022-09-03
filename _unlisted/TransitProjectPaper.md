@@ -131,8 +131,8 @@ Of particular interest for this project is a specific subset of transit photomet
 In the case that an exoplanetary system is oriented "edge on" from our vantage point on earth, then planets within the system will periodically occlude the central star. By observing the occlusion, it is possible to determine many of the physical and orbital parameters of an exoplanet.
 
 {% capture occdepth %}{% increment transit_equation_num %}{% endcapture %}
-$$ \Delta_L = \frac{\theta_{planet}}{\theta_{star}} = \frac{R_{planet}^2}{R_{star}^2} \approx \frac{r_{planet}^2}{r_{star}^2} \text{[{{ occdepth }}]}$$
-<div class="l-gutter"><fig>[{{ occdepth }}]</fig></div>
+$$ \Delta_L = \frac{\theta_{planet}}{\theta_{star}} = \frac{R_{planet}^2}{R_{star}^2} \approx \frac{r_{planet}^2}{r_{star}^2} $$
+<div class="l-gutter"><fig>({{ occdepth }})</fig></div>
 
 The reduction in stellar light observed during each transit, "Occlusion depth"", is proportional to the angular areas of both the planet and star. An expression for this is given in equation <fig>[{{ occdepth }}]</fig>, where $$ \theta $$ is the angular area, and $$ R $$ the angular radius of each object. In the small angle approximation, the ratio of $$ R $$ becomes equal to the ratio of $$ r $$, the true radii of each object.
 
@@ -143,27 +143,31 @@ The reduction in stellar light observed during each transit, "Occlusion depth"",
     </div>
 </div>
 <div class="caption">
-    <fig>[{{ transitLoc }}]</fig> Exoplanet location to observed light curve]{How the location of an exoplanet corresponds to the observed light curve. Stellar limb darkening was ignored for simplicity.
+    **Figure {{ transitLoc }}.** Exoplanet location to observed light curve]{How the location of an exoplanet corresponds to the observed light curve. Stellar limb darkening was ignored for simplicity.
 </div>
 
 {% capture transitduration %}{% increment transit_equation_num %}{% endcapture %}
 Under the approximation that an exoplanetary transit is small compared to the size of its orbit, the velocity of the exoplanet, $$ v_{planet} $$, will remain constant. By approximating the transit as a line segment, the time duration of this transit will be proportional to the combined diameters of the body and star, as demonstrated by figure <fig>[{{ transitLoc }}]</fig>, and expressed in equation <fig>[{{ transitduration }}]</fig>.
 
-$$ T_{transit} = \frac{2 \left(R_{star} + R_{planet}\right)}{v_{planet}} \text{[{{ transitduration }}]} $$
+$$ T_{transit} = \frac{2 \left(R_{star} + R_{planet}\right)}{v_{planet}} $$
+<div class="l-gutter"><fig>({{ transitduration }})</fig></div>
 
 {% capture transitduration2 %}{% increment transit_equation_num %}{% endcapture %}
 By instead considering the transit as a circular arc (and assuming the orbital eccentricity is low), the expression for transit duration is given in equation <fig>[{{ transitduration2 }}]</fig>, where $$ a $$ is the semi-major axis of the orbit.
 
-$$ T_{transit} = \frac{2a}{v_{planet}}\arcsin\frac{R_{star}+R_{planet}}{a}  \text{[{{ transitduration2 }}]} $$
+$$ T_{transit} = \frac{2a}{v_{planet}}\arcsin\frac{R_{star}+R_{planet}}{a} $$
+<div class="l-gutter"><fig>({{ transitduration2 }})</fig></div>
 
 {% capture eq_impact %}{% increment transit_equation_num %}{% endcapture %}
 {% capture inclinedtransit %}{% increment transit_figure_num %}{% endcapture %}
 Introducing the effect of orbital inclination further complicates this approximation, as the exoplanet will not transit across the equator of the stellar disc, as demonstrated in figure <fig>[{{ inclinedtransit }}]</fig>. This introduces the quantity known as the "Impact parameter", and is given in equation <fig>[{{ eq_impact }}]</fig>, where $$ i $$ is the orbital inclination and $$ \Omega $$ the longitude of the ascending node.
 
-$$ b = a \cos{i}\sin{\Omega}  \text{[{{ eq_impact }}]} $$
+$$ b = a \cos{i}\sin{\Omega} $$
+<div class="l-gutter"><fig>({{ eq_impact }})</fig></div>
 
 {% capture transitduration3 %}{% increment transit_equation_num %}{% endcapture %}
-$$ T_{transit} = \frac{2a}{v_{planet}}\arcsin\frac{\sqrt{ \left(R_{star}+R_{planet}\right)^2 - b^2 }}{a}  \text{[{{ transitduration3 }}]} $$
+$$ T_{transit} = \frac{2a}{v_{planet}}\arcsin\frac{\sqrt{ \left(R_{star}+R_{planet}\right)^2 - b^2 }}{a} $$
+<div class="l-gutter"><fig>({{ transitduration3 }})</fig></div>
 
 Introducing the impact parameter, $$ b $$, to equation <fig>[{{ transitduration2 }}]</fig> gives the expression given in equation <fig>[{{ transitduration3 }}]</fig>. This allows information about both the inclination and radius of the orbit to be deduced from a single transit. A full derivation of equations <fig>[{{ transitduration }}]</fig>, <fig>[{{ transitduration2 }}]</fig>, and <fig>[{{ transitduration3 }}]</fig> is given in [this section](#transit-duration-derivation).
 
@@ -173,7 +177,7 @@ Introducing the impact parameter, $$ b $$, to equation <fig>[{{ transitduration2
     </div>
 </div>
 <div class="caption">
-    <fig>[{{ inclinedtransit }}]</fig> How the orbital inclination affects the length of a transit. The axis scale is in stellar radii, and it can be seen in this configuration that a transit would only be visible if the relative inclination were in the region of ±1 degree.
+    **Figure {{ inclinedtransit }}.** How the orbital inclination affects the length of a transit. The axis scale is in stellar radii, and it can be seen in this configuration that a transit would only be visible if the relative inclination were in the region of ±1 degree.
 </div>
 
 ### Transit timing
@@ -195,7 +199,7 @@ Of particular interest for this project are the three following causes for trans
     </div>
 </div>
 <div class="caption">
-    <fig>[{{ interiorTTV }}]</fig> Transit timing variations due to interior planetary motion shifting the barycentre. From left to right are the early-time, expected time, and late-time transits. Note how, as the graphics are co-rotating with the transiting planet-barycentre reference frame, it is the apparent motion of the star that causes TTV.
+    **Figure {{ interiorTTV }}.** Transit timing variations due to interior planetary motion shifting the barycentre. From left to right are the early-time, expected time, and late-time transits. Note how, as the graphics are co-rotating with the transiting planet-barycentre reference frame, it is the apparent motion of the star that causes TTV.
 </div>
 
 As all bodies in an exoplanetary system orbit about the common barycentre, rather than the centre of the parent star, the position of the star will appear to shift over time. This motion underpins both Doppler spectroscopic and astrometric methods for exoplanetary detection, and also results in variations in transit times.
@@ -211,7 +215,7 @@ As a transit occurs when the star and planet are aligned, the motion of the star
     </div>
 </div>
 <div class="caption">
-    <fig>[{{ exteriorTTV }}]</fig> Transit timing variations due to exterior planet(s) perturbing the orbit of the transiting planet. The solid line is the unperturbed orbit, the dashed is the instantaneous perturbed orbit, and the arrow marks the instantaneous perturbing force vector. From left to right are the early-time, expected time, and late-time transits.
+    **Figure {{ exteriorTTV }}.** Transit timing variations due to exterior planet(s) perturbing the orbit of the transiting planet. The solid line is the unperturbed orbit, the dashed is the instantaneous perturbed orbit, and the arrow marks the instantaneous perturbing force vector. From left to right are the early-time, expected time, and late-time transits.
 </div>
 
 As discussed, the equations of motion have no closed-form solution for systems with three or more bodies, but can be expressible as a set of perturbed 2-body solutions, as seen in figure <fig>[{{ exteriorTTV }}]</fig>.
@@ -252,7 +256,7 @@ Strictly speaking, there are three categories into which TTV models can be subdi
     </div>
 </div>
 <div class="caption">
-    <fig>[{{ TTVClasses }}]</fig> Three classes of TTV cause, from left to right, are interior perturbation, exterior perturbation, and combined (or boundary) perturbation. The classes each represent a subtly different way of describing TTV, and the form of each model reflects the different approximations and approaches made.
+    **Figure {{ TTVClasses }}.** Three classes of TTV cause, from left to right, are interior perturbation, exterior perturbation, and combined (or boundary) perturbation. The classes each represent a subtly different way of describing TTV, and the form of each model reflects the different approximations and approaches made.
 </div>
 
 #### Interior perturbation
@@ -264,40 +268,48 @@ In the case where a transiting exoplanet orbits exterior to the perturbing plane
 {% capture eq_barycentre %}{% increment transit_equation_num %}{% endcapture %}
 The distance between the barycentre and primary body is given in equation <fig>[{{ eq_barycentre }}]</fig>, where $r$ is the distance between the primary and secondary, $$ m_0 $$ and $$ m_1 $$ are the masses of the primary and secondary respectively, and $$ \mu $$ is the reduced mass of the secondary.
 
-$$ r_b = r \frac{m_1}{m_1 + m_0} = r \mu_1  \text{[{{ eq_barycentre }}]} $$
+$$ r_b = r \frac{m_1}{m_1 + m_0} = r \mu_1 $$
+<div class="l-gutter"><fig>({{ eq_barycentre }})</fig></div>
 
 {% capture eq_multibarycentre %}{% increment transit_equation_num %}{% endcapture %}
 If we take the assumption that gravitational influences are dominated by that of the central star, any effects between planets will be negligible. Thus, the position of the global barycentre can be described as a linear combination of each planet in the system, as given in equation <fig>[{{ eq_multibarycentre }}]</fig>.
 
-$$ r_b = \sum_i^n  r_i \mu_i  \text{[{{ eq_multibarycentre }}]} $$
+$$ r_b = \sum_i^n  r_i \mu_i $$
+<div class="l-gutter"><fig>({{ eq_multibarycentre }})</fig></div>
 
 {% capture eq_orbitpos %}{% increment transit_equation_num %}{% endcapture %}
 The position of an exoplanet along its orbit is given in equation <fig>[{{ eq_orbitpos }}]</fig>, where $$ P_i $$ is the orbital period of the planet, $$ t_{0, i} $$ is the initial transit time of the planet, and $$ \phi $$ is the angle between the planet, and the closest point of its orbit as seen from earth.
 
-$$ \phi = \frac{2 \pi \left(t - t_{0,i} \right)}{P_i}  \text{[{{ eq_orbitpos }}]} $$
+$$ \phi = \frac{2 \pi \left(t - t_{0,i} \right)}{P_i} $$
+<div class="l-gutter"><fig>({{ eq_orbitpos }})</fig></div>
 
 {% capture eq_projbarycentre %}{% increment transit_equation_num %}{% endcapture %}
 This expression of the angle of exoplanet position is equivalent to the mean anomaly of the planet, and can be combined with equation <fig>[{{ eq_multibarycentre }}]</fig> to obtain an expression for the position of the barycentre of the system at any given time, $$ t $$, as given in equation <fig>[{{ eq_projbarycentre }}]</fig>. The introduction of the sine term is due to the nature of TTV. Only the motion of the barycentre perpendicular to the vantage point of the earth is relevant.
 
-$$ r_b = \sum_i^n \left[ r_i \mu_i \sin \frac{2 \pi \left(t - t_{0,i} \right)}{P_i}\right]  \text{[{{ eq_projbarycentre }}]} $$
+$$ r_b = \sum_i^n \left[ r_i \mu_i \sin \frac{2 \pi \left(t - t_{0,i} \right)}{P_i}\right] $$
+<div class="l-gutter"><fig>({{ eq_projbarycentre }})</fig></div>
 
 As this is the distance of the barycentre from the star, we can negate the expression to obtain the distance of the star from the barycentre. This also defines the additional distance the transiting planet must cover for the transit to occur.
 
 {% capture eq_ttvdist %}{% increment transit_equation_num %}{% endcapture %}
-$$ \delta_x = -\sum_i^n \left[ r_i \mu_i \sin \frac{2 \pi \left(t - t_{0,i} \right)}{P_i}\right]  \text{[{{ eq_ttvdist }}]} $$
+$$ \delta_x = -\sum_i^n \left[ r_i \mu_i \sin \frac{2 \pi \left(t - t_{0,i} \right)}{P_i}\right] $$
+<div class="l-gutter"><fig>({{ eq_ttvdist }})</fig></div>
 
 {% capture eq_suvat %}{% increment transit_equation_num %}{% endcapture %}
 If we assume the distance associated with a transit is small compared to the size of the orbit of the transiting planet, the velocity of all bodies in the system will remain constant during the transit. Thus, to convert the distance, $$ \delta_x $$, to a transit timing variation, we can apply standard equations of motion, as given in equation <fig>[{{ eq_suvat }}]</fig>. As the stellar mass will be many orders of magnitude larger than the planet, it's velocity contribution to the TTV will be negligible.
 
-$$ t = \frac{\delta_x}{v_{planet} - v_{star}} \approx \frac{\delta_x}{v_{planet}}  \text{[{{ eq_suvat }}]} $$
+$$ t = \frac{\delta_x}{v_{planet} - v_{star}} \approx \frac{\delta_x}{v_{planet}} $$
+<div class="l-gutter"><fig>({{ eq_suvat }})</fig></div>
 
 {% capture eq_circorbitvel %}{% increment transit_equation_num %}{% endcapture %}
-$$ v_{planet} = \sqrt{\frac{G\left(m_{star} + m_{planet}\right)}{a_{planet}}} = \frac{2 \pi a}{P_{planet}}  \text{[{{ eq_circorbitvel }}]} $$
+$$ v_{planet} = \sqrt{\frac{G\left(m_{star} + m_{planet}\right)}{a_{planet}}} = \frac{2 \pi a}{P_{planet}} $$
+<div class="l-gutter"><fig>({{ eq_circorbitvel }})</fig></div>
 
 {% capture eq_ttvbarycentre %}{% increment transit_equation_num %}{% endcapture %}
 If we assume the orbit of the transiting planet to be circular, the orbital velocity is that given in equation <fig>[{{ eq_circorbitvel }}]</fig>. This can be combined with equation <fig>[{{ eq_suvat }}]</fig> and equation <fig>[{{ eq_ttvdist }}]</fig> to provide an expression for the transit timing variation in this case, as given in equation <fig>[{{ eq_ttvbarycentre }}]</fig>.
 
-$$ \delta_T = -\frac{P_T}{2 \pi a_T}\sum_i^n \left[ a_i \mu_i \sin \frac{2 \pi \left(t - t_{0,i} \right)}{P_i}\right]  \text{[{{ eq_ttvbarycentre }}]} $$
+$$ \delta_T = -\frac{P_T}{2 \pi a_T}\sum_i^n \left[ a_i \mu_i \sin \frac{2 \pi \left(t - t_{0,i} \right)}{P_i}\right] $$
+<div class="l-gutter"><fig>({{ eq_ttvbarycentre }})</fig></div>
 
 ##### Extension to eccentric orbits
 
@@ -307,29 +319,35 @@ While many of the approximations and assumptions made in the derivation of equat
 {% capture eq_visviva %}{% increment transit_equation_num %}{% endcapture %}
 As the orbits are no longer circular, we cannot use $$ a $$ and $$ r $$ interchangeably, instead, we must use the planets' true anomaly, $$ f $$, and eccentricity, $$ e $$, as given in equation <fig>[{{ eq_orbitalradius }}]</fig>. Additionally, as orbital velocity varies over an elliptical orbit, we need to use the vis-viva equation as given in equation <fig>[{{ eq_visviva }}]</fig>.
 
-$$ r = \frac{a \left(1 - e^2\right)}{1 + e \cos f}  \text{[{{ eq_orbitalradius }}]} $$
+$$ r = \frac{a \left(1 - e^2\right)}{1 + e \cos f} $$
+<div class="l-gutter"><fig>({{ eq_orbitalradius }})</fig></div>
 
-$$ v = \sqrt{G\left(m_{star} + m_{planet}\right) \left(\frac{2}{r} - \frac{1}{a}\right)}  \text{[{{ eq_visviva }}]} $$
+$$ v = \sqrt{G\left(m_{star} + m_{planet}\right) \left(\frac{2}{r} - \frac{1}{a}\right)} $$
+<div class="l-gutter"><fig>({{ eq_visviva }})</fig></div>
 
 {% capture eq_partialeccentricity %}{% increment transit_equation_num %}{% endcapture %}
 Introducing equation <fig>[{{ eq_orbitalradius }}]</fig> to equation <fig>[{{ eq_ttvbarycentre }}]</fig> gives the following expression for TTV, given in equation <fig>[{{ eq_partialeccentricity }}]</fig>. As the orbital distance equation requires introduction of the true anomaly, the term, $$ \sin\frac{2\pi\left(t-t_{0,i}\right)}{P_i} $$, has also been replaced with the equivalent but more accurate expression using true anomaly and argument of periapsis, $$ \sin\left(f_i + \omega_i\right) $$.
 
-$$ \delta_T = -\frac{P_T}{2 \pi a_T}\sum_i^n \left[ a_i \mu_i \frac{1 - e_i^2}{1 + e_i \cos f_i} \sin \left(f_i + \omega_i\right) \right]  \text{[{{ eq_partialeccentricity }}]} $$
+$$ \delta_T = -\frac{P_T}{2 \pi a_T}\sum_i^n \left[ a_i \mu_i \frac{1 - e_i^2}{1 + e_i \cos f_i} \sin \left(f_i + \omega_i\right) \right] $$
+<div class="l-gutter"><fig>({{ eq_partialeccentricity }})</fig></div>
 
 {% capture eq_velocitynoG %}{% increment transit_equation_num %}{% endcapture %}
 Combining the vis-viva equation with the equation for orbital period, $$ P = 2\pi\sqrt{a^3 / G\left(m_{star} + m_{planet}\right)} $$, gives equation <fig>[{{ eq_velocitynoG }}]</fig>, where the gravitational constant, $$ G $$, is abstracted away.
 
-$$ v = \frac{2\pi a}{P}\sqrt{\left(\frac{2a - r}{r}\right)}  \text{[{{ eq_velocitynoG }}]} $$
+$$ v = \frac{2\pi a}{P}\sqrt{\left(\frac{2a - r}{r}\right)} $$
+<div class="l-gutter"><fig>({{ eq_velocitynoG }})</fig></div>
 
 {% capture eq_velocitynoR %}{% increment transit_equation_num %}{% endcapture %}
 Introducing equation <fig>[{{ eq_orbitalradius }}]</fig> to equation <fig>[{{ eq_velocitynoG }}]</fig> gives equation <fig>[{{ eq_velocitynoR }}]</fig>], an expression for orbital velocity that does not require knowledge of distance from the star.
 
-$$ v = \frac{2\pi a}{P}\sqrt{\frac{1 + 2 e \cos f + e^2}{1 - e^2}}  \text{[{{ eq_velocitynoR }}]} $$
+$$ v = \frac{2\pi a}{P}\sqrt{\frac{1 + 2 e \cos f + e^2}{1 - e^2}} $$
+<div class="l-gutter"><fig>({{ eq_velocitynoR }})</fig></div>
 
 {% capture eq_TTVeccentric %}{% increment transit_equation_num %}{% endcapture %}
 This can be further combined with equation <fig>[{{ eq_partialeccentricity }}]</fig>, replacing our circular orbital velocity with the new eccentric orbital velocity, to give equation <fig>[{{ eq_TTVeccentric }}]</fig>, which is our model for TTV extended to include orbital eccentricity.
 
-$$ \delta_T = -\frac{P_T}{2 \pi a_T}\left(\frac{1 - e_T^2}{1 + 2 e_T \cos f_T + e_T^2}\right)^\frac{1}{2} \cdot\sum_i^n \left[ a_i \mu_i \frac{1 - e_i^2}{1 + e_i \cos f_i} \sin \left(f_i + \omega_i\right) \right]  \text{[{{ eq_TTVeccentric }}]} $$
+$$ \delta_T = -\frac{P_T}{2 \pi a_T}\left(\frac{1 - e_T^2}{1 + 2 e_T \cos f_T + e_T^2}\right)^\frac{1}{2} \cdot\sum_i^n \left[ a_i \mu_i \frac{1 - e_i^2}{1 + e_i \cos f_i} \sin \left(f_i + \omega_i\right) \right] $$
+<div class="l-gutter"><fig>({{ eq_TTVeccentric }})</fig></div>
 
 #### Exterior perturbation
 
