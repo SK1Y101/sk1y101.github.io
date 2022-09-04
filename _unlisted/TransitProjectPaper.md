@@ -106,7 +106,7 @@ toc:
 {% capture figurenums %}{% increment transit_figure_num %}{% increment transit_equation_num %}{% increment transit_table_num %}{% endcapture %}
 $$
   \newcommand{\errorvalue}[3]{
-    $#1$ { {\tiny\substack{$+#2 \\ $-#3$} } }
+    #1 { \substack{+#2 \\ -#3} }
   }
 $$
 ## Abstract
@@ -653,7 +653,7 @@ $$ X_k(t) \xrightarrow{} Y = X_j + Z\left[X_k(t) - X_j\right] $$
 
 {% capture fig_hatp13b1 %}{% increment transit_figure_num %}{% endcapture %}
 {% capture fig_hatp13b2 %}{% increment transit_figure_num %}{% endcapture %}
-Six transit observations were planned at the beginning of this project to observe four different exoplanetary systems: HAT-P-13b, HAT-P-44b, and K2-19b. Of those, only two observations were made, both of HAT-P-13b, and are given in figures <fig>[{{ fig_hatp13b1 }}]</fig> and <fig>[{{ fig_hatp13b2 }}]</fig>. Significant cloud cover prevented further observations, and severely hampered the observation made on 2022-02-27 (figure <fig>[{{ fig_hatp13b2 }}]</fig>>).
+Six transit observations were planned at the beginning of this project to observe four different exoplanetary systems: HAT-P-13b, HAT-P-44b, and K2-19b. Of those, only two observations were made, both of HAT-P-13b, and are given in figures <fig>[{{ fig_hatp13b1 }}]</fig> and <fig>[{{ fig_hatp13b2 }}]</fig>. Significant cloud cover prevented further observations, and severely hampered the observation made on 2022-02-27 (figure <fig>[{{ fig_hatp13b2 }}]</fig>).
 
 <div class="row">
     <div class="col-sm g-0 imgfig">
@@ -661,7 +661,7 @@ Six transit observations were planned at the beginning of this project to observ
     </div>
 </div>
 <div class="caption">
-    Figure {{ fig_hatp13b1 }}. De-trended transit light curve for an observation of HAT-P-13b taken 2022-02-24 and analysed with HOPS <d-cite key="HOPS"></d-cite>. Note the anomaly near the mid-transit time due to light cloud cover. Reported $$\frac{R_p}{R_*}$$ is $0.0844\pm{0.0013}$ <d-cite key="hat-p-13b"></d-cite>.
+    Figure {{ fig_hatp13b1 }}. De-trended transit light curve for an observation of HAT-P-13b taken 2022-02-24 and analysed with HOPS <d-cite key="HOPS"></d-cite>. Note the anomaly near the mid-transit time due to light cloud cover. Reported $$ \frac{R_p}{R_*} $$ is $$ 0.0844\pm{0.0013} $$ <d-cite key="hat-p-13b"></d-cite>.
 </div>
 
 <div class="row">
@@ -673,7 +673,7 @@ Six transit observations were planned at the beginning of this project to observ
     Figure {{ fig_hatp13b2 }}. De-trended transit light curve for an observation of HAT-P-13b taken 2022-02-27 and analysed with HOPS <d-cite key="HOPS"></d-cite>. Note the large residuals and missing data in the second half of the transit, caused by clouds completely obscuring the star for several hours.
 </div>
 
-The light-curves have been fit with HOPS <d-cite key="HOPS"></d-cite>, and have provided values for $$\frac{R_p}{R_*}$$ close to the reported literature <d-cite key="hat-p-13b"></d-cite> when considering the large variance in flux caused by suboptimal weather conditions.
+The light-curves have been fit with HOPS <d-cite key="HOPS"></d-cite>, and have provided values for $$ \frac{R_p}{R_*} $$ close to the reported literature <d-cite key="hat-p-13b"></d-cite> when considering the large variance in flux caused by suboptimal weather conditions.
 
 {% capture fig_hatp13b2error %}{% increment transit_figure_num %}{% endcapture %}
 The observation on 2022-02-27, given in figure <fig>[{{ fig_hatp13b2 }}]</fig>, shows large residuals and has had data points after the mid-transit time removed. This was due to large cloud cover that reduced sky visibility to $$ 0\% $$ for several hours during the middle of the transit. Re-introducing these data points to the HOPS fitting, the result in figure <fig>[{{ fig_hatp13b2error }}]</fig> is obtained. The relative change in flux due to the cloud cover is larger than the occlusion depth of the transit by a significant factor, causing hops to fit transit egress to this position.
@@ -695,7 +695,7 @@ The observation on 2022-02-27, given in figure <fig>[{{ fig_hatp13b2 }}]</fig>, 
     </div>
 </div>
 <div class="caption">
-    Figure {{ fig_hats46tess }}. Combined light curve (top) and TTV data (bottom) for HATS-46, as observed by the *TESS* spacecraft. Only HATS-46b transits the star, and a large disparity is noted in the middle of the dataset due to observations over multiple *TESS* sectors.
+    Figure {{ fig_hats46tess }}. Combined light curve (top) and TTV data (bottom) for HATS-46, as observed by the <em>TESS</em> spacecraft. Only HATS-46b transits the star, and a large disparity is noted in the middle of the dataset due to observations over multiple <em>TESS</em> sectors.
 </div>
 
 {% capture fig_Wasp8tess %}{% increment transit_figure_num %}{% endcapture %}
@@ -705,7 +705,7 @@ The observation on 2022-02-27, given in figure <fig>[{{ fig_hatp13b2 }}]</fig>, 
     </div>
 </div>
 <div class="caption">
-    Figure {{ fig_Wasp8tess }}. Combined light curve (top) and TTV data (bottom) for Wasp-8, as observed by the *TESS* spacecraft. Note the large transit depths as compared to HATS-46, and the correspondingly small uncertainties in the TTV residuals that result from that.
+    Figure {{ fig_Wasp8tess }}. Combined light curve (top) and TTV data (bottom) for Wasp-8, as observed by the <em>TESS</em> spacecraft. Note the large transit depths as compared to HATS-46, and the correspondingly small uncertainties in the TTV residuals that result from that.
 </div>
 
 With *TESS* light curves collected from the Mikulski archive for space telescopes, additional mid-transit times could be computed to complement those collected from the exoplanet transit database and ExoClock database, as was briefly touched upon in [this section](#Project-objectives).
@@ -731,5 +731,5 @@ Taking the posteriors found for HATS-46b, as compared to the detection paper <d-
 | $$ R_p / R_* $$ | $$ 0.1088 \pm 0.0027 $$ | $$ \errorvalue{0.10369}{0.00496}{0.00444}  $$ |
 | $$ P $$ | $$ 4.7423729 \pm 0.0000049 $$ | $$ \errorvalue{4.7423836070}{0.0000139110}{0.0000114410} $$ |
 <div class="caption">
-    Table {{ tab_hats46b }}. Comparison between literature parameters and Juliet parameters from *TESS* for HATS-46b. Many of the values satisfy the `Good enough' criterion despite not having the complementary radial velocity measurements used in the detection paper to refine the parameters.
+    Table {{ tab_hats46b }}. Comparison between literature parameters and Juliet parameters from <em>TESS</em> for HATS-46b. Many of the values satisfy the "Good enough" criterion despite not having the complementary radial velocity measurements used in the detection paper to refine the parameters.
 </div>
