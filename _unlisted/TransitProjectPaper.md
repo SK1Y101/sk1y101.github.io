@@ -470,7 +470,7 @@ By combining equations <fig>[{{ eq_introducedterms }}]</fig> and <fig>[{{ eq_rjr
 $$ \delta\ddot{\pmb{r}}_1 = \sum_{j=2} \left[ Gm_j \frac{\pmb{r}_{j0} - \pmb{r}_1}{ {\| \pmb{r}_{j0} - \pmb{r}_1\|}^3} - G m_j \frac{\pmb{r}_{j0}}{r_{j,0}^3} \right] $$
 <div class="l-gutter"><fig>({{ eq_jacobianmotion }})</fig></div>
 
-{% capture eq_jacobianmotion %}{% increment transit_equation_num %}{% endcapture %}
+{% capture eq_jacobianmotion2 %}{% increment transit_equation_num %}{% endcapture %}
 Which can be simplified slightly as equation <fig>[{{ eq_jacobianmotion2 }}]</fig>, which gives the perturbing acceleration on the transiting planet. Additionally, this can be expanded in a Legendre series to first order, giving the second line in equation <fig>[{{ eq_jacobianmotion2 }}]</fig>. 
 
 $$\begin{split}
@@ -542,13 +542,13 @@ df_1 &= \sum_{j=2} \left[\frac{P_j}{P_1} \frac{1}{a_j^2\left(1-e_j^2\right)^{\fr
 {% capture eq_perturbtimenewvar %}{% increment transit_equation_num %}{% endcapture %}
 As the original variable of integration in equation <fig>[{{ eq_perturbtransittime }}]</fig>, $$ f_1 $$, changes due to the perturbation, we rewrite the integral in terms of the unperturbed $$ f_j $$. As an approximation, we consider only the gravitational forces acting on the transiting planet, and treat the perturbing planets as following Keplerian orbits. The substitution for $$ df_1 $$ is given in equation <fig>[{{ eq_newtrueanom }}]</fig>, and gives equation <fig>[{{ eq_perturbtimenewvar }}]</fig>.
 
-$$ t-t_0 &= \sum_{j=2}\left[\int_{f_0}^{f_0 + 2\pi N}\right.&\left( df_jn_1^{-1}\frac{P_j}{P_1}\frac{\left(1-e_j^2\right)^{\frac{3}{2}}}{\left(1+e_j\cos{f_j}\right)^2} \right. \left. \left. \cdot \left(1+\frac{m_j}{m_0+m_1}\left(\frac{a_1}{r_j}\right)^3\right)\right)\right] $$
+$$ t-t_0 = \sum_{j=2}\left[\int_{f_0}^{f_0 + 2\pi N}\right.&\left( df_jn_1^{-1}\frac{P_j}{P_1}\frac{\left(1-e_j^2\right)^{\frac{3}{2}}}{\left(1+e_j\cos{f_j}\right)^2} \right. \left. \left. \cdot \left(1+\frac{m_j}{m_0+m_1}\left(\frac{a_1}{r_j}\right)^3\right)\right)\right] $$
 <div class="l-gutter"><fig>({{ eq_perturbtimenewvar }})</fig></div>
 
 {% capture eq_finaltransittime %}{% increment transit_equation_num %}{% endcapture %}
 Which can be evaluated to give the timing of the (N+1)th transit, as shown in equation <fig>[{{ eq_finaltransittime }}]</fig>.
 
-$$ t - t_0 &= NP_1 + \frac{P_1^2}{2\pi\left(m_0+m_1\right)} \cdot \sum_{j=2}\left[\frac{m_j \left(f_j+e_j\sin{f_j}\right)\left(1-e_j^2\right)^{\frac{-3}{2}}}{P_j}\right] $$
+$$ t - t_0 = NP_1 + \frac{P_1^2}{2\pi\left(m_0+m_1\right)} \cdot \sum_{j=2}\left[\frac{m_j \left(f_j+e_j\sin{f_j}\right)\left(1-e_j^2\right)^{\frac{-3}{2}}}{P_j}\right] $$
 <div class="l-gutter"><fig>({{ eq_finaltransittime }})</fig></div>
 
 {% capture eq_TTVperturb %}{% increment transit_equation_num %}{% endcapture %}
@@ -647,6 +647,7 @@ The ensemble method used for this project is the stretch move <d-cite key="stret
 $$ X_k(t) \xrightarrow{} Y = X_j + Z\left[X_k(t) - X_j\right] $$
 <div class="l-gutter"><fig>({{ eq_stretch }})</fig></div>
 
+<!--
 ## Results / Discussion
 
 ### Observations
