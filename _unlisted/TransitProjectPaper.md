@@ -735,7 +735,7 @@ Taking the posteriors found for HATS-46b, as compared to the detection paper <d-
     Table {{ tab_hats46b }}. Comparison between literature parameters and Juliet parameters from *TESS* for HATS-46b. Many of the values satisfy the `Good enough' criterion despite not having the complementary radial velocity measurements used in the detection paper to refine the parameters.
 </div>
 
-\subsubsection{TTV Residuals}
+<!-- \subsubsection{TTV Residuals}
 
 By subtracting the found transit times from computed ephemerides, TTV residuals are computed for each transit. The transit uncertainty is read directly from the Juliet posteriors, and can be seen in the bottom half of figures \ref{fig_hats46tess}, and \ref{fig_Wasp8tess}.
 
@@ -1199,7 +1199,7 @@ Additionally, the data and software underlying this project are available in Git
 \makeatletter
     % Print List of Tables
     \@starttoc{lot}
-\makeatother -->
+\makeatother
 
 ## Extra material
 
@@ -1315,4 +1315,4 @@ Which gives a transit duration of,
     T_{transit} = \frac{2 a}{v}\arcsin{\frac{\sqrt{\left( R_{star} + R_{planet} \right)^2 - b^2}}{a}}
 \end{equation}
 
-which is of course our expression given in equation \ref{eq_transitduration3}.
+which is of course our expression given in equation \ref{eq_transitduration3}. -->
