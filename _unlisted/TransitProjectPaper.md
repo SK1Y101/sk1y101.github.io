@@ -122,8 +122,6 @@ Future work will allow extensions to these models, providing a more powerful sui
   {% include figure.html path="assets/img/TransitProject/HAGLogo.jpg" %}
 </div>
 
-***
-
 ## Introduction
 
 In the last quarter-century, exoplanet detections have seen astronomical success, in no small part due to the launch of several space bourne telescopes. Of the 5000 planets found within 3800 planetary systems, around three quarters have been discovered through transit photometry <d-cite key="exoplanetArchive"></d-cite>. To this day, over 130 million light curves have been observed, providing a large base for historical analysis.
