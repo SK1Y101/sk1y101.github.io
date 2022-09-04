@@ -62,9 +62,6 @@
       <d-title>
         <h1>{% if page.longtitle %}{{ page.longtitle }}{% else %}{{ page.title }}{% endif %}</h1>
         <p>{{ page.description }}</p>
-        {% assign words = page.content | number_of_words %}
-        {% assign read_time = words | divided_by: 180 | plus: 1 %}
-        <p>{{ words }} words, {{ read_time }} minute read</p>
         <p>{% if page.links %}{% include pagelinks.html %}{% endif %}</p>
       </d-title>
 

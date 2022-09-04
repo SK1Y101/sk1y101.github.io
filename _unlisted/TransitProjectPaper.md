@@ -104,11 +104,11 @@ toc:
 
 ---
 {% capture figurenums %}{% increment transit_figure_num %}{% increment transit_equation_num %}{% increment transit_table_num %}{% endcapture %}
-$$
+<!-- $$
   \newcommand{\errorvalue}[3]{
     $#1$ { {\tiny$\substack{+#2 \\ -#3}$} }
   }
-$$
+$$ -->
 ## Abstract
 
 Transit Timing Variation (TTV) provides a powerful tool to probe the dynamical configuration of exoplanetary systems from historical transit data <d-cite key="firstTTVPaper"></d-cite><d-cite key="secondTTVPaper"></d-cite>. TTV analysis has allowed both verification of planetary parameters <d-cite key="TrappistMass"></d-cite> and the discovery of new planetary bodies <d-cite key="Keplerc"></d-cite> from transit observation alone.
