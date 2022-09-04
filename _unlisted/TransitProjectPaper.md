@@ -400,10 +400,10 @@ The double summation terms can be collected, to give equation <fig>[{{ eq_pertur
 $$ \ddot{\pmb{r}}_1 = Gm_0 \frac{\pmb{R}_0 - \pmb{R}_1}{|\pmb{R}_0 - \pmb{R}_1|^3} - Gm_1 \frac{\pmb{R}_1 - \pmb{R}_0}{|\pmb{R}_1 - \pmb{R}_0|^3} + \sum_{j=2} \left[ Gm_j \frac{\pmb{R}_j - \pmb{R}_1}{ {| \pmb{R}_j - \pmb{R}_1|}^3} - G m_j \frac{\pmb{R}_j - \pmb{R}_0}{ {| \pmb{R}_j - \pmb{R}_0|}^3} \right] $$
 <div class="l-gutter"><fig>({{ eq_perturbCollected }})</fig></div>
 
-For the Jacobian coordinates, We introduce the notation $$ |\pmb{r}_i| \equiv r_i $$. That is to say, coordinates in bold is the vector position, while non-bold is the magnitude of that vector. We also introduce the reduced mass, $$ \mu $$, given as $$ \mu_i = \frac{m_i}{M} $$, where $$ M $$ is the total mass of the system. As the central star typically dominates the mass of the system, this can also be written $$ \mu_i \approx \frac{m_i}{m_0} $$.
+For the Jacobian coordinates, We introduce the notation $$ \|\pmb{r}_i\| \equiv r_i $$. That is to say, coordinates in bold is the vector position, while non-bold is the magnitude of that vector. We also introduce the reduced mass, $$ \mu $$, given as $$ \mu_i = \frac{m_i}{M} $$, where $$ M $$ is the total mass of the system. As the central star typically dominates the mass of the system, this can also be written $$ \mu_i \approx \frac{m_i}{m_0} $$.
 
 {% capture eq_njsakd %}{% increment transit_equation_num %}{% endcapture %}
-$$ \ddot{\pmb{r}}_1 &= -Gm_0 \frac{\pmb{r}_1}{r_1^3} - Gm_1 \frac{\pmb{r}_1}{r_1^3} + \sum_{j=2} \left[ Gm_j \frac{\pmb{R}_j - \pmb{R}_1}{ {| \pmb{R}_j - \pmb{R}_1|}^3} - G m_j \frac{\pmb{R}_j - \pmb{R}_0}{ {| \pmb{R}_j - \pmb{R}_0|}^3} \right] $$
+$$ \ddot{\pmb{r}}_1 &= -Gm_0 \frac{\pmb{r}_1}{r_1^3} - Gm_1 \frac{\pmb{r}_1}{r_1^3} + \sum_{j=2} \left[ Gm_j \frac{\pmb{R}_j - \pmb{R}_1}{ {\| \pmb{R}_j - \pmb{R}_1\|}^3} - G m_j \frac{\pmb{R}_j - \pmb{R}_0}{ {\| \pmb{R}_j - \pmb{R}_0\|}^3} \right] $$
 <div class="l-gutter"><fig>({{ eq_njsakd }})</fig></div>
 
 {% capture eq_keplerandperturb %}{% increment transit_equation_num %}{% endcapture %}
