@@ -563,7 +563,7 @@ With a suite of analytical TTV models at our disposal, we need to determine meth
 
 #### Optimisation
 
-To determine this set of best fit parameters, we leverage the field of computational optimisation and the large quantity of implementations that have been written for it through the SciPy package \citep{scipy}. There are various metrics and methods for optimisation, the most notable of which are discussed below.
+To determine this set of best fit parameters, we leverage the field of computational optimisation and the large quantity of implementations that have been written for it through the SciPy package <d-cite key="scipy"></d-cite>. There are various metrics and methods for optimisation, the most notable of which are discussed below.
 
 ##### Least squares regression
 
@@ -744,7 +744,7 @@ The uncertainty in the residuals are proportional to the depth of the transit di
 \subsection{Simulation pipeline}
 
 \subsubsection{Initialisation}
-The simulation pipeline makes use of the REBOUND \citep{rebound} and REBOUNDx \citep{reboundx} packages for numerical integration. The pipeline has been created to accept either a given planetary system, as seen in figure \ref{fig_trappistlayout}, or a $.csv$ file holding orbital elements.
+The simulation pipeline makes use of the REBOUND <d-cite key="rebound"></d-cite> and REBOUNDx <d-cite key="reboundx"></d-cite> packages for numerical integration. The pipeline has been created to accept either a given planetary system, as seen in figure \ref{fig_trappistlayout}, or a $.csv$ file holding orbital elements.
 
 \begin{figure}
 	\includegraphics[width=\columnwidth]{Images/TRAPPIST-1_layout}
@@ -752,7 +752,7 @@ The simulation pipeline makes use of the REBOUND \citep{rebound} and REBOUNDx \c
     \label{fig_trappistlayout}
 \end{figure}
 
-The system is set up from provided parameters, and iterated forward using IAS15 \citep{reboundias15}. Transits are evaluated where the position of the star, $\hat{R_*}$, and position of the target, $\hat{R_T}$, satisfy the following,
+The system is set up from provided parameters, and iterated forward using IAS15 <d-cite key="reboundias15"></d-cite>. Transits are evaluated where the position of the star, $\hat{R_*}$, and position of the target, $\hat{R_T}$, satisfy the following,
 
 \begin{equation}
     \hat{R}_*.y < \hat{R}_T.y
@@ -780,7 +780,7 @@ Following the derivations in section \ref{ttvmodels}, analytical models were con
 
 To demonstrate the capabilities of the model, we selected exoplanetary systems with known TTV signals and generated synthetic systems whose properties were representative of the real systems, to allow precise control of TTV magnitude during testing phases. An example system layout is given in figure \ref{fig_examplelayout}.
 
-Running the TTV simulation over a timescale of 200 years gives the residuals seen in figure \ref{fig_exampleTTVSim}. A 200-year integration is not representative of any known transiting planet, the earliest transiting data dates to 1999 \citep{firstTransit}, and was simply chosen to better demonstrate the long-term evolution of the transit timing variation. The variance of data returned by the simulation is the standard deviation of measured TTV. For real systems, however, this variance is computed from the uncertainties of known parameters.
+Running the TTV simulation over a timescale of 200 years gives the residuals seen in figure \ref{fig_exampleTTVSim}. A 200-year integration is not representative of any known transiting planet, the earliest transiting data dates to 1999 <d-cite key="firstTransit"></d-cite>, and was simply chosen to better demonstrate the long-term evolution of the transit timing variation. The variance of data returned by the simulation is the standard deviation of measured TTV. For real systems, however, this variance is computed from the uncertainties of known parameters.
 
 The initial parameters used in this synthetic system are given in table \ref{tab_systemparams}.
 
@@ -815,7 +815,7 @@ The initial parameters used in this synthetic system are given in table \ref{tab
 
 \subsubsection{Model comparison}
 
-To determine the validity of the analytical models, they were executed with the initial parameters used to set up the system. As the transiting planet is the outermost in the system, the first class of TTV models \ref{classone} is used to analytically approximate the system. The models as derived in this paper are given in equations \ref{eq:ttvbarycentre}, \ref{eq:partialeccentricity}, and \ref{eq:TTVeccentric}, which are re-summarised below,
+To determine the validity of the analytical models, they were executed with the initial parameters used to set up the system. As the transiting planet is the outermost in the system, the first class of TTV models \ref{classone} is used to analytically approximate the system. The models as derived in this paper are given in equations \ref{eq_ttvbarycentre}, \ref{eq_partialeccentricity}, and \ref{eq_TTVeccentric}, which are re-summarised below,
 
 \begin{equation}
     \delta_T = -\frac{P_T}{2 \pi a_T}\sum_i^n \left[ a_i \mu_i \sin \frac{2 \pi \left(t - t_{0,i} \right)}{P_i}\right]
@@ -833,7 +833,7 @@ The TTV curves generated by these models are shown in figure \ref{fig_testmodelc
 
 \begin{figure}
 	\includegraphics[width=\columnwidth]{Images/TTVTestModelComparisonold}
-    \caption[Analytical TTV given synthetic system initial parameters]{Analytical TTV curves for the synthetic system, using the initial parameters. Model1, Model2, and Model3 are the models described in equations \ref{eq:ttvbarycentre}, \ref{eq:partialeccentricity}, and \ref{eq:TTVeccentric} respectively. Each graph shows a 5 transit snippet from the TTV curve. Simulated TTV times are overlaid in black.}
+    \caption[Analytical TTV given synthetic system initial parameters]{Analytical TTV curves for the synthetic system, using the initial parameters. Model1, Model2, and Model3 are the models described in equations \ref{eq_ttvbarycentre}, \ref{eq_partialeccentricity}, and \ref{eq_TTVeccentric} respectively. Each graph shows a 5 transit snippet from the TTV curve. Simulated TTV times are overlaid in black.}
     \label{fig_testmodelcomparisonold}
 \end{figure}
 
@@ -842,7 +842,7 @@ Additionally, note how the overall shape of the analytical curves change as a re
 \subsubsection{Parameter optimisation}
 As we have now demonstrated the accuracy of the models, to some set of initial parameters, the next stage is in the reverse: finding some parameters for which the model fits the data set.
 
-To do this, the three models were each initialised with the fixed parameters, those being the properties of the host star and transiting planet, and three sets of arbitrary initial parameters corresponding to a system with one, two, and three planets additional to the transiting target, giving an effective set of 9 models to optimise. Each of these were optimised with both dual annealing \citep{dualAnnealing} and differential evolution \citep{diffEvo}, for which the best fit of the two methods was selected as that model's maximum likelihood solution.
+To do this, the three models were each initialised with the fixed parameters, those being the properties of the host star and transiting planet, and three sets of arbitrary initial parameters corresponding to a system with one, two, and three planets additional to the transiting target, giving an effective set of 9 models to optimise. Each of these were optimised with both dual annealing <d-cite key="dualAnnealing"></d-cite> and differential evolution <d-cite key="diffEvo"></d-cite>, for which the best fit of the two methods was selected as that model's maximum likelihood solution.
 
 The optimal TTV curves found for each model are given in figure \ref{fig_modelcurves}, where the table of the optimal solution values for each model is given in tables \ref{tab_1planetcorrectedfittingparameters}, \ref{tab_2planetcorrectedfittingparameters}, and \ref{tab_3planetcorrectedfittingparameters}.
 
@@ -930,9 +930,9 @@ The optimal TTV curves found for each model are given in figure \ref{fig_modelcu
 
 \subsubsection{Model selection}
 
-How a model is selected as most likely is two-fold. To begin with, we sample the solutions for each model to determine marginalisation and uncertainties. The parameter space is sampled using MCMC \citep{emcee}, and a normal parameter distribution constructed from the sampler. This is then converted to a set of quantiles, specifically $16\%$, $50\%$, and $84\%$, representing the reportable parameters and one sigma variance. The entire normal distribution is reported in a corner plot using the corner package \citep{corner}.
+How a model is selected as most likely is two-fold. To begin with, we sample the solutions for each model to determine marginalisation and uncertainties. The parameter space is sampled using MCMC <d-cite key="emcee"></d-cite>, and a normal parameter distribution constructed from the sampler. This is then converted to a set of quantiles, specifically $16\%$, $50\%$, and $84\%$, representing the reportable parameters and one sigma variance. The entire normal distribution is reported in a corner plot using the corner package <d-cite key="corner"></d-cite>.
 
-With the set of best fit parameters and error bounds for each model, the accuracy of their fit is determined by scoring with the three information criterion discussed earlier: AIC \citep{AIC, AIC2}, AICc \citep{AICC}, and BIC \citep{BIC}. The information criterion values for each model for this data is given in table \ref{tab_informationCriterion}
+With the set of best fit parameters and error bounds for each model, the accuracy of their fit is determined by scoring with the three information criterion discussed earlier: AIC <d-cite key="AIC"></d-cite>, <d-cite key="AIC2"></d-cite>, AICc <d-cite key="AICC"></d-cite>, and BIC <d-cite key="BIC"></d-cite>. The information criterion values for each model for this data is given in table \ref{tab_informationCriterion}
 
 \begin{table}
 	\centering
@@ -1025,7 +1025,7 @@ Therefore, although it has not yet been demonstrated for a known exoplanetary sy
 
 One of the primary goals was the observation of exoplanetary transits, with six observation windows planned at the beginning of the project. One of those observations was severely hampered by cloud cover, and four others had to be cancelled.
 
-While part of this project focused on finding the globally optimal solution, this does not necessarily always exist. Due to the highly chaotic nature of gravitational interactions, multiple systems layouts can provide identical or near identical TTV signals. This is best demonstrated in the detection paper for kepler-19c, \citep[see][fig.~14]{Keplerc}, where a single TTV signal had no fewer than eight possible configurations for the orbit of an extra planet.
+While part of this project focused on finding the globally optimal solution, this does not necessarily always exist. Due to the highly chaotic nature of gravitational interactions, multiple systems layouts can provide identical or near identical TTV signals. This is best demonstrated in the detection paper for kepler-19c, see figure 14 in <d-cite key="Keplerc"></d-cite>, where a single TTV signal had no fewer than eight possible configurations for the orbit of an extra planet.
 
 This demonstrates a possible drawback of this method, and would require additional constraints based on complementary observations for any tentative detections made using transit timing variations to be considered.
 
@@ -1132,17 +1132,17 @@ Additionally, many of the `best fit` solutions gave planets whose orbits are nea
         r_{H, min} = a \left(1-e\right) \sqrt[3]{\frac{m}{3M}} \\
         r_{H, max} = a \left(1+e\right) \sqrt[3]{\frac{m}{3M}}
     \end{aligned}
-    \label{eq:hillsphere}
+    \label{eq_hillsphere}
 \end{equation}
 
-The Hill sphere of a celestial body is the region over which it dominates the attraction of satellites, as compared to its orbital parent. The radii of the hill sphere are given in equation \ref{eq:hillsphere}, where $M$ is the mass of the primary body, and $m$, $a$, and $e$ are the mass, semi-major axis, and eccentricity of the secondary body respectively. As the extent of the hill sphere is dependent upon the distance between the body and it's parent, we require two expressions for the maximum and minimum radii. We can use this to define the boundaries of a region of instability that other planets in the system cannot cross, given in equation \ref{eq:boundary}, \citep[see][eq.~7]{boundaryStability}, where $n$ is some additional term that increases the effective size of the hill sphere, as orbital perturbations in the immediate vicinity can cause bodies initially outside the boundary region to intersect with it. While this is not a strict requirement for long-term stability, as the orbits of Pluto and Neptune show, we will not consider those exoplanets with intersecting orbits.
+The Hill sphere of a celestial body is the region over which it dominates the attraction of satellites, as compared to its orbital parent. The radii of the hill sphere are given in equation \ref{eq_hillsphere}, where $M$ is the mass of the primary body, and $m$, $a$, and $e$ are the mass, semi-major axis, and eccentricity of the secondary body respectively. As the extent of the hill sphere is dependent upon the distance between the body and it's parent, we require two expressions for the maximum and minimum radii. We can use this to define the boundaries of a region of instability that other planets in the system cannot cross, given in equation \ref{eq_boundary}, see equation 7 in <d-cite key="boundaryStability"></d-cite>, where $n$ is some additional term that increases the effective size of the hill sphere, as orbital perturbations in the immediate vicinity can cause bodies initially outside the boundary region to intersect with it. While this is not a strict requirement for long-term stability, as the orbits of Pluto and Neptune show, we will not consider those exoplanets with intersecting orbits.
 
 \begin{equation}
     \begin{aligned}
         Boundary_{inner} = a \left(1-e\right)\left[1 - n\sqrt[3]{\frac{m}{3M}}\right] \\
         Boundary_{outer} = a \left(1+e\right)\left[1 + n\sqrt[3]{\frac{m}{3M}}\right]
     \end{aligned}
-    \label{eq:boundary}
+    \label{eq_boundary}
 \end{equation}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1164,9 +1164,9 @@ I would like to thank my supervisor, Steve Futcher, for his excellent and contin
 
 I would also thank the Hampshire Astronomical Group for the use of their equipment (primarily their telescopes) that not only made a large portion of this project possible, but allowed this project to be offered at all. I would also mention my thanks to the ExoClock community. Through them, I have been able to both log my own observation for the scientific community at large, and have been able to source high quality data for my own usage.
 
-Simulations in this paper made use of the REBOUND N-body code \citep{rebound}. The REBOUNDx package was used to incorporate additional physics \citep{reboundx}. The simulations were integrated using IAS15, a 15th order Gauss-Radau integrator \citep{reboundias15}.
+Simulations in this paper made use of the REBOUND N-body code <d-cite key="rebound"></d-cite>. The REBOUNDx package was used to incorporate additional physics <d-cite key="reboundx"></d-cite>. The simulations were integrated using IAS15, a 15th order Gauss-Radau integrator <d-cite key="reboundias15"></d-cite>.
 
-Light curve analysis in this paper made use of the Juliet package \citep{juliet}, which provided an interface to the following packages and methods: Transit fits were performed using Batman \citep{batman}; Gaussian processes were performed using Celerite \citep{celerite}; MCMC sampling was performed using Dynesty \citep{dynesty}. Additionally, sample limb-darkening coefficients used the method outlined by Kipping et al. \citep{kipping}, and uninformative samples for radii and impact parameters used those outlined by Espinoza et al. \citep{espinoza}.
+Light curve analysis in this paper made use of the Juliet package <d-cite key="juliet"></d-cite>, which provided an interface to the following packages and methods: Transit fits were performed using Batman <d-cite key="batman"></d-cite>; Gaussian processes were performed using Celerite <d-cite key="celerite"></d-cite>; MCMC sampling was performed using Dynesty <d-cite key="dynesty"></d-cite>. Additionally, sample limb-darkening coefficients used the method outlined by Kipping et al. <d-cite key="kipping"></d-cite>, and uninformative samples for radii and impact parameters used those outlined by Espinoza et al. <d-cite key="espinoza"></d-cite>.
 
 This research has made use of the NASA Exoplanet Archive, which is operated by the California Institute of Technology, under contract with the National Aeronautics and Space Administration under the Exoplanet Exploration Program. This paper also includes data collected with the TESS mission, obtained from the MAST data archive at the Space Telescope Science Institute (STScI). Funding for the TESS mission is provided by the NASA Explorer Program. STScI is operated by the Association of Universities for Research in Astronomy, Inc., under NASA contract NAS 5–26555.
 
@@ -1175,38 +1175,18 @@ This research has made use of the NASA Exoplanet Archive, which is operated by t
 
 The datasets were derived from sources in the public domain:
 \begin{itemize}
-    \item[-] ExoClock -- \hyperlink{https://www.exoclock.space/}{https://www.exoclock.space/}, \citep{ExoClockI, ExoClockII}
-    \item[-] Exoplanet Archive -- \hyperlink{https://exoplanetarchive.ipac.caltech.edu/}{https://exoplanetarchive.ipac.caltech.edu/} \citep{exoplanetArchive}.
-    \item[-] Exoplanet Transit Database -- \hyperlink{https://var2.astro.cz/ETD/}{https://var2.astro.cz/ETD/} \citep{ETD}
-    \item[-] TESS MAST -- \hyperlink{https://archive.stsci.edu/missions-and-data/tess}{https://archive.stsci.edu/missions-and-data/tess} \citep{tess}
+    \item[-] ExoClock -- \hyperlink{https://www.exoclock.space/}{https://www.exoclock.space/}, <d-cite key="ExoClockI"></d-cite><d-cite key="ExoClockII"></d-cite>
+    \item[-] Exoplanet Archive -- \hyperlink{https://exoplanetarchive.ipac.caltech.edu/}{https://exoplanetarchive.ipac.caltech.edu/} <d-cite key="exoplanetArchive"></d-cite>.
+    \item[-] Exoplanet Transit Database -- \hyperlink{https://var2.astro.cz/ETD/}{https://var2.astro.cz/ETD/} <d-cite key="ETD"></d-cite>
+    \item[-] TESS MAST -- \hyperlink{https://archive.stsci.edu/missions-and-data/tess}{https://archive.stsci.edu/missions-and-data/tess} <d-cite key="tess"></d-cite>
 \end{itemize}
 
-Data for this paper were sourced from the NASA Exoplanet Archive and TESS MAST using the astroquery package \citep{astroquery}.
+Data for this paper were sourced from the NASA Exoplanet Archive and TESS MAST using the astroquery package <d-cite key="astroquery"></d-cite>.
 
-Additionally, the data and software underlying this project are available in GitHub at \hyperlink{https://github.com/SK1Y101/TransitProject}{https://github.com/SK1Y101/TransitProject}.
+Additionally, the data and software underlying this project are available in GitHub at [https://github.com/SK1Y101/TransitProject](https://github.com/SK1Y101/TransitProject).
 
-
-%%%%%%%%%%%%%%%%%%%% REFERENCES %%%%%%%%%%%%%%%%%%
-
-% The best way to enter references is to use BibTeX:
-\newpage
-\bibliographystyle{mnras}
-\bibliography{bibliography} % if your bibtex file is called example.bib
-
-
-% Alternatively you could enter them by hand, like this:
-% This method is tedious and prone to error if you have lots of references
-%\begin{thebibliography}{99}
-%\bibitem[\protect\citeauthoryear{Author}{2012}]{Author2012}
-%Author A.~N., 2013, Journal of Improbable Astronomy, 1, 1
-%\bibitem[\protect\citeauthoryear{Others}{2013}]{Others2013}
-%Others S., 2012, Journal of Interesting Stuff, 17, 198
-%\end{thebibliography}
-
-%%%%%%%%%%%%%%%%% APPENDICES %%%%%%%%%%%%%%%%%%%%%
-
-\appendix
-
+## Appendix
+<!-- 
 % section header
 \section{List of Figures}
 \makeatletter
@@ -1219,11 +1199,11 @@ Additionally, the data and software underlying this project are available in Git
 \makeatletter
     % Print List of Tables
     \@starttoc{lot}
-\makeatother
+\makeatother -->
 
-\section{Extra material}
+## Extra material
 
-\subsection{Transit duration derivation}\label{transitderiv}
+### Transit duration derivation
 
 As demonstrated in figure \ref{fig_transitLoc}, a transit begins the moment the planetary disk overlaps the stellar disk, reaches maximum occlusion when the centres of the star and planet are aligned, and ends once the planetary disk no longer overlaps the stellar disk. The centre-to-centre distance between the exoplanet and star at transit ingress and egress is thus the sum of their angular radii,
 
@@ -1249,7 +1229,7 @@ The total duration of the transit in this case is given from the standard equati
     T_{transit} = \frac{s}{v} = \frac{2 R_{star} + 2 R_{planet}}{v_{planet}}
 \end{equation}
 
-Which is the expression for transit duration given in equation \ref{eq:transitduration}.
+Which is the expression for transit duration given in equation \ref{eq_transitduration}.
 
 As a useful stepping stone, we instead consider the transit distance as that of a circle arc. The radius of this circle is the semi-major axis, $a$, and the angle swept by the transit, $\beta$, in radians. Thus, the transit time is given,
 
@@ -1267,7 +1247,7 @@ Which, if written using our orbital parameters, becomes
 
 \begin{equation}
     \left(2 R_{star} + 2 R_{planet}\right)^2 = 2a^2(1 - \cos{\beta})
-    \label{eq:start}
+    \label{eq_start}
 \end{equation}
 
 Rearranging gives,
@@ -1292,7 +1272,7 @@ obtaining the expression for $\beta$,
 
 \begin{equation}
     \beta = 2\arcsin{\frac{R_{star} + R_{planet}}{a}}
-    \label{eq:end}
+    \label{eq_end}
 \end{equation}
 
 Which gives the transit duration,
@@ -1301,7 +1281,7 @@ Which gives the transit duration,
     T_{transit} = \frac{2 a}{v}\arcsin{\frac{R_{star} + R_{planet}}{a}}
 \end{equation}
 
-This of course exactly matches the expression given in equation \ref{eq:transitduration2}. As any given exoplanet may not transit exactly aligned with the equator of the stellar disk due to its relative inclination, the distance covered during a transit must also account for this.
+This of course exactly matches the expression given in equation \ref{eq_transitduration2}. As any given exoplanet may not transit exactly aligned with the equator of the stellar disk due to its relative inclination, the distance covered during a transit must also account for this.
 
 There are two orbital elements that describe the orientation of a circular orbit, the inclination, $i$, and longitude of the ascending node, $\Omega$. As we do not have a defined "zero angle" for an arbitrary exoplanet, these will be described as their relative inclination, defined as zero when the planet transits the stellar equator, and relative longitude of the ascending node, defined as zero when perpendicular to our line of sight.
 
@@ -1323,7 +1303,7 @@ which gives the transverse distance as,
     s_{transverse} = \frac{s_{transit}}{2} = \sqrt{\left( R_{star} + R_{planet} \right)^2 - b^2}
 \end{equation}
 
-following the same derivation between equations \ref{eq:start} and \ref{eq:end} gives the modified swept angle of the transit as,
+following the same derivation between equations \ref{eq_start} and \ref{eq_end} gives the modified swept angle of the transit as,
 
 \begin{equation}
     \beta_b = 2\arcsin{\frac{\sqrt{\left( R_{star} + R_{planet} \right)^2 - b^2}}{a}}
@@ -1335,4 +1315,4 @@ Which gives a transit duration of,
     T_{transit} = \frac{2 a}{v}\arcsin{\frac{\sqrt{\left( R_{star} + R_{planet} \right)^2 - b^2}}{a}}
 \end{equation}
 
-which is of course our expression given in equation \ref{eq:transitduration3}.
+which is of course our expression given in equation \ref{eq_transitduration3}.
