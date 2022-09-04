@@ -356,7 +356,7 @@ $$ \delta_T = -\frac{P_T}{2 \pi a_T}\left(\frac{1 - e_T^2}{1 + 2 e_T \cos f_T + 
 {% capture eq_gravity %}{% increment transit_equation_num %}{% endcapture %}
 To derive the effects of orbital perturbation, we follow a derivation for a two-planet case <d-cite key="agol2018"></d-cite>, and extend this to $$ n $$ planets. We assume the transiting planet to have zero eccentricity and all planets are on coplanar orbits. We give the equation of motion for a body acting under gravity in equation <fig>[{{ eq_gravity }}]</fig>.
 
-$$ \ddot{\pmb{R}} = \sum_{j \ne i} \left[G m_j \frac{\pmb{R}_j - \pmb{R}_i}{ {| \pmb{R}_j - \pmb{R}_i|}^3}\right] $$
+$$ \ddot{\pmb{R}} = \sum_{j \ne i} \left[G m_j \frac{\pmb{R}_j - \pmb{R}_i}{ {\| \pmb{R}_j - \pmb{R}_i\\|}^3}\right] $$
 <div class="l-gutter"><fig>({{ eq_gravity }})</fig></div>
 
 {% capture eq_barycentrefixed %}{% increment transit_equation_num %}{% endcapture %}
@@ -390,32 +390,32 @@ As we are investigating the case of an exterior perturbation, we only consider t
 
 $$\begin{aligned}
 \ddot{\pmb{r}}_1 &= \ddot{\pmb{R}}_1 - \ddot{\pmb{R}}_0 \\
-\ddot{\pmb{r}}_1 &= \sum_{j \ne 1} \left[G m_j \frac{\pmb{R}_j - \pmb{R}_1}{ {| \pmb{R}_j - \pmb{R}_1|}^3}\right] - \sum_{j \ne 0} \left[G m_j \frac{\pmb{R}_j - \pmb{R}_0}{ {| \pmb{R}_j - \pmb{R}_0|}^3}\right]
+\ddot{\pmb{r}}_1 &= \sum_{j \ne 1} \left[G m_j \frac{\pmb{R}_j - \pmb{R}_1}{ {\| \pmb{R}_j - \pmb{R}_1\|}^3}\right] - \sum_{j \ne 0} \left[G m_j \frac{\pmb{R}_j - \pmb{R}_0}{ {\| \pmb{R}_j - \pmb{R}_0\|}^3}\right]
 \end{aligned}$$
 <div class="l-gutter"><fig>({{ eq_perturb }})</fig></div>
 
 {% capture eq_perturbCollected %}{% increment transit_equation_num %}{% endcapture %}
 The double summation terms can be collected, to give equation <fig>[{{ eq_perturbCollected }}]</fig>,
 
-$$ \ddot{\pmb{r}}_1 = Gm_0 \frac{\pmb{R}_0 - \pmb{R}_1}{|\pmb{R}_0 - \pmb{R}_1|^3} - Gm_1 \frac{\pmb{R}_1 - \pmb{R}_0}{|\pmb{R}_1 - \pmb{R}_0|^3} + \sum_{j=2} \left[ Gm_j \frac{\pmb{R}_j - \pmb{R}_1}{ {| \pmb{R}_j - \pmb{R}_1|}^3} - G m_j \frac{\pmb{R}_j - \pmb{R}_0}{ {| \pmb{R}_j - \pmb{R}_0|}^3} \right] $$
+$$ \ddot{\pmb{r}}_1 = Gm_0 \frac{\pmb{R}_0 - \pmb{R}_1}{\|\pmb{R}_0 - \pmb{R}_1|^3} - Gm_1 \frac{\pmb{R}_1 - \pmb{R}_0}{\|\pmb{R}_1 - \pmb{R}_0|^3} + \sum_{j=2} \left[ Gm_j \frac{\pmb{R}_j - \pmb{R}_1}{ {\| \pmb{R}_j - \pmb{R}_1\|}^3} - G m_j \frac{\pmb{R}_j - \pmb{R}_0}{ {\| \pmb{R}_j - \pmb{R}_0\|}^3} \right] $$
 <div class="l-gutter"><fig>({{ eq_perturbCollected }})</fig></div>
 
 For the Jacobian coordinates, We introduce the notation $$ \|\pmb{r}_i\| \equiv r_i $$. That is to say, coordinates in bold is the vector position, while non-bold is the magnitude of that vector. We also introduce the reduced mass, $$ \mu $$, given as $$ \mu_i = \frac{m_i}{M} $$, where $$ M $$ is the total mass of the system. As the central star typically dominates the mass of the system, this can also be written $$ \mu_i \approx \frac{m_i}{m_0} $$.
 
 {% capture eq_njsakd %}{% increment transit_equation_num %}{% endcapture %}
-$$ \ddot{\pmb{r}}_1 &= -Gm_0 \frac{\pmb{r}_1}{r_1^3} - Gm_1 \frac{\pmb{r}_1}{r_1^3} + \sum_{j=2} \left[ Gm_j \frac{\pmb{R}_j - \pmb{R}_1}{ {\| \pmb{R}_j - \pmb{R}_1\|}^3} - G m_j \frac{\pmb{R}_j - \pmb{R}_0}{ {\| \pmb{R}_j - \pmb{R}_0\|}^3} \right] $$
+$$ \ddot{\pmb{r}}_1 = -Gm_0 \frac{\pmb{r}_1}{r_1^3} - Gm_1 \frac{\pmb{r}_1}{r_1^3} + \sum_{j=2} \left[ Gm_j \frac{\pmb{R}_j - \pmb{R}_1}{ {\| \pmb{R}_j - \pmb{R}_1\\|}^3} - G m_j \frac{\pmb{R}_j - \pmb{R}_0}{ {\| \pmb{R}_j - \pmb{R}_0\\|}^3} \right] $$
 <div class="l-gutter"><fig>({{ eq_njsakd }})</fig></div>
 
 {% capture eq_keplerandperturb %}{% increment transit_equation_num %}{% endcapture %}
 This can be further simplified to equation <fig>[{{ eq_keplerandperturb }}]</fig>,
 
-$$ \ddot{\pmb{r}}_1 &= -G\left(m_0 + m_1\right)\frac{\pmb{r}_1}{r_1^3} + \sum_{j=2} \left[ Gm_j \frac{\pmb{R}_j - \pmb{R}_1}{ {| \pmb{R}_j - \pmb{R}_1|}^3} - Gm_j \frac{\pmb{R}_j - \pmb{R}_0}{ {| \pmb{R}_j - \pmb{R}_0|}^3} \right] $$
+$$ \ddot{\pmb{r}}_1 = -G\left(m_0 + m_1\right)\frac{\pmb{r}_1}{r_1^3} + \sum_{j=2} \left[ Gm_j \frac{\pmb{R}_j - \pmb{R}_1}{ {\| \pmb{R}_j - \pmb{R}_1\|}^3} - Gm_j \frac{\pmb{R}_j - \pmb{R}_0}{ {\| \pmb{R}_j - \pmb{R}_0\|}^3} \right] $$
 <div class="l-gutter"><fig>({{ eq_keplerandperturb }})</fig></div>
 
 {% capture eq_kepler %}{% increment transit_equation_num %}{% endcapture %}
 In the 2-body case, where there is only a single body and star, this equation is the Keplerian equation of motion, as given in equation <fig>[{{ eq_kepler }}]</fig>. As the central star dominates the mass of the system, we can use $$ m_0 + m_i \approx m_0 $$ to simplify.
 
-$$ \ddot{\pmb{r}}_i &= -G\left(m_0+m_i\right)\frac{\pmb{r}_i}{r_i^3} \approx -Gm_0\frac{\pmb{r}_i}{r_i^3} $$
+$$ \ddot{\pmb{r}}_i = -G\left(m_0+m_i\right)\frac{\pmb{r}_i}{r_i^3} \approx -Gm_0\frac{\pmb{r}_i}{r_i^3} $$
 <div class="l-gutter"><fig>({{ eq_kepler }})</fig></div>
 
 {% capture eq_keplerandperturb %}{% increment transit_equation_num %}{% endcapture %}
@@ -427,15 +427,15 @@ $$ \ddot{\pmb{r}}_i = -G\left(m_0+m_1\right)\frac{\pmb{r}_1}{r_1^3} + \delta\ddo
 {% capture eq_perturbaccel %}{% increment transit_equation_num %}{% endcapture %}
 With the perturbing acceleration given in equation <fig>[{{ eq_perturbaccel }}]</fig>,
 
-$$ \delta\ddot{\pmb{r}}_1 = \sum_{j=2} \left[ Gm_j \frac{\pmb{R}_j - \pmb{R}_1}{ {| \pmb{R}_j - \pmb{R}_1|}^3} - G m_j \frac{\pmb{R}_j - \pmb{R}_0}{ {| \pmb{R}_j - \pmb{R}_0|}^3} \right] $$
+$$ \delta\ddot{\pmb{r}}_1 = \sum_{j=2} \left[ Gm_j \frac{\pmb{R}_j - \pmb{R}_1}{ {\| \pmb{R}_j - \pmb{R}_1\|}^3} - G m_j \frac{\pmb{R}_j - \pmb{R}_0}{ {\| \pmb{R}_j - \pmb{R}_0\|}^3} \right] $$
 <div class="l-gutter"><fig>({{ eq_perturbaccel }})</fig></div>
 
 {% capture eq_introducedterms %}{% increment transit_equation_num %}{% endcapture %}
 If we introduce terms to the first fractional part, we have equation <fig>[{{ eq_introducedterms }}]</fig>.
 
 $$\begin{split}
-\delta\ddot{\pmb{r}}_1 &= \sum_{j=2} \left[ Gm_j \frac{\pmb{R}_j - \pmb{R}_1 + \pmb{R}_0 - \pmb{R}_0}{ {| \pmb{R}_j - \pmb{R}_1 + \pmb{R}_0 - \pmb{R}_0|}^3} - G m_j \frac{\pmb{R}_j - \pmb{R}_0}{ {| \pmb{R}_j - \pmb{R}_0|}^3} \right]\\
-&= \sum_{j=2} \left[ Gm_j \frac{\pmb{R}_j - \pmb{R}_0 - \pmb{r}_1}{ {| \pmb{R}_j - \pmb{R}_0 - \pmb{r}_1|}^3} - G m_j \frac{\pmb{R}_j - \pmb{R}_0}{ {| \pmb{R}_j - \pmb{R}_0|}^3} \right]
+\delta\ddot{\pmb{r}}_1 &= \sum_{j=2} \left[ Gm_j \frac{\pmb{R}_j - \pmb{R}_1 + \pmb{R}_0 - \pmb{R}_0}{ {\| \pmb{R}_j - \pmb{R}_1 + \pmb{R}_0 - \pmb{R}_0\|}^3} - G m_j \frac{\pmb{R}_j - \pmb{R}_0}{ {\| \pmb{R}_j - \pmb{R}_0\|}^3} \right]\\
+&= \sum_{j=2} \left[ Gm_j \frac{\pmb{R}_j - \pmb{R}_0 - \pmb{r}_1}{ {\| \pmb{R}_j - \pmb{R}_0 - \pmb{r}_1\|}^3} - G m_j \frac{\pmb{R}_j - \pmb{R}_0}{ {\| \pmb{R}_j - \pmb{R}_0\|}^3} \right]
 \end{split}$$
 <div class="l-gutter"><fig>({{ eq_introducedterms }})</fig></div>
 
@@ -467,14 +467,14 @@ $$ \pmb{r}_{j0} \equiv \pmb{R}_j - \pmb{R}_0 = \pmb{r}_j + \sum^{j-1}_{k=1}{\mu_
 {% capture eq_jacobianmotion %}{% increment transit_equation_num %}{% endcapture %}
 By combining equations <fig>[{{ eq_introducedterms }}]</fig> and <fig>[{{ eq_rjr0 }}]</fig>, we obtain equation <fig>[{{ eq_jacobianmotion }}]</fig>,
 
-$$ \delta\ddot{\pmb{r}}_1 = \sum_{j=2} \left[ Gm_j \frac{\pmb{r}_{j0} - \pmb{r}_1}{ {| \pmb{r}_{j0} - \pmb{r}_1|}^3} - G m_j \frac{\pmb{r}_{j0}}{r_{j,0}^3} \right] $$
+$$ \delta\ddot{\pmb{r}}_1 = \sum_{j=2} \left[ Gm_j \frac{\pmb{r}_{j0} - \pmb{r}_1}{ {\| \pmb{r}_{j0} - \pmb{r}_1\|}^3} - G m_j \frac{\pmb{r}_{j0}}{r_{j,0}^3} \right] $$
 <div class="l-gutter"><fig>({{ eq_jacobianmotion }})</fig></div>
 
 {% capture eq_jacobianmotion %}{% increment transit_equation_num %}{% endcapture %}
 Which can be simplified slightly as equation <fig>[{{ eq_jacobianmotion2 }}]</fig>, which gives the perturbing acceleration on the transiting planet. Additionally, this can be expanded in a Legendre series to first order, giving the second line in equation <fig>[{{ eq_jacobianmotion2 }}]</fig>. 
 
 $$\begin{split}
-\delta\ddot{\pmb{r}}_1 &= \sum_{j=2} \left[ Gm_j\left( -\frac{\pmb{r}_1 - \pmb{r}_{j0}}{ {| \pmb{r}_1 - \pmb{r}_{j0}|}^3} - \frac{\pmb{r}_{j0}}{r_{j0}^3} \right)\right]\\
+\delta\ddot{\pmb{r}}_1 &= \sum_{j=2} \left[ Gm_j\left( -\frac{\pmb{r}_1 - \pmb{r}_{j0}}{ {\| \pmb{r}_1 - \pmb{r}_{j0}\|}^3} - \frac{\pmb{r}_{j0}}{r_{j0}^3} \right)\right]\\
 &= \sum_{j=2} \left[ -\frac{Gm_j}{r_j^3}\left( \pmb{r}_1 - 3\frac{\pmb{r}_1\cdot\pmb{r}_j}{r_j^2}\pmb{r}_j \right) + \mathcal{O}\left(\frac{r_1}{r_j}\right)^2\right]
 \end{split}$$
 <div class="l-gutter"><fig>({{ eq_jacobianmotion2 }})</fig></div>
