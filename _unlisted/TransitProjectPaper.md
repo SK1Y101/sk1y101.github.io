@@ -723,8 +723,8 @@ Taking the posteriors found for HATS-46b, as compared to the detection paper <d-
 
 
 ##### Juliet-Literature comparison
-| Source          | <d-cite> key="hats46b"></d-cite>      | Juliet posteriors |
-|:----------------|:-------------------------------------:|:-------------------------------------------:|
+| Source          | <d-cite key="hats46b"></d-cite>      | Juliet posteriors |
+|:--------------- |:------------------------------------:|:-----------------:|
 | $$ a / R_* $$ | $$ \errorvalue{13.55}{0.45}{0.65} $$ | $$ \errorvalue{14.699}{1.541}{1.830} $$ |
 | $$ b $$ | $$ \errorvalue{0.63}{0.042}{0.034} $$ | $$ \errorvalue{0.480}{0.266}{0.171}  $$ |
 | $$ i $$ | $$ \errorvalue{87.32}{0.22}{0.31} $$ | $$ \errorvalue{88.126}{1.119}{1.014} $$  |
