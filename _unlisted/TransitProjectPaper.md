@@ -723,7 +723,14 @@ Taking the posteriors found for HATS-46b, as compared to the detection paper <d-
 
 
 ##### Juliet-Literature comparison
-| Source          | <d-cite key="hats46b"></d-cite>      | Juliet posteriors |
+
+| Tables        | Are           | Cool  |
+| ------------- |:-------------:| -----:|
+| col 3 is      | right-aligned | $1600 |
+| col 2 is      | centered      |   $12 |
+| zebra stripes | are neat      |    $1 |
+
+<!-- | Source          | <d-cite key="hats46b"></d-cite>      | Juliet posteriors |
 |:--------------- |:------------------------------------:|:-----------------:|
 | $$ a / R_* $$ | $$ \errorvalue{13.55}{0.45}{0.65} $$ | $$ \errorvalue{14.699}{1.541}{1.830} $$ |
 | $$ b $$ | $$ \errorvalue{0.63}{0.042}{0.034} $$ | $$ \errorvalue{0.480}{0.266}{0.171}  $$ |
@@ -732,4 +739,4 @@ Taking the posteriors found for HATS-46b, as compared to the detection paper <d-
 | $$ P $$ | $$ 4.7423729 \pm 0.0000049 $$ | $$ \errorvalue{4.7423836070}{0.0000139110}{0.0000114410} $$ |
 <div class="caption">
     Table {{ tab_hats46b }}. Comparison between literature parameters and Juliet parameters from <em>TESS</em> for HATS-46b. Many of the values satisfy the "Good enough" criterion despite not having the complementary radial velocity measurements used in the detection paper to refine the parameters.
-</div>
+</div> -->
