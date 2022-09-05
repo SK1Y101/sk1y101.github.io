@@ -639,7 +639,7 @@ In the case where a model has $$ k $$ free parameters, $$ n $$ data points, and 
 
 #### Markov Chain, Monte Carlo
 
-To determine parameter bounds, a Markov Chain Monte Carlo (MCMC) method is used through the *Emcee* package <d-cite key="emcee"></d-cite>. This class of algorithms use the probability distribution of a function to construct a sample chain that converges to the desired distribution, typically one that is normally distributed around the true parameters. This begins very similarly to the differential evolution optimisation technique described in [this section](#Minimisation), where a set of "walkers" are initialised with arbitrary starting parameters, and allowed to walk around the parameter space according to some ensemble method.
+To determine parameter bounds, a Markov Chain Monte Carlo (MCMC) method is used through the `Emcee` package <d-cite key="emcee"></d-cite>. This class of algorithms use the probability distribution of a function to construct a sample chain that converges to the desired distribution, typically one that is normally distributed around the true parameters. This begins very similarly to the differential evolution optimisation technique described in [this section](#Minimisation), where a set of "walkers" are initialised with arbitrary starting parameters, and allowed to walk around the parameter space according to some ensemble method.
 
 {% capture eq_stretch %}{% increment transit_equation_num %}{% endcapture %}
 The ensemble method used for this project is the stretch move <d-cite key="stretchMove"></d-cite>, a method that significantly outperforms the more traditional Metropolis-Hastings algorithm <d-cite key="MH-MCMC"></d-cite>. The position of a walker, $$ X_k $$, is determined by randomly selecting another walker, $$ X_j $$, and proposing a new position by interpolating between the two with some variable randomly drawn from the distribution, as given in equation <fig>[{{ eq_stretch }}]</fig>, also see equation 7 in <d-cite key="emcee"></d-cite>.
@@ -672,3 +672,40 @@ Six transit observations were planned at the beginning of this project to observ
 <div class="caption">
     Figure {{ fig_hatp13b2 }}. De-trended transit light curve for an observation of HAT-P-13b taken 2022-02-27 and analysed with HOPS <d-cite key="HOPS"></d-cite>. Note the large residuals and missing data in the second half of the transit, caused by clouds completely obscuring the star for several hours.
 </div>
+
+The light-curves have been fit with HOPS <d-cite key="HOPS"></d-cite>, and have provided values for $$ \frac{R_p}{R_*} $$ close to the reported literature <d-cite key="hat-p-13b"></d-cite> when considering the large variance in flux caused by suboptimal weather conditions.
+
+{% capture fig_hatp13b2error %}{% increment transit_figure_num %}{% endcapture %}
+The observation on 2022-02-27, given in figure <fig>[{{ fig_hatp13b2 }}]</fig>, shows large residuals and has had data points after the mid-transit time removed. This was due to large cloud cover that reduced sky visibility to $$ 0\% $$ for several hours during the middle of the transit. Re-introducing these data points to the HOPS fitting, the result in figure <fig>[{{ fig_hatp13b2error }}]</fig> is obtained. The relative change in flux due to the cloud cover is larger than the occlusion depth of the transit by a significant factor, causing hops to fit transit egress to this position.
+
+<div class="row">
+    <div class="col-sm g-0 imgfig">
+        {% include figure.html path="assets/img/TransitProject/detrended_model2_error.jpg" %}
+    </div>
+</div>
+<div class="caption">
+    Figure {{ fig_hatp13b2error }}. De-trended transit light curve for the observation of HAT-P-13b taken 2022-02-27 without the central data points removed. Note how the relative change in flux due to the cloud-cover is larger than the predicted occlusion depth.
+</div>
+### Light curve analysis
+
+{% capture fig_hats46tess %}{% increment transit_figure_num %}{% endcapture %}
+<div class="row">
+    <div class="col-sm g-0 imgfig">
+        {% include figure.html path="assets/img/TransitProject/TESSLightcurve_Hats-46.pdf" %}
+    </div>
+</div>
+<div class="caption">
+    Figure {{ fig_hats46tess }}. Combined light curve (top) and TTV data (bottom) for HATS-46, as observed by the <em>TESS</em> spacecraft. Only HATS-46b transits the star, and a large disparity is noted in the middle of the dataset due to observations over multiple <em>TESS</em> sectors.
+</div>
+
+{% capture fig_Wasp8tess %}{% increment transit_figure_num %}{% endcapture %}
+<div class="row">
+    <div class="col-sm g-0 imgfig">
+        {% include figure.html path="assets/img/TransitProject/TESSLightcurve_Wasp-8.pdf" %}
+    </div>
+</div>
+<div class="caption">
+    Figure {{ fig_Wasp8tess }}. Combined light curve (top) and TTV data (bottom) for Wasp-8, as observed by the <em>TESS</em> spacecraft. Note the large transit depths as compared to HATS-46, and the correspondingly small uncertainties in the TTV residuals that result from that.
+</div>
+
+With *TESS* light curves collected from the Mikulski archive for space telescopes, additional mid-transit times could be computed to complement those collected from the exoplanet transit database and ExoClock database, as was briefly touched upon in [this section](#Project-objectives).
