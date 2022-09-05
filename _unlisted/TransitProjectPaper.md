@@ -593,7 +593,7 @@ Where the additional $$ \sigma $$ is the error on each data point. The logarithm
 
 In computational parameter optimisation, it is standard to try to minimise, rather than maximise, the values of a function within a given parameter space. As we have highlighted the usefulness of maximum likelihood estimation, it is useful to quickly adapt this to the computational workflow. This is very easily achieved by simply attempting to minimise the *negative* log likelihood of a model.
 
-As mentioned in [least squares regression](#Least-squares-regression), it is preferable to find, or approximately find, the global optimal parameters, two methods for which are differential evolution <d-cite key="diffEvo"></d-cite> and dual annealing <d-cite key="dualAnnealing"></d-cite>. These global optimisation methods are accessed through the $scipy.optimise$ python package <d-cite key="scipy"></d-cite>.
+As mentioned in [least squares regression](#Least-squares-regression), it is preferable to find, or approximately find, the global optimal parameters, two methods for which are differential evolution <d-cite key="diffEvo"></d-cite> and dual annealing <d-cite key="dualAnnealing"></d-cite>. These global optimisation methods are accessed through the `scipy.optimise` python package <d-cite key="scipy"></d-cite>.
 
 Differential evolution takes inspiration from evolutionary science, and attempts to optimise a problem through iterative improvements to some metaheuristic, such as the log likelihood, of the solution. This is specifically achieved by initialising some large set of "agents", each with random starting parameters, and allowing them to converge to the global solution.
 
@@ -635,7 +635,7 @@ Another model selection metric closely related to the corrected Akaike informati
 $$ \text{BIC} = k \ln{n} - 2 \ln{L} $$
 <div class="l-gutter"><fig>({{ eq_bic }})</fig></div>
 
-In the case where a model has $k$ free parameters, $n$ data points, and a maximum likelihood $L$, the BIC value is as given in equation <fig>[{{ eq_bic }}]</fig>. Models that have lower BIC values are generally preferred, though this does not always yield the optimal fit.
+In the case where a model has $$ k $$ free parameters, $$ n $$ data points, and a maximum likelihood $$ L $$, the BIC value is as given in equation <fig>[{{ eq_bic }}]</fig>. Models that have lower BIC values are generally preferred, though this does not always yield the optimal fit.
 
 #### Markov Chain, Monte Carlo
 
@@ -646,70 +646,3 @@ The ensemble method used for this project is the stretch move <d-cite key="stret
 
 $$ X_k(t) \xrightarrow{} Y = X_j + Z\left[X_k(t) - X_j\right] $$
 <div class="l-gutter"><fig>({{ eq_stretch }})</fig></div>
-
-## Results / Discussion
-
-### Observations
-
-{% capture fig_hatp13b1 %}{% increment transit_figure_num %}{% endcapture %}
-{% capture fig_hatp13b2 %}{% increment transit_figure_num %}{% endcapture %}
-Six transit observations were planned at the beginning of this project to observe four different exoplanetary systems: HAT-P-13b, HAT-P-44b, and K2-19b. Of those, only two observations were made, both of HAT-P-13b, and are given in figures <fig>[{{ fig_hatp13b1 }}]</fig> and <fig>[{{ fig_hatp13b2 }}]</fig>. Significant cloud cover prevented further observations, and severely hampered the observation made on 2022-02-27 (figure <fig>[{{ fig_hatp13b2 }}]</fig>).
-
-<div class="row">
-    <div class="col-sm g-0 imgfig">
-        {% include figure.html path="assets/img/TransitProject/detrended_model.jpg" %}
-    </div>
-</div>
-<div class="caption">
-    Figure {{ fig_hatp13b1 }}. De-trended transit light curve for an observation of HAT-P-13b taken 2022-02-24 and analysed with HOPS <d-cite key="HOPS"></d-cite>. Note the anomaly near the mid-transit time due to light cloud cover. Reported $$ \frac{R_p}{R_*} $$ is $$ 0.0844\pm{0.0013} $$ <d-cite key="hat-p-13b"></d-cite>.
-</div>
-
-<div class="row">
-    <div class="col-sm g-0 imgfig">
-        {% include figure.html path="assets/img/TransitProject/detrended_model2.jpg" %}
-    </div>
-</div>
-<div class="caption">
-    Figure {{ fig_hatp13b2 }}. De-trended transit light curve for an observation of HAT-P-13b taken 2022-02-27 and analysed with HOPS <d-cite key="HOPS"></d-cite>. Note the large residuals and missing data in the second half of the transit, caused by clouds completely obscuring the star for several hours.
-</div>
-
-The light-curves have been fit with HOPS <d-cite key="HOPS"></d-cite>, and have provided values for $$ \frac{R_p}{R_*} $$ close to the reported literature <d-cite key="hat-p-13b"></d-cite> when considering the large variance in flux caused by suboptimal weather conditions.
-
-{% capture fig_hatp13b2error %}{% increment transit_figure_num %}{% endcapture %}
-The observation on 2022-02-27, given in figure <fig>[{{ fig_hatp13b2 }}]</fig>, shows large residuals and has had data points after the mid-transit time removed. This was due to large cloud cover that reduced sky visibility to $$ 0\% $$ for several hours during the middle of the transit. Re-introducing these data points to the HOPS fitting, the result in figure <fig>[{{ fig_hatp13b2error }}]</fig> is obtained. The relative change in flux due to the cloud cover is larger than the occlusion depth of the transit by a significant factor, causing hops to fit transit egress to this position.
-
-<div class="row">
-    <div class="col-sm g-0 imgfig">
-        {% include figure.html path="assets/img/TransitProject/detrended_model2_error.jpg" %}
-    </div>
-</div>
-<div class="caption">
-    Figure {{ fig_hatp13b2error }}. De-trended transit light curve for the observation of HAT-P-13b taken 2022-02-27 without the central data points removed. Note how the relative change in flux due to the cloud-cover is larger than the predicted occlusion depth.
-</div>
-### Light curve analysis
-
-{% capture fig_hats46tess %}{% increment transit_figure_num %}{% endcapture %}
-<div class="row">
-    <div class="col-sm g-0 imgfig">
-        {% include figure.html path="assets/img/TransitProject/TESSLightcurve_Hats-46.pdf" %}
-    </div>
-</div>
-<div class="caption">
-    Figure {{ fig_hats46tess }}. Combined light curve (top) and TTV data (bottom) for HATS-46, as observed by the <em>TESS</em> spacecraft. Only HATS-46b transits the star, and a large disparity is noted in the middle of the dataset due to observations over multiple <em>TESS</em> sectors.
-</div>
-
-{% capture fig_Wasp8tess %}{% increment transit_figure_num %}{% endcapture %}
-<div class="row">
-    <div class="col-sm g-0 imgfig">
-        {% include figure.html path="assets/img/TransitProject/TESSLightcurve_Wasp-8.pdf" %}
-    </div>
-</div>
-<div class="caption">
-    Figure {{ fig_Wasp8tess }}. Combined light curve (top) and TTV data (bottom) for Wasp-8, as observed by the <em>TESS</em> spacecraft. Note the large transit depths as compared to HATS-46, and the correspondingly small uncertainties in the TTV residuals that result from that.
-</div>
-
-With *TESS* light curves collected from the Mikulski archive for space telescopes, additional mid-transit times could be computed to complement those collected from the exoplanet transit database and ExoClock database, as was briefly touched upon in [this section](#Project-objectives).
-
-#### De-trending
-
-Many of the *TESS* light curves show strong long-term trends that can make transit detection difficult. To de-trend the data, a Gaussian process is fit to the out-of transit data, using the linear ephemerides for the planetary system to deduce the locations of transits. This was performed using an approximate Matern kernel using the Juliet wrapper <d-cite key="juliet"><d-cite> to the Celerite package <d-cite key="celerite"><d-cite>. This gives the black line seen in figures <fig>[{{ fig_hats46tess }}]</fig>, and <fig>[{{ fig_Wasp8tess }}]</fig>, which very closely matches the overall light curve trend.
