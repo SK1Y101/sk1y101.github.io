@@ -268,7 +268,7 @@ In the case where a transiting exoplanet orbits exterior to the perturbing plane
 ##### Initial derivation
 
 {% capture eq_barycentre %}{% increment transit_equation_num %}{% endcapture %}
-The distance between the barycentre and primary body is given in equation <fig>[{{ eq_barycentre }}]</fig>, where $r$ is the distance between the primary and secondary, $$ m_0 $$ and $$ m_1 $$ are the masses of the primary and secondary respectively, and $$ \mu $$ is the reduced mass of the secondary.
+The distance between the barycentre and primary body is given in equation <fig>[{{ eq_barycentre }}]</fig>, where $$ r $$ is the distance between the primary and secondary, $$ m_0 $$ and $$ m_1 $$ are the masses of the primary and secondary respectively, and $$ \mu $$ is the reduced mass of the secondary.
 
 $$ r_b = r \frac{m_1}{m_1 + m_0} = r \mu_1 $$
 <div class="l-gutter"><fig>({{ eq_barycentre }})</fig></div>
@@ -304,7 +304,7 @@ $$ t = \frac{\delta_x}{v_{planet} - v_{star}} \approx \frac{\delta_x}{v_{planet}
 <div class="l-gutter"><fig>({{ eq_suvat }})</fig></div>
 
 {% capture eq_circorbitvel %}{% increment transit_equation_num %}{% endcapture %}
-$$ v_{planet} = \sqrt{\frac{G\left(m_{star} + m_{planet}\right)}{a_{planet}}} = \frac{2 \pi a}{P_{planet}} $$
+$$ v_{planet} = \sqrt{\frac{G\left(m_{star} + m_{planet}\right)}{a_{planet}}} = \frac{2 \pi a_{planet}}{P_{planet}} $$
 <div class="l-gutter"><fig>({{ eq_circorbitvel }})</fig></div>
 
 {% capture eq_ttvbarycentre %}{% increment transit_equation_num %}{% endcapture %}
@@ -368,13 +368,13 @@ $$ \sum_{i} m_i \pmb{\ddot{R}}_i = 0 $$
 Which is a demonstration that the centre of mass of the system, $$ \pmb{R}_{C.o.M} $$ is fixed, and no external forces are at play. This set of equations are most commonly used in numerical approaches; for an analytical approach to perturbation, it is more convenient to deal with the Jacobi coordinates of the system <d-cite key="3bodypulsar"></d-cite><d-cite key="murraybook"></d-cite>.
 
 {% capture eq_jacobi %}{% increment transit_equation_num %}{% endcapture %}
-This gives a set of new coordinates, $r_i$, describing the position of the $$ i^{th} $$ body relative to the mass interior to its orbit, as given in equation <fig>[{{ eq_jacobi }}]</fig>.
+This gives a set of new coordinates, $$ r_i $$, describing the position of the $$ i^{th} $$ body relative to the mass interior to its orbit, as given in equation <fig>[{{ eq_jacobi }}]</fig>.
 
 $$\begin{aligned}
 \pmb{r}_0 &= \pmb{R}_{C.o.M} = 0 \\
 \pmb{r}_1 &= \pmb{R}_1 - \frac{m_0\pmb{R}_0}{m_0} = \pmb{R}_1 - \pmb{R}_0 \\
 \pmb{r}_2 &= \pmb{R}_2 - \frac{m_0\pmb{R}_0+m_1\pmb{R}_1}{m_0+m_1} \\
-&\text{        }... \\[-2em]
+&... \\
 \pmb{r}_{n+1} &= \pmb{R}_{n+1} - \frac{\sum^n_{j=0}m_j\pmb{R}_j}{\sum^n_{j=0}m_j}
 \end{aligned}$$
 <div class="l-gutter"><fig>({{ eq_jacobi }})</fig></div>
@@ -418,11 +418,11 @@ In the 2-body case, where there is only a single body and star, this equation is
 $$ \ddot{\pmb{r}}_i = -G\left(m_0+m_i\right)\frac{\pmb{r}_i}{r_i^3} \approx -Gm_0\frac{\pmb{r}_i}{r_i^3} $$
 <div class="l-gutter"><fig>({{ eq_kepler }})</fig></div>
 
-{% capture eq_keplerandperturb %}{% increment transit_equation_num %}{% endcapture %}
 From this, we can see that the acceleration in Jacobian coordinates for an n-body system as given by equation <fig>[{{ eq_keplerandperturb }}]</fig> is the standard Keplerian with some perturbative acceleration applied,
 
+{% capture eq_jacobi_kepler %}{% increment transit_equation_num %}{% endcapture %}
 $$ \ddot{\pmb{r}}_i = -G\left(m_0+m_1\right)\frac{\pmb{r}_1}{r_1^3} + \delta\ddot{\pmb{r}}_1 $$
-<div class="l-gutter"><fig>({{ eq_kepler }})</fig></div>
+<div class="l-gutter"><fig>({{ eq_jacobi_kepler }})</fig></div>
 
 {% capture eq_perturbaccel %}{% increment transit_equation_num %}{% endcapture %}
 With the perturbing acceleration given in equation <fig>[{{ eq_perturbaccel }}]</fig>,
@@ -709,3 +709,7 @@ The observation on 2022-02-27, given in figure <fig>[{{ fig_hatp13b2 }}]</fig>, 
 </div>
 
 With *TESS* light curves collected from the Mikulski archive for space telescopes, additional mid-transit times could be computed to complement those collected from the exoplanet transit database and ExoClock database, as was briefly touched upon in [this section](#Project-objectives).
+
+#### De-trending
+
+Many of the *TESS* light curves show strong long-term trends that can make transit detection difficult. To de-trend the data, a Gaussian process is fit to the out-of transit data, using the linear ephemerides for the planetary system to deduce the locations of transits. This was performed using an approximate Matern kernel using the Juliet wrapper <d-cite key="juliet"><d-cite> to the Celerite package <d-cite key="celerite"><d-cite>. This gives the black line seen in figures <fig>[{{ fig_hats46tess }}]</fig>, and <fig>[{{ fig_Wasp8tess }}]</fig>, which very closely matches the overall light curve trend.
