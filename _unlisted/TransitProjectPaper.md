@@ -619,9 +619,9 @@ In the case where a model has $$ k $$ free parameters, with a maximum likelihood
 
 ##### Corrected Akaike information criterion
 
-Where the sample size is small, the standard AIC method can lead to overfitting, and a correction is required to better describe the fit <d-cite key="AICC"></d-cite>. This extension to AIC attempts to fix the overfitting by introducing a further penalty from the number of data points, $n$, as seen in equation <fig>[{{ eq_aicc }}]</fig>.
-
 {% capture eq_aicc %}{% increment transit_equation_num %}{% endcapture %}
+Where the sample size is small, the standard AIC method can lead to overfitting, and a correction is required to better describe the fit <d-cite key="AICC"></d-cite>. This extension to AIC attempts to fix the overfitting by introducing a further penalty from the number of data points, $$ n $$, as seen in equation <fig>[{{ eq_aicc }}]</fig>.
+
 $$ \text{AICc} = AIC + \frac{2k^2 + 2k}{n-k-1} = \frac{2kn}{n-k-1} - 2 \ln{L} $$
 <div class="l-gutter"><fig>({{ eq_aicc }})</fig></div>
 
