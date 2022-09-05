@@ -646,3 +646,29 @@ The ensemble method used for this project is the stretch move <d-cite key="stret
 
 $$ X_k(t) \xrightarrow{} Y = X_j + Z\left[X_k(t) - X_j\right] $$
 <div class="l-gutter"><fig>({{ eq_stretch }})</fig></div>
+
+## Results / Discussion
+
+### Observations
+
+{% capture fig_hatp13b1 %}{% increment transit_figure_num %}{% endcapture %}
+{% capture fig_hatp13b2 %}{% increment transit_figure_num %}{% endcapture %}
+Six transit observations were planned at the beginning of this project to observe four different exoplanetary systems: HAT-P-13b, HAT-P-44b, and K2-19b. Of those, only two observations were made, both of HAT-P-13b, and are given in figures <fig>[{{ fig_hatp13b1 }}]</fig> and <fig>[{{ fig_hatp13b2 }}]</fig>. Significant cloud cover prevented further observations, and severely hampered the observation made on 2022-02-27 (figure <fig>[{{ fig_hatp13b2 }}]</fig>).
+
+<div class="row">
+    <div class="col-sm g-0 imgfig">
+        {% include figure.html path="assets/img/TransitProject/detrended_model.jpg" %}
+    </div>
+</div>
+<div class="caption">
+    Figure {{ fig_hatp13b1 }}. De-trended transit light curve for an observation of HAT-P-13b taken 2022-02-24 and analysed with HOPS <d-cite key="HOPS"></d-cite>. Note the anomaly near the mid-transit time due to light cloud cover. Reported $$ \frac{R_p}{R_*} $$ is $$ 0.0844\pm{0.0013} $$ <d-cite key="hat-p-13b"></d-cite>.
+</div>
+
+<div class="row">
+    <div class="col-sm g-0 imgfig">
+        {% include figure.html path="assets/img/TransitProject/detrended_model2.jpg" %}
+    </div>
+</div>
+<div class="caption">
+    Figure {{ fig_hatp13b2 }}. De-trended transit light curve for an observation of HAT-P-13b taken 2022-02-27 and analysed with HOPS <d-cite key="HOPS"></d-cite>. Note the large residuals and missing data in the second half of the transit, caused by clouds completely obscuring the star for several hours.
+</div>
