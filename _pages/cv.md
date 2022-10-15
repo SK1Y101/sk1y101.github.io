@@ -193,7 +193,7 @@ nav: true
 				</li>
 				<li class="list-group-item">
 					<div class="row">
-						< 	 class="col-sm-2 abbr">
+						<div class="col-sm-2 abbr">
 							<abbr class="badge">
 								2017 - 2019
 							</abbr>
@@ -235,6 +235,18 @@ nav: true
 							</abbr>
 						</div>
 						<div class="col-xs-10 cl-sm-10 col-md mt-2 mt-md-0">
+							<h3 class="title font-weight-bold ml-1 ml-md-4">Member of the British Astronomical Association</h3>
+						</div>
+					</div>
+				</li>
+				<li class="list-group-item">
+					<div class="row">
+						<div	 class="col-sm-2 abbr">
+							<abbr class="badge">
+								2022 - present
+							</abbr>
+						</div>
+						<div class="col-xs-10 cl-sm-10 col-md mt-2 mt-md-0">
 							<h3 class="title font-weight-bold ml-1 ml-md-4">Member of the Institue of Physics</h3>
 							<ul class="items">
 								<li>
@@ -253,8 +265,6 @@ nav: true
 						</div>
 						<div class="col-xs-10 cl-sm-10 col-md mt-2 mt-md-0">
 							<h3 class="title font-weight-bold ml-1 ml-md-4">Member of the European Astronomical Society</h3>
-							<ul class="items">
-							</ul>
 						</div>
 					</div>
 				</li>
@@ -284,8 +294,6 @@ nav: true
 						</div>
 						<div class="col-xs-10 cl-sm-10 col-md mt-2 mt-md-0">
 							<h3 class="title font-weight-bold ml-1 ml-md-4">Associate Member of the Institue of Physics</h3>
-							<ul class="items">
-							</ul>
 						</div>
 					</div>
 				</li>

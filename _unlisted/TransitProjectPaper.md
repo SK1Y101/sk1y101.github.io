@@ -713,3 +713,10 @@ With *TESS* light curves collected from the Mikulski archive for space telescope
 #### De-trending
 
 Many of the *TESS* light curves show strong long-term trends that can make transit detection difficult. To de-trend the data, a Gaussian process is fit to the out-of transit data, using the linear ephemerides for the planetary system to deduce the locations of transits. This was performed using an approximate Matern kernel using the Juliet wrapper <d-cite key="juliet"></d-cite> to the Celerite package <d-cite key="celerite"></d-cite>. This gives the black line seen in figures <fig>[{{ fig_hats46tess }}]</fig>, and <fig>[{{ fig_Wasp8tess }}]</fig>, which very closely matches the overall light curve trend.
+
+#### Transit fitting
+
+Transit fits were then performed on the de-trended data, using the Juliet wrapper to both the Batman <d-cite key="batman"></d-cite>and Dynesty <d-cite key="dynesty"></d-cite> packages. The parameters for the transit models are initialised by randomly selecting from the priors, and iteratively walked through parameter space. The general parameters for the exoplanet are returned to the posteriors of the fit, which adequately match the confirmed literature despite having few transits and no initial parameters to work from.
+
+{% capture tab_hats46b %}{% increment transit_table_num %}{% endcapture %}
+Taking the posteriors found for HATS-46b, as compared to the detection paper <d-cite key="hats46b"></d-cite>, we have the results as given in table <fig>[{{ tab_hats46b }}]</fig>

@@ -1,11 +1,3 @@
-#### Transit fitting
-
-Transit fits were then performed on the de-trended data, using the Juliet wrapper to both the Batman <d-cite key="batman"></d-cite>and Dynesty <d-cite key="dynesty"></d-cite> packages. The parameters for the transit models are initialised by randomly selecting from the priors, and iteratively walked through parameter space. The general parameters for the exoplanet are returned to the posteriors of the fit, which adequately match the confirmed literature despite having few transits and no initial parameters to work from.
-
-{% capture tab_hats46b %}{% increment transit_table_num %}{% endcapture %}
-Taking the posteriors found for HATS-46b, as compared to the detection paper <d-cite key="hats46b"></d-cite>, we have the results as given in table <fig>[{{ tab_hats46b }}]</fig>
-
-
 ##### Juliet-Literature comparison
 
 | Tables        | Are           | Cool  |
