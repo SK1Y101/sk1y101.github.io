@@ -233,7 +233,7 @@ As the planets orbit about the system, perturbation causes their respective peri
 ### Project objectives
 
 As the detection and analysis of transit timing variations rely on historical data, additional observations have been made throughout this project with the 24" Ritchey-Chrétien telescope at Clanfield observatory. These observations were analysed with Holomon Photometric Software
- (HOPS) <d-cite key="HOPS"></d-cite>, and uploaded to the ExoClock database, where other transit observations are combined and verified <d-cite key="ExoClockI"></d-cite><d-cite key="ExoClockII"></d-cite>.
+ (HOPS) <d-cite key="HOPS"></d-cite>, and uploaded to the [ExoClock](https://www.exoclock.space/database/observations_by_observer#419) database, where other transit observations are combined and verified <d-cite key="ExoClockI"></d-cite><d-cite key="ExoClockII"></d-cite>.
 
 Transit data from both ExoClock and the exoplanet transit database (ETD) <d-cite key="ETD"></d-cite> have been combined with light curves from the *TESS* spacecraft <d-cite key="tess"></d-cite>. These light curves have been analysed with the Juliet python package to obtain mid-transit times <d-cite key="juliet"></d-cite>. A set of linear ephemerides were fit with linear regression to the observed transit data and compared with those published in both the ExoClock database and the NASA Exoplanet Archive <d-cite key="exoplanetArchive"></d-cite>. Computing predicted transit times from these linear ephemerides have allowed a set of TTV to be computed for each planetary target.
 

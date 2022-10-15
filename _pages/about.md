@@ -17,7 +17,7 @@ social: true  # includes social icons at the bottom of the page
 
 Hi there, I'm Jack!
 
-I’m an associate software engineer for the Metal as a Service team at Canonical, with a strong passion for Python programming, exoplanetary science, and gravitational wave astronomy.
+I’m an associate software engineer for the Metal as a Service team at Canonical, with a strong passion for [Python programming](https://github.com/SK1Y101), [exoplanetary science](https://www.exoclock.space/database/observations_by_observer#419), and gravitational wave astronomy.
 
 I very recently graduated as First class master in Physics, Astronomy, and Cosmology at Portsmouth university. My eventual aim is to purse a doctorate in computational physics with a focus on astronomical research, specifically on the studies of Exoplanets, or spacecraft operations.
 

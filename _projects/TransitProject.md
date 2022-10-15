@@ -81,7 +81,7 @@ The (Current) High-level plan for this project is -as everything else is- subjec
 
 - Find suitable observation targets (See [Project Proposal](#project-proposal)).
 - Observe targets to collect data.
-- Fit data to transit model and upload to Exoclock (See [Literature Review](#literature-review)).
+- Fit data to transit model and upload to [ExoClock](https://www.exoclock.space/database/observations_by_observer#419) (See [Literature Review](#literature-review)).
 - Summarise methodology (See [Poster](#poster)).
 - Write code.
   - Select target planetary system
@@ -125,11 +125,11 @@ As part of this project, I have had to create several pieces of documentation, w
 
 The overarching goal of this project is to attempt to measure transit timing variations of exoplanets, to determine the parameters of other exoplanet candidates in the system.
 
-I will be making my own observations with the 24" Ritchey-Chretien telescope at [Clanfield observatory](https://hantsastro.org.uk/), and analyse them using [HOPS](https://www.exoworldsspies.com/en/software/). My own observations will be uploaded to [ExoClock](https://www.exoclock.space/), and I will use their database for historical observation data.
+I will be making my own observations with the 24" Ritchey-Chretien telescope at [Clanfield observatory](https://hantsastro.org.uk/), and analyse them using [HOPS](https://www.exoworldsspies.com/en/software/). My own observations will be uploaded to [ExoClock](https://www.exoclock.space/database/observations_by_observer#419), and I will use their database for historical observation data.
 
 I will write my own python software that will extract transit timing variations from lightcurve data. With these variations measured, I will attempt to derive a model of the system, and compare that to literature and simulation.
 
-A short list of observation candidates was made by comparing exoplanet data with both [ExoClock](https://www.exoclock.space/) and [NASA Exoplanet Archive](https://exoplanetarchive.ipac.caltech.edu/), after which an application for telescope time was made.
+A short list of observation candidates was made by comparing exoplanet data with both [ExoClock](https://www.exoclock.space/database/observations_by_observer#419) and [NASA Exoplanet Archive](https://exoplanetarchive.ipac.caltech.edu/), after which an application for telescope time was made.
 
 The full document is accessible as a PDF from the link [Here](../../assets/pdf/TransitProject/Proposal.pdf)
 
@@ -147,7 +147,7 @@ The full document is accessible as a PDF from the link [Here](../../assets/pdf/T
 
 ### Poster
 
-I needed to summarise my work done, and a quick idea of my project moving forward. Of course, I noted ExoClock and my tranist observations, and gave a quick summary of (what was essentially) the literature review.
+I needed to summarise my work done, and a quick idea of my project moving forward. Of course, I noted [ExoClock](https://www.exoclock.space/database/observations_by_observer#419) and my tranist observations, and gave a quick summary of (what was essentially) the literature review.
 
 The full document is accessible as a PDF from the link [Here](../../assets/pdf/TransitProject/Poster.pdf)
 
