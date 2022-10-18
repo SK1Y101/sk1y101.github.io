@@ -68,7 +68,7 @@ function Satellite() {
 // update the star positions
 Star.prototype.update = function() {
   // change the size of the star due to atmospheric twinkling
-  this.size = Math.max(.1, Math.min(2, this.size + 0.2 * Math.random() - 0.1));
+  this.size = Math.max(.1, Math.min(2, this.size + 0.1 * Math.random() - 0.05));
   // and draw the star
   bgCtx.fillStyle = this.colour;
   bgCtx.fillRect(this.x, this.y, this.size, this.size);
