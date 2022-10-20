@@ -5,11 +5,11 @@ description: Automating MAAS items
 img: assets/img/Canonical-MAAS-logo-2022.png
 importance:
 category: work
-redirect: https://github.com/maas/maas-ansible-playbook
+redirect: https://github.com/sk1y101/maas-ansible-playbook
 date: 2022-09-05
 
 github:
-  user: maas
+  user: sk1y101
   repo: "maas-ansible-playbook"
 
 authors:
