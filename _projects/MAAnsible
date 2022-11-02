@@ -9,7 +9,7 @@ redirect: https://github.com/sk1y101/maas-ansible-playbook
 date: 2022-09-05
 
 github:
-  user: sk1y101
+  user: maas
   repo: "maas-ansible-playbook"
 
 authors:
