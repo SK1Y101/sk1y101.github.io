@@ -6,8 +6,8 @@ img: assets/resized/Skiylia/Skiylia_Logo_text-1920x609.png
 importance:
 category: fun
 github:
-  user: Skiylia
-  repo: SK1Y101
+  user: SK1Y101
+  repo: Skiylia
   onpage: true
   showbadges: true
   contributors: true
