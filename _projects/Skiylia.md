@@ -1,23 +1,23 @@
 ---
 layout: project
-title: Skiylia Lang (Deprecated)
-description: My (deprecated) custom programming language, written in python.
-img: assets/img/Skiylia/SkiyliaLogo.png
+title: Skiylia Lang
+description: My custom programming language.
+img: assets/img/Skiylia/Skiylia_Logo_text.png
 importance:
 category: fun
 github:
-  user: Skiylia-Lang
-  repo: PySkiylia
+  user: Skiylia
+  repo: SK1Y101
   onpage: true
   showbadges: true
   contributors: true
-date: 2021-03-18
+date: 2022-12-11
 
 dropdown:
-  - title: Skiylia Site
-    url: "https://skiylia-lang.github.io/"
+  - title: Skiylia
+    url: http://skiylia.readthedocs.io/
     affiliations:
-      name: Royal Astronomical Society, Portsmouth University, Institute of Physics, British Astronomical Association
+      name: Royal Astronomical Society, Portsmouth University, Institute of Physics, British Astronomical Association, British Astronomical Association
 
 authors:
   - name: Jack Lloyd-Walters
@@ -25,7 +25,7 @@ authors:
 
 links:
   pdf:
-  url: https://skiylia-lang.github.io/
+  url: http://skiylia.readthedocs.io/
 
 # Optionally, you can add a table of contents to your post.
 # NOTES:
@@ -35,7 +35,6 @@ links:
 #     jekyll-toc plugin (https://github.com/toshimaru/jekyll-toc).
 toc:
   - name: What is Skiylia
-  - name: Example code
     # if a section has subsections, you can add them as follows:
     # subsections:
     #   - name: Example Child Subsection 1
@@ -45,7 +44,7 @@ toc:
 
 
 ## What is Skiylia?
-
+<!-- 
 <div class="row">
   <div class="col-sm-4 mt-3 mt-md-0">
     {% responsive_image path: assets/img/Skiylia/Skiylia_Logo.svg title: "Skiylia logo" class: "img-fluid rounded z-depth-1" %}
@@ -88,7 +87,7 @@ print("The factorial of", num, "is", factorial(num))
 
 /// Expected output:
     The factorial of 6 is 720 ///
-{% endhighlight %}
+{% endhighlight %} -->
 
 ***
 

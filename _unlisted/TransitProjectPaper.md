@@ -19,7 +19,7 @@ authors:
   - name: Jack Lloyd-Walters FRAS
     url: "https://lloydwaltersj.com"
     affiliations:
-      name: Royal Astronomical Society, Portsmouth University, Institute of Physics
+      name: Royal Astronomical Society, Portsmouth University, Institute of Physics, British Astronomical Association
   - name: Stephen Futcher FCA FRAS
     url: 
     affiliations:

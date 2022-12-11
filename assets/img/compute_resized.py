@@ -61,31 +61,6 @@ def checkFolder(dir):
         # otherwise, create it
         os.mkdir(thisfolder)
 
-# rename svg's so they work
-def reName(imgs):
-    # itterate over each image
-    for img in imgs:
-        # Split the new name so it can be used later
-        name = img.split(".")
-        # fetch the file details
-        with open(img, "r") as file:
-            m = file.read()
-        # and read the dimensions
-        try:
-            h, w = tonum(search(m, "height", "width"))
-        except:
-            h, w = 200, 200
-        # list of sizes
-        size = [480, 800, 1400]
-        # itterate over the sizes
-        for _w in size:
-            # compute new height
-            _h = int(h * _w / w)
-            # Compute the new name
-            newname = name[0] + "-" + str(_w) + "x" + str(_h) + "." + name[1]
-            # and save as new
-            os.popen("cp "+img+" ../resized/"+newname)
-
 # fetch the size of each image and resize to our format
 def reSize(imgs):
     # ensure we have the resized folder
@@ -121,8 +96,28 @@ def reSize(imgs):
             # And save
             im_resize.save("../resized/"+newname)
         print("Complete")
-    #do the final work on the svg images
-    reName(svg)
+    # iterate over each svg
+    if svg:
+        from svglib.svglib import svg2rlg
+        from reportlab.graphics import renderPM
+        for img in svg:
+            print("Resizing {}".format(img), end=", ")
+            name = img.split(".")
+            image = svg2rlg(img)
+            w, h = image.width, image.height
+            size =  [400, 800, 1400, 1920]
+            print("to sizes", size, end=", ")
+            for _w in size:
+                image = svg2rlg(img)
+                image.width = _w
+                image.height = h * _w / w
+                # Compute the new name
+                newname = name[0] + "-" + str(_w) + "x" + str(_h) + "."
+                fmt = "png"
+                # check we have the folder to save into
+                checkFolder("../resized/"+".".join(name))
+                renderPM.drawToFile(image, "../resized/"+newname+fmt, fmt=fmt)
+        print("Complete")
 
 # Fetch images and resize them
 reSize(fetchNames())

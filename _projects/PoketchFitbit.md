@@ -17,7 +17,7 @@ authors:
   - name: Jack Lloyd-Walters
     url: "https://lloydwaltersj.com"
     affiliations:
-      name: Royal Astronomical Society, Portsmouth University, Institute of Physics
+      name: Royal Astronomical Society, Portsmouth University, Institute of Physics, British Astronomical Association
 
 links:
   url: https://gallery.fitbit.com/details/c69cadcb-a312-4be3-a51f-681b259364c4
