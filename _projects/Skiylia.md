@@ -2,7 +2,7 @@
 layout: project
 title: Skiylia Lang
 description: My custom programming language.
-img: assets/img/Skiylia/Skiylia_Logo_text.png
+img: assets/img/resized/Skiylia/Skiylia_Logo_text.png
 importance:
 category: fun
 github:
