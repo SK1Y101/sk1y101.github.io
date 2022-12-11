@@ -2,7 +2,7 @@
 layout: project
 title: Skiylia Lang (Deprecated)
 description: My (deprecated) custom programming language, written in python.
-img: assets/img/Skiylia/SkiyliaLogo.png
+img: assets/img/Skiylia/PySkiyliaLogo.png
 importance:
 category: fun
 github:
