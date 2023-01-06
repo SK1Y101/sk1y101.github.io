@@ -174,7 +174,7 @@ nav: true
 				<li class="list-group-item">
 					<div class="row">
 						<div	 class="col-sm-2 abbr">
-							<abbr class="badge" style="background-color: var(--global-code-bg-color) !important;color: var(--global-text-color-light) !important;">
+							<abbr class="badge">
 								2022 - Now
 							</abbr>
 						</div>
@@ -192,7 +192,7 @@ nav: true
 					</div>
 					<div class="row">
 						<div	 class="col-sm-2 abbr">
-							<abbr class="badge">
+							<abbr class="grey-badge">
 								2023-01 - Now
 							</abbr>
 						</div>
@@ -202,7 +202,7 @@ nav: true
 					</div>
 					<div class="row">
 						<div	 class="col-sm-2 abbr">
-							<abbr class="badge">
+							<abbr class="grey-badge">
 								2022-06 - 2023-01
 							</abbr>
 						</div>

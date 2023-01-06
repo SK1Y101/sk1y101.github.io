@@ -58,6 +58,10 @@ blockquote {
   background: var(--global-theme-color) !important;
   color: var(--global-badge-text-color) !important;
 }
+.greybadge {
+  background: var(--global-code-bg-color) !important;
+  color: var(--global-text-color-light) !important;
+}
 
 // Math
 
