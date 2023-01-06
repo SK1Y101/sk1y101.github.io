@@ -51,11 +51,11 @@ nav: true
 	<div class="card p-3">
 		<h3 class="card-title">About Me</h3>
 		<div class="card-text p-3">
-		I’m an associate software engineer for the Metal as a Service team at Canonical, with a strong passion for computational physics, particularly focused on astronomy, exoplanetary science, and other space-based endeavours.
+		I’m a software engineer for the Metal as a Service team at Canonical, with a strong passion for computational physics, particularly focused on astronomy, exoplanetary science, and other space-based endeavours.
 		<br/>
 		I began programming in 2011 with Python, and have developed extensive programming experience that I used to great effect in my 2021 bachelors project ”Distinguishing Intermediate Mass Black Hole Mergers From Short Duration Glitches”, my 2022 Masters Project “Determining The Parameters of Exoplanetary Candidates From Transit Timing Variations”, and my career as software engineer.
 		<br/>
-		In 2020 I became a fellow of the Royal Astronomical Society and a member of the European Astronomical Society to further my interest and professional options, as I have a strong interest in astrophysics research.
+		In 2020 I became a fellow of the Royal Astronomical Society and a member of the European Astronomical Society to further my interest and professional options, as I have a strong interest in astrophysics research. I additionally joined the British Astronomical Association in late 2022 for much the same goals. 
 		<br/>
 		In February 2022 I joined the AiCore Training scheme to become an Ai & Data Engineer, to eventually pursue a career in software engineering.
 		In July 2022 I graduated First class as Mphys (Hons) Physics, Astronomy, and Cosmology at Portsmouth University, which additionally granted me status as a member of the Institue of Physics.
@@ -174,12 +174,12 @@ nav: true
 				<li class="list-group-item">
 					<div class="row">
 						<div	 class="col-sm-2 abbr">
-							<abbr class="badge">
-								2022 - present
+							<abbr class="badge" style="background-color: var(--global-code-bg-color) !important;color: var(--global-text-color-light) !important;">
+								2022 - Now
 							</abbr>
 						</div>
 						<div class="col-xs-10 cl-sm-10 col-md mt-2 mt-md-0">
-							<h3 class="title font-weight-bold ml-1 ml-md-4">Associate Software Engineer - Canonical</h3>
+							<h3 class="title font-weight-bold ml-1 ml-md-4">Canonical</h3>
 							<ul class="items">
 								<li>
 									Working as part of the <a href="https://maas.io/">Metal as a Service</a> team
@@ -188,6 +188,26 @@ nav: true
 									Applied to the Graduate Fast Track role.
 								</li>
 							</ul>
+						</div>
+					</div>
+					<div class="row">
+						<div	 class="col-sm-2 abbr">
+							<abbr class="badge">
+								2023-01 - Now
+							</abbr>
+						</div>
+						<div class="col-xs-10 cl-sm-10 col-md mt-2 mt-md-0">
+							<div class="title ml-1 ml-md-4">Software Engineer</div>
+						</div>
+					</div>
+					<div class="row">
+						<div	 class="col-sm-2 abbr">
+							<abbr class="badge">
+								2022-06 - 2023-01
+							</abbr>
+						</div>
+						<div class="col-xs-10 cl-sm-10 col-md mt-2 mt-md-0">
+							<div class="title ml-1 ml-md-4">Associate Software Engineer</div>
 						</div>
 					</div>
 				</li>
@@ -231,7 +251,7 @@ nav: true
 					<div class="row">
 						<div	 class="col-sm-2 abbr">
 							<abbr class="badge">
-								2022 - present
+								2022 - Now
 							</abbr>
 						</div>
 						<div class="col-xs-10 cl-sm-10 col-md mt-2 mt-md-0">
@@ -243,7 +263,7 @@ nav: true
 					<div class="row">
 						<div	 class="col-sm-2 abbr">
 							<abbr class="badge">
-								2022 - present
+								2022 - Now
 							</abbr>
 						</div>
 						<div class="col-xs-10 cl-sm-10 col-md mt-2 mt-md-0">
@@ -260,7 +280,7 @@ nav: true
 					<div class="row">
 						<div	 class="col-sm-2 abbr">
 							<abbr class="badge">
-								2020 - present
+								2020 - Now
 							</abbr>
 						</div>
 						<div class="col-xs-10 cl-sm-10 col-md mt-2 mt-md-0">
@@ -272,7 +292,7 @@ nav: true
 					<div class="row">
 						<div	 class="col-sm-2 abbr">
 							<abbr class="badge">
-								2020 - present
+								2020 - Now
 							</abbr>
 						</div>
 						<div class="col-xs-10 cl-sm-10 col-md mt-2 mt-md-0">
