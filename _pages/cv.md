@@ -51,7 +51,7 @@ nav: true
 	<div class="card p-3">
 		<h3 class="card-title">About Me</h3>
 		<div class="card-text p-3">
-		I’m a software engineer for the Metal as a Service team at Canonical, with a strong passion for computational physics, particularly focused on astronomy, exoplanetary science, and other space-based endeavours.
+		I’m a software engineer for the Metal as a Service team at Canonical, and Master in Physics, Astronomy, and Cosmology from Portsmouth university, with a strong passion for computational physics, particularly focused on astronomy, exoplanetary science, and other space-based endeavours.
 		<br/>
 		I began programming in 2011 with Python, and have developed extensive programming experience that I used to great effect in my 2021 bachelors project ”Distinguishing Intermediate Mass Black Hole Mergers From Short Duration Glitches”, my 2022 Masters Project “Determining The Parameters of Exoplanetary Candidates From Transit Timing Variations”, and my career as software engineer.
 		<br/>
