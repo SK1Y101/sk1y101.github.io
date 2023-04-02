@@ -135,6 +135,9 @@ blockquote {
   .imgresize {
     width: 60%;
   }
+  .container {
+    max-width: 75%;
+  }
   .search-button {
     right: 2rem;
   }
@@ -160,8 +163,8 @@ blockquote {
     .sidebar {
       position: fixed !important;
       top: 20%;
-      left:5%;
-      width:15% !important;
+      left:1%;
+      width:14% !important;
       background-color: var(--global-card-color) !important;
       border-radius: 1.5rem;
       padding: 1rem !important;
