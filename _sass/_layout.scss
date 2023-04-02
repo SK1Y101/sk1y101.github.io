@@ -18,6 +18,7 @@ body.sticky-bottom-footer {
 }
 
 .container {
+  min-width: $min-content-width;
   max-width: $max-content-width;
   width: $content-width;
 }

@@ -720,3 +720,22 @@ Transit fits were then performed on the de-trended data, using the Juliet wrappe
 
 {% capture tab_hats46b %}{% increment transit_table_num %}{% endcapture %}
 Taking the posteriors found for HATS-46b, as compared to the detection paper <d-cite key="hats46b"></d-cite>, we have the results as given in table <fig>[{{ tab_hats46b }}]</fig>
+
+##### Juliet-Literature comparison
+
+| Tables        | Are           | Cool  |
+| ------------- |:-------------:| -----:|
+| col 3 is      | right-aligned | $1600 |
+| col 2 is      | centered      |   $12 |
+| zebra stripes | are neat      |    $1 |
+
+<!-- | Source          | <d-cite key="hats46b"></d-cite>      | Juliet posteriors |
+|:--------------- |:------------------------------------:|:-----------------:|
+| $$ a / R_* $$ | $$ \errorvalue{13.55}{0.45}{0.65} $$ | $$ \errorvalue{14.699}{1.541}{1.830} $$ |
+| $$ b $$ | $$ \errorvalue{0.63}{0.042}{0.034} $$ | $$ \errorvalue{0.480}{0.266}{0.171}  $$ |
+| $$ i $$ | $$ \errorvalue{87.32}{0.22}{0.31} $$ | $$ \errorvalue{88.126}{1.119}{1.014} $$  |
+| $$ R_p / R_* $$ | $$ 0.1088 \pm 0.0027 $$ | $$ \errorvalue{0.10369}{0.00496}{0.00444}  $$ |
+| $$ P $$ | $$ 4.7423729 \pm 0.0000049 $$ | $$ \errorvalue{4.7423836070}{0.0000139110}{0.0000114410} $$ |
+<div class="caption">
+    Table {{ tab_hats46b }}. Comparison between literature parameters and Juliet parameters from <em>TESS</em> for HATS-46b. Many of the values satisfy the "Good enough" criterion despite not having the complementary radial velocity measurements used in the detection paper to refine the parameters.
+</div> -->
