@@ -184,8 +184,8 @@ jekyll-archives:
 
 scholar:
 
-  last_name: Lloyd-Walters
-  first_name: [Jack]
+  last_name: [Lloyd-Walters]
+  first_name: [Jack, J.]
 
   style: apa
   locale: en
