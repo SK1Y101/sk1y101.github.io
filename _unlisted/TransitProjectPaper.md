@@ -197,7 +197,7 @@ Of particular interest for this project are the three following causes for trans
 {% capture interiorTTV %}{% increment transit_figure_num %}{% endcapture %}
 <div class="row">
     <div class="col-sm g-0 imgfig">
-        {% include figure.html path="assets/img/TransitProject/TTVDueToInnerBarycentre.pdf" %}
+        {% include figure.html path="assets/img/TransitProject/TTVDueToInnerBarycentre.png" %}
     </div>
 </div>
 <div class="caption">
@@ -213,7 +213,7 @@ As a transit occurs when the star and planet are aligned, the motion of the star
 {% capture exteriorTTV %}{% increment transit_figure_num %}{% endcapture %}
 <div class="row">
     <div class="col-sm g-0 imgfig">
-        {% include figure.html path="assets/img/TransitProject/TTVDueToPerturbation.pdf" %}
+        {% include figure.html path="assets/img/TransitProject/TTVDueToPerturbation.png" %}
     </div>
 </div>
 <div class="caption">
@@ -691,7 +691,7 @@ The observation on 2022-02-27, given in figure <fig>[{{ fig_hatp13b2 }}]</fig>, 
 {% capture fig_hats46tess %}{% increment transit_figure_num %}{% endcapture %}
 <div class="row">
     <div class="col-sm g-0 imgfig">
-        {% include figure.html path="assets/img/TransitProject/TESSLightcurve_Hats-46.pdf" %}
+        {% include figure.html path="assets/img/TransitProject/TESSLightcurve_Hats-46.png" %}
     </div>
 </div>
 <div class="caption">
@@ -701,7 +701,7 @@ The observation on 2022-02-27, given in figure <fig>[{{ fig_hatp13b2 }}]</fig>, 
 {% capture fig_Wasp8tess %}{% increment transit_figure_num %}{% endcapture %}
 <div class="row">
     <div class="col-sm g-0 imgfig">
-        {% include figure.html path="assets/img/TransitProject/TESSLightcurve_Wasp-8.pdf" %}
+        {% include figure.html path="assets/img/TransitProject/TESSLightcurve_Wasp-8.png" %}
     </div>
 </div>
 <div class="caption">
