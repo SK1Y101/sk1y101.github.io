@@ -4,7 +4,7 @@ title: Skiylia Lang (Deprecated)
 description: My (deprecated) custom programming language, written in python.
 highlights:
 img: assets/img/skiylia/PySkiyliaLogo.png
-redirect: https://github.com/Skiylia-Lang/PySkiyliaLogo
+redirect: https://github.com/Skiylia-Lang/PySkiylia
 category: fun
 date: "2021-03-18"
 ---
