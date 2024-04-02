@@ -108,5 +108,6 @@ So how do we compare across all numbers? Why we take some limits: `E(b,N)/ln(N) 
 
 The most efficient base, that with the lowest radix economy, would be `e` (https://www.wolframalpha.com/input?i=b+%2F+ln%28b%29). This would be a *natural* choice, except for the whole transcendental nature making finite numbers... difficult... to write. What is the most efficient integer base you might ask?
 
+**Continuing content awaiting writing**
 Well, you may not have seen my argument coming form a mile away, but its `3`. Ternary perfectly balances using minimal symbols against minimising number length, while maintaining the ability to write rational numbers as terminating values. This really justifies those `e = π = √g = 3` arguments you see in physics and engineering meme circles.
 Side note, `π^2` is actually a decent approximation of `g` (earths gravity), moreso than `10`.
