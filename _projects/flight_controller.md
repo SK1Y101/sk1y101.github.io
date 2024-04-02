@@ -7,6 +7,7 @@ img: assets/img/FlightControllerUI.png
 redirect: https://github.com/SK1Y101/KOSFlightController
 category: fun
 date: "2022-01-02"
+date: "2024-01-01"
 ---
 
 This page is a work in progress.

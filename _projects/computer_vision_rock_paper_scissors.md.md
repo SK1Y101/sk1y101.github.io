@@ -7,4 +7,5 @@ img:
 redirect: https://github.com/SK1Y101/Computer-Vision-Rock-Paper-Scissors
 category: fun
 date: "2022-02-08"
+endDate: "2022-02-10"
 ---

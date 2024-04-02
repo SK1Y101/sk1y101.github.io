@@ -7,6 +7,7 @@ img: assets/img/skiylia/Skiylia_Logo_text.svg
 redirect: https://github.com/SK1y101/Skiylia
 category: fun
 date: "2022-12-11"
+date: "2024-01-01"
 ---
 
 ## What is Skiylia?

@@ -7,6 +7,7 @@ img: assets/img/fitbit/poketchfitbit.png
 redirect: https://github.com/SK1Y101/PoketchFitbit
 category: fun
 date: "2021-08-25"
+date: "2024-01-01"
 ---
 
 ## Motivation
