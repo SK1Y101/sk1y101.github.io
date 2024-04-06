@@ -7,7 +7,7 @@ img: assets/img/skiylia/PySkiyliaLogo.png
 redirect: https://github.com/Skiylia-Lang/PySkiylia
 category: fun
 date: "2021-03-18"
-date: "2023-01-01"
+endDate: "2023-01-01"
 ---
 
 ## What is Skiylia?

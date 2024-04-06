@@ -8,5 +8,5 @@ img: assets/img/icons/MAAS.png
 redirect: https://github.com/canonical/MAAS-ansible-playbook
 category: work
 date: "2022-09-05"
-date: "2023-06-01"
+endDate: "2023-06-01"
 ---

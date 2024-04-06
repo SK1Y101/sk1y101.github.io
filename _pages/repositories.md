@@ -2,6 +2,7 @@
 layout: page
 permalink: /repositories/
 title: repositories
+background: stars
 description:
 nav: true
 ---
