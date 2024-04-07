@@ -1,111 +1,147 @@
-{% if site.email %}
-  <a href="mailto:{{ site.email | encode_email }}" title="email"><i class="fa-solid fa-envelope"></i></a>
-{% endif %}
-{% if site.telegram_username %}
-  <a href="https://telegram.me/{{ site.telegram_username }}" title="telegram" class="telegram"><i class="fa-brands fa-telegram"></i></a>
-{% endif %}
-{% if site.whatsapp_number %}
-  <a href="https://wa.me/{{ site.whatsapp_number }}" title="whatsapp" class="whatsapp"><i class="fa-brands fa-whatsapp"></i></a>
-{% endif %}
-{% if site.orcid_id %}
-  <a href="https://orcid.org/{{ site.orcid_id }}" title="ORCID" class="orcid"><i class="ai ai-orcid"></i></a>
-{% endif %}
-{% if site.scholar_userid %}
-  <a href="https://scholar.google.com/citations?user={{ site.scholar_userid }}" title="Google Scholar"><i class="ai ai-google-scholar"></i></a>
-{% endif %}
-{% if site.semanticscholar_id %}
-  <a href="https://www.semanticscholar.org/author/{{ site.semanticscholar_id }}" title="Semantic Scholar"><i class="ai ai-semantic-scholar"></i></a>
-{% endif %}
-{% if site.publons_id %}
-  <a href="https://publons.com/a/{{ site.publons_id }}/" title="Publons"><i class="ai ai-publons"></i></a>
-{% endif %}
-{% if site.lattes_id %}
-  <a href="http://lattes.cnpq.br/{{ site.lattes_id }}" target="_blank" title="Lattes"><i class="ai ai-lattes"></i></a>
-{% endif %}
-{% if site.osf_id %}
-  <a href="https://osf.io/{{ site.osf_id }}/" title="Open Science Framework"><i class="ai ai-osf"></i></a>
-{% endif %}
-{% if site.research_gate_profile %}
-  <a href="https://www.researchgate.net/profile/{{site.research_gate_profile}}/" title="ResearchGate" class="researchgate"><i class="ai ai-researchgate"></i></a>
-{% endif %}
-{% if site.scopus_id %}
-  <a href="https://www.scopus.com/authid/detail.uri?authorId={{site.scopus_id}}" title="Scopus"><i class="ai ai-scopus"></i></a>
-{% endif %}
-{% if site.github_username %}
-  <a href="https://github.com/{{ site.github_username }}" title="GitHub"><i class="fa-brands fa-github"></i></a>
-{% endif %}
-{% if site.linkedin_username %}
-  <a href="https://www.linkedin.com/in/{{ site.linkedin_username }}" title="LinkedIn" class="linkedin"><i class="fa-brands fa-linkedin"></i></a>
-{% endif %}
-{% if site.x_username %}
-  <a href="https://twitter.com/{{ site.x_username }}" title="X"><i class="fa-brands fa-x-twitter"></i></a>
-{% endif %}
-{% if site.mastodon_username %}
-  <a rel="me" href="https://{{ site.mastodon_username }}" title="Mastodon" class="mastodon"><i class="fa-brands fa-mastodon"></i></a>
-{% endif %}
-{% if site.medium_username %}
-  <a href="https://medium.com/@{{ site.medium_username }}" title="Medium"><i class="fa-brands fa-medium"></i></a>
-{% endif %}
-{% if site.quora_username %}
-  <a href="https://www.quora.com/profile/{{ site.quora_username }}" title="Quora" class="quora"><i class="fa-brands fa-quora"></i></a>
-{% endif %}
-{% if site.blogger_url %}
-  <a href="{{ site.blogger_url }}" title="Blogger" class="blogger"><i class="fa-brands fa-blogger-b"></i></a>
-{% endif %}
-{% if site.work_url %}
-  <a href="{{ site.work_url }}" title="Work"><i class="fa-solid fa-briefcase"></i></a>
-{% endif %}
-{% if site.wikidata_id %}
-  <a href="https://www.wikidata.org/wiki/{{ site.wikidata_id }}" title="Wikidata"><i class="fa-solid fa-barcode"></i></a>
-{% endif %}
-{% if site.wikipedia_id %}
-  <a href="https://wikipedia.org/wiki/User:{{ site.wikipedia_id }}" title="Wikipedia"><i class="fa-brands fa-wikipedia-w"></i></a>
-{% endif %}
-{% if site.strava_userid %}
-  <a href="https://www.strava.com/athletes/{{ site.strava_userid }}" title="Strava" class="strava"><i class="fa-brands fa-strava"></i></a>
-{% endif %}
-{% if site.keybase_username %}
-  <a href="https://keybase.io/{{ site.keybase_username }}" title="Keybase"><i class="fa-brands fa-keybase"></i></a>
-{% endif %}
-{% if site.gitlab_username %}
-  <a href="https://gitlab.com/{{ site.gitlab_username }}" title="GitLab" class="gitlab"><i class="fa-brands fa-gitlab"></i></a>
-{% endif %}
-{% if site.dblp_url %}
-  <a href="{{ site.dblp_url }}" title="DBLP"><i class="ai ai-dblp"></i></a>
-{% endif %}
-{% if site.stackoverflow_id %}
-  <a href="https://stackoverflow.com/users/{{ site.stackoverflow_id }}" title="Stackoverflow" class="stackoverflow"><i class="fa-brands fa-stack-overflow"></i></a>
-{% endif %}
-{% if site.kaggle_id %}
-  <a href="https://www.kaggle.com/{{ site.kaggle_id }}" title="Kaggle"><i class="fa-brands fa-kaggle"></i></a>
-{% endif %}
-{% if site.lastfm_id %}
-  <a href="https://www.last.fm/user/{{ site.lastfm_id }}" title="Last FM"><i class="fa-brands fa-lastfm"></i></a>
-{% endif %}
-{% if site.spotify_id %}
-  <a href="https://open.spotify.com/user/{{ site.spotify_id }}" title="Spotify" class="spotify"><i class="fa-brands fa-spotify"></i></a>
-{% endif %}
-{% if site.pinterest_id %}
-  <a href="https://www.pinterest.com/{{ site.pinterest_id }}" title="Pinterest" class="pinterest"><i class="fa-brands fa-pinterest"></i></a>
-{% endif %}
-{% if site.unsplash_id %}
-  <a href="https://unsplash.com/@{{ site.unsplash_id }}" title="Unsplash"><i class="fa-brands fa-unsplash"></i></a>
-{% endif %}
-{% if site.instagram_id %}
-  <a href="https://instagram.com/{{ site.instagram_id }}" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
-{% endif %}
-{% if site.facebook_id %}
-  <a href="https://facebook.com/{{ site.facebook_id }}" title="Facebook" class="facebook"><i class="fa-brands fa-facebook"></i></a>
-{% endif %}
-{% if site.youtube_id %}
-  <a href="https://youtube.com/@{{ site.youtube_id }}" title="YouTube" class="youtube"><i class="fa-brands fa-youtube"></i></a>
-{% endif %}
-{% if site.discord_id %}
-  <a href="https://discord.com/users/{{ site.discord_id }}" title="Discord" class="discord"><i class="fa-brands fa-discord"></i></a>
-{% endif %}
-{% if site.zotero_username %}
-  <a href="https://www.zotero.org/{{ site.zotero_username }}" title="Zotero"><i class="ai ai-zotero"></i></a>
-{% endif %}
+{% assign emails = site.email | split: "," %}
+{% for email in emails %}
+  <a href="mailto:{{ email | strip | encode_email }}" title="email"><i class="fa-solid fa-envelope"></i></a>
+{% endfor %}
+{% assign telegram_usernames = site.telegram_username | split: "," %}
+{% for telegram_username in telegram_usernames %}
+  <a href="https://telegram.me/{{ telegram_username }}" title="telegram" class="telegram"><i class="fa-brands fa-telegram"></i></a>
+{% endfor %}
+{% assign whatsapp_numbers = site.whatsapp_number | split: "," %}
+{% for whatsapp_number in whatsapp_numbers %}
+  <a href="https://wa.me/{{ whatsapp_number | strip }}" title="whatsapp" class="whatsapp"><i class="fa-brands fa-whatsapp"></i></a>
+{% endfor %}
+{% assign orcid_ids = site.orcid_id | split: "," %}
+{% for orcid_id in orcid_ids %}
+  <a href="https://orcid.org/{{ orcid_id | strip }}" title="ORCID" class="orcid"><i class="ai ai-orcid"></i></a>
+{% endfor %}
+{% assign scholar_userids = site.scholar_userids | split: "," %}
+{% for scholar_userid in scholar_userids %}
+  <a href="https://scholar.google.com/citations?user={{ scholar_userid | strip }}" title="Google Scholar"><i class="ai ai-google-scholar"></i></a>
+{% endfor %}
+{% assign semanticscholar_ids = site.semanticscholar_ids | split: "," %}
+{% for semanticscholar_id in semanticscholar_ids %}
+  <a href="https://www.semanticscholar.org/author/{{ semanticscholar_id | strip }}" title="Semantic Scholar"><i class="ai ai-semantic-scholar"></i></a>
+{% endfor %}
+{% assign publons_ids = site.publons_id | split: "," %}
+{% for publons_id in publons_ids %}
+  <a href="https://publons.com/a/{{ publons_id }}/" title="Publons"><i class="ai ai-publons"></i></a>
+{% endfor %}
+{% assign lattes_ids = site.lattes_id | split: "," %}
+{% for lattes_id in lattes_ids %}
+  <a href="http://lattes.cnpq.br/{{ lattes_id | strip }}" target="_blank" title="Lattes"><i class="ai ai-lattes"></i></a>
+{% endfor %}
+{% assign osf_ids = site.osf_id | split: "," %}
+{% for osf_id in osf_ids %}
+  <a href="https://osf.io/{{ osf_id | strip }}/" title="Open Science Framework"><i class="ai ai-osf"></i></a>
+{% endfor %}
+{% assign research_gate_profiles = site.research_gate_profile | split: "," %}
+{% for research_gate_profile in research_gate_profiles %}
+  <a href="https://www.researchgate.net/profile/{{research_gate_profile | strip}}/" title="ResearchGate" class="researchgate"><i class="ai ai-researchgate"></i></a>
+{% endfor %}
+{% assign scopus_ids = site.scopus_id | split: "," %}
+{% for scopus_id in scopus_ids %}
+  <a href="https://www.scopus.com/authid/detail.uri?authorId={{scopus_id | strip}}" title="Scopus"><i class="ai ai-scopus"></i></a>
+{% endfor %}
+{% assign github_accounts = site.github_username | split: "," %}
+{% for github_account in github_accounts %}
+  <a href="https://github.com/{{ github_account | strip}}" title="GitHub"><i class="fa-brands fa-github"></i></a>
+{% endfor %}
+{% assign linkedin_usernames = site.linkedin_username | split: "," %}
+{% for linkedin_username in linkedin_usernames %}
+  <a href="https://www.linkedin.com/in/{{ linkedin_username | strip }}" title="LinkedIn" class="linkedin"><i class="fa-brands fa-linkedin"></i></a>
+{% endfor %}
+{% assign x_usernames = site.whatsapp_number | split: "," %}
+{% for x_username in x_usernames %}
+  <a href="https://twitter.com/{{ x_username | strip }}" title="X"><i class="fa-brands fa-x-twitter"></i></a>
+{% endfor %}
+{% assign mastodon_usernames = site.mastodon_username | split: "," %}
+{% for mastodon_username in mastodon_usernames %}
+  <a rel="me" href="https://{{ mastodon_username | strip }}" title="Mastodon" class="mastodon"><i class="fa-brands fa-mastodon"></i></a>
+{% endfor %}
+{% assign medium_usernames = site.medium_username | split: "," %}
+{% for medium_username in medium_usernames %}
+  <a href="https://medium.com/@{{ medium_username | strip }}" title="Medium"><i class="fa-brands fa-medium"></i></a>
+{% endfor %}
+{% assign quora_usernames = site.quora_username | split: "," %}
+{% for quora_username in quora_usernames %}
+  <a href="https://www.quora.com/profile/{{ quora_username | strip }}" title="Quora" class="quora"><i class="fa-brands fa-quora"></i></a>
+{% endfor %}
+{% assign blogger_urls = site.blogger_url | split: "," %}
+{% for blogger_url in blogger_urls %}
+  <a href="{{ blogger_url | strip }}" title="Blogger" class="blogger"><i class="fa-brands fa-blogger-b"></i></a>
+{% endfor %}
+{% assign work_urls = site.work_url | split: "," %}
+{% for work_url in work_urls %}
+  <a href="{{ work_url | strip }}" title="Work"><i class="fa-solid fa-briefcase"></i></a>
+{% endfor %}
+{% assign wikidata_ids = site.wikidata_id | split: "," %}
+{% for wikidata_id in wikidata_ids %}
+  <a href="https://www.wikidata.org/wiki/{{ wikidata_id | strip }}" title="Wikidata"><i class="fa-solid fa-barcode"></i></a>
+{% endfor %}
+{% assign wikipedia_ids = site.wikipedia_id | split: "," %}
+{% for wikipedia_id in wikipedia_ids %}
+  <a href="https://wikipedia.org/wiki/User:{{ wikipedia_id | strip }}" title="Wikipedia"><i class="fa-brands fa-wikipedia-w"></i></a>
+{% endfor %}
+{% assign strava_userids = site.strava_userid | split: "," %}
+{% for strava_userid in strava_userids %}
+  <a href="https://www.strava.com/athletes/{{ strava_userid | strip }}" title="Strava" class="strava"><i class="fa-brands fa-strava"></i></a>
+{% endfor %}
+{% assign keybase_usernames = site.keybase_username | split: "," %}
+{% for keybase_username in keybase_usernames %}
+  <a href="https://keybase.io/{{ keybase_username | strip }}" title="Keybase"><i class="fa-brands fa-keybase"></i></a>
+{% endfor %}
+{% assign gitlab_usernames = site.gitlab_username | split: "," %}
+{% for gitlab_username in gitlab_usernames %}
+  <a href="https://gitlab.com/{{ gitlab_username | strip }}" title="GitLab" class="gitlab"><i class="fa-brands fa-gitlab"></i></a>
+{% endfor %}
+{% assign dblp_urls = site.dblp_url | split: "," %}
+{% for dblp_url in dblp_urls %}
+  <a href="{{ dblp_url | strip}}" title="DBLP"><i class="ai ai-dblp"></i></a>
+{% endfor %}
+{% assign stackoverflow_ids = site.stackoverflow_id | split: "," %}
+{% for stackoverflow_id in stackoverflow_ids %}
+  <a href="https://stackoverflow.com/users/{{ stackoverflow_id | strip }}" title="Stackoverflow" class="stackoverflow"><i class="fa-brands fa-stack-overflow"></i></a>
+{% endfor %}
+{% assign kaggle_ids = site.kaggle_id | split: "," %}
+{% for kaggle_id in kaggle_ids %}
+  <a href="https://www.kaggle.com/{{ kaggle_id | strip }}" title="Kaggle"><i class="fa-brands fa-kaggle"></i></a>
+{% endfor %}
+{% assign lastfm_ids = site.lastfm_id | split: "," %}
+{% for lastfm_id in lastfm_ids %}
+  <a href="https://www.last.fm/user/{{ lastfm_id | strip }}" title="Last FM"><i class="fa-brands fa-lastfm"></i></a>
+{% endfor %}
+{% assign spotfory_ids = site.spotfory_id | split: "," %}
+{% for spotfory_id in spotfory_ids %}
+  <a href="https://open.spotfory.com/user/{{ spotfory_id | strip }}" title="Spotfory" class="spotfory"><i class="fa-brands fa-spotfory"></i></a>
+{% endfor %}
+{% assign pinterest_ids = site.pinterest_id | split: "," %}
+{% for pinterest_id in pinterest_ids %}
+  <a href="https://www.pinterest.com/{{ pinterest_id | strip }}" title="Pinterest" class="pinterest"><i class="fa-brands fa-pinterest"></i></a>
+{% endfor %}
+{% assign unsplash_ids = site.unsplash_id | split: "," %}
+{% for unsplash_id in unsplash_ids %}
+  <a href="https://unsplash.com/@{{ unsplash_id | strip }}" title="Unsplash"><i class="fa-brands fa-unsplash"></i></a>
+{% endfor %}
+{% assign instagram_ids = site.instagram_id | split: "," %}
+{% for instagram_id in instagram_ids %}
+  <a href="https://instagram.com/{{ instagram_id | strip }}" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+{% endfor %}
+{% assign facebook_ids = site.facebook_id | split: "," %}
+{% for facebook_id in facebook_ids %}
+  <a href="https://facebook.com/{{ facebook_id | strip }}" title="Facebook" class="facebook"><i class="fa-brands fa-facebook"></i></a>
+{% endfor %}
+{% assign youtube_ids = site.youtube_id | split: "," %}
+{% for youtube_id in youtube_ids %}
+  <a href="https://youtube.com/@{{ youtube_id | strip }}" title="YouTube" class="youtube"><i class="fa-brands fa-youtube"></i></a>
+{% endfor %}
+{% assign discord_ids = site.discord_id | split: "," %}
+{% for discord_id in discord_ids %}
+  <a href="https://discord.com/users/{{ discord_id | strip }}" title="Discord" class="discord"><i class="fa-brands fa-discord"></i></a>
+{% endfor %}
+{% assign zotero_usernames = site.zotero_username | split: "," %}
+{% for zotero_username in zotero_usernames %}
+  <a href="https://www.zotero.org/{{ zotero_username | strip }}" title="Zotero"><i class="ai ai-zotero"></i></a>
+{% endfor %}
 {% if site.rss_icon %}
   <a href="{{ site.baseurl }}/feed.xml" title="RSS Feed" class="rss"><i class="fa-solid fa-square-rss"></i></a>
 {% endif %}
