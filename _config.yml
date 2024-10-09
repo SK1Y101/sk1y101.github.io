@@ -4,10 +4,10 @@
 
 title: blank # the website title (if blank, full name will be used instead)
 first_name: Jack
-middle_name: 
+middle_name:
 last_name: Lloyd-Walters
 post_nomials: MPhys MInstP FRAS
-email: email@lloydwaltersj.com
+email: email@lloydwaltersj.co.uk
 description: > # the ">" symbol means to ignore newlines until "footer_text:"
   Jack Lloyd-Walters' Personal website. Based on [*folio](https://github.com/bogoli/-folio) design.
 footer_text: >
@@ -313,7 +313,24 @@ enable_publication_badges:
 
 # Filter out certain bibtex entry keywords used internally from the bib output
 filtered_bibtex_keywords:
-  [abbr, abstract, altmetric, arxiv, bibtex_show, blog, code, html, pdf, poster, preview, selected, slides, supp, video, website]
+  [
+    abbr,
+    abstract,
+    altmetric,
+    arxiv,
+    bibtex_show,
+    blog,
+    code,
+    html,
+    pdf,
+    poster,
+    preview,
+    selected,
+    slides,
+    supp,
+    video,
+    website,
+  ]
 
 # Maximum number of authors to be shown for each publication (more authors are visible on click)
 max_author_limit: 3 # leave blank to always show all authors

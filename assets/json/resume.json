@@ -3,9 +3,9 @@
     "name": "Jack Lloyd-Walters",
     "label": "Software Engineer",
     "image": "/img/prof_pic.jpg",
-    "email": "jack@lloydwaltersj.com",
+    "email": "jack@lloydwaltersj.co.uk",
     "phone": "",
-    "url": "https://lloydwaltersj.com",
+    "url": "https://lloydwaltersj.co.uk",
     "summary": "UK Based Software Engineer working on the Metal As A Service team at Canonical.",
     "location": {
       "address": "",
@@ -35,7 +35,11 @@
       "icon": "canonical.jpeg",
       "startDate": "2023-05",
       "summary": "Primarily handling infrastructure and CI/CD projects.",
-      "highlights": ["maas-ansible-collection", "terraform-provider", "gomaaslcient"]
+      "highlights": [
+        "maas-ansible-collection",
+        "terraform-provider",
+        "gomaaslcient"
+      ]
     },
     {
       "name": "MAAS, Canonical",
@@ -45,7 +49,10 @@
       "startDate": "2022-06",
       "endDate": "2023-05",
       "summary": "Joined as part of the graduate fast rack program.",
-      "highlights": ["maas-ansible-playbooks", "MAAS"]
+      "highlights": [
+        "maas-ansible-playbooks",
+        "MAAS"
+      ]
     }
   ],
   "education": [
@@ -249,7 +256,10 @@
     {
       "name": "Quantum computing",
       "summary": "Quantum computing is the use of quantum-mechanical phenomena such as superposition and entanglement to perform computation. Computers that perform quantum computations are known as quantum computers.",
-      "highlights": ["Quantum Teleportation", "Quantum Cryptography"],
+      "highlights": [
+        "Quantum Teleportation",
+        "Quantum Cryptography"
+      ],
       "date": "2018-01-01",
       "endDate": "2018-01-01",
       "url": "https://example.com",
