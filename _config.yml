@@ -7,7 +7,7 @@ first_name: Jack
 middle_name:
 last_name: Lloyd-Walters
 post_nomials: MPhys MInstP FRAS
-email: email@lloydwaltersj.co.uk
+email: email@lloydwaltersj.com
 description: > # the ">" symbol means to ignore newlines until "footer_text:"
   Jack Lloyd-Walters' Personal website. Based on [*folio](https://github.com/bogoli/-folio) design.
 footer_text: >
