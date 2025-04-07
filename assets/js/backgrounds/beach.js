@@ -10,6 +10,15 @@ var requestAnimFrame = (function(){
          };
 })();
 
+// function to get todays date
+function today(d) {
+  var day = d.getDate(),
+      mon = d.getMonth()+1;
+  (day < 10) ? day = "0"+day : day;
+  (mon < 10) ? mon = "0"+mon : mon;
+  return day+"/"+mon;
+}
+
 // fetch the background canvas
 var background = document.getElementById("bgCanvas"),
     bgCtx = background.getContext("2d"),
@@ -21,25 +30,28 @@ var background = document.getElementById("bgCanvas"),
 height = 1080;
 width = 1920;
 
+// the sky
+function drawSky() {
+  const gradient = bgCtx.createLinearGradient(0, 0, 0, height);
+  gradient.addColorStop(0, '#0b0033');     // Night sky top
+  gradient.addColorStop(0.3, '#2e1a47');   // Twilight
+  gradient.addColorStop(0.6, '#ffb6c1');   // Pinkish
+  gradient.addColorStop(1, '#87ceeb');     // Sky blue near beach
+  bgCtx.fillStyle = gradient;
+  bgCtx.fillRect(0, 0, width, height);
+}
+
 // set the canvase size
 background.width = width;
 background.height = height;
 
-// draw the night sky
-bgCtx.fillStyle = "#110E19";
-bgCtx.fillRect(0, 0, width, height);
-
 // create an array of animated entities
 var entities = [];
-// for (var i = height; i > 0; i--) { entities.push(new Object()); }
 
 // animate the background
 function animate() {
   // fetch the requiredbackground colour
-  bgCtx.fillStyle = "#110E19";
-  bgCtx.fillRect(0, 0, width, height);
-  bgCtx.fillStyle = '#ffffff';
-  bgCtx.strokeStyle = '#ffffff';
+  drawSky();
 
   // update all entities
   var entLen = entities.length;

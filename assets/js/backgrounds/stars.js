@@ -157,7 +157,7 @@ Satellite.prototype.reset = function() {
 }
 
 // list of special dates
-var specialDates = ["23/08", "26/10", "25/12"];
+var specialDates = ["27/07", "12/08", "23/08", "04/09", "26/10"];
 
 // boolean for if this date is special
 var isSpecialDate = false;
