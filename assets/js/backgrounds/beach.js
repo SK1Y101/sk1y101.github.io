@@ -30,6 +30,11 @@ var background = document.getElementById("bgCanvas"),
 height = 1080;
 width = 1920;
 
+// Helper functions
+function lerp(a, b, t) {
+  return a + (b - a) * t;
+}
+
 // the sky
 function drawSky() {
   const gradient = bgCtx.createLinearGradient(0, 0, 0, height);
@@ -44,28 +49,47 @@ function drawSky() {
   bgCtx.fillRect(0, 0, width, height);
 }
 
+// the sun
 function drawSun() {
   const sunX = width / 2;
   const sunY = height * 0.75;
-  const sunRadius = 60;
+  const sunRadius = 50;
 
-  // Outer glow
-  const sunGradient = bgCtx.createRadialGradient(sunX, sunY, 10, sunX, sunY, sunRadius * 2);
-  sunGradient.addColorStop(0, 'rgba(255, 244, 150, 0.8)');
-  sunGradient.addColorStop(1, 'rgba(255, 244, 150, 0)');
+  // Yellow glow (outer halo)
+  const sunGradient = bgCtx.createRadialGradient(sunX, sunY, 10, sunX, sunY, sunRadius * 2.5);
+  sunGradient.addColorStop(0, 'rgba(255, 255, 200, 0.5)');
+  sunGradient.addColorStop(1, 'rgba(255, 255, 100, 0)');
 
   bgCtx.fillStyle = sunGradient;
   bgCtx.beginPath();
-  bgCtx.arc(sunX, sunY, sunRadius * 2, 0, Math.PI * 2);
+  bgCtx.arc(sunX, sunY, sunRadius * 2.5, 0, Math.PI * 2);
   bgCtx.fill();
 
-  // Actual sun core
-  bgCtx.fillStyle = 'rgba(255, 244, 150, 1)';
+  // Solid white sun core
+  bgCtx.fillStyle = 'white';
   bgCtx.beginPath();
   bgCtx.arc(sunX, sunY, sunRadius, 0, Math.PI * 2);
   bgCtx.fill();
 }
 
+// Beach waves
+let waveOffset = 0;
+function drawWaves() {
+  waveOffset += 0.01;
+  ctx.fillStyle = '#1e90ff';
+  ctx.beginPath();
+  const amplitude = 20;
+  const frequency = 0.02;
+  ctx.moveTo(0, canvas.height * 0.8);
+  for (let x = 0; x < canvas.width; x++) {
+    const y = Math.sin(x * frequency + waveOffset) * amplitude + canvas.height * 0.8;
+    ctx.lineTo(x, y);
+  }
+  ctx.lineTo(canvas.width, canvas.height);
+  ctx.lineTo(0, canvas.height);
+  ctx.closePath();
+  ctx.fill();
+}
 
 // set the canvase size
 background.width = width;
@@ -79,6 +103,7 @@ function animate() {
   // fetch the requiredbackground colour
   drawSky();
   drawSun();
+  drawWaves();
 
   // update all entities
   var entLen = entities.length;
