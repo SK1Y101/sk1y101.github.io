@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: none
 permalink: /test/
 title: test
 background: beach
