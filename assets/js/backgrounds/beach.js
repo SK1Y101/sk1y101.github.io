@@ -70,7 +70,7 @@ function drawSun() {
 
 // The beach
 function drawBeach() {
-  const beachHeight = height * 0.25;
+  const beachHeight = height * 0.15;
   const beachTop = height - beachHeight;
 
   // Optional: gradient sand
