@@ -16,29 +16,17 @@
 
     <!-- Content -->
     <div class="content container mt-5" role="main" style="">
-      {% if page.toc and page.toc.sidebar %}
-        {% if page.toc.sidebar == 'right' %}
-          <div class="row">
-            <!-- main content area -->
-            <div class="col-sm-9">{{ content }}</div>
-            <!-- sidebar, which will move to the top on a small screen -->
-            <div class="col-sm-3">
-              <nav id="toc-sidebar" class="sticky-top"></nav>
+        <article class="post-content">
+            {% if page.toc and page.toc.beginning %}
+              <div id="table-of-contents">
+                {% toc %}
+              </div>
+              <hr>
+            {% endif %}
+            <div id="markdown-content">
+              {{ content }}
             </div>
-          </div>
-        {% else %}
-          <div class="row">
-            <!-- sidebar, which will move to the top on a small screen -->
-            <div class="col-sm-3">
-              <nav id="toc-sidebar" class="sticky-top"></nav>
-            </div>
-            <!-- main content area -->
-            <div class="col-sm-9">{{ content }}</div>
-          </div>
-        {% endif %}
-      {% else %}
-        {{ content }}
-      {% endif %}
+          </article>
     </div>
 
     <!-- JavaScripts -->
