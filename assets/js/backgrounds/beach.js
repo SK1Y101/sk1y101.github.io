@@ -95,71 +95,71 @@ function drawBeach() {
 
 
 // Beach waves
-// let waveOffset = 0;
-// function drawWaves() {
-//   waveOffset += 0.01;
-//   ctx.fillStyle = '#1e90ff';
-//   ctx.beginPath();
-//   const amplitude = 20;
-//   const frequency = 0.02;
-//   ctx.moveTo(0, canvas.height * 0.8);
-//   for (let x = 0; x < canvas.width; x++) {
-//     const y = Math.sin(x * frequency + waveOffset) * amplitude + canvas.height * 0.8;
-//     ctx.lineTo(x, y);
-//   }
-//   ctx.lineTo(canvas.width, canvas.height);
-//   ctx.lineTo(0, canvas.height);
-//   ctx.closePath();
-//   ctx.fill();
-// }
+let waveOffset = 0;
+function drawWaves() {
+  waveOffset += 0.01;
+  ctx.fillStyle = '#1e90ff';
+  ctx.beginPath();
+  const amplitude = 20;
+  const frequency = 0.02;
+  ctx.moveTo(0, canvas.height * 0.8);
+  for (let x = 0; x < canvas.width; x++) {
+    const y = Math.sin(x * frequency + waveOffset) * amplitude + canvas.height * 0.8;
+    ctx.lineTo(x, y);
+  }
+  ctx.lineTo(canvas.width, canvas.height);
+  ctx.lineTo(0, canvas.height);
+  ctx.closePath();
+  ctx.fill();
+}
 
-// // Cloud entity
-// function Cloud() {
-//   this.x = Math.random() * width;
-//   this.y = Math.random() * (height * 0.5); // upper half of sky
-//   this.size = 50 + Math.random() * 100;
-//   this.speed = 0.1 + Math.random() * 0.3;
-//   this.opacity = 0.2 + Math.random() * 0.3;
-//   this.color = 'rgba(255, 255, 255,' + this.opacity + ')';
-// }
+// Cloud entity
+function Cloud() {
+  this.x = Math.random() * width;
+  this.y = Math.random() * (height * 0.5); // upper half of sky
+  this.size = 50 + Math.random() * 100;
+  this.speed = 0.1 + Math.random() * 0.3;
+  this.opacity = 0.2 + Math.random() * 0.3;
+  this.color = 'rgba(255, 255, 255,' + this.opacity + ')';
+}
 
-// Cloud.prototype.update = function () {
-//   this.x += this.speed;
+Cloud.prototype.update = function () {
+  this.x += this.speed;
 
-//   if (this.x - this.size > width) {
-//     this.x = -this.size;
-//     this.y = Math.random() * (height * 0.5);
-//   }
+  if (this.x - this.size > width) {
+    this.x = -this.size;
+    this.y = Math.random() * (height * 0.5);
+  }
 
-//   bgCtx.fillStyle = this.color;
-//   bgCtx.beginPath();
-//   bgCtx.ellipse(this.x, this.y, this.size, this.size * 0.6, 0, 0, Math.PI * 2);
-//   bgCtx.fill();
-// };
+  bgCtx.fillStyle = this.color;
+  bgCtx.beginPath();
+  bgCtx.ellipse(this.x, this.y, this.size, this.size * 0.6, 0, 0, Math.PI * 2);
+  bgCtx.fill();
+};
 
-// // Bubble entity
-// function Bubble() {
-//   this.x = Math.random() * width;
-//   this.y = height - Math.random() * 100;
-//   this.radius = 2 + Math.random() * 4;
-//   this.speed = 0.2 + Math.random() * 0.5;
-//   this.alpha = 0.2 + Math.random() * 0.3;
-// }
+// Bubble entity
+function Bubble() {
+  this.x = Math.random() * width;
+  this.y = height - Math.random() * 100;
+  this.radius = 2 + Math.random() * 4;
+  this.speed = 0.2 + Math.random() * 0.5;
+  this.alpha = 0.2 + Math.random() * 0.3;
+}
 
-// Bubble.prototype.update = function () {
-//   this.y -= this.speed;
-//   this.x += Math.sin(this.y / 20) * 0.2;
+Bubble.prototype.update = function () {
+  this.y -= this.speed;
+  this.x += Math.sin(this.y / 20) * 0.2;
 
-//   if (this.y + this.radius < 0) {
-//     this.y = height;
-//     this.x = Math.random() * width;
-//   }
+  if (this.y + this.radius < 0) {
+    this.y = height;
+    this.x = Math.random() * width;
+  }
 
-//   bgCtx.fillStyle = `rgba(255, 255, 255, ${this.alpha})`;
-//   bgCtx.beginPath();
-//   bgCtx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-//   bgCtx.fill();
-// };
+  bgCtx.fillStyle = `rgba(255, 255, 255, ${this.alpha})`;
+  bgCtx.beginPath();
+  bgCtx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+  bgCtx.fill();
+};
 
 
 // set the canvase size
@@ -169,9 +169,9 @@ background.height = height;
 // create an array of animated entities
 var entities = [];
 // Add clouds
-// for (let i = 0; i < 5; i++) { entities.push(new Cloud()); }
-// // Add bubbles
-// for (let i = 0; i < 30; i++) { entities.push(new Bubble()); }
+for (let i = 0; i < 5; i++) { entities.push(new Cloud()); }
+// Add bubbles
+for (let i = 0; i < 30; i++) { entities.push(new Bubble()); }
 
 
 // animate the background
@@ -179,7 +179,8 @@ function animate() {
   // fetch the requiredbackground colour
   drawSky();
   drawSun();
-  // drawWaves();
+  drawBeach();
+  drawWaves();
 
   // update all entities
   var entLen = entities.length;
