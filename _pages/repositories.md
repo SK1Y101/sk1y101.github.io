@@ -4,7 +4,7 @@ permalink: /repositories/
 title: repositories
 background: stars
 description:
-nav: true
+nav: false
 ---
 
 ## GitHub users

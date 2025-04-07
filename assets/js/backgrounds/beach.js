@@ -33,13 +33,39 @@ width = 1920;
 // the sky
 function drawSky() {
   const gradient = bgCtx.createLinearGradient(0, 0, 0, height);
-  gradient.addColorStop(0, '#0b0033');     // Night sky top
-  gradient.addColorStop(0.3, '#2e1a47');   // Twilight
-  gradient.addColorStop(0.6, '#ffb6c1');   // Pinkish
-  gradient.addColorStop(1, '#87ceeb');     // Sky blue near beach
+  gradient.addColorStop(0, '#0b0033');  // Top: deep night blue
+  gradient.addColorStop(0.3, '#2e1a47');  // Twilight purple
+  gradient.addColorStop(0.6, '#ff758c');  // Pink glow
+  gradient.addColorStop(0.75, '#ffd580');  // Sunset orange
+  gradient.addColorStop(0.9, '#fff1a8');  // Yellow near horizon
+  gradient.addColorStop(1, '#ffe4b5');  // Horizon glow
+
   bgCtx.fillStyle = gradient;
   bgCtx.fillRect(0, 0, width, height);
 }
+
+function drawSun() {
+  const sunX = width / 2;
+  const sunY = height * 0.75;
+  const sunRadius = 60;
+
+  // Outer glow
+  const sunGradient = bgCtx.createRadialGradient(sunX, sunY, 10, sunX, sunY, sunRadius * 2);
+  sunGradient.addColorStop(0, 'rgba(255, 244, 150, 0.8)');
+  sunGradient.addColorStop(1, 'rgba(255, 244, 150, 0)');
+
+  bgCtx.fillStyle = sunGradient;
+  bgCtx.beginPath();
+  bgCtx.arc(sunX, sunY, sunRadius * 2, 0, Math.PI * 2);
+  bgCtx.fill();
+
+  // Actual sun core
+  bgCtx.fillStyle = 'rgba(255, 244, 150, 1)';
+  bgCtx.beginPath();
+  bgCtx.arc(sunX, sunY, sunRadius, 0, Math.PI * 2);
+  bgCtx.fill();
+}
+
 
 // set the canvase size
 background.width = width;
@@ -52,6 +78,7 @@ var entities = [];
 function animate() {
   // fetch the requiredbackground colour
   drawSky();
+  drawSun();
 
   // update all entities
   var entLen = entities.length;
