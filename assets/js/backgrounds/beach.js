@@ -153,45 +153,45 @@ Cloud.prototype.update = function () {
 };
 
 // Bubble entity
-function Bubble() {
-  this.x = Math.random() * width;
-  this.y = Math.random() * height;
-  this.radius = Math.random() * 20 + 5;
-  this.speedX = -(Math.random() * 0.5 + 0.1); // drift left
-  this.offset = Math.random() * 1000; // for jitter phase
-  this.hueShift = Math.random() * 360; // different hues per bubble
-}
-Bubble.prototype.update = function (time) {
-  // Jitter and drift
-  this.y += Math.sin((time + this.offset) * 0.002) * 0.3;
-  this.x += this.speedX;
+Bubble.prototype.update = function (t) {
+  // Ensure x, y, and radius are finite numbers
+  if (isFinite(this.x) && isFinite(this.y) && isFinite(this.radius)) {
+    this.y += 0.3 * Math.sin(0.002 * (t + this.offset));
+    this.x += this.speedX;
 
-  if (this.x < -this.radius) {
-    this.x = width + this.radius;
-    this.y = Math.random() * height;
+    // Reset bubble if it goes off the screen
+    if (this.x < -this.radius) {
+      this.x = width + this.radius;
+      this.y = Math.random() * height;
+    }
+
+    // Create the radial gradient for the bubble
+    const i = bgCtx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.radius);
+
+    i.addColorStop(0, "rgba(255, 255, 255, 0.05)");
+    i.addColorStop(0.4, `hsla(${this.hueShift}, 80%, 85%, 0.12)`);
+    i.addColorStop(0.7, `hsla(${(this.hueShift + 120) % 360}, 90%, 75%, 0.18)`);
+    i.addColorStop(1, `hsla(${(this.hueShift + 240) % 360}, 100%, 80%, 0.4)`);
+
+    // Drawing the bubble with the gradient
+    bgCtx.save();
+    bgCtx.globalCompositeOperation = "lighter";
+    bgCtx.fillStyle = i;
+    bgCtx.beginPath();
+    bgCtx.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
+    bgCtx.fill();
+    bgCtx.restore();
+
+    // Inner bubble reflection
+    bgCtx.fillStyle = "rgba(255, 255, 255, 0.25)";
+    bgCtx.beginPath();
+    bgCtx.arc(this.x + this.radius / 3, this.y - this.radius / 3, this.radius / 6, 0, 2 * Math.PI);
+    bgCtx.fill();
+  } else {
+    console.error("Invalid bubble parameters:", this.x, this.y, this.radius);
   }
-
-  const grd = bgCtx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.radius);
-  grd.addColorStop(0, 'rgba(255, 255, 255, 0.05)'); // subtle core
-  grd.addColorStop(0.4, `hsla(${this.hueShift}, 80%, 85%, 0.12)`); // shifting inner tint
-  grd.addColorStop(0.7, `hsla(${(this.hueShift + 120) % 360}, 90%, 75%, 0.18)`); // more variation
-  grd.addColorStop(1, `hsla(${(this.hueShift + 240) % 360}, 100%, 80%, 0.4)`); // edge glow
-
-  // Glow effect on overlap
-  bgCtx.save();
-  bgCtx.globalCompositeOperation = 'lighter';
-  bgCtx.fillStyle = grd;
-  bgCtx.beginPath();
-  bgCtx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-  bgCtx.fill();
-  bgCtx.restore();
-
-  // Add highlight reflection
-  bgCtx.fillStyle = 'rgba(255,255,255,0.25)';
-  bgCtx.beginPath();
-  bgCtx.arc(this.x + this.radius / 3, this.y - this.radius / 3, this.radius / 6, 0, Math.PI * 2);
-  bgCtx.fill();
 };
+
 
 
 // Shooting star entity
