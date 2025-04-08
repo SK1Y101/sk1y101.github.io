@@ -37,14 +37,14 @@ function lerp(a, b, t) {
 
 const starColour = ["white", "floralWhite", "aliceBlue", "powderBlue", "azure", "moccasin", "sandyBrown", "peachPuff"]
 const namedColorRGB = {
-  white: [255, 255, 255],
-  floralWhite: [255, 250, 240],
-  aliceBlue: [240, 248, 255],
-  powderBlue: [176, 224, 230],
-  azure: [240, 255, 255],
-  moccasin: [255, 228, 181],
-  sandyBrown: [244, 164, 96],
-  peachPuff: [255, 218, 185],
+  "white": [255, 255, 255],
+  "floralWhite": [255, 250, 240],
+  "aliceBlue": [240, 248, 255],
+  "powderBlue": [176, 224, 230],
+  "azure": [240, 255, 255],
+  "moccasin": [255, 228, 181],
+  "sandyBrown": [244, 164, 96],
+  "peachPuff": [255, 218, 185],
 };
 
 // the sky
@@ -174,12 +174,24 @@ function ShootingStar() {
 }
 ShootingStar.prototype.getRGBA = function (name, alpha) {
   const rgb = namedColorRGB[name] || [255, 255, 255]; // fallback to white
-  return `rgba(${rgb[0]}, ${rgb[1]}, ${rgb[2]}, ${alpha})`;
+  console.log(`RGB value found`);
+  console.log(rgb);
+  const rgba = `rgba(${rgb[0]}, ${rgb[1]}, ${rgb[2]}, ${alpha})`;
+  console.log(`RGBA value found`);
+  console.log(rgba);
+  return rgba;
 };
 ShootingStar.prototype.fetch_colour = function (y_cor) {
-  top = height * 0.6
-  height_fraction = Math.max(top, Math.min(0, y_cor)) / top;
-  return this.getRGBA(this.colour, Math.round(255*height_fraction));
+  const top = height * 0.6;
+  console.log(`top of screen`);
+  console.log(top);
+  const height_fraction = Math.max(top, Math.min(0, y_cor)) / top;
+  console.log(`height fraction`);
+  console.log(height_fraction);
+  const rgba = this.getRGBA(this.colour, Math.round(255 * height_fraction));
+  console.log(`RGBA value found`);
+  console.log(rgba);
+  return rgba;
 };
 ShootingStar.prototype.update = function () {
   if (this.active) {
