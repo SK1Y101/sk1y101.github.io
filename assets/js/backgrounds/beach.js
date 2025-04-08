@@ -104,7 +104,6 @@ function Cloud() {
   this.y = height * 0.35 + (Math.random() ** 1.6 - 0.5) * height * 0.35;
   this.size = Math.random() * 40 + 40;
   this.speed = Math.random() * 0.1 + 0.05;
-  this.opacity = 0.4;
   this.puffs = [];
 
   const puffCount = Math.floor(Math.random() * 30) + 30; // 30–60 puffs
@@ -115,20 +114,22 @@ function Cloud() {
   this.buffer.height = bufferSize;
   const bctx = this.buffer.getContext('2d');
 
-  bctx.shadowColor = 'rgba(255, 255, 255, 0.2)';
-  bctx.shadowBlur = 20;
+  // Shadow only for soft edges, not affecting opacity of puffs
+  bctx.shadowColor = 'rgba(255, 255, 255, 0.3)'; // Light shadow effect
+  bctx.shadowBlur = 30;
 
-  // More natural distribution using radial falloff
+  // Create puffs with opacity, ensuring transparency on the edges
   for (let i = 0; i < puffCount; i++) {
     const angle = Math.random() * Math.PI * 2;
-    const r = (1 - Math.pow(Math.random(), 2)) * (this.size / 1.2); // falloff from center
+    const r = (1 - Math.pow(Math.random(), 2)) * (this.size / 1.2); // Falloff from center
     const px = bufferSize / 2 + Math.cos(angle) * r * 1.2;
     const py = bufferSize / 2 + Math.sin(angle) * r * 0.6;
 
     const rx = this.size / 3 + Math.random() * 6;
     const ry = this.size / 4 + Math.random() * 4;
 
-    const puffOpacity = 0.5 + Math.random() * 0.3;
+    // Set opacity for each puff to keep them semi-transparent
+    const puffOpacity = 0.3 + Math.random() * 0.3; // Range from 0.3 to 0.6
     bctx.fillStyle = `rgba(255, 255, 255, ${puffOpacity})`;
 
     bctx.beginPath();
@@ -138,6 +139,7 @@ function Cloud() {
     this.puffs.push({ x: px, y: py, rx, ry });
   }
 }
+
 
 Cloud.prototype.update = function () {
   this.x -= this.speed;
@@ -155,14 +157,13 @@ function Bubble() {
   this.x = Math.random() * width;
   this.y = Math.random() * height*0.9 + 0.1*height;
   this.radius = Math.random() * 20 + 5;
-  this.speedX = -(Math.random() * 0.7 + 0.05); // drift left
-  this.jitter = Math.random() * 0.7 + 0.3; // jitter amplitude
+  this.speedX = -(Math.random() * 0.5 + 0.05); // drift left
   this.offset = Math.random() * 1000;      // jitter phase
   this.hueShift = Math.random() * 360;     // different hues per bubble
 }
 Bubble.prototype.update = function (time) {
   // Jitter and drift
-  this.y += Math.sin(time + this.offset) * this.jitter;
+  this.y += Math.sin(time + this.offset) * 0.3;
   this.x += this.speedX;
 
   if (this.x < -this.radius) {
@@ -284,15 +285,18 @@ background.width = width;
 background.height = height;
 
 // create an array of animated entities
-var entities = [];
+var stars = [];
+var shootingstars = [];
+var clouds = [];
+var bubbles = [];
 // Add clouds
-for (var i = 15; i > 0; i--) { entities.push(new Cloud()); }
+for (var i = 15; i > 0; i--) { clouds.push(new Cloud()); }
 // Add bubbles
-for (var i = 30; i > 0; i--) { entities.push(new Bubble()); }
+for (var i = 30; i > 0; i--) { bubbles.push(new Bubble()); }
 // add shooting stars
-for (var i = 10; i > 0; i--) { entities.push(new ShootingStar()); }
+for (var i = 10; i > 0; i--) { shootingstars.push(new ShootingStar()); }
 // add random stars
-for (var i = 400; i > 0; i--) { entities.push(new Star()); }
+for (var i = 400; i > 0; i--) { stars.push(new Star()); }
 
 
 // animate the background
@@ -304,10 +308,18 @@ function animate() {
   drawSun();       // If sun animates with time
 
   // Update all entities
-  var entLen = entities.length;
-  while (entLen--) {
-    entities[entLen].update(time); // Pass time if needed
-  }
+  for (let entity of stars) {
+    entity.update();
+  };
+  for (let entity of shootingstars) {
+    entity.update();
+  };
+  for (let entity of clouds) {
+    entity.update();
+  };
+  for (let entity of bubbles) {
+    entity.update();
+  };
 
   requestAnimFrame(animate);
 }
