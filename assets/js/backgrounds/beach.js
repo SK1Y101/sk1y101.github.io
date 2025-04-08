@@ -156,14 +156,13 @@ function Bubble() {
   this.y = Math.random() * height*0.9 + 0.1*height;
   this.radius = Math.random() * 20 + 5;
   this.speedX = -(Math.random() * 0.7 + 0.05); // drift left
-  this.jitter = Math.random();             // jitter amplitude
+  this.jitter = Math.random() * 0.7 + 0.3; // jitter amplitude
   this.offset = Math.random() * 1000;      // jitter phase
-  this.jitteroffset = Math.random() + 0.5; // jitter time
   this.hueShift = Math.random() * 360;     // different hues per bubble
 }
 Bubble.prototype.update = function (time) {
   // Jitter and drift
-  this.y += Math.sin((this.jitteroffset*time + this.offset) * this.jitter) * 0.3;
+  this.y += Math.sin(time + this.offset) * this.jitter;
   this.x += this.speedX;
 
   if (this.x < -this.radius) {
