@@ -2,14 +2,10 @@
 layout: lost_page
 get_it: cause there's no navbar
 permalink: /test/
-title: Wedding
+title: test
 background: beach
 description:
 nav: false
 ---
 
-Lottie and Jack
-
-Invite you to celebrate their wedding
-
-Sunday the 27th of July, 2025
+This is a test page
