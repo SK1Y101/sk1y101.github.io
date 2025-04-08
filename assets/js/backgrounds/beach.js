@@ -59,7 +59,7 @@ function drawSun() {
   // Smooth gradient from warm white to golden yellow
   const sunGradient = bgCtx.createRadialGradient(sunX, sunY, 0, sunX, sunY, sunRadius * 2.5);
   sunGradient.addColorStop(0, 'rgba(255, 255, 220, 0.9)');  // soft warm white
-  sunGradient.addColorStop(0.3, 'rgba(255, 255, 150, 0.6)'); // fade to pale yellow
+  sunGradient.addColorStop(0.6, 'rgba(255, 255, 150, 0.6)'); // fade to pale yellow
   sunGradient.addColorStop(1, 'rgba(255, 215, 0, 0)');       // transparent golden edge
 
   bgCtx.fillStyle = sunGradient;
@@ -69,28 +69,66 @@ function drawSun() {
 }
 
 // The beach
-function drawBeach() {
-  const beachHeight = height * 0.15;
+function drawBeach(time) {
+  const beachHeight = height * 0.25;
   const beachTop = height - beachHeight;
 
-  // Optional: gradient sand
+  // --- Dry sand ---
   const sandGradient = bgCtx.createLinearGradient(0, beachTop, 0, height);
-  sandGradient.addColorStop(0, '#f9e4b7'); // pale sand
+  sandGradient.addColorStop(0, '#f9e4b7'); // light sand
   sandGradient.addColorStop(1, '#d9c08b'); // deeper sand
-
   bgCtx.fillStyle = sandGradient;
   bgCtx.beginPath();
   bgCtx.moveTo(0, beachTop);
 
-  // Optional: gently curved shoreline
+  // Curved shoreline
   const cp1x = width * 0.25, cp1y = beachTop - 20;
   const cp2x = width * 0.75, cp2y = beachTop + 20;
   bgCtx.bezierCurveTo(cp1x, cp1y, cp2x, cp2y, width, beachTop);
-
   bgCtx.lineTo(width, height);
   bgCtx.lineTo(0, height);
   bgCtx.closePath();
   bgCtx.fill();
+
+  // --- Wet sand band ---
+  const wetHeight = 20;
+  const wetTop = beachTop - wetHeight;
+  const wetGradient = bgCtx.createLinearGradient(0, wetTop, 0, beachTop);
+  wetGradient.addColorStop(0, '#e0c48e');
+  wetGradient.addColorStop(1, '#bba074');
+  bgCtx.fillStyle = wetGradient;
+  bgCtx.fillRect(0, wetTop, width, wetHeight);
+
+  // --- Water shimmer ---
+  const shimmerCount = 30;
+  for (let i = 0; i < shimmerCount; i++) {
+    const x = Math.random() * width;
+    const y = wetTop - Math.random() * 10;
+    const alpha = Math.random() * 0.2 + 0.05;
+    bgCtx.fillStyle = `rgba(255,255,255,${alpha})`;
+    bgCtx.fillRect(x, y, 2, 1);
+  }
+
+  // --- Waves (animated lines) ---
+  const waveCount = 3;
+  for (let i = 0; i < waveCount; i++) {
+    const waveY = wetTop - i * 6;
+    const waveOffset = Math.sin(time * 0.002 + i) * 5;
+    drawWaveLine(waveY, waveOffset);
+  }
+}
+
+// Helper to draw a squiggly wave line
+function drawWaveLine(y, offset) {
+  bgCtx.beginPath();
+  bgCtx.moveTo(0, y);
+  for (let x = 0; x <= width; x += 20) {
+    const sine = Math.sin((x + offset) * 0.05) * 3;
+    bgCtx.lineTo(x, y + sine);
+  }
+  bgCtx.strokeStyle = 'rgba(255,255,255,0.3)';
+  bgCtx.lineWidth = 1;
+  bgCtx.stroke();
 }
 
 
@@ -98,19 +136,19 @@ function drawBeach() {
 let waveOffset = 0;
 function drawWaves() {
   waveOffset += 0.01;
-  ctx.fillStyle = '#1e90ff';
-  ctx.beginPath();
+  bgCtx.fillStyle = '#1e90ff';
+  bgCtx.beginPath();
   const amplitude = 20;
   const frequency = 0.02;
-  ctx.moveTo(0, canvas.height * 0.8);
+  bgCtx.moveTo(0, canvas.height * 0.8);
   for (let x = 0; x < canvas.width; x++) {
     const y = Math.sin(x * frequency + waveOffset) * amplitude + canvas.height * 0.8;
-    ctx.lineTo(x, y);
+    bgCtx.lineTo(x, y);
   }
-  ctx.lineTo(canvas.width, canvas.height);
-  ctx.lineTo(0, canvas.height);
-  ctx.closePath();
-  ctx.fill();
+  bgCtx.lineTo(canvas.width, canvas.height);
+  bgCtx.lineTo(0, canvas.height);
+  bgCtx.closePath();
+  bgCtx.fill();
 }
 
 // Cloud entity
@@ -176,21 +214,22 @@ for (let i = 0; i < 30; i++) { entities.push(new Bubble()); }
 
 // animate the background
 function animate() {
-  // fetch the requiredbackground colour
-  drawSky();
-  drawSun();
-  drawBeach();
-  drawWaves();
+  const time = performance.now(); // Use high-resolution timer
 
-  // update all entities
+  drawSky();
+  drawSun();       // If sun animates with time
+  drawBeach(time);     // Beach shimmer/waves
+  drawWaves();     // Any wave movement with time
+
+  // Update all entities
   var entLen = entities.length;
   while (entLen--) {
-    entities[entLen].update();
+    entities[entLen].update(time); // Pass time if needed
   }
 
-  //schedule the next animation frame
   requestAnimFrame(animate);
 }
+
 
 // call the first animation
 animate();
