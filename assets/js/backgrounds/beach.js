@@ -85,7 +85,8 @@ function drawWaves(time) {
       bgCtx.lineTo(x, y);
     }
 
-    bgCtx.strokeStyle = `rgba(255, 255, 255, ${0.035 + i * 0.015})`;
+    // bgCtx.strokeStyle = `rgba(255, 255, 255, ${0.035 + i * 0.015})`;
+    bgCtx.strokeStyle = `rgba(255, 255, 255, 0.6)`;
     bgCtx.lineWidth = 1.3 + i * 0.4;
     bgCtx.stroke();
   }
@@ -420,10 +421,10 @@ const orionStars = [
   new Star(orionX + orionW * raDeg(5, 40, 45.52666), orionY + orionH * DecDeg(-1, 56, 34.2649), 1.4, 'azure', true),       // Alnitak (belt) 6
   new Star(orionX + orionW * raDeg(5, 35, 8.27608), orionY + orionH * DecDeg(9, 56, 2.9913),    1.2, 'white', true),       // Meissa (head)  7
 ];
-const cassX = 600;
+const cassX = 400;
 const cassY = 600;
 const cassH = -8;
-const cassW = -6;
+const cassW = -4;
 const cassiopeiaStars = [
   new Star(cassX + cassW * raDeg(0, 40, 30.4411), cassY + cassH * DecDeg(56,32,14.392),     1.8, 'moccasin', true),    // Schedar  0
   new Star(cassX + cassW * raDeg(0, 9, 10.68518), cassY + cassH * DecDeg(59, 8, 59.2120),   1.7, 'aliceBlue', true),   // Caph     1
