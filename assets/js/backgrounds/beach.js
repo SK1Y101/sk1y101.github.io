@@ -284,44 +284,43 @@ function Star(x, y, size, colour, isConstellation = false) {
   this.isConstellation = isConstellation;  // Boolean flag to check if star is in a constellation
 }
 Star.prototype.update = function () {
-  // Change the size of the star due to atmospheric twinkling
+  // Adjust the size of the star due to twinkling
   this.size = Math.max(0, Math.min(2.5, this.size + 0.15 * Math.random() - 0.05));
-  // Apply glow effect only if the star is part of a constellation
-  if (this.isConstellation) {
-    bgCtx.shadowColor = `rgba(255, 255, 255, 0.7)`;  // White glow
-    bgCtx.shadowBlur = 8;  // Size of the glow
-  }
+
   // Draw the star
   bgCtx.fillStyle = this.colour;
   bgCtx.fillRect(this.x, this.y, this.size, this.size);
-  // Reset the shadow to avoid affecting other elements
-  bgCtx.shadowColor = 'transparent';
-  bgCtx.shadowBlur = 0;
+
+  // Draw the glow effect if it's part of a constellation
+  this.drawGlow();
+};
+Star.prototype.drawGlow = function () {
+  if (this.isConstellation) {
+    bgCtx.save();
+    bgCtx.globalAlpha = 0.6;  // Glow transparency
+    bgCtx.shadowColor = this.colour;
+    bgCtx.shadowBlur = 15;  // Glow size
+    bgCtx.fillStyle = this.colour;
+    bgCtx.beginPath();
+    bgCtx.arc(this.x, this.y, this.size * 1.5, 0, Math.PI * 2);
+    bgCtx.fill();
+    bgCtx.restore();
+  }
 };
 
 // Constellations!
-function drawConstellation(stars) {
-  // Draw the stars first with the glow effect
-  for (let star of stars) {
-    star.update();  // This will draw the star with the glow effect for constellation stars
-  }
-
-  // Draw lines connecting the stars
-  bgCtx.strokeStyle = "white";
-  bgCtx.lineWidth = 1;
+function drawConstellationLines(stars, connections) {
   bgCtx.beginPath();
-
-  for (let i = 0; i < stars.length; i++) {
-    const star = stars[i];
-    if (i === 0) {
-      bgCtx.moveTo(star.x, star.y);
-    } else {
-      bgCtx.lineTo(star.x, star.y);
-    }
-  }
-
+  connections.forEach(connection => {
+    const star1 = stars[connection.from];
+    const star2 = stars[connection.to];
+    bgCtx.moveTo(star1.x, star1.y);
+    bgCtx.lineTo(star2.x, star2.y);
+  });
+  bgCtx.strokeStyle = 'rgba(255, 255, 255, 0.8)';  // Soft white color for lines
+  bgCtx.lineWidth = 1.5;  // Line width
   bgCtx.stroke();
-}
+};
 
 
 // set the canvase size
@@ -343,27 +342,44 @@ for (var i = 10; i > 0; i--) { shootingstars.push(new ShootingStar()); }
 for (var i = 400; i > 0; i--) { stars.push(new Star()); }
 
 const orionStars = [
-  { x: 0.8 * width, y: 0.2 * height, size: 2, colour: 'orange', isConstellation: true },  // Betelgeuse
-  { x: 0.85 * width, y: 0.2 * height, size: 1.8, colour: 'blue', isConstellation: true },   // Bellatrix
-  { x: 0.9 * width, y: 0.35 * height, size: 1.5, colour: 'blue', isConstellation: true },   // Alnilam
-  { x: 0.95 * width, y: 0.5 * height, size: 1.3, colour: 'blue', isConstellation: true },   // Mintaka
-  { x: 0.8 * width, y: 0.55 * height, size: 1.7, colour: 'blue', isConstellation: true },   // Saiph
-  { x: 0.75 * width, y: 0.65 * height, size: 1.6, colour: 'blue', isConstellation: true }   // Rigel
+  new Star(0.55 * width, 0.25 * height, 2, 'orange', true),  // Betelgeuse
+  new Star(0.65 * width, 0.2 * height, 1.8, 'blue', true),    // Bellatrix
+  new Star(0.5 * width, 0.4 * height, 1.5, 'blue', true),    // Alnilam
+  new Star(0.7 * width, 0.4 * height, 1.3, 'blue', true),    // Mintaka
+  new Star(0.45 * width, 0.6 * height, 1.7, 'blue', true),    // Saiph
+  new Star(0.75 * width, 0.6 * height, 1.6, 'blue', true),    // Rigel
+  new Star(0.4 * width, 0.35 * height, 1.4, 'blue', true),    // Alnitak (belt)
+  new Star(0.5 * width, 0.3 * height, 1.2, 'white', true),    // Meissa (head)
 ];
 
 const cassiopeiaStars = [
-  { x: 0.15 * width, y: 0.2 * height, size: 1.8, colour: 'white', isConstellation: true },  // Schedar
-  { x: 0.12 * width, y: 0.25 * height, size: 1.7, colour: 'white', isConstellation: true },  // Caph
-  { x: 0.1 * width, y: 0.3 * height, size: 1.5, colour: 'white', isConstellation: true },    // Cassiopeia
-  { x: 0.2 * width, y: 0.3 * height, size: 1.4, colour: 'white', isConstellation: true },    // Rho Cassiopeiae
-  { x: 0.25 * width, y: 0.25 * height, size: 1.6, colour: 'white', isConstellation: true }   // Delta Cassiopeiae
+  { x: 0.1 * width, y: 0.2 * height, size: 1.8, colour: 'white', isConstellation: true },     // Schedar
+  { x: 0.2 * width, y: 0.15 * height, size: 1.7, colour: 'white', isConstellation: true },    // Caph
+  { x: 0.15 * width, y: 0.3 * height, size: 1.5, colour: 'white', isConstellation: true },    // Cassiopeia
+  { x: 0.25 * width, y: 0.4 * height, size: 1.4, colour: 'white', isConstellation: true },    // Rho Cassiopeiae
+  { x: 0.3 * width, y: 0.35 * height, size: 1.6, colour: 'white', isConstellation: true }     // Delta Cassiopeiae
 ];
 
-// Create stars for the constellations
+// Create stars for constellations
 const orion = orionStars.map(starData => new Star(starData.x, starData.y, starData.size, starData.colour, starData.isConstellation));
 const cassiopeia = cassiopeiaStars.map(starData => new Star(starData.x, starData.y, starData.size, starData.colour, starData.isConstellation));
-
-
+const orionConnections = [
+  { from: 0, to: 2 },  // Betelgeuse -> Alnilam
+  { from: 2, to: 4 },  // Alnilam -> Saiph
+  { from: 1, to: 2 },  // Bellatrix -> Alnilam
+  { from: 3, to: 4 },  // Mintaka -> Saiph
+  { from: 4, to: 5 },  // Saiph -> Rigel
+  { from: 0, to: 6 },  // Betelgeuse -> Alnitak (belt)
+  { from: 6, to: 2 },  // Alnitak -> Alnilam (belt)
+  { from: 2, to: 7 },  // Alnilam -> Meissa (head)
+  { from: 7, to: 5 },  // Meissa -> Rigel (head connection)
+];
+const cassiopeiaConnections = [
+  { from: 0, to: 1 },  // Schedar -> Caph
+  { from: 1, to: 2 },  // Caph -> Cassiopeia
+  { from: 2, to: 3 },  // Cassiopeia -> Rho Cassiopeiae
+  { from: 3, to: 4 },  // Rho Cassiopeiae -> Delta Cassiopeiae
+];
 
 // animate the background
 function animate() {
@@ -372,11 +388,11 @@ function animate() {
   drawSky();
 
   // Draw constellations and stars
-  drawConstellation(orion);
-  drawConstellation(cassiopeia);
   for (let star of stars) {
     star.update();
   };
+  drawConstellationLines(orionStars, orionConnections);
+  drawConstellationLines(cassiopeiaStars, cassiopeiaConnections); 
 
   // Sea and sun should layer next
   drawSea();
