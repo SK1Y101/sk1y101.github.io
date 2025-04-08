@@ -71,9 +71,9 @@ function drawWaves(time) {
   const waveLayers = 10;
 
   for (let i = 0; i < waveLayers; i++) {
-    const amplitude = 6 + i * 2;
+    const amplitude = 3 + i*0.5;
     const frequency = 0.004 + i * 0.0015;
-    const speed = 0.1 + i * 0.01;
+    const speed = 0.01 + i * 0.001;
     const phase = time * speed;
     const yOffset = seaTop + i * 20 + Math.sin(phase) * 2;
 
@@ -85,7 +85,7 @@ function drawWaves(time) {
       bgCtx.lineTo(x, y);
     }
 
-    bgCtx.strokeStyle = `rgba(255, 255, 255, ${0.035 + i * 0.165})`;
+    bgCtx.strokeStyle = `rgba(255, 255, 255, ${0.035 + i * 0.065})`;
     // bgCtx.strokeStyle = `rgba(255, 255, 255, 0.6)`;
     bgCtx.lineWidth = 1.3 + i * 0.4;
     bgCtx.stroke();
