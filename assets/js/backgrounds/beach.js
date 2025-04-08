@@ -149,7 +149,7 @@ function Bubble() {
   this.y = height * 0.3 + Math.random() * (height * 0.5); // sea region
   this.size = Math.random() * 8 + 2;
   this.speed = Math.random() * 0.2 + 0.1;
-  this.jitterSpeed = Math.random() * 0.05 + 0.02;
+  this.jitterSpeed = Math.random() * 0.005 + 0.002;
   this.jitterPhase = Math.random() * Math.PI * 2;
 }
 
@@ -186,12 +186,11 @@ ShootingStar.prototype.update = function () {
       this.speed = 0;
       this.reset();
     } else {
-      // set the shooting star colour
-      bgCtx.fillStyle = this.colour;
-      // bgCtx.strokeStyle = this.colour;
-      bgCtx.strokeStyle = this.getRGBA(this.colour, alpha);
+      const gradient = bgCtx.createLinearGradient(this.x, this.y, this.x + this.len, this.y - this.len);
+      gradient.addColorStop(0, this.getRGBA(this.colour, 255));
+      gradient.addColorStop(1, this.getRGBA(this.colour, 255));
+      bgCtx.strokeStyle = gradient;
       bgCtx.lineWidth = this.size;
-      // and draw it
       bgCtx.beginPath();
       bgCtx.moveTo(this.x, this.y);
       bgCtx.lineTo(this.x + this.len, this.y - this.len);
@@ -230,7 +229,7 @@ for (let i = 0; i < 5; i++) { entities.push(new Cloud()); }
 for (let i = 0; i < 30; i++) { entities.push(new Bubble()); }
 
 // add a shooting star
-for (var i = 2; i > 0; i--) { entities.push(new ShootingStar()); }
+for (var i = 20; i > 0; i--) { entities.push(new ShootingStar()); }
 
 
 // animate the background
