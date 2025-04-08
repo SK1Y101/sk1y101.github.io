@@ -1,29 +1,29 @@
 // Let the browser handle the animation cycles
-var requestAnimFrame = (function(){
-  return window.requestAnimationFrame       ||
-         window.webkitRequestAnimationFrame ||
-         window.mozRequestAnimationFrame    ||
-         window.oRequestAnimationFrame      ||
-         window.msRequestAnimationFrame     ||
-         function( callback ){
-           window.setTimeout(callback, 1000 / 60);
-         };
+var requestAnimFrame = (function () {
+  return window.requestAnimationFrame ||
+    window.webkitRequestAnimationFrame ||
+    window.mozRequestAnimationFrame ||
+    window.oRequestAnimationFrame ||
+    window.msRequestAnimationFrame ||
+    function (callback) {
+      window.setTimeout(callback, 1000 / 60);
+    };
 })();
 
 // function to get todays date
 function today(d) {
   var day = d.getDate(),
-      mon = d.getMonth()+1;
-  (day < 10) ? day = "0"+day : day;
-  (mon < 10) ? mon = "0"+mon : mon;
-  return day+"/"+mon;
+    mon = d.getMonth() + 1;
+  (day < 10) ? day = "0" + day : day;
+  (mon < 10) ? mon = "0" + mon : mon;
+  return day + "/" + mon;
 }
 
 // fetch the background canvas
 var background = document.getElementById("bgCanvas"),
-    bgCtx = background.getContext("2d"),
-    width = window.innerWidth,
-    height = document.body.offsetHeight;
+  bgCtx = background.getContext("2d"),
+  width = window.innerWidth,
+  height = document.body.offsetHeight;
 
 // ensure we have a minimum height
 (height < 400) ? height = 400 : height;
@@ -67,69 +67,74 @@ function drawSea() {
   bgCtx.fillRect(0, top, width, height - top);
 }
 function drawWaves() {
-  const waveCount = 5;  // Number of waves
-  const waveHeight = 10;  // Height of the waves
-  const waveFrequency = 0.05;  // Frequency of waves
-  const waveSpeed = 0.02;  // Speed of wave movement
+  const waveCount = 4; // Number of waves to draw
+  const waveHeightVariance = 40; // Height variance of the waves
+  const waveSpeed = 0.3; // Wave movement speed
+
+  // Time-based phase to animate wave motion
+  const time = performance.now() * 0.001;
 
   bgCtx.save();
-  bgCtx.globalAlpha = 0.7;  // Semi-transparent for waves
+  bgCtx.globalAlpha = 0.5;  // Set wave transparency
 
-  // Loop to draw multiple waves
+  // Draw each wave
   for (let i = 0; i < waveCount; i++) {
+    const waveFrequency = 0.02 + Math.random() * 0.03; // Vary the frequency of waves
+    const waveAmplitude = Math.random() * waveHeightVariance + 10; // Random amplitude (height) for each wave
+    const waveOffset = Math.random() * Math.PI * 2; // Offset for each wave to avoid perfect synchronization
+
     bgCtx.beginPath();
     for (let x = 0; x < width; x++) {
-      // Calculate the y-position based on sine wave function
-      const y = height * 0.7 + Math.sin((x + waveSpeed * i) * waveFrequency) * waveHeight;
-      if (x === 0) {
-        bgCtx.moveTo(x, y);  // Move to the start point
-      } else {
-        bgCtx.lineTo(x, y);  // Draw the wave line
-      }
+      const y = height * 0.6 + Math.sin(x * waveFrequency + time + waveOffset) * waveAmplitude;
+      bgCtx.lineTo(x, y);
     }
 
-    bgCtx.lineWidth = 2;  // Set the thickness of the wave line
-    bgCtx.strokeStyle = "rgba(255, 255, 255, 0.3)";  // Wave color (light blue/white)
+    // Set a light blue gradient for the waves
+    const gradient = bgCtx.createLinearGradient(0, height * 0.6, 0, height);
+    gradient.addColorStop(0, "rgba(255, 255, 255, 0.2)"); // Light wave crest color
+    gradient.addColorStop(1, "rgba(0, 120, 180, 0.6)"); // Deeper blue for the wave body
+
+    bgCtx.strokeStyle = gradient;
+    bgCtx.lineWidth = 2; // Wave line thickness
     bgCtx.stroke();
   }
 
   bgCtx.restore();
 }
-function drawShimmer() {
-  const shimmerCount = 50;  // Number of shimmer spots
-  const shimmerMaxSize = 5;  // Maximum size of shimmer spots
-  const shimmerSpeed = 0.2;  // Speed at which the shimmer moves
 
-  // Set up shimmer-specific parameters
-  const shimmerYPosition = height * 0.6;  // Position of shimmer below the sun (just above the sea surface)
+function drawShimmerEffect() {
+  const sunX = width / 2;  // Sun's X position
+  const sunY = height * 0.6;  // Sun's Y position
+  const shimmerCount = 50;  // Number of shimmer lines
+  const shimmerLength = 200;  // Length of each shimmer line
+  const startY = sunY + 10;  // Start Y position for shimmer, just below the sun
 
+  // Create shimmer lines that are only drawn beneath the sun
   bgCtx.save();
-  bgCtx.globalAlpha = 0.8;  // Set shimmer transparency
+  bgCtx.globalAlpha = 0.5;  // Adjust transparency of shimmer lines
 
   for (let i = 0; i < shimmerCount; i++) {
-    const x = (Math.random() * width);  // Random x position
-    const y = shimmerYPosition + Math.random() * 10;  // Random small variation in y position
+    const angleOffset = (i - shimmerCount / 2) * 0.05; // Vary the angle of the shimmer lines slightly
+    const x1 = sunX + Math.cos(angleOffset) * shimmerLength;  // X position for the start of the line
+    const y1 = startY + Math.sin(angleOffset) * shimmerLength;  // Y position for the start
+    const x2 = sunX + Math.cos(angleOffset + Math.PI) * shimmerLength;  // X position for the end
+    const y2 = startY + Math.sin(angleOffset + Math.PI) * shimmerLength;  // Y position for the end
 
-    // Random size for each shimmer spot
-    const size = Math.random() * shimmerMaxSize + 1;
+    // Create a soft yellow gradient for the shimmer
+    const gradient = bgCtx.createLinearGradient(x1, y1, x2, y2);
+    gradient.addColorStop(0, "rgba(255, 215, 0, 0.7)"); // Bright yellow at the sun
+    gradient.addColorStop(1, "rgba(255, 215, 0, 0.1)"); // Fades out as it extends
 
-    // Use a radial gradient for the shimmer effect
-    const gradient = bgCtx.createRadialGradient(x, y, 0, x, y, size);
-    gradient.addColorStop(0, "rgba(255, 255, 255, 0.9)");  // Bright white center
-    gradient.addColorStop(0.5, "rgba(255, 255, 255, 0.6)");  // Slightly transparent white
-    gradient.addColorStop(1, "rgba(255, 255, 255, 0)");  // Transparent outer edge
-
-    bgCtx.fillStyle = gradient;
-
-    // Draw the shimmer spot
+    bgCtx.strokeStyle = gradient;
+    bgCtx.lineWidth = 2; // Line width for shimmer effect
     bgCtx.beginPath();
-    bgCtx.arc(x + shimmerSpeed * Math.sin(i), y, size, 0, 2 * Math.PI);  // Slight horizontal movement
-    bgCtx.fill();
+    bgCtx.moveTo(x1, y1);
+    bgCtx.lineTo(x2, y2);
+    bgCtx.stroke();
   }
 
   bgCtx.restore();
 }
-
 
 // the sun
 function drawSun() {
@@ -394,30 +399,30 @@ for (var i = 10; i > 0; i--) { shootingstars.push(new ShootingStar()); }
 for (var i = 400; i > 0; i--) { stars.push(new Star()); }
 
 // we have a list of RA and DEC, we convert to screenspace with awkwardness
-const orionX = 1200;
+const orionX = 2000;
 const orionY = 200;
-const orionH = -4;
+const orionH = -8;
 const orionW = orionH;
 const orionStars = [
-  new Star(orionX + orionW*83.63, orionY + orionH*7.407, 2, 'sandyBrown', true),        // Betelgeuse     0
-  new Star(orionX + orionW*81.28, orionY + orionH*6.349, 1.8, 'powderBlue', true),      // Bellatrix      1
-  new Star(orionX + orionW*84.05, orionY + orionH*-1.194, 1.5, 'aliceBlue', true),      // Alnilam        2
-  new Star(orionX + orionW*83.00, orionY + orionH*-0.299, 1.3, 'aliceBlue', true),      // Mintaka        3
-  new Star(orionX + orionW*86.95, orionY + orionH*-9.278, 1.7, 'azure', true),          // Saiph          4
-  new Star(orionX + orionW*80.13, orionY + orionH*-8.201, 1.6, 'powderBlue', true),     // Rigel          5
-  new Star(orionX + orionW*85.11, orionY + orionH*-1.942, 1.4, 'azure', true),          // Alnitak (belt) 6
-  new Star(orionX + orionW*77.33, orionY + orionH*4.817, 1.2, 'white', true),           // Meissa (head)  7
+  new Star(orionX + orionW * 83.63, orionY + orionH * 7.407, 2, 'sandyBrown', true),        // Betelgeuse     0
+  new Star(orionX + orionW * 81.28, orionY + orionH * 6.349, 1.8, 'powderBlue', true),      // Bellatrix      1
+  new Star(orionX + orionW * 84.05, orionY + orionH * -1.194, 1.5, 'aliceBlue', true),      // Alnilam        2
+  new Star(orionX + orionW * 83.00, orionY + orionH * -0.299, 1.3, 'aliceBlue', true),      // Mintaka        3
+  new Star(orionX + orionW * 86.95, orionY + orionH * -9.278, 1.7, 'azure', true),          // Saiph          4
+  new Star(orionX + orionW * 80.13, orionY + orionH * -8.201, 1.6, 'powderBlue', true),     // Rigel          5
+  new Star(orionX + orionW * 85.11, orionY + orionH * -1.942, 1.4, 'azure', true),          // Alnitak (belt) 6
+  new Star(orionX + orionW * 77.33, orionY + orionH * 4.817, 1.2, 'white', true),           // Meissa (head)  7
 ];
 const cassX = 200;
-const cassY = 200;
+const cassY = 600;
 const cassH = -8;
 const cassW = cassH;
 const cassiopeiaStars = [
-  new Star(cassX + cassW*0.959, cassY + cassH*56.53, 1.8, 'moccasin', true),      // Schedar  0
-  new Star(cassX + cassW*1.597, cassY + cassH*59.12, 1.7, 'aliceBlue', true),     // Caph     1
-  new Star(cassX + cassW*1.777, cassY + cassH*56.53, 1.5, 'powderBlue', true),    // Navi     2
-  new Star(cassX + cassW*2.296, cassY + cassH*60.72, 1.4, 'floraWhite', true),    // Ruchbah  3
-  new Star(cassX + cassW*1.842, cassY + cassH*61.57, 1.6, 'azure', true)          // Segin    4
+  new Star(cassX + cassW * 0.959, cassY + cassH * 56.53, 1.8, 'moccasin', true),      // Schedar  0
+  new Star(cassX + cassW * 1.597, cassY + cassH * 59.12, 1.7, 'aliceBlue', true),     // Caph     1
+  new Star(cassX + cassW * 1.777, cassY + cassH * 56.53, 1.5, 'powderBlue', true),    // Navi     2
+  new Star(cassX + cassW * 2.296, cassY + cassH * 60.72, 1.4, 'floraWhite', true),    // Ruchbah  3
+  new Star(cassX + cassW * 1.842, cassY + cassH * 61.57, 1.6, 'azure', true)          // Segin    4
 ];
 
 // Create stars for constellations
@@ -452,7 +457,7 @@ function animate() {
     star.update();
   };
   drawConstellationLines(orionStars, orionConnections);
-  drawConstellationLines(cassiopeiaStars, cassiopeiaConnections); 
+  drawConstellationLines(cassiopeiaStars, cassiopeiaConnections);
 
   // Sea and sun should layer next
   drawSea();
