@@ -66,6 +66,69 @@ function drawSea() {
   bgCtx.fillStyle = gradient;
   bgCtx.fillRect(0, top, width, height - top);
 }
+function drawWaves() {
+  const waveCount = 5;  // Number of waves
+  const waveHeight = 10;  // Height of the waves
+  const waveFrequency = 0.05;  // Frequency of waves
+  const waveSpeed = 0.02;  // Speed of wave movement
+
+  bgCtx.save();
+  bgCtx.globalAlpha = 0.7;  // Semi-transparent for waves
+
+  // Loop to draw multiple waves
+  for (let i = 0; i < waveCount; i++) {
+    bgCtx.beginPath();
+    for (let x = 0; x < width; x++) {
+      // Calculate the y-position based on sine wave function
+      const y = height * 0.7 + Math.sin((x + waveSpeed * i) * waveFrequency) * waveHeight;
+      if (x === 0) {
+        bgCtx.moveTo(x, y);  // Move to the start point
+      } else {
+        bgCtx.lineTo(x, y);  // Draw the wave line
+      }
+    }
+
+    bgCtx.lineWidth = 2;  // Set the thickness of the wave line
+    bgCtx.strokeStyle = "rgba(255, 255, 255, 0.3)";  // Wave color (light blue/white)
+    bgCtx.stroke();
+  }
+
+  bgCtx.restore();
+}
+function drawShimmer() {
+  const shimmerCount = 50;  // Number of shimmer spots
+  const shimmerMaxSize = 5;  // Maximum size of shimmer spots
+  const shimmerSpeed = 0.2;  // Speed at which the shimmer moves
+
+  // Set up shimmer-specific parameters
+  const shimmerYPosition = height * 0.6;  // Position of shimmer below the sun (just above the sea surface)
+
+  bgCtx.save();
+  bgCtx.globalAlpha = 0.8;  // Set shimmer transparency
+
+  for (let i = 0; i < shimmerCount; i++) {
+    const x = (Math.random() * width);  // Random x position
+    const y = shimmerYPosition + Math.random() * 10;  // Random small variation in y position
+
+    // Random size for each shimmer spot
+    const size = Math.random() * shimmerMaxSize + 1;
+
+    // Use a radial gradient for the shimmer effect
+    const gradient = bgCtx.createRadialGradient(x, y, 0, x, y, size);
+    gradient.addColorStop(0, "rgba(255, 255, 255, 0.9)");  // Bright white center
+    gradient.addColorStop(0.5, "rgba(255, 255, 255, 0.6)");  // Slightly transparent white
+    gradient.addColorStop(1, "rgba(255, 255, 255, 0)");  // Transparent outer edge
+
+    bgCtx.fillStyle = gradient;
+
+    // Draw the shimmer spot
+    bgCtx.beginPath();
+    bgCtx.arc(x + shimmerSpeed * Math.sin(i), y, size, 0, 2 * Math.PI);  // Slight horizontal movement
+    bgCtx.fill();
+  }
+
+  bgCtx.restore();
+}
 
 
 // the sun
@@ -333,24 +396,28 @@ for (var i = 400; i > 0; i--) { stars.push(new Star()); }
 // we have a list of RA and DEC, we convert to screenspace with awkwardness
 const orionX = 1200;
 const orionY = 200;
+const orionH = -4;
+const orionW = orionH;
 const orionStars = [
-  new Star(orionX + 2*83.63, orionY + 2*7.407, 2, 'sandyBrown', true),        // Betelgeuse     0
-  new Star(orionX + 2*81.28, orionY + 2*6.349, 1.8, 'powderBlue', true),      // Bellatrix      1
-  new Star(orionX + 2*84.05, orionY + 2*-1.194, 1.5, 'aliceBlue', true),      // Alnilam        2
-  new Star(orionX + 2*83.00, orionY + 2*-0.299, 1.3, 'aliceBlue', true),      // Mintaka        3
-  new Star(orionX + 2*86.95, orionY + 2*-9.278, 1.7, 'azure', true),          // Saiph          4
-  new Star(orionX + 2*80.13, orionY + 2*-8.201, 1.6, 'powderBlue', true),     // Rigel          5
-  new Star(orionX + 2*85.11, orionY + 2*-1.942, 1.4, 'azure', true),          // Alnitak (belt) 6
-  new Star(orionX + 2*77.33, orionY + 2*4.817, 1.2, 'white', true),           // Meissa (head)  7
+  new Star(orionX + orionW*83.63, orionY + orionH*7.407, 2, 'sandyBrown', true),        // Betelgeuse     0
+  new Star(orionX + orionW*81.28, orionY + orionH*6.349, 1.8, 'powderBlue', true),      // Bellatrix      1
+  new Star(orionX + orionW*84.05, orionY + orionH*-1.194, 1.5, 'aliceBlue', true),      // Alnilam        2
+  new Star(orionX + orionW*83.00, orionY + orionH*-0.299, 1.3, 'aliceBlue', true),      // Mintaka        3
+  new Star(orionX + orionW*86.95, orionY + orionH*-9.278, 1.7, 'azure', true),          // Saiph          4
+  new Star(orionX + orionW*80.13, orionY + orionH*-8.201, 1.6, 'powderBlue', true),     // Rigel          5
+  new Star(orionX + orionW*85.11, orionY + orionH*-1.942, 1.4, 'azure', true),          // Alnitak (belt) 6
+  new Star(orionX + orionW*77.33, orionY + orionH*4.817, 1.2, 'white', true),           // Meissa (head)  7
 ];
 const cassX = 200;
 const cassY = 200;
+const cassH = -8;
+const cassW = cassH;
 const cassiopeiaStars = [
-  new Star(cassX + 2*0.959, cassY + 2*56.53, 1.8, 'moccasin', true),      // Schedar  0
-  new Star(cassX + 2*1.597, cassY + 2*59.12, 1.7, 'aliceBlue', true),     // Caph     1
-  new Star(cassX + 2*1.777, cassY + 2*56.53, 1.5, 'powderBlue', true),    // Navi     2
-  new Star(cassX + 2*2.296, cassY + 2*60.72, 1.4, 'floraWhite', true),    // Ruchbah  3
-  new Star(cassX + 2*1.842, cassY + 2*61.57, 1.6, 'azure', true)          // Segin    4
+  new Star(cassX + cassW*0.959, cassY + cassH*56.53, 1.8, 'moccasin', true),      // Schedar  0
+  new Star(cassX + cassW*1.597, cassY + cassH*59.12, 1.7, 'aliceBlue', true),     // Caph     1
+  new Star(cassX + cassW*1.777, cassY + cassH*56.53, 1.5, 'powderBlue', true),    // Navi     2
+  new Star(cassX + cassW*2.296, cassY + cassH*60.72, 1.4, 'floraWhite', true),    // Ruchbah  3
+  new Star(cassX + cassW*1.842, cassY + cassH*61.57, 1.6, 'azure', true)          // Segin    4
 ];
 
 // Create stars for constellations
@@ -389,6 +456,8 @@ function animate() {
 
   // Sea and sun should layer next
   drawSea();
+  drawWaves();
+  drawShimmer();
   drawSun();
 
   // Update all entities
