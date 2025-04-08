@@ -155,15 +155,15 @@ Cloud.prototype.update = function () {
 // Bubble entity
 function Bubble() {
   this.x = Math.random() * width;
-  this.y = Math.random() * height*0.9 + 0.1*height;
+  this.y = Math.random() * height;
   this.radius = Math.random() * 20 + 5;
-  this.speedX = -(Math.random() * 0.5 + 0.05); // drift left
-  this.offset = Math.random() * 1000;      // jitter phase
-  this.hueShift = Math.random() * 360;     // different hues per bubble
+  this.speedX = -(Math.random() * 0.5 + 0.1); // drift left
+  this.offset = Math.random() * 1000; // for jitter phase
+  this.hueShift = Math.random() * 360; // different hues per bubble
 }
 Bubble.prototype.update = function (time) {
   // Jitter and drift
-  this.y += Math.sin(time + this.offset) * 0.3;
+  this.y += Math.sin((time + this.offset) * 0.002) * 0.3;
   this.x += this.speedX;
 
   if (this.x < -this.radius) {
