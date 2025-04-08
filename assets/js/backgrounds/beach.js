@@ -171,8 +171,8 @@ ShootingStar.prototype.update = function () {
       bgCtx.strokeStyle = this.colour;
       bgCtx.lineWidth = this.size;
       bgCtx.beginPath();
-      bgCtx.moveTo(this.x, max(bottom, this.y));
-      bgCtx.lineTo(this.x + this.len, max(bottom, this.y - this.len));
+      bgCtx.moveTo(this.x, Math.max(bottom, this.y));
+      bgCtx.lineTo(this.x + this.len, Math.max(bottom, this.y - this.len));
       bgCtx.stroke();
     }
     // wait for it to be active again
