@@ -27,8 +27,8 @@ var background = document.getElementById("bgCanvas"),
 
 // ensure we have a minimum height
 (height < 400) ? height = 400 : height;
-// height = 1080;
-// width = 1920;
+height = 1080;
+width = 1920;
 
 // Helper functions
 function lerp(a, b, t) {
@@ -101,13 +101,13 @@ function drawSun() {
 // Cloud entity
 function Cloud() {
   this.x = Math.random() * width;
-  this.y = Math.random() * height * 0.2;
-  this.size = Math.random() * 40 + 40;
+  this.y = Math.random() * height * 0.4 + height * 0.2;
+  this.size = Math.random() * 10 + 10;
   this.speed = Math.random() * 0.1 + 0.05;
   this.opacity = 0.6;
   this.puffs = [];
 
-  const puffCount = Math.floor(Math.random() * 5) + 6; // 6–10 puffs
+  const puffCount = Math.floor(Math.random() * 25) + 16; // 20–40 puffs
 
   // Create offscreen canvas for clean compositing
   const bufferSize = this.size * 2;
@@ -163,14 +163,14 @@ function Bubble() {
 
 Bubble.prototype.update = function (time) {
   this.x -= this.speed;
-  this.y += Math.sin(time * this.jitterSpeed + this.jitterPhase); // up/down wobble
+  this.y += 0.1 * Math.sin(time * this.jitterSpeed + this.jitterPhase); // up/down wobble
 
   if (this.x < -this.size) {
     this.x = width + this.size;
     this.y = height * 0.3 + Math.random() * (height * 0.5);
   }
 
-  bgCtx.fillStyle = 'rgba(255, 255, 255, 0.3)';
+  bgCtx.fillStyle = 'rgba(146, 227, 238, 0.3)';
   bgCtx.beginPath();
   bgCtx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
   bgCtx.fill();
