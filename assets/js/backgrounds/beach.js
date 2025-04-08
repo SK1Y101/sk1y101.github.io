@@ -102,7 +102,7 @@ function drawWaves() {
   bgCtx.restore();
 }
 
-function drawShimmerEffect() {
+function drawShimmer() {
   const sunX = width / 2;  // Sun's X position
   const sunY = height * 0.6;  // Sun's Y position
   const shimmerCount = 50;  // Number of shimmer lines
