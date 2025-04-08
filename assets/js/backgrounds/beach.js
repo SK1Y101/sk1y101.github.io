@@ -104,54 +104,107 @@ function drawWaves() {
   bgCtx.fill();
 }
 
-// Cloud entity
-function Cloud() {
-  this.x = Math.random() * width;
-  this.y = Math.random() * (height * 0.5); // upper half of sky
-  this.size = 50 + Math.random() * 100;
-  this.speed = 0.1 + Math.random() * 0.3;
-  this.opacity = 0.2 + Math.random() * 0.3;
-  this.color = 'rgba(255, 255, 255,' + this.opacity + ')';
+// // Cloud entity
+// function Cloud() {
+//   this.x = Math.random() * width;
+//   this.y = Math.random() * (height * 0.5); // upper half of sky
+//   this.size = 50 + Math.random() * 100;
+//   this.speed = 0.1 + Math.random() * 0.3;
+//   this.opacity = 0.2 + Math.random() * 0.3;
+//   this.color = 'rgba(255, 255, 255,' + this.opacity + ')';
+// }
+
+// Cloud.prototype.update = function () {
+//   this.x += this.speed;
+
+//   if (this.x - this.size > width) {
+//     this.x = -this.size;
+//     this.y = Math.random() * (height * 0.5);
+//   }
+
+//   bgCtx.fillStyle = this.color;
+//   bgCtx.beginPath();
+//   bgCtx.ellipse(this.x, this.y, this.size, this.size * 0.6, 0, 0, Math.PI * 2);
+//   bgCtx.fill();
+// };
+
+// // Bubble entity
+// function Bubble() {
+//   this.x = Math.random() * width;
+//   this.y = height - Math.random() * 100;
+//   this.radius = 2 + Math.random() * 4;
+//   this.speed = 0.2 + Math.random() * 0.5;
+//   this.alpha = 0.2 + Math.random() * 0.3;
+// }
+
+// Bubble.prototype.update = function () {
+//   this.y -= this.speed;
+//   this.x += Math.sin(this.y / 20) * 0.2;
+
+//   if (this.y + this.radius < 0) {
+//     this.y = height;
+//     this.x = Math.random() * width;
+//   }
+
+//   bgCtx.fillStyle = `rgba(255, 255, 255, ${this.alpha})`;
+//   bgCtx.beginPath();
+//   bgCtx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+//   bgCtx.fill();
+// };
+
+// function to draw shooting stars
+function ShootingStar(special = false) {
+  this.special = special;
+  this.reset(-200);
 }
 
-Cloud.prototype.update = function () {
-  this.x += this.speed;
-
-  if (this.x - this.size > width) {
-    this.x = -this.size;
-    this.y = Math.random() * (height * 0.5);
+// and a function to update the shooting star position
+ShootingStar.prototype.update = function () {
+  if (this.active) {
+    // update it's position
+    this.x -= this.speed;
+    this.y += this.speed;
+    // if it goes out of the window, reset
+    if (this.x < -this.len || this.y >= height + this.len) {
+      this.speed = 0;
+      // if the shooting star is special, and it's the right time
+      if (this.special) {
+        if (isSpecialDate) { this.reset(); }
+        // otherwise, just reset it
+      } else { this.reset(); }
+    } else {
+      // set the shooting star colour
+      bgCtx.fillStyle = this.colour;
+      bgCtx.strokeStyle = this.colour;
+      bgCtx.lineWidth = this.size;
+      // and draw it
+      bgCtx.beginPath();
+      bgCtx.moveTo(this.x, this.y);
+      bgCtx.lineTo(this.x + this.len, this.y - this.len);
+      bgCtx.stroke();
+    }
+    // wait for it to be active again
+  } else {
+    if (this.waitTime < new Date().getTime()) {
+      this.active = true;
+    }
   }
-
-  bgCtx.fillStyle = this.color;
-  bgCtx.beginPath();
-  bgCtx.ellipse(this.x, this.y, this.size, this.size * 0.6, 0, 0, Math.PI * 2);
-  bgCtx.fill();
-};
-
-// Bubble entity
-function Bubble() {
-  this.x = Math.random() * width;
-  this.y = height - Math.random() * 100;
-  this.radius = 2 + Math.random() * 4;
-  this.speed = 0.2 + Math.random() * 0.5;
-  this.alpha = 0.2 + Math.random() * 0.3;
 }
 
-Bubble.prototype.update = function () {
-  this.y -= this.speed;
-  this.x += Math.sin(this.y / 20) * 0.2;
-
-  if (this.y + this.radius < 0) {
-    this.y = height;
-    this.x = Math.random() * width;
-  }
-
-  bgCtx.fillStyle = `rgba(255, 255, 255, ${this.alpha})`;
-  bgCtx.beginPath();
-  bgCtx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-  bgCtx.fill();
-};
-
+// function to reset the shooting stars
+ShootingStar.prototype.reset = function (x = "0") {
+  // select the starting position, along the two screen axes
+  var pos = Math.random() * (width + height);
+  this.y = Math.max(0, pos - width);
+  (x == "0") ? this.x = Math.min(width, pos) : this.x = x;
+  // the other bits
+  this.len = (Math.random() * 80) + 10;
+  this.size = (Math.random() * 1) + 0.1;
+  this.speed = (Math.random() * 10) + 5;
+  this.colour = starColour[Math.floor(Math.random() * starColour.length)];
+  this.waitTime = new Date().getTime() + (Math.random() * 20000);
+  this.active = false;
+}
 
 // set the canvase size
 background.width = width;
@@ -159,10 +212,13 @@ background.height = height;
 
 // create an array of animated entities
 var entities = [];
-// Add clouds
-for (let i = 0; i < 5; i++) { entities.push(new Cloud()); }
-// Add bubbles
-for (let i = 0; i < 30; i++) { entities.push(new Bubble()); }
+// // Add clouds
+// for (let i = 0; i < 5; i++) { entities.push(new Cloud()); }
+// // Add bubbles
+// for (let i = 0; i < 30; i++) { entities.push(new Bubble()); }
+
+// add a shooting star
+for (var i = 2; i > 0; i--) { entities.push(new ShootingStar()); }
 
 
 // animate the background
