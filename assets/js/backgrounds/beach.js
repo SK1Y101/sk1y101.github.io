@@ -35,6 +35,18 @@ function lerp(a, b, t) {
   return a + (b - a) * t;
 }
 
+const starColour = ["white", "floralWhite", "aliceBlue", "powderBlue", "azure", "moccasin", "sandyBrown", "peachPuff"]
+const namedColorRGB = {
+  white: [255, 255, 255],
+  floralWhite: [255, 250, 240],
+  aliceBlue: [240, 248, 255],
+  powderBlue: [176, 224, 230],
+  azure: [240, 255, 255],
+  moccasin: [255, 228, 181],
+  sandyBrown: [244, 164, 96],
+  peachPuff: [255, 218, 185],
+};
+
 // the sky
 function drawSky() {
   const bottom = height * 0.7;
@@ -104,61 +116,66 @@ function drawWaves() {
   bgCtx.fill();
 }
 
-// // Cloud entity
-// function Cloud() {
-//   this.x = Math.random() * width;
-//   this.y = Math.random() * (height * 0.5); // upper half of sky
-//   this.size = 50 + Math.random() * 100;
-//   this.speed = 0.1 + Math.random() * 0.3;
-//   this.opacity = 0.2 + Math.random() * 0.3;
-//   this.color = 'rgba(255, 255, 255,' + this.opacity + ')';
-// }
-
-// Cloud.prototype.update = function () {
-//   this.x += this.speed;
-
-//   if (this.x - this.size > width) {
-//     this.x = -this.size;
-//     this.y = Math.random() * (height * 0.5);
-//   }
-
-//   bgCtx.fillStyle = this.color;
-//   bgCtx.beginPath();
-//   bgCtx.ellipse(this.x, this.y, this.size, this.size * 0.6, 0, 0, Math.PI * 2);
-//   bgCtx.fill();
-// };
-
-// // Bubble entity
-// function Bubble() {
-//   this.x = Math.random() * width;
-//   this.y = height - Math.random() * 100;
-//   this.radius = 2 + Math.random() * 4;
-//   this.speed = 0.2 + Math.random() * 0.5;
-//   this.alpha = 0.2 + Math.random() * 0.3;
-// }
-
-// Bubble.prototype.update = function () {
-//   this.y -= this.speed;
-//   this.x += Math.sin(this.y / 20) * 0.2;
-
-//   if (this.y + this.radius < 0) {
-//     this.y = height;
-//     this.x = Math.random() * width;
-//   }
-
-//   bgCtx.fillStyle = `rgba(255, 255, 255, ${this.alpha})`;
-//   bgCtx.beginPath();
-//   bgCtx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-//   bgCtx.fill();
-// };
-
-// function to draw shooting stars
-function ShootingStar(special = false) {
-  this.special = special;
-  this.reset(-200);
+// Cloud entity
+function Cloud() {
+  this.x = Math.random() * width;
+  this.y = Math.random() * height * 0.2;
+  this.size = Math.random() * 40 + 40;
+  this.speed = Math.random() * 0.1 + 0.05;
+  this.puffCount = Math.floor(Math.random() * 3) + 3; // 3–5 puffs
 }
 
-// and a function to update the shooting star position
+Cloud.prototype.update = function (time) {
+  this.x -= this.speed;
+  if (this.x < -this.size * 2) {
+    this.x = width + this.size;
+    this.y = Math.random() * height * 0.2;
+  }
+
+  bgCtx.fillStyle = 'rgba(255, 255, 255, 0.6)';
+  for (let i = 0; i < this.puffCount; i++) {
+    const puffX = this.x + i * (this.size / 2);
+    const puffY = this.y + Math.sin(time * 0.001 + i) * 2;
+    bgCtx.beginPath();
+    bgCtx.ellipse(puffX, puffY, this.size / 2, this.size / 3, 0, 0, Math.PI * 2);
+    bgCtx.fill();
+  }
+};
+
+
+// Bubble entity
+function Bubble() {
+  this.x = Math.random() * width;
+  this.y = height * 0.3 + Math.random() * (height * 0.5); // sea region
+  this.size = Math.random() * 8 + 2;
+  this.speed = Math.random() * 0.2 + 0.1;
+  this.jitterSpeed = Math.random() * 0.05 + 0.02;
+  this.jitterPhase = Math.random() * Math.PI * 2;
+}
+
+Bubble.prototype.update = function (time) {
+  this.x -= this.speed;
+  this.y += Math.sin(time * this.jitterSpeed + this.jitterPhase); // up/down wobble
+
+  if (this.x < -this.size) {
+    this.x = width + this.size;
+    this.y = height * 0.3 + Math.random() * (height * 0.5);
+  }
+
+  bgCtx.fillStyle = 'rgba(255, 255, 255, 0.3)';
+  bgCtx.beginPath();
+  bgCtx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+  bgCtx.fill();
+};
+
+// Shooting star entity
+function ShootingStar() {
+  this.reset(-200);
+}
+ShootingStar.prototype.getRGBA = function (name, alpha) {
+  const rgb = namedColorRGB[name] || [255, 255, 255]; // fallback to white
+  return `rgba(${rgb[0]}, ${rgb[1]}, ${rgb[2]}, ${alpha})`;
+};
 ShootingStar.prototype.update = function () {
   if (this.active) {
     // update it's position
@@ -167,15 +184,12 @@ ShootingStar.prototype.update = function () {
     // if it goes out of the window, reset
     if (this.x < -this.len || this.y >= height + this.len) {
       this.speed = 0;
-      // if the shooting star is special, and it's the right time
-      if (this.special) {
-        if (isSpecialDate) { this.reset(); }
-        // otherwise, just reset it
-      } else { this.reset(); }
+      this.reset();
     } else {
       // set the shooting star colour
       bgCtx.fillStyle = this.colour;
-      bgCtx.strokeStyle = this.colour;
+      // bgCtx.strokeStyle = this.colour;
+      bgCtx.strokeStyle = this.getRGBA(this.colour, alpha);
       bgCtx.lineWidth = this.size;
       // and draw it
       bgCtx.beginPath();
@@ -190,8 +204,6 @@ ShootingStar.prototype.update = function () {
     }
   }
 }
-
-// function to reset the shooting stars
 ShootingStar.prototype.reset = function (x = "0") {
   // select the starting position, along the two screen axes
   var pos = Math.random() * (width + height);
@@ -212,10 +224,10 @@ background.height = height;
 
 // create an array of animated entities
 var entities = [];
-// // Add clouds
-// for (let i = 0; i < 5; i++) { entities.push(new Cloud()); }
-// // Add bubbles
-// for (let i = 0; i < 30; i++) { entities.push(new Bubble()); }
+// Add clouds
+for (let i = 0; i < 5; i++) { entities.push(new Cloud()); }
+// Add bubbles
+for (let i = 0; i < 30; i++) { entities.push(new Bubble()); }
 
 // add a shooting star
 for (var i = 2; i > 0; i--) { entities.push(new ShootingStar()); }
