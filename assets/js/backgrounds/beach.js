@@ -101,7 +101,7 @@ function drawSun() {
 // Cloud entity
 function Cloud() {
   this.x = Math.random() * width;
-  this.y = height * 0.35 + (Math.random() ** 2 - 0.5) * height * 0.2;
+  this.y = height * 0.35 + (Math.random() ** 1.6 - 0.5) * height * 0.35;
   this.size = Math.random() * 40 + 20;
   this.speed = Math.random() * 0.1 + 0.05;
   this.opacity = 0.4;
@@ -156,27 +156,44 @@ Cloud.prototype.update = function () {
 // Bubble entity
 function Bubble() {
   this.x = Math.random() * width;
-  this.y = height * 0.3 + Math.random() * (height * 0.5); // sea region
-  this.size = Math.random() * 8 + 2;
-  this.speed = Math.random() * 0.2 + 0.1;
-  this.jitterSpeed = Math.random() * 0.001 + 0.0001;
-  this.jitterPhase = Math.random() * Math.PI * 2;
+  this.y = Math.random() * height;
+  this.radius = Math.random() * 10 + 5;
+  this.speedX = -(Math.random() * 0.5 + 0.1); // drift left
+  this.offset = Math.random() * 1000; // for jitter phase
+  this.hueShift = Math.random() * 360; // different hues per bubble
 }
-
 Bubble.prototype.update = function (time) {
-  this.x -= this.speed;
-  this.y += 0.4 * Math.sin(time * this.jitterSpeed + this.jitterPhase); // up/down wobble
+  // Jitter and drift
+  this.y += Math.sin((time + this.offset) * 0.002) * 0.3;
+  this.x += this.speedX;
 
-  if (this.x < -this.size) {
-    this.x = width + this.size;
-    this.y = height * 0.3 + Math.random() * (height * 0.5);
+  if (this.x < -this.radius) {
+    this.x = width + this.radius;
+    this.y = Math.random() * height;
   }
 
-  bgCtx.fillStyle = 'rgba(146, 227, 238, 0.3)';
+  const grd = bgCtx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.radius);
+  grd.addColorStop(0, 'rgba(255, 255, 255, 0.05)'); // subtle core
+  grd.addColorStop(0.4, `hsla(${this.hueShift}, 80%, 85%, 0.12)`); // shifting inner tint
+  grd.addColorStop(0.7, `hsla(${(this.hueShift + 120) % 360}, 90%, 75%, 0.18)`); // more variation
+  grd.addColorStop(1, `hsla(${(this.hueShift + 240) % 360}, 100%, 80%, 0.4)`); // edge glow
+
+  // Glow effect on overlap
+  bgCtx.save();
+  bgCtx.globalCompositeOperation = 'lighter';
+  bgCtx.fillStyle = grd;
   bgCtx.beginPath();
-  bgCtx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+  bgCtx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+  bgCtx.fill();
+  bgCtx.restore();
+
+  // Add highlight reflection
+  bgCtx.fillStyle = 'rgba(255,255,255,0.25)';
+  bgCtx.beginPath();
+  bgCtx.arc(this.x + this.radius / 3, this.y - this.radius / 3, this.radius / 6, 0, Math.PI * 2);
   bgCtx.fill();
 };
+
 
 // Shooting star entity
 function ShootingStar() {
@@ -187,23 +204,47 @@ ShootingStar.prototype.update = function () {
   bottom = height * 0.6
 
   if (this.active) {
-    // update it's position
+    // update position
     this.x -= this.speed;
     this.y += this.speed;
-    // if it goes out of the window, reset
+
+    // reset if out of bounds
     if (this.x < -this.len || this.y >= height + this.len) {
       this.speed = 0;
       this.reset();
     } else {
-      bgCtx.fillStyle = this.colour;
-      bgCtx.strokeStyle = this.colour;
-      bgCtx.lineWidth = this.size;
-      bgCtx.beginPath();
-      bgCtx.moveTo(this.x, Math.min(bottom, this.y));
-      bgCtx.lineTo(this.x + this.len, Math.min(bottom, this.y - this.len));
-      bgCtx.stroke();
+      const x1 = this.x;
+      const y1 = this.y;
+      const x2 = this.x + this.len;
+      const y2 = this.y - this.len;
+
+      // only draw if part of the line is visible above the bottom
+      if (y1 < bottom || y2 < bottom) {
+        // find intersection point at `bottom`, if needed
+        let drawX1 = x1, drawY1 = y1;
+        let drawX2 = x2, drawY2 = y2;
+
+        if (y1 > bottom) {
+          const t = (bottom - y2) / (y1 - y2); // interpolate intersection
+          drawX1 = x2 + (x1 - x2) * t;
+          drawY1 = bottom;
+        }
+
+        if (y2 > bottom) {
+          const t = (bottom - y1) / (y2 - y1);
+          drawX2 = x1 + (x2 - x1) * t;
+          drawY2 = bottom;
+        }
+
+        // draw the clipped line
+        bgCtx.strokeStyle = this.colour;
+        bgCtx.lineWidth = this.size;
+        bgCtx.beginPath();
+        bgCtx.moveTo(drawX1, drawY1);
+        bgCtx.lineTo(drawX2, drawY2);
+        bgCtx.stroke();
+      }
     }
-    // wait for it to be active again
   } else {
     if (this.waitTime < new Date().getTime()) {
       this.active = true;
@@ -236,7 +277,7 @@ for (var i = 15; i > 0; i--) { entities.push(new Cloud()); }
 for (var i = 20; i > 0; i--) { entities.push(new Bubble()); }
 
 // add a shooting star
-for (var i = 5; i > 0; i--) { entities.push(new ShootingStar()); }
+for (var i = 10; i > 0; i--) { entities.push(new ShootingStar()); }
 
 
 // animate the background
