@@ -107,24 +107,30 @@ function Cloud() {
   this.opacity = 0.4;
   this.puffs = [];
 
-  const puffCount = Math.floor(Math.random() * 25) + 16; // 16–40 puffs
-  const bufferSize = this.size * 2;
+  const puffCount = Math.floor(Math.random() * 30) + 30; // 30–60 puffs
+  const bufferSize = this.size * 2.5;
 
-  // Create offscreen canvas for compositing
   this.buffer = document.createElement('canvas');
   this.buffer.width = bufferSize;
   this.buffer.height = bufferSize;
   const bctx = this.buffer.getContext('2d');
 
-  // Generate clustered ellipses with warm bottom tint
-  bctx.fillStyle = 'white';
+  bctx.shadowColor = 'rgba(255, 255, 255, 0.2)';
+  bctx.shadowBlur = 20;
+
+  // More natural distribution using radial falloff
   for (let i = 0; i < puffCount; i++) {
     const angle = Math.random() * Math.PI * 2;
-    const radius = Math.random() * (this.size / 2);
-    const px = this.size + Math.cos(angle) * radius;
-    const py = this.size + Math.sin(angle) * radius;
-    const rx = this.size / 2.5 + Math.random() * 5;
-    const ry = this.size / 3 + Math.random() * 5;
+    const r = (1 - Math.pow(Math.random(), 2)) * (this.size / 1.2); // falloff from center
+    const px = bufferSize / 2 + Math.cos(angle) * r * 1.2;
+    const py = bufferSize / 2 + Math.sin(angle) * r * 0.6;
+
+    const rx = this.size / 3 + Math.random() * 6;
+    const ry = this.size / 4 + Math.random() * 4;
+
+    const puffOpacity = 0.5 + Math.random() * 0.3;
+    bctx.fillStyle = `rgba(255, 255, 255, ${puffOpacity})`;
+
     bctx.beginPath();
     bctx.ellipse(px, py, rx, ry, 0, 0, Math.PI * 2);
     bctx.fill();
@@ -137,15 +143,12 @@ Cloud.prototype.update = function () {
   this.x -= this.speed;
   if (this.x < -this.buffer.width) {
     this.x = width + this.buffer.width;
-    this.y = height * 0.35 + (Math.random() ** 2 - 0.5) * height * 0.2;
+    this.y = height * 0.35 + (Math.random() ** 1.6 - 0.5) * height * 0.35;
   }
 
-  bgCtx.globalAlpha = 1; // Ensure consistent composite alpha
+  bgCtx.globalAlpha = 1;
   bgCtx.drawImage(this.buffer, this.x, this.y - this.buffer.height / 2);
 };
-
-
-
 
 // Bubble entity
 function Bubble() {
@@ -261,6 +264,22 @@ ShootingStar.prototype.reset = function (x = "0") {
   this.active = false;
 }
 
+// Star entity, twinkles
+function Star() {
+  this.size = Math.random() * 2 + .1;
+  this.x = Math.random() * width;
+  this.y = Math.random() * height * 0.3;
+  // select it's colour
+  this.colour = starColour[Math.floor(Math.random() * starColour.length)]
+}
+Star.prototype.update = function () {
+  // change the size of the star due to atmospheric twinkling
+  this.size = Math.max(.1, Math.min(2, this.size + 0.1 * Math.random() - 0.05));
+  // and draw the star
+  bgCtx.fillStyle = this.colour;
+  bgCtx.fillRect(this.x, this.y, this.size, this.size);
+}
+
 // set the canvase size
 background.width = width;
 background.height = height;
@@ -271,9 +290,10 @@ var entities = [];
 for (var i = 15; i > 0; i--) { entities.push(new Cloud()); }
 // Add bubbles
 for (var i = 30; i > 0; i--) { entities.push(new Bubble()); }
-
-// add a shooting star
+// add shooting stars
 for (var i = 10; i > 0; i--) { entities.push(new ShootingStar()); }
+// add random stars
+for (var i = 400; i > 0; i--) { entities.push(new Star()); }
 
 
 // animate the background
