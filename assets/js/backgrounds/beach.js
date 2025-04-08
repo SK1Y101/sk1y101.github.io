@@ -35,17 +35,7 @@ function lerp(a, b, t) {
   return a + (b - a) * t;
 }
 
-const starColour = ["white", "floralWhite", "aliceBlue", "powderBlue", "azure", "moccasin", "sandyBrown", "peachPuff"]
-const namedColorRGB = {
-  "white": [255, 255, 255],
-  "floralWhite": [255, 250, 240],
-  "aliceBlue": [240, 248, 255],
-  "powderBlue": [176, 224, 230],
-  "azure": [240, 255, 255],
-  "moccasin": [255, 228, 181],
-  "sandyBrown": [244, 164, 96],
-  "peachPuff": [255, 218, 185],
-};
+const starColour = ["white", "floralWhite", "aliceBlue", "powderBlue", "azure", "moccasin", "sandyBrown", "peachPuff"];
 
 // the sky
 function drawSky() {
@@ -165,7 +155,6 @@ function Bubble() {
 }
 Bubble.prototype.update = function (t) {
   // Ensure x, y, and radius are finite numbers
-  console.log("Bubble Params:", this.x, this.y, this.radius);
   if (isFinite(this.x) && isFinite(this.y) && isFinite(this.radius)) {
     this.y += 0.3 * Math.sin(0.002 * (t + this.offset));
     this.x += this.speedX;
@@ -285,7 +274,7 @@ function Star(x, y, size, colour, isConstellation = false) {
 }
 Star.prototype.update = function () {
   // Adjust the size of the star due to twinkling
-  this.size = Math.max(0, Math.min(2.5, this.size + 0.15 * Math.random() - 0.05));
+  this.size = Math.max(.1, Math.min(2, this.size + 0.1 * Math.random() - 0.05));
 
   // Draw the star
   bgCtx.fillStyle = this.colour;
@@ -342,43 +331,42 @@ for (var i = 10; i > 0; i--) { shootingstars.push(new ShootingStar()); }
 for (var i = 400; i > 0; i--) { stars.push(new Star()); }
 
 const orionStars = [
-  new Star(0.55 * width, 0.25 * height, 2, 'orange', true),  // Betelgeuse
-  new Star(0.65 * width, 0.2 * height, 1.8, 'blue', true),    // Bellatrix
-  new Star(0.5 * width, 0.4 * height, 1.5, 'blue', true),    // Alnilam
-  new Star(0.7 * width, 0.4 * height, 1.3, 'blue', true),    // Mintaka
-  new Star(0.45 * width, 0.6 * height, 1.7, 'blue', true),    // Saiph
-  new Star(0.75 * width, 0.6 * height, 1.6, 'blue', true),    // Rigel
-  new Star(0.4 * width, 0.35 * height, 1.4, 'blue', true),    // Alnitak (belt)
-  new Star(0.5 * width, 0.3 * height, 1.2, 'white', true),    // Meissa (head)
+  new Star(83.63, 7.407, 2, 'sandyBrown', true),        // Betelgeuse     0
+  new Star(81.28, 6.349, 1.8, 'powderBlue', true),      // Bellatrix      1
+  new Star(84.05, -1.194, 1.5, 'aliceBlue', true),      // Alnilam        2
+  new Star(83.00, -0.299, 1.3, 'aliceBlue', true),      // Mintaka        3
+  new Star(86.95, -9.278, 1.7, 'azure', true),          // Saiph          4
+  new Star(80.13, -8.201, 1.6, 'powderBlue', true),     // Rigel          5
+  new Star(85.11, -1.942, 1.4, 'azure', true),          // Alnitak (belt) 6
+  new Star(77.33, 4.817, 1.2, 'white', true),           // Meissa (head)  7
 ];
-
 const cassiopeiaStars = [
-  { x: 0.1 * width, y: 0.2 * height, size: 1.8, colour: 'white', isConstellation: true },     // Schedar
-  { x: 0.2 * width, y: 0.15 * height, size: 1.7, colour: 'white', isConstellation: true },    // Caph
-  { x: 0.15 * width, y: 0.3 * height, size: 1.5, colour: 'white', isConstellation: true },    // Cassiopeia
-  { x: 0.25 * width, y: 0.4 * height, size: 1.4, colour: 'white', isConstellation: true },    // Rho Cassiopeiae
-  { x: 0.3 * width, y: 0.35 * height, size: 1.6, colour: 'white', isConstellation: true }     // Delta Cassiopeiae
+  new Star(0.959, 56.53, 1.8, 'moccasin', true),      // Schedar  0
+  new Star(1.597, 59.12, 1.7, 'aliceBlue', true),     // Caph     1
+  new Star(1.777, 56.53, 1.5, 'powderBlue', true),    // Navi     2
+  new Star(2.296, 60.72, 1.4, 'floraWhite', true),    // Ruchbah  3
+  new Star(1.842, 61.57, 1.6, 'azure', true)          // Segin    4
 ];
 
 // Create stars for constellations
-const orion = orionStars.map(starData => new Star(starData.x, starData.y, starData.size, starData.colour, starData.isConstellation));
-const cassiopeia = cassiopeiaStars.map(starData => new Star(starData.x, starData.y, starData.size, starData.colour, starData.isConstellation));
+for (let star of orionStars) { stars.push(star); }
+for (let star of cassiopeiaStars) { stars.push(star); }
 const orionConnections = [
-  { from: 0, to: 2 },  // Betelgeuse -> Alnilam
-  { from: 2, to: 4 },  // Alnilam -> Saiph
-  { from: 1, to: 2 },  // Bellatrix -> Alnilam
-  { from: 3, to: 4 },  // Mintaka -> Saiph
-  { from: 4, to: 5 },  // Saiph -> Rigel
-  { from: 0, to: 6 },  // Betelgeuse -> Alnitak (belt)
-  { from: 6, to: 2 },  // Alnitak -> Alnilam (belt)
-  { from: 2, to: 7 },  // Alnilam -> Meissa (head)
-  { from: 7, to: 5 },  // Meissa -> Rigel (head connection)
+  { from: 0, to: 1 },
+  { from: 0, to: 6 },
+  { from: 0, to: 7 },
+  { from: 1, to: 3 },
+  { from: 1, to: 7 },
+  { from: 2, to: 3 },
+  { from: 2, to: 6 },
+  { from: 3, to: 5 },
+  { from: 4, to: 6 },
 ];
 const cassiopeiaConnections = [
   { from: 0, to: 1 },  // Schedar -> Caph
-  { from: 1, to: 2 },  // Caph -> Cassiopeia
-  { from: 2, to: 3 },  // Cassiopeia -> Rho Cassiopeiae
-  { from: 3, to: 4 },  // Rho Cassiopeiae -> Delta Cassiopeiae
+  { from: 0, to: 2 },  // Schedar -> Cassiopeia
+  { from: 2, to: 3 },  // Cassiopeia -> Delta Cassiopeiae
+  { from: 3, to: 4 },  // Delta Cassiopeiae -> Epsilon Cassiopeiae
 ];
 
 // animate the background
