@@ -163,6 +163,7 @@ function Bubble() {
 }
 Bubble.prototype.update = function (t) {
   // Ensure x, y, and radius are finite numbers
+  console.log("Bubble Params:", this.x, this.y, this.radius);
   if (isFinite(this.x) && isFinite(this.y) && isFinite(this.radius)) {
     this.y += 0.3 * Math.sin(0.002 * (t + this.offset));
     this.x += this.speedX;
@@ -316,17 +317,17 @@ function animate() {
   drawSun();       // If sun animates with time
 
   // Update all entities
-  for (let entity of stars) {
-    entity.update();
+  for (let star of stars) {
+    star.update();
   };
-  for (let entity of shootingstars) {
-    entity.update();
+  for (let shooting of shootingstars) {
+    shooting.update();
   };
-  for (let entity of clouds) {
-    entity.update();
+  for (let cloud of clouds) {
+    cloud.update();
   };
-  for (let entity of bubbles) {
-    entity.update();
+  for (let bubble of bubbles) {
+    bubble.update(time);
   };
 
   requestAnimFrame(animate);
