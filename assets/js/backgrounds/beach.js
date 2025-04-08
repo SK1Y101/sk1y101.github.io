@@ -37,7 +37,7 @@ function lerp(a, b, t) {
 
 // the sky
 function drawSky() {
-  const gradient = bgCtx.createLinearGradient(0, 0, 0, height);
+  const gradient = bgCtx.createLinearGradient(0, 0, 0, height*0.7);
   gradient.addColorStop(0, '#0b0033');  // Top: deep night blue
   gradient.addColorStop(0.3, '#2e1a47');  // Twilight purple
   gradient.addColorStop(0.6, '#ff758c');  // Pink glow
@@ -46,15 +46,30 @@ function drawSky() {
   gradient.addColorStop(1, '#ffe4b5');  // Horizon glow
 
   bgCtx.fillStyle = gradient;
-  bgCtx.fillRect(0, 0, width, height);
+  bgCtx.fillRect(0, 0, width, height*0.7);
 }
+
+// the sea
+function drawSea() {
+  const top = height * 0.3;
+
+  const gradient = bgCtx.createLinearGradient(0, top, 0, height);
+  gradient.addColorStop(0, '#98f5e1');  // Horizon: soft aqua
+  gradient.addColorStop(0.3, '#56cfe1');  // Light turquoise
+  gradient.addColorStop(0.6, '#2d6cdf');  // Deeper blue
+  gradient.addColorStop(1, '#0b1a40');    // Beach edge: dark ocean blue
+
+  bgCtx.fillStyle = gradient;
+  bgCtx.fillRect(0, top, width, height - top);
+}
+
 
 // the sun
 function drawSun() {
   const sunX = width / 2;
-  const sunY = height * 0.75;
+  const sunY = height * 0.6;
 
-  const sunRadius = 50;
+  const sunRadius = height * 0.1;
 
   // Smooth gradient from warm white to golden yellow
   const sunGradient = bgCtx.createRadialGradient(sunX, sunY, 0, sunX, sunY, sunRadius * 2.5);
@@ -67,6 +82,29 @@ function drawSun() {
   bgCtx.arc(sunX, sunY, sunRadius * 2.5, 0, Math.PI * 2);
   bgCtx.fill();
 }
+
+// sun reflection on the water
+function drawSunReflection(time) {
+  const sunX = width / 2;
+  const sunY = height * 0.75;
+  const shimmerHeight = height * 0.25;
+  const shimmerWidth = width * 0.1;
+
+  const shimmerGradient = bgCtx.createLinearGradient(sunX, sunY, sunX, sunY + shimmerHeight);
+  shimmerGradient.addColorStop(0, 'rgba(255, 255, 180, 0.4)');
+  shimmerGradient.addColorStop(0.5, 'rgba(255, 215, 100, 0.2)');
+  shimmerGradient.addColorStop(1, 'rgba(255, 215, 0, 0)');
+
+  bgCtx.fillStyle = shimmerGradient;
+
+  // Optional shimmer flicker using time
+  const flicker = Math.sin(time * 0.005) * 10;
+
+  bgCtx.beginPath();
+  bgCtx.ellipse(sunX, sunY + shimmerHeight / 2, shimmerWidth + flicker, shimmerHeight, 0, 0, Math.PI * 2);
+  bgCtx.fill();
+}
+
 
 // The beach
 function drawBeach(time) {
@@ -217,7 +255,10 @@ function animate() {
   const time = performance.now(); // Use high-resolution timer
 
   drawSky();
+  drawSea();
+  drawSunReflection(time);
   drawSun();       // If sun animates with time
+  
   drawBeach(time);     // Beach shimmer/waves
   drawWaves();     // Any wave movement with time
 

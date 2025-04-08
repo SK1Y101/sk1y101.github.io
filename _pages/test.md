@@ -1,5 +1,5 @@
 ---
-layout: lost_post
+layout: lost_page
 get_it: cause there's no navbar
 permalink: /test/
 title: test
