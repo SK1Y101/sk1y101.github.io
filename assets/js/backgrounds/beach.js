@@ -68,33 +68,27 @@ function drawSea() {
 }
 function drawWaves(time) {
   const seaTop = height * 0.7;
-  const waveCount = 3;
-  const waveAmplitude = 8;
-  const waveLength = 180;
-  const waveSpeed = 0.002;
+  const waveLayers = 4;
 
-  bgCtx.save();
-  bgCtx.globalAlpha = 0.15;
-  bgCtx.lineWidth = 1.5;
-  bgCtx.strokeStyle = "rgba(255, 255, 255, 0.2)";
-
-  for (let j = 0; j < waveCount; j++) {
-    const offsetY = j * 20;
-    const phase = time * waveSpeed + j * 20;
+  for (let i = 0; i < waveLayers; i++) {
+    const amplitude = 6 + i * 2;
+    const frequency = 0.004 + i * 0.0015;
+    const speed = 0.3 + i * 0.1;
+    const phase = time * speed;
+    const yOffset = seaTop + i * 10 + Math.sin(phase) * 2;
 
     bgCtx.beginPath();
-    for (let x = 0; x <= width; x++) {
-      const y = seaTop + offsetY + Math.sin((x + phase) / waveLength * Math.PI * 2) * waveAmplitude;
-      if (x === 0) {
-        bgCtx.moveTo(x, y);
-      } else {
-        bgCtx.lineTo(x, y);
-      }
+    bgCtx.moveTo(0, yOffset);
+
+    for (let x = 0; x <= width; x += 2) {
+      const y = yOffset + Math.sin(x * frequency + phase) * amplitude;
+      bgCtx.lineTo(x, y);
     }
+
+    bgCtx.strokeStyle = `rgba(255, 255, 255, ${0.035 + i * 0.015})`;
+    bgCtx.lineWidth = 1.3 + i * 0.4;
     bgCtx.stroke();
   }
-
-  bgCtx.restore();
 }
 function drawShimmer() {
   const sunX = width / 2;
@@ -337,7 +331,7 @@ ShootingStar.prototype.reset = function (x = "0") {
 // Star entity, twinkles
 function Star(x, y, size, colour, isConstellation = false) {
   this.x = x || Math.random() * width;
-  this.y = y || Math.random() * height * 0.3;
+  this.y = y || Math.random() **2 * height * 0.3;
   this.size = size || Math.random() * 2 + 0.1;
   this.colour = colour || starColour[Math.floor(Math.random() * starColour.length)];
   this.isConstellation = isConstellation;  // Boolean flag to check if star is in a constellation
@@ -347,7 +341,7 @@ Star.prototype.update = function () {
   this.drawGlow();
 
   // Adjust the size of the star due to twinkling
-  this.size = Math.max(.1, Math.min(2, this.size + 0.1 * Math.random() - 0.05));
+  this.size = Math.max(this.isConstellation ? .75 : .1, Math.min(2, this.size + 0.1 * Math.random() - 0.05));
 
   // Draw the star
   bgCtx.fillStyle = this.colour;
@@ -356,12 +350,12 @@ Star.prototype.update = function () {
 Star.prototype.drawGlow = function () {
   if (this.isConstellation) {
     bgCtx.save();
-    bgCtx.globalAlpha = 0.6;  // Glow transparency
+    bgCtx.globalAlpha = 0.8;  // Glow transparency
     bgCtx.shadowColor = this.colour;
     bgCtx.shadowBlur = 15;  // Glow size
     bgCtx.fillStyle = this.colour;
     bgCtx.beginPath();
-    bgCtx.arc(this.x, this.y, this.size * 1.5, 0, Math.PI * 2);
+    bgCtx.arc(this.x, this.y, 3, 0, Math.PI * 2);
     bgCtx.fill();
     bgCtx.restore();
   }
@@ -376,7 +370,7 @@ function drawConstellationLines(stars, connections) {
     bgCtx.moveTo(star1.x, star1.y);
     bgCtx.lineTo(star2.x, star2.y);
   });
-  bgCtx.strokeStyle = 'rgba(255, 255, 255, 0.2)';  // Soft white color for lines
+  bgCtx.strokeStyle = 'rgba(255, 255, 255, 0.1)';  // Soft white color for lines
   bgCtx.lineWidth = 1.5;  // Line width
   bgCtx.stroke();
 };
@@ -409,10 +403,10 @@ for (var i = 30; i > 0; i--) { bubbles.push(new Bubble()); }
 // add shooting stars
 for (var i = 10; i > 0; i--) { shootingstars.push(new ShootingStar()); }
 // add random stars
-for (var i = 400; i > 0; i--) { stars.push(new Star()); }
+for (var i = 600; i > 0; i--) { stars.push(new Star()); }
 
 // we have a list of RA and DEC, we convert to screenspace with awkwardness
-const orionX = 2000;
+const orionX = 2400;
 const orionY = 200;
 const orionH = -8;
 const orionW = orionH;
@@ -426,10 +420,10 @@ const orionStars = [
   new Star(orionX + orionW * raDeg(5, 40, 45.52666), orionY + orionH * DecDeg(-1, 56, 34.2649), 1.4, 'azure', true),       // Alnitak (belt) 6
   new Star(orionX + orionW * raDeg(5, 35, 8.27608), orionY + orionH * DecDeg(9, 56, 2.9913),    1.2, 'white', true),       // Meissa (head)  7
 ];
-const cassX = 200;
+const cassX = 600;
 const cassY = 600;
 const cassH = -8;
-const cassW = cassH;
+const cassW = -6;
 const cassiopeiaStars = [
   new Star(cassX + cassW * raDeg(0, 40, 30.4411), cassY + cassH * DecDeg(56,32,14.392),     1.8, 'moccasin', true),    // Schedar  0
   new Star(cassX + cassW * raDeg(0, 9, 10.68518), cassY + cassH * DecDeg(59, 8, 59.2120),   1.7, 'aliceBlue', true),   // Caph     1
