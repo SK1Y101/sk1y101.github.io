@@ -174,23 +174,13 @@ function ShootingStar() {
 }
 ShootingStar.prototype.getRGBA = function (name, alpha) {
   const rgb = namedColorRGB[name] || [255, 255, 255]; // fallback to white
-  console.log(`RGB value found`);
-  console.log(rgb);
   const rgba = `rgba(${rgb[0]}, ${rgb[1]}, ${rgb[2]}, ${alpha})`;
-  console.log(`RGBA value found`);
-  console.log(rgba);
   return rgba;
 };
 ShootingStar.prototype.fetch_colour = function (y_cor) {
   const top = height * 0.6;
-  console.log(`top of screen`);
-  console.log(top);
   const height_fraction = Math.max(top, Math.min(0, y_cor)) / top;
-  console.log(`height fraction`);
-  console.log(height_fraction);
   const rgba = this.getRGBA(this.colour, Math.round(255 * height_fraction));
-  console.log(`RGBA value found`);
-  console.log(rgba);
   return rgba;
 };
 ShootingStar.prototype.update = function () {
@@ -241,9 +231,9 @@ background.height = height;
 // create an array of animated entities
 var entities = [];
 // Add clouds
-for (let i = 0; i < 5; i++) { entities.push(new Cloud()); }
+for (var i = 5; i > 0; i--) { entities.push(new Cloud()); }
 // Add bubbles
-for (let i = 0; i < 30; i++) { entities.push(new Bubble()); }
+for (var i = 30; i > 0; i--) { entities.push(new Bubble()); }
 
 // add a shooting star
 for (var i = 20; i > 0; i--) { entities.push(new ShootingStar()); }
