@@ -101,56 +101,58 @@ function drawSun() {
 // Cloud entity
 function Cloud() {
   this.x = Math.random() * width;
-  this.y = height * 0.35 + (Math.random() ** 1.6 - 0.5) * height * 0.35;
-  this.size = Math.random() * 40 + 40;
-  this.speed = Math.random() * 0.1 + 0.05;
+  this.y = 0.35 * height + (Math.random() ** 1.6 - 0.5) * height * 0.35;
+  this.size = 40 * Math.random() + 40;
+  this.speed = 0.1 * Math.random() + 0.05;
   this.puffs = [];
 
-  const puffCount = Math.floor(Math.random() * 30) + 30; // 30–60 puffs
-  const bufferSize = this.size * 2.5;
+  const puffCount = Math.floor(30 * Math.random()) + 30;
+  const bufferSize = 2.5 * this.size;
 
-  this.buffer = document.createElement('canvas');
+  // Create offscreen canvas for compositing
+  this.buffer = document.createElement("canvas");
   this.buffer.width = bufferSize;
   this.buffer.height = bufferSize;
-  const bctx = this.buffer.getContext('2d');
+  const o = this.buffer.getContext("2d");
 
-  // Shadow only for soft edges, not affecting opacity of puffs
-  bctx.shadowColor = 'rgba(255, 255, 255, 0.3)'; // Light shadow effect
-  bctx.shadowBlur = 30;
+  // Apply soft shadow effect for the cloud puffs
+  o.shadowColor = "rgba(255, 255, 255, 0.3)";
+  o.shadowBlur = 30;
 
-  // Create puffs with opacity, ensuring transparency on the edges
+  // Apply a gradient for smoother edges
   for (let i = 0; i < puffCount; i++) {
     const angle = Math.random() * Math.PI * 2;
-    const r = (1 - Math.pow(Math.random(), 2)) * (this.size / 1.2); // Falloff from center
-    const px = bufferSize / 2 + Math.cos(angle) * r * 1.2;
-    const py = bufferSize / 2 + Math.sin(angle) * r * 0.6;
+    const radius = Math.random() * (this.size / 2);
+    const px = bufferSize / 2 + Math.cos(angle) * radius;
+    const py = bufferSize / 2 + Math.sin(angle) * radius;
 
-    const rx = this.size / 3 + Math.random() * 6;
-    const ry = this.size / 4 + Math.random() * 4;
+    const rx = this.size / 3 + 6 * Math.random();
+    const ry = this.size / 4 + 4 * Math.random();
+    const opacity = 0.3 + 0.3 * Math.random();
 
-    // Set opacity for each puff to keep them semi-transparent
-    const puffOpacity = 0.3 + Math.random() * 0.3; // Range from 0.3 to 0.6
-    bctx.fillStyle = `rgba(255, 255, 255, ${puffOpacity})`;
+    // Draw each puff with varying opacity
+    o.fillStyle = `rgba(255, 255, 255, ${opacity})`;
+    o.beginPath();
+    o.ellipse(px, py, rx, ry, 0, 0, Math.PI * 2);
+    o.fill();
 
-    bctx.beginPath();
-    bctx.ellipse(px, py, rx, ry, 0, 0, Math.PI * 2);
-    bctx.fill();
-
-    this.puffs.push({ x: px, y: py, rx, ry });
+    this.puffs.push({ x: px, y: py, rx: rx, ry: ry });
   }
 }
-
 
 Cloud.prototype.update = function () {
   this.x -= this.speed;
   if (this.x < -this.buffer.width) {
     this.x = width + this.buffer.width;
-    this.y = height * 0.35 + (Math.random() ** 1.6 - 0.5) * height * 0.35;
+    this.y = 0.35 * height + (Math.random() ** 1.6 - 0.5) * height * 0.35;
   }
 
-  bgCtx.globalAlpha = 1;
+  // Apply global alpha transparency for smooth blending
+  bgCtx.globalAlpha = 0.7;  // Adjust opacity as needed
   bgCtx.drawImage(this.buffer, this.x, this.y - this.buffer.height / 2);
 };
+
+
 
 // Bubble entity
 function Bubble() {
@@ -274,20 +276,53 @@ ShootingStar.prototype.reset = function (x = "0") {
 }
 
 // Star entity, twinkles
-function Star() {
-  this.size = Math.random() * 2 + .1;
-  this.x = Math.random() * width;
-  this.y = Math.random() * height * 0.3;
-  // select it's colour
-  this.colour = starColour[Math.floor(Math.random() * starColour.length)]
+function Star(x, y, size, colour, isConstellation = false) {
+  this.x = x || Math.random() * width;
+  this.y = y || Math.random() * height * 0.3;
+  this.size = size || Math.random() * 2 + 0.1;
+  this.colour = colour || starColour[Math.floor(Math.random() * starColour.length)];
+  this.isConstellation = isConstellation;  // Boolean flag to check if star is in a constellation
 }
 Star.prototype.update = function () {
-  // change the size of the star due to atmospheric twinkling
-  this.size = Math.max(.1, Math.min(2, this.size + 0.1 * Math.random() - 0.05));
-  // and draw the star
+  // Change the size of the star due to atmospheric twinkling
+  this.size = Math.max(0, Math.min(2.5, this.size + 0.15 * Math.random() - 0.05));
+  // Apply glow effect only if the star is part of a constellation
+  if (this.isConstellation) {
+    bgCtx.shadowColor = `rgba(255, 255, 255, 0.7)`;  // White glow
+    bgCtx.shadowBlur = 8;  // Size of the glow
+  }
+  // Draw the star
   bgCtx.fillStyle = this.colour;
   bgCtx.fillRect(this.x, this.y, this.size, this.size);
+  // Reset the shadow to avoid affecting other elements
+  bgCtx.shadowColor = 'transparent';
+  bgCtx.shadowBlur = 0;
+};
+
+// Constellations!
+function drawConstellation(stars) {
+  // Draw the stars first with the glow effect
+  for (let star of stars) {
+    star.update();  // This will draw the star with the glow effect for constellation stars
+  }
+
+  // Draw lines connecting the stars
+  bgCtx.strokeStyle = "white";
+  bgCtx.lineWidth = 1;
+  bgCtx.beginPath();
+
+  for (let i = 0; i < stars.length; i++) {
+    const star = stars[i];
+    if (i === 0) {
+      bgCtx.moveTo(star.x, star.y);
+    } else {
+      bgCtx.lineTo(star.x, star.y);
+    }
+  }
+
+  bgCtx.stroke();
 }
+
 
 // set the canvase size
 background.width = width;
@@ -307,19 +342,47 @@ for (var i = 10; i > 0; i--) { shootingstars.push(new ShootingStar()); }
 // add random stars
 for (var i = 400; i > 0; i--) { stars.push(new Star()); }
 
+const orionStars = [
+  { x: 0.8 * width, y: 0.2 * height, size: 2, colour: 'orange', isConstellation: true },  // Betelgeuse
+  { x: 0.85 * width, y: 0.2 * height, size: 1.8, colour: 'blue', isConstellation: true },   // Bellatrix
+  { x: 0.9 * width, y: 0.35 * height, size: 1.5, colour: 'blue', isConstellation: true },   // Alnilam
+  { x: 0.95 * width, y: 0.5 * height, size: 1.3, colour: 'blue', isConstellation: true },   // Mintaka
+  { x: 0.8 * width, y: 0.55 * height, size: 1.7, colour: 'blue', isConstellation: true },   // Saiph
+  { x: 0.75 * width, y: 0.65 * height, size: 1.6, colour: 'blue', isConstellation: true }   // Rigel
+];
+
+const cassiopeiaStars = [
+  { x: 0.15 * width, y: 0.2 * height, size: 1.8, colour: 'white', isConstellation: true },  // Schedar
+  { x: 0.12 * width, y: 0.25 * height, size: 1.7, colour: 'white', isConstellation: true },  // Caph
+  { x: 0.1 * width, y: 0.3 * height, size: 1.5, colour: 'white', isConstellation: true },    // Cassiopeia
+  { x: 0.2 * width, y: 0.3 * height, size: 1.4, colour: 'white', isConstellation: true },    // Rho Cassiopeiae
+  { x: 0.25 * width, y: 0.25 * height, size: 1.6, colour: 'white', isConstellation: true }   // Delta Cassiopeiae
+];
+
+// Create stars for the constellations
+const orion = orionStars.map(starData => new Star(starData.x, starData.y, starData.size, starData.colour, starData.isConstellation));
+const cassiopeia = cassiopeiaStars.map(starData => new Star(starData.x, starData.y, starData.size, starData.colour, starData.isConstellation));
+
+
 
 // animate the background
 function animate() {
   const time = performance.now(); // Use high-resolution timer
-
+  // The sky is the background
   drawSky();
-  drawSea();
-  drawSun();       // If sun animates with time
 
-  // Update all entities
+  // Draw constellations and stars
+  drawConstellation(orion);
+  drawConstellation(cassiopeia);
   for (let star of stars) {
     star.update();
   };
+
+  // Sea and sun should layer next
+  drawSea();
+  drawSun();
+
+  // Update all entities
   for (let shooting of shootingstars) {
     shooting.update();
   };
