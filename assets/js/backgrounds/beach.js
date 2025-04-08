@@ -179,7 +179,7 @@ ShootingStar.prototype.getRGBA = function (name, alpha) {
 };
 ShootingStar.prototype.fetch_colour = function (y_cor) {
   const top = height * 0.6;
-  const height_fraction = Math.max(top, Math.min(0, y_cor)) / top;
+  const height_fraction = 1 - (Math.max(top, Math.min(0, y_cor)) / top);
   const rgba = this.getRGBA(this.colour, Math.round(255 * height_fraction));
   return rgba;
 };
