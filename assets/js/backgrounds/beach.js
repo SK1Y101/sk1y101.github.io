@@ -53,9 +53,9 @@ function drawSky() {
 
   const gradient = bgCtx.createLinearGradient(0, 0, 0, bottom);
   gradient.addColorStop(0, '#0b0033');  // Top: deep night blue
-  gradient.addColorStop(0.3, '#2e1a47');  // Twilight purple
-  gradient.addColorStop(0.6, '#ff758c');  // Pink glow
-  gradient.addColorStop(0.75, '#ffd580');  // Sunset orange
+  gradient.addColorStop(0.1, '#2e1a47');  // Twilight purple
+  gradient.addColorStop(0.4, '#ff758c');  // Pink glow
+  gradient.addColorStop(0.7, '#ffd580');  // Sunset orange
   gradient.addColorStop(0.9, '#fff1a8');  // Yellow near horizon
   gradient.addColorStop(1, '#ffe4b5');  // Horizon glow
 
@@ -102,7 +102,7 @@ function drawSun() {
 function Cloud() {
   this.x = Math.random() * width;
   this.y = height * 0.35 + (Math.random() ** 1.6 - 0.5) * height * 0.35;
-  this.size = Math.random() * 40 + 20;
+  this.size = Math.random() * 40 + 40;
   this.speed = Math.random() * 0.1 + 0.05;
   this.opacity = 0.4;
   this.puffs = [];
@@ -117,6 +117,7 @@ function Cloud() {
   const bctx = this.buffer.getContext('2d');
 
   // Generate clustered ellipses with warm bottom tint
+  bctx.fillStyle = 'white';
   for (let i = 0; i < puffCount; i++) {
     const angle = Math.random() * Math.PI * 2;
     const radius = Math.random() * (this.size / 2);
@@ -124,13 +125,6 @@ function Cloud() {
     const py = this.size + Math.sin(angle) * radius;
     const rx = this.size / 2.5 + Math.random() * 5;
     const ry = this.size / 3 + Math.random() * 5;
-
-    const verticalRatio = py / bufferSize; // 0 (top) to 1 (bottom)
-    const r = 255;
-    const g = 255 - verticalRatio * 25; // warmer at bottom
-    const b = 255 - verticalRatio * 60;
-
-    bctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${this.opacity})`;
     bctx.beginPath();
     bctx.ellipse(px, py, rx, ry, 0, 0, Math.PI * 2);
     bctx.fill();
@@ -156,15 +150,17 @@ Cloud.prototype.update = function () {
 // Bubble entity
 function Bubble() {
   this.x = Math.random() * width;
-  this.y = Math.random() * height;
-  this.radius = Math.random() * 10 + 5;
-  this.speedX = -(Math.random() * 0.5 + 0.1); // drift left
-  this.offset = Math.random() * 1000; // for jitter phase
-  this.hueShift = Math.random() * 360; // different hues per bubble
+  this.y = Math.random() * height*0.9 + 0.1*height;
+  this.radius = Math.random() * 20 + 5;
+  this.speedX = -(Math.random() * 0.7 + 0.05); // drift left
+  this.jitter = Math.random();             // jitter amplitude
+  this.offset = Math.random() * 1000;      // jitter phase
+  this.jitteroffset = Math.random() + 0.5; // jitter time
+  this.hueShift = Math.random() * 360;     // different hues per bubble
 }
 Bubble.prototype.update = function (time) {
   // Jitter and drift
-  this.y += Math.sin((time + this.offset) * 0.002) * 0.3;
+  this.y += Math.sin((this.jitteroffset*time + this.offset) * this.jitter) * 0.3;
   this.x += this.speedX;
 
   if (this.x < -this.radius) {
@@ -274,7 +270,7 @@ var entities = [];
 // Add clouds
 for (var i = 15; i > 0; i--) { entities.push(new Cloud()); }
 // Add bubbles
-for (var i = 20; i > 0; i--) { entities.push(new Bubble()); }
+for (var i = 30; i > 0; i--) { entities.push(new Bubble()); }
 
 // add a shooting star
 for (var i = 10; i > 0; i--) { entities.push(new ShootingStar()); }
