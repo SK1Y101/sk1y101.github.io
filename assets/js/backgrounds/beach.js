@@ -66,31 +66,6 @@ function drawSea() {
   bgCtx.fillStyle = gradient;
   bgCtx.fillRect(0, top, width, height - top);
 }
-function drawWaves(time) {
-  const seaTop = height * 0.75;
-  const waveLayers = 10;
-
-  for (let i = 0; i < waveLayers; i++) {
-    const amplitude = 3 + i*0.5;
-    const frequency = 0.004 + i * 0.0015;
-    const speed = 0.01 + i * 0.001;
-    const phase = time * speed;
-    const yOffset = seaTop + i * 20 + Math.sin(phase) * 2;
-
-    bgCtx.beginPath();
-    bgCtx.moveTo(0, yOffset);
-
-    for (let x = 0; x <= width; x += 2) {
-      const y = yOffset + Math.sin(x * frequency + phase) * amplitude;
-      bgCtx.lineTo(x, y);
-    }
-
-    bgCtx.strokeStyle = `rgba(255, 255, 255, ${0.035 + i * 0.065})`;
-    // bgCtx.strokeStyle = `rgba(255, 255, 255, 0.6)`;
-    bgCtx.lineWidth = 1.3 + i * 0.4;
-    bgCtx.stroke();
-  }
-}
 function drawShimmer() {
   const sunX = width / 2;
   const sunY = height * 0.6;
@@ -119,7 +94,7 @@ function drawShimmer() {
 
     const gradient = bgCtx.createLinearGradient(x1, y, x2, y);
     gradient.addColorStop(0, "rgba(255, 223, 100, 0)");
-    gradient.addColorStop(0.5, "rgba(255, 240, 180, 0.8)");
+    gradient.addColorStop(0.5, "rgba(255, 255, 125, 0.8)");
     gradient.addColorStop(1, "rgba(255, 223, 100, 0)");
 
     bgCtx.strokeStyle = gradient;
@@ -257,6 +232,37 @@ Bubble.prototype.update = function (t) {
   }
 };
 
+// Wave entity
+function Wave() {
+  this.x = Math.random() * width;
+  this.y = height * 0.7 + Math.random() * 40; // starting in sea region
+  this.amp = 10 + Math.random() * 20; // amplitude
+  this.freq = 0.005 + Math.random() * 0.01; // frequency
+  this.phase = Math.random() * Math.PI * 2;
+  this.speed = 0.002 + Math.random() * 0.003;
+  this.length = 200 + Math.random() * 100;
+  this.opacity = 0.2 + Math.random() * 0.2;
+  this.colour = 'rgba(255,255,255,' + this.opacity + ')';
+}
+Wave.prototype.update = function (t) {
+  const segments = 20;
+  const dx = this.length / segments;
+  bgCtx.beginPath();
+  bgCtx.moveTo(this.x, this.y);
+
+  for (let i = 0; i <= segments; i++) {
+    const px = this.x + i * dx;
+    const py = this.y + Math.sin((i * dx * this.freq) + this.phase + t * this.speed) * this.amp;
+    bgCtx.lineTo(px, py);
+  }
+
+  bgCtx.strokeStyle = this.colour;
+  bgCtx.lineWidth = 1;
+  bgCtx.shadowColor = this.colour;
+  bgCtx.shadowBlur = 4;
+  bgCtx.stroke();
+  bgCtx.shadowBlur = 0;
+};
 
 
 // Shooting star entity
@@ -397,13 +403,17 @@ var stars = [];
 var shootingstars = [];
 var clouds = [];
 var bubbles = [];
+var waves = [];
+
 // Add clouds
 for (var i = 15; i > 0; i--) { clouds.push(new Cloud()); }
 // Add bubbles
 for (var i = 30; i > 0; i--) { bubbles.push(new Bubble()); }
-// add shooting stars
+// Add waves
+for (var i = 20; i > 0; i--) { waves.push(new Wave()); }
+// Add shooting stars
 for (var i = 10; i > 0; i--) { shootingstars.push(new ShootingStar()); }
-// add random stars
+// Add random stars
 for (var i = 600; i > 0; i--) { stars.push(new Star()); }
 
 // we have a list of RA and DEC, we convert to screenspace with awkwardness
@@ -469,13 +479,15 @@ function animate() {
 
   // Sea and sun should layer next
   drawSea();
-  drawWaves(time);
   drawShimmer();
   drawSun();
 
   // Update all entities
   for (let shooting of shootingstars) {
     shooting.update();
+  };
+  for (let wave of waves) {
+    wave.update(time);
   };
   for (let cloud of clouds) {
     cloud.update();
