@@ -67,15 +67,15 @@ function drawSea() {
   bgCtx.fillRect(0, top, width, height - top);
 }
 function drawWaves(time) {
-  const seaTop = height * 0.7;
-  const waveLayers = 4;
+  const seaTop = height * 0.75;
+  const waveLayers = 10;
 
   for (let i = 0; i < waveLayers; i++) {
     const amplitude = 6 + i * 2;
     const frequency = 0.004 + i * 0.0015;
-    const speed = 0.3 + i * 0.1;
+    const speed = 0.1 + i * 0.01;
     const phase = time * speed;
-    const yOffset = seaTop + i * 10 + Math.sin(phase) * 2;
+    const yOffset = seaTop + i * 20 + Math.sin(phase) * 2;
 
     bgCtx.beginPath();
     bgCtx.moveTo(0, yOffset);
@@ -85,8 +85,8 @@ function drawWaves(time) {
       bgCtx.lineTo(x, y);
     }
 
-    // bgCtx.strokeStyle = `rgba(255, 255, 255, ${0.035 + i * 0.015})`;
-    bgCtx.strokeStyle = `rgba(255, 255, 255, 0.6)`;
+    bgCtx.strokeStyle = `rgba(255, 255, 255, ${0.035 + i * 0.165})`;
+    // bgCtx.strokeStyle = `rgba(255, 255, 255, 0.6)`;
     bgCtx.lineWidth = 1.3 + i * 0.4;
     bgCtx.stroke();
   }
@@ -332,7 +332,7 @@ ShootingStar.prototype.reset = function (x = "0") {
 // Star entity, twinkles
 function Star(x, y, size, colour, isConstellation = false) {
   this.x = x || Math.random() * width;
-  this.y = y || Math.random() **2 * height * 0.3;
+  this.y = y || Math.random() ** 1.4 * height * 0.3;
   this.size = size || Math.random() * 2 + 0.1;
   this.colour = colour || starColour[Math.floor(Math.random() * starColour.length)];
   this.isConstellation = isConstellation;  // Boolean flag to check if star is in a constellation
@@ -342,7 +342,7 @@ Star.prototype.update = function () {
   this.drawGlow();
 
   // Adjust the size of the star due to twinkling
-  this.size = Math.max(this.isConstellation ? .75 : .1, Math.min(2, this.size + 0.1 * Math.random() - 0.05));
+  this.size = Math.max(this.isConstellation ? .35 : .1, Math.min(2, this.size + 0.1 * Math.random() - 0.05));
 
   // Draw the star
   bgCtx.fillStyle = this.colour;
