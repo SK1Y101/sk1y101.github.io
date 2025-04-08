@@ -101,22 +101,22 @@ function drawSun() {
 // Cloud entity
 function Cloud() {
   this.x = Math.random() * width;
-  this.y = Math.random() * height * 0.4 + height * 0.2;
-  this.size = Math.random() * 10 + 10;
+  this.y = height * 0.35 + (Math.random() ** 2 - 0.5) * height * 0.2;
+  this.size = Math.random() * 40 + 20;
   this.speed = Math.random() * 0.1 + 0.05;
-  this.opacity = 0.6;
+  this.opacity = 0.4;
   this.puffs = [];
 
-  const puffCount = Math.floor(Math.random() * 25) + 16; // 20–40 puffs
-
-  // Create offscreen canvas for clean compositing
+  const puffCount = Math.floor(Math.random() * 25) + 16; // 16–40 puffs
   const bufferSize = this.size * 2;
+
+  // Create offscreen canvas for compositing
   this.buffer = document.createElement('canvas');
   this.buffer.width = bufferSize;
   this.buffer.height = bufferSize;
   const bctx = this.buffer.getContext('2d');
 
-  // Generate clustered puffs
+  // Generate clustered ellipses with warm bottom tint
   for (let i = 0; i < puffCount; i++) {
     const angle = Math.random() * Math.PI * 2;
     const radius = Math.random() * (this.size / 2);
@@ -124,30 +124,32 @@ function Cloud() {
     const py = this.size + Math.sin(angle) * radius;
     const rx = this.size / 2.5 + Math.random() * 5;
     const ry = this.size / 3 + Math.random() * 5;
-    this.puffs.push({ x: px, y: py, rx, ry });
-  }
 
-  // Draw the cloud into the buffer at full opacity
-  bctx.fillStyle = 'white';
-  for (const puff of this.puffs) {
+    const verticalRatio = py / bufferSize; // 0 (top) to 1 (bottom)
+    const r = 255;
+    const g = 255 - verticalRatio * 25; // warmer at bottom
+    const b = 255 - verticalRatio * 60;
+
+    bctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${this.opacity})`;
     bctx.beginPath();
-    bctx.ellipse(puff.x, puff.y, puff.rx, puff.ry, 0, 0, Math.PI * 2);
+    bctx.ellipse(px, py, rx, ry, 0, 0, Math.PI * 2);
     bctx.fill();
+
+    this.puffs.push({ x: px, y: py, rx, ry });
   }
 }
 
 Cloud.prototype.update = function () {
   this.x -= this.speed;
-  if (this.x < -this.size * 2) {
-    this.x = width + this.size;
-    this.y = Math.random() * height * 0.2;
+  if (this.x < -this.buffer.width) {
+    this.x = width + this.buffer.width;
+    this.y = height * 0.35 + (Math.random() ** 2 - 0.5) * height * 0.2;
   }
 
-  // Draw from offscreen buffer with fixed opacity
-  bgCtx.globalAlpha = this.opacity;
-  bgCtx.drawImage(this.buffer, this.x, this.y - this.size);
-  bgCtx.globalAlpha = 1.0;
+  bgCtx.globalAlpha = 1; // Ensure consistent composite alpha
+  bgCtx.drawImage(this.buffer, this.x, this.y - this.buffer.height / 2);
 };
+
 
 
 
@@ -163,7 +165,7 @@ function Bubble() {
 
 Bubble.prototype.update = function (time) {
   this.x -= this.speed;
-  this.y += 0.1 * Math.sin(time * this.jitterSpeed + this.jitterPhase); // up/down wobble
+  this.y += 0.4 * Math.sin(time * this.jitterSpeed + this.jitterPhase); // up/down wobble
 
   if (this.x < -this.size) {
     this.x = width + this.size;
