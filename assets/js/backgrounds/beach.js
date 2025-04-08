@@ -66,75 +66,77 @@ function drawSea() {
   bgCtx.fillStyle = gradient;
   bgCtx.fillRect(0, top, width, height - top);
 }
-function drawWaves() {
-  const waveCount = 4; // Number of waves to draw
-  const waveHeightVariance = 40; // Height variance of the waves
-  const waveSpeed = 0.3; // Wave movement speed
-
-  // Time-based phase to animate wave motion
-  const time = performance.now() * 0.001;
+function drawWaves(time) {
+  const seaTop = height * 0.7;
+  const waveCount = 3;
+  const waveAmplitude = 8;
+  const waveLength = 180;
+  const waveSpeed = 0.002;
 
   bgCtx.save();
-  bgCtx.globalAlpha = 0.5;  // Set wave transparency
+  bgCtx.globalAlpha = 0.15;
+  bgCtx.lineWidth = 1.5;
+  bgCtx.strokeStyle = "rgba(255, 255, 255, 0.2)";
 
-  // Draw each wave
-  for (let i = 0; i < waveCount; i++) {
-    const waveFrequency = 0.02 + Math.random() * 0.03; // Vary the frequency of waves
-    const waveAmplitude = Math.random() * waveHeightVariance + 10; // Random amplitude (height) for each wave
-    const waveOffset = Math.random() * Math.PI * 2; // Offset for each wave to avoid perfect synchronization
+  for (let j = 0; j < waveCount; j++) {
+    const offsetY = j * 20;
+    const phase = time * waveSpeed + j * 20;
 
     bgCtx.beginPath();
-    for (let x = 0; x < width; x++) {
-      const y = height * 0.6 + Math.sin(x * waveFrequency + time + waveOffset) * waveAmplitude;
-      bgCtx.lineTo(x, y);
+    for (let x = 0; x <= width; x++) {
+      const y = seaTop + offsetY + Math.sin((x + phase) / waveLength * Math.PI * 2) * waveAmplitude;
+      if (x === 0) {
+        bgCtx.moveTo(x, y);
+      } else {
+        bgCtx.lineTo(x, y);
+      }
     }
-
-    // Set a light blue gradient for the waves
-    const gradient = bgCtx.createLinearGradient(0, height * 0.6, 0, height);
-    gradient.addColorStop(0, "rgba(255, 255, 255, 0.2)"); // Light wave crest color
-    gradient.addColorStop(1, "rgba(0, 120, 180, 0.6)"); // Deeper blue for the wave body
-
-    bgCtx.strokeStyle = gradient;
-    bgCtx.lineWidth = 2; // Wave line thickness
     bgCtx.stroke();
   }
 
   bgCtx.restore();
 }
-
 function drawShimmer() {
-  const sunX = width / 2;  // Sun's X position
-  const sunY = height * 0.6;  // Sun's Y position
-  const shimmerCount = 50;  // Number of shimmer lines
-  const shimmerLength = 200;  // Length of each shimmer line
-  const startY = sunY + 10;  // Start Y position for shimmer, just below the sun
+  const sunX = width / 2;
+  const sunY = height * 0.6;
+  const startY = sunY + 10;
+  const endY = height * 0.95;
+  const shimmerLines = 60;
 
-  // Create shimmer lines that are only drawn beneath the sun
   bgCtx.save();
-  bgCtx.globalAlpha = 0.5;  // Adjust transparency of shimmer lines
+  bgCtx.globalAlpha = 0.4;
+  bgCtx.lineWidth = 1;
 
-  for (let i = 0; i < shimmerCount; i++) {
-    const angleOffset = (i - shimmerCount / 2) * 0.05; // Vary the angle of the shimmer lines slightly
-    const x1 = sunX + Math.cos(angleOffset) * shimmerLength;  // X position for the start of the line
-    const y1 = startY + Math.sin(angleOffset) * shimmerLength;  // Y position for the start
-    const x2 = sunX + Math.cos(angleOffset + Math.PI) * shimmerLength;  // X position for the end
-    const y2 = startY + Math.sin(angleOffset + Math.PI) * shimmerLength;  // Y position for the end
+  for (let i = 0; i < shimmerLines; i++) {
+    const t = i / shimmerLines;
+    const y = lerp(startY, endY, t);
 
-    // Create a soft yellow gradient for the shimmer
-    const gradient = bgCtx.createLinearGradient(x1, y1, x2, y2);
-    gradient.addColorStop(0, "rgba(255, 215, 0, 0.7)"); // Bright yellow at the sun
-    gradient.addColorStop(1, "rgba(255, 215, 0, 0.1)"); // Fades out as it extends
+    // shimmer width grows with t, from 0 to maxWidth
+    const maxWidth = 300;
+    const widthFactor = Math.sin(t * Math.PI); // soft cone shape
+    const halfWidth = maxWidth * widthFactor / 2;
+
+    // slight x jitter to imitate flickering water
+    const jitter = (Math.random() - 0.5) * 4;
+
+    const x1 = sunX - halfWidth + jitter;
+    const x2 = sunX + halfWidth + jitter;
+
+    const gradient = bgCtx.createLinearGradient(x1, y, x2, y);
+    gradient.addColorStop(0, "rgba(255, 223, 100, 0)");
+    gradient.addColorStop(0.5, "rgba(255, 240, 180, 0.8)");
+    gradient.addColorStop(1, "rgba(255, 223, 100, 0)");
 
     bgCtx.strokeStyle = gradient;
-    bgCtx.lineWidth = 2; // Line width for shimmer effect
     bgCtx.beginPath();
-    bgCtx.moveTo(x1, y1);
-    bgCtx.lineTo(x2, y2);
+    bgCtx.moveTo(x1, y);
+    bgCtx.lineTo(x2, y);
     bgCtx.stroke();
   }
 
   bgCtx.restore();
 }
+
 
 // the sun
 function drawSun() {
@@ -268,7 +270,7 @@ function ShootingStar() {
 }
 ShootingStar.prototype.update = function () {
 
-  bottom = height * 0.6
+  bottom = height * 0.7;
 
   if (this.active) {
     // update position
@@ -341,15 +343,15 @@ function Star(x, y, size, colour, isConstellation = false) {
   this.isConstellation = isConstellation;  // Boolean flag to check if star is in a constellation
 }
 Star.prototype.update = function () {
+  // Draw the glow effect if it's part of a constellation
+  this.drawGlow();
+
   // Adjust the size of the star due to twinkling
   this.size = Math.max(.1, Math.min(2, this.size + 0.1 * Math.random() - 0.05));
 
   // Draw the star
   bgCtx.fillStyle = this.colour;
   bgCtx.fillRect(this.x, this.y, this.size, this.size);
-
-  // Draw the glow effect if it's part of a constellation
-  this.drawGlow();
 };
 Star.prototype.drawGlow = function () {
   if (this.isConstellation) {
@@ -374,10 +376,21 @@ function drawConstellationLines(stars, connections) {
     bgCtx.moveTo(star1.x, star1.y);
     bgCtx.lineTo(star2.x, star2.y);
   });
-  bgCtx.strokeStyle = 'rgba(255, 255, 255, 0.8)';  // Soft white color for lines
+  bgCtx.strokeStyle = 'rgba(255, 255, 255, 0.2)';  // Soft white color for lines
   bgCtx.lineWidth = 1.5;  // Line width
   bgCtx.stroke();
 };
+function raDeg(raHours, raMinutes = 0, raSeconds = 0) {
+  const ra = (raHours + raMinutes / 60 + raSeconds / 3600) * 15; // 15° per hour
+  return ra;
+}
+function DecDeg(decDegrees, decMinutes = 0, decSeconds = 0) {
+  const sign = decDegrees < 0 ? -1 : 1;
+  const absDec = Math.abs(decDegrees) + decMinutes / 60 + decSeconds / 3600;
+  const dec = sign * absDec;
+  return dec;
+}
+
 
 
 // set the canvase size
@@ -404,25 +417,25 @@ const orionY = 200;
 const orionH = -8;
 const orionW = orionH;
 const orionStars = [
-  new Star(orionX + orionW * 83.63, orionY + orionH * 7.407, 2, 'sandyBrown', true),        // Betelgeuse     0
-  new Star(orionX + orionW * 81.28, orionY + orionH * 6.349, 1.8, 'powderBlue', true),      // Bellatrix      1
-  new Star(orionX + orionW * 84.05, orionY + orionH * -1.194, 1.5, 'aliceBlue', true),      // Alnilam        2
-  new Star(orionX + orionW * 83.00, orionY + orionH * -0.299, 1.3, 'aliceBlue', true),      // Mintaka        3
-  new Star(orionX + orionW * 86.95, orionY + orionH * -9.278, 1.7, 'azure', true),          // Saiph          4
-  new Star(orionX + orionW * 80.13, orionY + orionH * -8.201, 1.6, 'powderBlue', true),     // Rigel          5
-  new Star(orionX + orionW * 85.11, orionY + orionH * -1.942, 1.4, 'azure', true),          // Alnitak (belt) 6
-  new Star(orionX + orionW * 77.33, orionY + orionH * 4.817, 1.2, 'white', true),           // Meissa (head)  7
+  new Star(orionX + orionW * raDeg(5, 55, 10.30536), orionY + orionH * DecDeg(7, 24, 25.4304),    2, 'sandyBrown', true),  // Betelgeuse     0
+  new Star(orionX + orionW * raDeg(5, 25, 7.86325), orionY + orionH * DecDeg(6, 20, 58.9318),   1.8, 'powderBlue', true),  // Bellatrix      1
+  new Star(orionX + orionW * raDeg(5, 36, 12.8), orionY + orionH * DecDeg(-1, 12, 6.9),         1.5, 'aliceBlue', true),   // Alnilam        2
+  new Star(orionX + orionW * raDeg(5, 32, 0.40009), orionY + orionH * DecDeg(-0, 17, 56.7424),  1.3, 'aliceBlue', true),   // Mintaka        3
+  new Star(orionX + orionW * raDeg(5, 47, 45.39994), orionY + orionH * DecDeg(-9, 40, 10.5777), 1.7, 'azure', true),       // Saiph          4
+  new Star(orionX + orionW * raDeg(5, 14, 32.27210), orionY + orionH * DecDeg(-8, 12, 5.8981),  1.6, 'powderBlue', true),  // Rigel          5
+  new Star(orionX + orionW * raDeg(5, 40, 45.52666), orionY + orionH * DecDeg(-1, 56, 34.2649), 1.4, 'azure', true),       // Alnitak (belt) 6
+  new Star(orionX + orionW * raDeg(5, 35, 8.27608), orionY + orionH * DecDeg(9, 56, 2.9913),    1.2, 'white', true),       // Meissa (head)  7
 ];
 const cassX = 200;
 const cassY = 600;
 const cassH = -8;
 const cassW = cassH;
 const cassiopeiaStars = [
-  new Star(cassX + cassW * 0.959, cassY + cassH * 56.53, 1.8, 'moccasin', true),      // Schedar  0
-  new Star(cassX + cassW * 1.597, cassY + cassH * 59.12, 1.7, 'aliceBlue', true),     // Caph     1
-  new Star(cassX + cassW * 1.777, cassY + cassH * 56.53, 1.5, 'powderBlue', true),    // Navi     2
-  new Star(cassX + cassW * 2.296, cassY + cassH * 60.72, 1.4, 'floraWhite', true),    // Ruchbah  3
-  new Star(cassX + cassW * 1.842, cassY + cassH * 61.57, 1.6, 'azure', true)          // Segin    4
+  new Star(cassX + cassW * raDeg(0, 40, 30.4411), cassY + cassH * DecDeg(56,32,14.392),     1.8, 'moccasin', true),    // Schedar  0
+  new Star(cassX + cassW * raDeg(0, 9, 10.68518), cassY + cassH * DecDeg(59, 8, 59.2120),   1.7, 'aliceBlue', true),   // Caph     1
+  new Star(cassX + cassW * raDeg(0, 56, 42.50108), cassY + cassH * DecDeg(60, 43, 0.2984),  1.5, 'powderBlue', true),  // Navi     2
+  new Star(cassX + cassW * raDeg(1, 25, 48.95147), cassY + cassH * DecDeg(60, 14, 7.0225),  1.4, 'floraWhite', true),  // Ruchbah  3
+  new Star(cassX + cassW * raDeg(1, 54, 23.73409), cassY + cassH * DecDeg(63, 40, 12.3602), 1.6, 'azure', true)        // Segin    4
 ];
 
 // Create stars for constellations
@@ -461,7 +474,7 @@ function animate() {
 
   // Sea and sun should layer next
   drawSea();
-  drawWaves();
+  drawWaves(time);
   drawShimmer();
   drawSun();
 
