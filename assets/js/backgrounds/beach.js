@@ -176,6 +176,11 @@ ShootingStar.prototype.getRGBA = function (name, alpha) {
   const rgb = namedColorRGB[name] || [255, 255, 255]; // fallback to white
   return `rgba(${rgb[0]}, ${rgb[1]}, ${rgb[2]}, ${alpha})`;
 };
+ShootingStar.prototype.fetch_colour = function (y_cor) {
+  top = height * 0.6
+  height_fraction = Math.max(top, Math.min(0, y_cor)) / top;
+  return this.getRGBA(this.colour, Math.round(255*height_fraction));
+};
 ShootingStar.prototype.update = function () {
   if (this.active) {
     // update it's position
@@ -187,8 +192,8 @@ ShootingStar.prototype.update = function () {
       this.reset();
     } else {
       const gradient = bgCtx.createLinearGradient(this.x, this.y, this.x + this.len, this.y - this.len);
-      gradient.addColorStop(0, this.getRGBA(this.colour, 255));
-      gradient.addColorStop(1, this.getRGBA(this.colour, 255));
+      gradient.addColorStop(0, this.fetch_colour(this.y));
+      gradient.addColorStop(1, this.fetch_colour(this.y - this.len));
       bgCtx.strokeStyle = gradient;
       bgCtx.lineWidth = this.size;
       bgCtx.beginPath();
