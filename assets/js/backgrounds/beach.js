@@ -153,6 +153,14 @@ Cloud.prototype.update = function () {
 };
 
 // Bubble entity
+function Bubble() {
+  this.x = Math.random() * width;
+  this.y = Math.random() * height;
+  this.radius = Math.random() * 20 + 5;
+  this.speedX = -(Math.random() * 0.5 + 0.1); // drift left
+  this.offset = Math.random() * 1000; // for jitter phase
+  this.hueShift = Math.random() * 360; // different hues per bubble
+}
 Bubble.prototype.update = function (t) {
   // Ensure x, y, and radius are finite numbers
   if (isFinite(this.x) && isFinite(this.y) && isFinite(this.radius)) {
