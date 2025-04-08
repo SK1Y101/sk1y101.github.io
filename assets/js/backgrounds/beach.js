@@ -330,22 +330,27 @@ for (var i = 10; i > 0; i--) { shootingstars.push(new ShootingStar()); }
 // add random stars
 for (var i = 400; i > 0; i--) { stars.push(new Star()); }
 
+// we have a list of RA and DEC, we convert to screenspace with awkwardness
+const orionX = 1200;
+const orionY = 200;
 const orionStars = [
-  new Star(83.63, 7.407, 2, 'sandyBrown', true),        // Betelgeuse     0
-  new Star(81.28, 6.349, 1.8, 'powderBlue', true),      // Bellatrix      1
-  new Star(84.05, -1.194, 1.5, 'aliceBlue', true),      // Alnilam        2
-  new Star(83.00, -0.299, 1.3, 'aliceBlue', true),      // Mintaka        3
-  new Star(86.95, -9.278, 1.7, 'azure', true),          // Saiph          4
-  new Star(80.13, -8.201, 1.6, 'powderBlue', true),     // Rigel          5
-  new Star(85.11, -1.942, 1.4, 'azure', true),          // Alnitak (belt) 6
-  new Star(77.33, 4.817, 1.2, 'white', true),           // Meissa (head)  7
+  new Star(orionX + 2*83.63, orionY + 2*7.407, 2, 'sandyBrown', true),        // Betelgeuse     0
+  new Star(orionX + 2*81.28, orionY + 2*6.349, 1.8, 'powderBlue', true),      // Bellatrix      1
+  new Star(orionX + 2*84.05, orionY + 2*-1.194, 1.5, 'aliceBlue', true),      // Alnilam        2
+  new Star(orionX + 2*83.00, orionY + 2*-0.299, 1.3, 'aliceBlue', true),      // Mintaka        3
+  new Star(orionX + 2*86.95, orionY + 2*-9.278, 1.7, 'azure', true),          // Saiph          4
+  new Star(orionX + 2*80.13, orionY + 2*-8.201, 1.6, 'powderBlue', true),     // Rigel          5
+  new Star(orionX + 2*85.11, orionY + 2*-1.942, 1.4, 'azure', true),          // Alnitak (belt) 6
+  new Star(orionX + 2*77.33, orionY + 2*4.817, 1.2, 'white', true),           // Meissa (head)  7
 ];
+const cassX = 200;
+const cassY = 200;
 const cassiopeiaStars = [
-  new Star(0.959, 56.53, 1.8, 'moccasin', true),      // Schedar  0
-  new Star(1.597, 59.12, 1.7, 'aliceBlue', true),     // Caph     1
-  new Star(1.777, 56.53, 1.5, 'powderBlue', true),    // Navi     2
-  new Star(2.296, 60.72, 1.4, 'floraWhite', true),    // Ruchbah  3
-  new Star(1.842, 61.57, 1.6, 'azure', true)          // Segin    4
+  new Star(cassX + 2*0.959, cassY + 2*56.53, 1.8, 'moccasin', true),      // Schedar  0
+  new Star(cassX + 2*1.597, cassY + 2*59.12, 1.7, 'aliceBlue', true),     // Caph     1
+  new Star(cassX + 2*1.777, cassY + 2*56.53, 1.5, 'powderBlue', true),    // Navi     2
+  new Star(cassX + 2*2.296, cassY + 2*60.72, 1.4, 'floraWhite', true),    // Ruchbah  3
+  new Star(cassX + 2*1.842, cassY + 2*61.57, 1.6, 'azure', true)          // Segin    4
 ];
 
 // Create stars for constellations
