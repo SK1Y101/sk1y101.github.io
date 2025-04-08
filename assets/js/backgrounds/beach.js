@@ -27,8 +27,8 @@ var background = document.getElementById("bgCanvas"),
 
 // ensure we have a minimum height
 (height < 400) ? height = 400 : height;
-height = 1080;
-width = 1920;
+// height = 1080;
+// width = 1920;
 
 // Helper functions
 function lerp(a, b, t) {
@@ -88,7 +88,7 @@ function drawSun() {
   // Smooth gradient from warm white to golden yellow
   const sunGradient = bgCtx.createRadialGradient(sunX, sunY, 0, sunX, sunY, sunRadius * 2.5);
   sunGradient.addColorStop(0, 'rgba(255, 255, 220, 0.9)');  // soft warm white
-  sunGradient.addColorStop(0.6, 'rgba(255, 255, 180, 0.7)'); // fade to pale yellow
+  sunGradient.addColorStop(0.6, 'rgba(252, 252, 210, 0.7)'); // fade to pale yellow
   sunGradient.addColorStop(0.8, 'rgba(255, 255, 150, 0.6)'); // fade to pale yellow
   sunGradient.addColorStop(1, 'rgba(255, 215, 0, 0)');       // transparent golden edge
 
@@ -104,25 +104,51 @@ function Cloud() {
   this.y = Math.random() * height * 0.2;
   this.size = Math.random() * 40 + 40;
   this.speed = Math.random() * 0.1 + 0.05;
-  this.puffCount = Math.floor(Math.random() * 3) + 3; // 3–5 puffs
+  this.opacity = 0.6;
+  this.puffs = [];
+
+  const puffCount = Math.floor(Math.random() * 5) + 6; // 6–10 puffs
+
+  // Create offscreen canvas for clean compositing
+  const bufferSize = this.size * 2;
+  this.buffer = document.createElement('canvas');
+  this.buffer.width = bufferSize;
+  this.buffer.height = bufferSize;
+  const bctx = this.buffer.getContext('2d');
+
+  // Generate clustered puffs
+  for (let i = 0; i < puffCount; i++) {
+    const angle = Math.random() * Math.PI * 2;
+    const radius = Math.random() * (this.size / 2);
+    const px = this.size + Math.cos(angle) * radius;
+    const py = this.size + Math.sin(angle) * radius;
+    const rx = this.size / 2.5 + Math.random() * 5;
+    const ry = this.size / 3 + Math.random() * 5;
+    this.puffs.push({ x: px, y: py, rx, ry });
+  }
+
+  // Draw the cloud into the buffer at full opacity
+  bctx.fillStyle = 'white';
+  for (const puff of this.puffs) {
+    bctx.beginPath();
+    bctx.ellipse(puff.x, puff.y, puff.rx, puff.ry, 0, 0, Math.PI * 2);
+    bctx.fill();
+  }
 }
 
-Cloud.prototype.update = function (time) {
+Cloud.prototype.update = function () {
   this.x -= this.speed;
   if (this.x < -this.size * 2) {
     this.x = width + this.size;
     this.y = Math.random() * height * 0.2;
   }
 
-  bgCtx.fillStyle = 'rgba(255, 255, 255, 0.6)';
-  for (let i = 0; i < this.puffCount; i++) {
-    const puffX = this.x + i * (this.size / 2);
-    const puffY = this.y + Math.sin(time * 0.001 + i) * 2;
-    bgCtx.beginPath();
-    bgCtx.ellipse(puffX, puffY, this.size / 2, this.size / 3, 0, 0, Math.PI * 2);
-    bgCtx.fill();
-  }
+  // Draw from offscreen buffer with fixed opacity
+  bgCtx.globalAlpha = this.opacity;
+  bgCtx.drawImage(this.buffer, this.x, this.y - this.size);
+  bgCtx.globalAlpha = 1.0;
 };
+
 
 
 // Bubble entity
@@ -171,8 +197,8 @@ ShootingStar.prototype.update = function () {
       bgCtx.strokeStyle = this.colour;
       bgCtx.lineWidth = this.size;
       bgCtx.beginPath();
-      bgCtx.moveTo(this.x, Math.max(bottom, this.y));
-      bgCtx.lineTo(this.x + this.len, Math.max(bottom, this.y - this.len));
+      bgCtx.moveTo(this.x, Math.min(bottom, this.y));
+      bgCtx.lineTo(this.x + this.len, Math.min(bottom, this.y - this.len));
       bgCtx.stroke();
     }
     // wait for it to be active again
