@@ -83,36 +83,18 @@ function drawSun() {
   const sunX = width / 2;
   const sunY = height * 0.6;
 
-  const sunRadius = 50;
+  const sunRadius = 40;
 
   // Smooth gradient from warm white to golden yellow
   const sunGradient = bgCtx.createRadialGradient(sunX, sunY, 0, sunX, sunY, sunRadius * 2.5);
   sunGradient.addColorStop(0, 'rgba(255, 255, 220, 0.9)');  // soft warm white
-  sunGradient.addColorStop(0.6, 'rgba(255, 255, 150, 0.6)'); // fade to pale yellow
+  sunGradient.addColorStop(0.6, 'rgba(255, 255, 180, 0.7)'); // fade to pale yellow
+  sunGradient.addColorStop(0.8, 'rgba(255, 255, 150, 0.6)'); // fade to pale yellow
   sunGradient.addColorStop(1, 'rgba(255, 215, 0, 0)');       // transparent golden edge
 
   bgCtx.fillStyle = sunGradient;
   bgCtx.beginPath();
   bgCtx.arc(sunX, sunY, sunRadius * 2.5, 0, Math.PI * 2);
-  bgCtx.fill();
-}
-
-// Beach waves
-let waveOffset = 0;
-function drawWaves() {
-  waveOffset += 0.01;
-  bgCtx.fillStyle = '#1e90ff';
-  bgCtx.beginPath();
-  const amplitude = 20;
-  const frequency = 0.02;
-  bgCtx.moveTo(0, canvas.height * 0.8);
-  for (let x = 0; x < canvas.width; x++) {
-    const y = Math.sin(x * frequency + waveOffset) * amplitude + canvas.height * 0.8;
-    bgCtx.lineTo(x, y);
-  }
-  bgCtx.lineTo(canvas.width, canvas.height);
-  bgCtx.lineTo(0, canvas.height);
-  bgCtx.closePath();
   bgCtx.fill();
 }
 
@@ -149,7 +131,7 @@ function Bubble() {
   this.y = height * 0.3 + Math.random() * (height * 0.5); // sea region
   this.size = Math.random() * 8 + 2;
   this.speed = Math.random() * 0.2 + 0.1;
-  this.jitterSpeed = Math.random() * 0.005 + 0.002;
+  this.jitterSpeed = Math.random() * 0.001 + 0.0001;
   this.jitterPhase = Math.random() * Math.PI * 2;
 }
 
@@ -172,18 +154,10 @@ Bubble.prototype.update = function (time) {
 function ShootingStar() {
   this.reset(-200);
 }
-ShootingStar.prototype.getRGBA = function (name, alpha) {
-  const rgb = namedColorRGB[name] || [255, 255, 255]; // fallback to white
-  const rgba = `rgba(${rgb[0]}, ${rgb[1]}, ${rgb[2]}, ${alpha})`;
-  return rgba;
-};
-ShootingStar.prototype.fetch_colour = function (y_cor) {
-  const top = height * 0.6;
-  const height_fraction =  (Math.max(top, Math.min(0, y_cor)) / top);
-  const rgba = this.getRGBA(this.colour, Math.round(255 * height_fraction));
-  return rgba;
-};
 ShootingStar.prototype.update = function () {
+
+  bottom = height * 0.6
+
   if (this.active) {
     // update it's position
     this.x -= this.speed;
@@ -193,14 +167,12 @@ ShootingStar.prototype.update = function () {
       this.speed = 0;
       this.reset();
     } else {
-      const gradient = bgCtx.createLinearGradient(this.x, this.y, this.x + this.len, this.y - this.len);
-      gradient.addColorStop(0, this.fetch_colour(this.y));
-      gradient.addColorStop(1, this.fetch_colour(this.y - this.len));
-      bgCtx.strokeStyle = gradient;
+      bgCtx.fillStyle = this.colour;
+      bgCtx.strokeStyle = this.colour;
       bgCtx.lineWidth = this.size;
       bgCtx.beginPath();
-      bgCtx.moveTo(this.x, this.y);
-      bgCtx.lineTo(this.x + this.len, this.y - this.len);
+      bgCtx.moveTo(this.x, max(bottom, this.y));
+      bgCtx.lineTo(this.x + this.len, max(bottom, this.y - this.len));
       bgCtx.stroke();
     }
     // wait for it to be active again
@@ -231,12 +203,12 @@ background.height = height;
 // create an array of animated entities
 var entities = [];
 // Add clouds
-for (var i = 5; i > 0; i--) { entities.push(new Cloud()); }
+for (var i = 15; i > 0; i--) { entities.push(new Cloud()); }
 // Add bubbles
-for (var i = 30; i > 0; i--) { entities.push(new Bubble()); }
+for (var i = 20; i > 0; i--) { entities.push(new Bubble()); }
 
 // add a shooting star
-for (var i = 20; i > 0; i--) { entities.push(new ShootingStar()); }
+for (var i = 5; i > 0; i--) { entities.push(new ShootingStar()); }
 
 
 // animate the background
