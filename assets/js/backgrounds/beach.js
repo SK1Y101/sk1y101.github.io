@@ -37,7 +37,9 @@ function lerp(a, b, t) {
 
 // the sky
 function drawSky() {
-  const gradient = bgCtx.createLinearGradient(0, 0, 0, height*0.7);
+  const bottom = height * 0.7;
+
+  const gradient = bgCtx.createLinearGradient(0, 0, 0, bottom);
   gradient.addColorStop(0, '#0b0033');  // Top: deep night blue
   gradient.addColorStop(0.3, '#2e1a47');  // Twilight purple
   gradient.addColorStop(0.6, '#ff758c');  // Pink glow
@@ -46,12 +48,12 @@ function drawSky() {
   gradient.addColorStop(1, '#ffe4b5');  // Horizon glow
 
   bgCtx.fillStyle = gradient;
-  bgCtx.fillRect(0, 0, width, height*0.7);
+  bgCtx.fillRect(0, 0, width, bottom);
 }
 
 // the sea
 function drawSea() {
-  const top = height * 0.3;
+  const top = height * 0.7;
 
   const gradient = bgCtx.createLinearGradient(0, top, 0, height);
   gradient.addColorStop(0, '#98f5e1');  // Horizon: soft aqua
@@ -69,7 +71,7 @@ function drawSun() {
   const sunX = width / 2;
   const sunY = height * 0.6;
 
-  const sunRadius = height * 0.1;
+  const sunRadius = 50;
 
   // Smooth gradient from warm white to golden yellow
   const sunGradient = bgCtx.createRadialGradient(sunX, sunY, 0, sunX, sunY, sunRadius * 2.5);
@@ -82,93 +84,6 @@ function drawSun() {
   bgCtx.arc(sunX, sunY, sunRadius * 2.5, 0, Math.PI * 2);
   bgCtx.fill();
 }
-
-// sun reflection on the water
-function drawSunReflection(time) {
-  const sunX = width / 2;
-  const sunY = height * 0.75;
-  const shimmerHeight = height * 0.25;
-  const shimmerWidth = width * 0.1;
-
-  const shimmerGradient = bgCtx.createLinearGradient(sunX, sunY, sunX, sunY + shimmerHeight);
-  shimmerGradient.addColorStop(0, 'rgba(255, 255, 180, 0.4)');
-  shimmerGradient.addColorStop(0.5, 'rgba(255, 215, 100, 0.2)');
-  shimmerGradient.addColorStop(1, 'rgba(255, 215, 0, 0)');
-
-  bgCtx.fillStyle = shimmerGradient;
-
-  // Optional shimmer flicker using time
-  const flicker = Math.sin(time * 0.005) * 10;
-
-  bgCtx.beginPath();
-  bgCtx.ellipse(sunX, sunY + shimmerHeight / 2, shimmerWidth + flicker, shimmerHeight, 0, 0, Math.PI * 2);
-  bgCtx.fill();
-}
-
-
-// The beach
-function drawBeach(time) {
-  const beachHeight = height * 0.25;
-  const beachTop = height - beachHeight;
-
-  // --- Dry sand ---
-  const sandGradient = bgCtx.createLinearGradient(0, beachTop, 0, height);
-  sandGradient.addColorStop(0, '#f9e4b7'); // light sand
-  sandGradient.addColorStop(1, '#d9c08b'); // deeper sand
-  bgCtx.fillStyle = sandGradient;
-  bgCtx.beginPath();
-  bgCtx.moveTo(0, beachTop);
-
-  // Curved shoreline
-  const cp1x = width * 0.25, cp1y = beachTop - 20;
-  const cp2x = width * 0.75, cp2y = beachTop + 20;
-  bgCtx.bezierCurveTo(cp1x, cp1y, cp2x, cp2y, width, beachTop);
-  bgCtx.lineTo(width, height);
-  bgCtx.lineTo(0, height);
-  bgCtx.closePath();
-  bgCtx.fill();
-
-  // --- Wet sand band ---
-  const wetHeight = 20;
-  const wetTop = beachTop - wetHeight;
-  const wetGradient = bgCtx.createLinearGradient(0, wetTop, 0, beachTop);
-  wetGradient.addColorStop(0, '#e0c48e');
-  wetGradient.addColorStop(1, '#bba074');
-  bgCtx.fillStyle = wetGradient;
-  bgCtx.fillRect(0, wetTop, width, wetHeight);
-
-  // --- Water shimmer ---
-  const shimmerCount = 30;
-  for (let i = 0; i < shimmerCount; i++) {
-    const x = Math.random() * width;
-    const y = wetTop - Math.random() * 10;
-    const alpha = Math.random() * 0.2 + 0.05;
-    bgCtx.fillStyle = `rgba(255,255,255,${alpha})`;
-    bgCtx.fillRect(x, y, 2, 1);
-  }
-
-  // --- Waves (animated lines) ---
-  const waveCount = 3;
-  for (let i = 0; i < waveCount; i++) {
-    const waveY = wetTop - i * 6;
-    const waveOffset = Math.sin(time * 0.002 + i) * 5;
-    drawWaveLine(waveY, waveOffset);
-  }
-}
-
-// Helper to draw a squiggly wave line
-function drawWaveLine(y, offset) {
-  bgCtx.beginPath();
-  bgCtx.moveTo(0, y);
-  for (let x = 0; x <= width; x += 20) {
-    const sine = Math.sin((x + offset) * 0.05) * 3;
-    bgCtx.lineTo(x, y + sine);
-  }
-  bgCtx.strokeStyle = 'rgba(255,255,255,0.3)';
-  bgCtx.lineWidth = 1;
-  bgCtx.stroke();
-}
-
 
 // Beach waves
 let waveOffset = 0;
@@ -256,11 +171,7 @@ function animate() {
 
   drawSky();
   drawSea();
-  drawSunReflection(time);
   drawSun();       // If sun animates with time
-  
-  drawBeach(time);     // Beach shimmer/waves
-  drawWaves();     // Any wave movement with time
 
   // Update all entities
   var entLen = entities.length;
