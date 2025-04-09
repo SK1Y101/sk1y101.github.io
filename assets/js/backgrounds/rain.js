@@ -113,20 +113,11 @@ function LightningFlash() {
   this.opacity = 0;
 }
 LightningFlash.prototype.trigger = function () {
-  this.x = Math.random() * width;
-  this.y = this.hasBolt ? this.boltEndY : Math.random() * height * 0.5;
   this.timer = 3 + Math.floor(Math.random() * 3); // flicker duration
   this.opacity = 1.0;
-  this.hasBolt = Math.random() < 0.5;
-  this.boltEndY = height * (0.3 + Math.random() * 0.5); // Random vertical reach
+
   this.hasBolt = Math.random() < 0.75;
-  if (this.hasBolt) {
-    this.x = Math.random() * width;
-    this.boltEndY = height * (0.3 + Math.random() * 0.5);
-    this.bolt = this.generateBolt(this.x, 0, this.boltEndY);
-  } else {
-    this.bolt = null;
-  }
+  this.bolt = this.hasBolt ? generateLightningPath() : null;
 };
 LightningFlash.prototype.update = function () {
   if (Math.random() < 0.01 && this.timer <= 0) this.trigger();
@@ -147,8 +138,8 @@ LightningFlash.prototype.drawGlow = function () {
 function generateLightningPath(segments = 10 + Math.floor(Math.random() * 5)) {
   const points = [];
   let x = width * 0.3 + Math.random() * width * 0.4;
-  let y = 0;
-  const maxHeight = height * 0.5 + Math.random() * height * 0.4;
+  let y = -10;
+  const maxHeight = height * 0.5 + Math.random() ** 2 * height * 0.4;
   const stepY = maxHeight / segments;
 
   for (let i = 0; i <= segments; i++) {
