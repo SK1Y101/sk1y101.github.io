@@ -69,8 +69,8 @@ function drawSea() {
 function drawShimmer() {
   const sunX = width / 2;
   const startY = height * 0.7;
-  const endY = height * 0.9;
-  const shimmerLines = 200;
+  const endY = height * 0.95;
+  const shimmerLines = 100;
 
   bgCtx.save();
   bgCtx.globalAlpha = 0.4;
@@ -417,7 +417,7 @@ for (var i = 15; i > 0; i--) { clouds.push(new Cloud()); }
 for (var i = 30; i > 0; i--) { bubbles.push(new Bubble()); }
 // Add waves
 for (var i = 20; i > 0; i--) {
-  const yBase = height * 0.7 + (Math.random() - 0.5) * height * 0.1;
+  const yBase = height * 0.85 + (Math.random() - 0.5) * height * 0.15;
   waves.push(new Wave(yBase));
 }
 // Add shooting stars
