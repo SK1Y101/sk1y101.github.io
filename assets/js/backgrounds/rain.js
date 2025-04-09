@@ -13,8 +13,10 @@ var requestAnimFrame = (function () {
 // Canvas setup
 const background = document.getElementById("bgCanvas"),
   bgCtx = background.getContext("2d"),
-  width = window.innerWidth,
-  height = Math.max(400, document.body.offsetHeight);
+  // width = window.innerWidth,
+  width = 1920,
+  // height = Math.max(400, document.body.offsetHeight);
+  height = 1080;
 
 background.width = width;
 background.height = height;
@@ -106,22 +108,38 @@ function CandleFlicker(x, y) {
   this.x = x;
   this.y = y;
   this.baseRadius = 40;
-  this.flicker = 0;
+  this.time = 0;
 }
 CandleFlicker.prototype.update = function () {
-  this.flicker = (Math.random() - 0.5) * 5;
+  this.time += 0.05;
   this.draw();
 };
 CandleFlicker.prototype.draw = function () {
-  let radius = this.baseRadius + this.flicker;
-  let gradient = bgCtx.createRadialGradient(this.x, this.y, 0, this.x, this.y, radius);
-  gradient.addColorStop(0, "rgba(255, 220, 180, 0.1)");
-  gradient.addColorStop(1, "rgba(255, 220, 180, 0)");
-  bgCtx.fillStyle = gradient;
+  const flicker = Math.sin(this.time * 2 + Math.random() * 0.5) * 5;
+  const innerFlicker = Math.sin(this.time * 3 + Math.random()) * 2;
+
+  const radius = this.baseRadius + flicker;
+  const innerRadius = this.baseRadius * 0.4 + innerFlicker;
+
+  // Outer warm glow
+  let outerGrad = bgCtx.createRadialGradient(this.x, this.y, 0, this.x, this.y, radius);
+  outerGrad.addColorStop(0, "rgba(255, 160, 90, 0.05)");
+  outerGrad.addColorStop(1, "rgba(255, 160, 90, 0)");
+  bgCtx.fillStyle = outerGrad;
   bgCtx.beginPath();
   bgCtx.arc(this.x, this.y, radius, 0, Math.PI * 2);
   bgCtx.fill();
+
+  // Inner flame core
+  let innerGrad = bgCtx.createRadialGradient(this.x, this.y, 0, this.x, this.y, innerRadius);
+  innerGrad.addColorStop(0, "rgba(255, 230, 180, 0.2)");
+  innerGrad.addColorStop(1, "rgba(255, 230, 180, 0)");
+  bgCtx.fillStyle = innerGrad;
+  bgCtx.beginPath();
+  bgCtx.arc(this.x, this.y, innerRadius, 0, Math.PI * 2);
+  bgCtx.fill();
 };
+
 
 // Tree Shadows
 function TreeShadow(x, y, scale) {
@@ -159,7 +177,7 @@ RainPool.prototype.update = function () {
 RainPool.prototype.draw = function () {
   bgCtx.beginPath();
   bgCtx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-  bgCtx.fillStyle = `rgba(255, 255, 255, ${this.opacity})`;
+  bgCtx.fillStyle = `rgba(180, 200, 255, ${this.opacity * 0.6})`;
   bgCtx.fill();
 };
 
@@ -229,9 +247,10 @@ function animate() {
   lightning.update();
 
   // Color grading
+  let flickerTint = Math.sin(candle.time * 1.5) * 0.02;
   let tintGrad = bgCtx.createLinearGradient(0, 0, 0, height);
-  tintGrad.addColorStop(0, "rgba(100, 80, 150, 0.1)");
-  tintGrad.addColorStop(1, "rgba(30, 20, 60, 0.3)");
+  tintGrad.addColorStop(0, `rgba(120, 90, 150, ${0.08 + flickerTint})`);
+  tintGrad.addColorStop(1, `rgba(40, 30, 80, 0.25)`);
   bgCtx.fillStyle = tintGrad;
   bgCtx.fillRect(0, 0, width, height);
 
