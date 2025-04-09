@@ -120,7 +120,7 @@ LightningFlash.prototype.trigger = function () {
   this.bolt = this.hasBolt ? generateLightningPath() : null;
 };
 LightningFlash.prototype.update = function () {
-  if (Math.random() < 0.01 && this.timer <= 0) this.trigger();
+  if (Math.random() < 0.005 && this.timer <= 0) this.trigger();
   if (this.timer > 0) {
     this.drawGlow(); // soft flash
     if (this.hasBolt && this.bolt) drawLightningBolt(this.bolt);
@@ -129,7 +129,7 @@ LightningFlash.prototype.update = function () {
 };
 LightningFlash.prototype.drawGlow = function () {
   const grad = bgCtx.createLinearGradient(0, 0, 0, height);
-  grad.addColorStop(0, `rgba(255, 255, 255, ${this.opacity * 0.5})`);
+  grad.addColorStop(0, `rgba(255, 255, 255, ${this.opacity * 0.3})`);
   grad.addColorStop(1, `rgba(255, 255, 255, 0)`);
   bgCtx.fillStyle = grad;
   bgCtx.fillRect(0, 0, width, height);
