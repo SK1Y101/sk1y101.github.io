@@ -117,7 +117,7 @@ LightningFlash.prototype.trigger = function () {
   this.timer = 3 + Math.floor(Math.random() * 3); // flicker duration
   this.opacity = 0.4;
 
-  this.hasBolt = Math.random() < 0.75;
+  this.hasBolt = Math.random() < 0.5;
   this.bolt = this.hasBolt ? generateLightningPath() : null;
 };
 LightningFlash.prototype.update = function () {
@@ -217,16 +217,16 @@ for (let i = 0; i < 200; i++) {
   fogCtx.fill();
 }
 
-const mugX = width - 120;
-const mugY = height - 100;
-const mugWidth = 50;
-const mugHeight = 60;
+const mugWidth = 100;
+const mugHeight = 150;
 const mugRadius = 12;
+const mugX = width - mugWidth;
+const mugY = height - mugHeight;
 
 // Cozy mug
 function drawMug(ctx) {
   // Mug body with rounded top
-  ctx.fillStyle = "#222";
+  ctx.fillStyle = "#111";
   ctx.beginPath();
   ctx.moveTo(mugX, mugY + mugRadius);
   ctx.quadraticCurveTo(mugX, mugY, mugX + mugRadius, mugY);
@@ -237,30 +237,31 @@ function drawMug(ctx) {
   ctx.closePath();
   ctx.fill();
 
-  // Mug top ellipse
-  ctx.beginPath();
-  ctx.ellipse(mugX + mugWidth / 2, mugY, mugWidth / 2, 6, 0, 0, Math.PI * 2);
-  ctx.fill();
+  // // Mug top ellipse
+  // ctx.beginPath();
+  // ctx.ellipse(mugX + mugWidth / 2, mugY, mugWidth / 2, 6, 0, 0, Math.PI * 2);
+  // ctx.fill();
 
-  // Handle (on left side now)
+  const handleCX = mugX - 10; // X position offset from mug
+  const handleCY = mugY + mugHeight / 2;
   ctx.beginPath();
-  ctx.strokeStyle = "#222";
+  ctx.strokeStyle = "#111";
   ctx.lineWidth = 6;
-  ctx.arc(mugX, mugY + mugHeight / 2, 15, -Math.PI / 2.5, Math.PI / 2.5, false);
+  ctx.arc(handleCX, handleCY, 15, -Math.PI / 2.2, Math.PI / 2.2, false);
   ctx.stroke();
 
   // Handle inner cutout
   ctx.beginPath();
   ctx.strokeStyle = "#111";
   ctx.lineWidth = 4;
-  ctx.arc(mugX, mugY + mugHeight / 2, 9, -Math.PI / 2.5, Math.PI / 2.5, false);
+  ctx.arc(handleCX, handleCY, 9, -Math.PI / 2.2, Math.PI / 2.2, false);
   ctx.stroke();
 }
 
 function createSteamLine() {
   steamLines.push({
     x: mugX + Math.random() * mugWidth,
-    y: mugY,
+    y: height,
     offset: Math.random() * Math.PI * 2,
     length: 40 + Math.random() * 20,
     alpha: 0.1 + Math.random() * 0.05,
@@ -274,7 +275,7 @@ function updateSteamLines(ctx) {
   for (let i = steamLines.length - 1; i >= 0; i--) {
     const s = steamLines[i];
     s.y -= s.speed;
-    s.age += 0.02;
+    s.age += 0.01;
 
     if (s.alpha <= 0 || s.y + s.length < 0) {
       steamLines.splice(i, 1);
