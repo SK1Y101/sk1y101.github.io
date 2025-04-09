@@ -75,6 +75,78 @@ DripDrop.prototype.draw = function () {
   bgCtx.stroke();
 };
 
+// Lightning
+function LightningFlash() {
+  this.timer = 0;
+  this.opacity = 0;
+}
+LightningFlash.prototype.trigger = function () {
+  this.timer = 8 + Math.floor(Math.random() * 4);
+  this.opacity = 0.3 + Math.random() * 0.2;
+};
+LightningFlash.prototype.update = function () {
+  if (Math.random() < 0.001 && this.timer <= 0) {
+    this.trigger();
+  }
+  if (this.timer > 0) {
+    this.draw();
+    this.timer--;
+    this.opacity *= 0.5;
+  }
+};
+LightningFlash.prototype.draw = function () {
+  let grad = bgCtx.createLinearGradient(0, 0, width, height);
+  grad.addColorStop(0, `rgba(255, 255, 255, ${this.opacity})`);
+  grad.addColorStop(1, `rgba(255, 255, 255, ${this.opacity * 0.2})`);
+
+  bgCtx.fillStyle = grad;
+  bgCtx.fillRect(0, 0, width, height);
+};
+
+// Candle flicker
+function CandleFlicker(x, y) {
+  this.x = x;
+  this.y = y;
+  this.baseRadius = 40;
+  this.flicker = 0;
+}
+CandleFlicker.prototype.update = function () {
+  this.flicker = (Math.random() - 0.5) * 10;
+  this.draw();
+};
+CandleFlicker.prototype.draw = function () {
+  let radius = this.baseRadius + this.flicker;
+  let gradient = bgCtx.createRadialGradient(this.x, this.y, 0, this.x, this.y, radius);
+  gradient.addColorStop(0, "rgba(255, 220, 180, 0.1)");
+  gradient.addColorStop(1, "rgba(255, 220, 180, 0)");
+
+  bgCtx.fillStyle = gradient;
+  bgCtx.beginPath();
+  bgCtx.arc(this.x, this.y, radius, 0, Math.PI * 2);
+  bgCtx.fill();
+};
+
+// Trees silhouette
+function TreeShadow(x, y, scale) {
+  this.x = x;
+  this.y = y;
+  this.scale = scale;
+  this.offset = 0;
+}
+TreeShadow.prototype.update = function () {
+  this.offset += 0.002 + Math.random() * 0.001;
+  this.draw();
+};
+TreeShadow.prototype.draw = function () {
+  let widthFactor = 50 * this.scale;
+  let heightFactor = 150 * this.scale;
+  let x = this.x + Math.sin(this.offset) * 10;
+  bgCtx.beginPath();
+  bgCtx.ellipse(x, this.y, widthFactor, heightFactor, 0, 0, Math.PI * 2);
+  bgCtx.fillStyle = "rgba(0, 0, 0, 0.05)";
+  bgCtx.fill();
+};
+
 
 // Add some fog
 var fogCanvas = document.createElement('canvas');
@@ -95,10 +167,6 @@ for (let i = 0; i < 200; i++) {
   fogCtx.fill();
 }
 
-let fogOffset = 0;
-
-
-
 // set the canvase size
 background.width = width;
 background.height = height;
@@ -106,10 +174,6 @@ background.height = height;
 // draw the night sky
 bgCtx.fillStyle = "#110E19";
 bgCtx.fillRect(0, 0, width, height);
-
-// Lightning
-var lightningTimer = 0;
-var lightningOpacity = 0;
 
 // create an array of animated entities
 var entities = [];
@@ -124,6 +188,16 @@ for (let i = 0; i < 5; i++) { reflections.push({
 for (var i = 0; i < 300; i++) { entities.push(new RainDrop()); }
 for (var i = 0; i < 100; i++) { entities.push(new DripDrop()); }
 
+let fogOffset = 0;
+let lightning = new LightningFlash();
+let candle = new CandleFlicker(width * 0.1, height * 0.85);
+
+let treeShadows = [
+  new TreeShadow(width * 0.3, height * 0.6, 1),
+  new TreeShadow(width * 0.6, height * 0.65, 0.8),
+  new TreeShadow(width * 0.8, height * 0.7, 1.2),
+];
+
 // animate the background
 function animate() {
   // fetch the requiredbackground colour
@@ -132,31 +206,23 @@ function animate() {
   bgCtx.fillStyle = '#ffffff';
   bgCtx.strokeStyle = '#ffffff';
 
-  // Random lightning strike
-  if (Math.random() < 0.002 && lightningTimer <= 0) {
-    lightningTimer = 5 + Math.floor(Math.random() * 5);
-    lightningOpacity = 0.6 + Math.random() * 0.3;
-  }
+  // lightning is basically the background
+  lightning.update();
 
-  if (lightningTimer > 0) {
-    bgCtx.fillStyle = `rgba(255, 255, 255, ${lightningOpacity})`;
-    bgCtx.fillRect(0, 0, width, height);
-    lightningTimer--;
-    lightningOpacity *= 0.6; // fade quickly
-  }
+  // trees are the lowest layer
+  treeShadows.forEach(shadow => shadow.update());
 
-
-  // update all entities
-  for (let entity of entities) { entity.update(); };
-
-  // Apply fog overlay with slow movement
+  // then fog
   fogOffset += 0.05;
   bgCtx.globalAlpha = 0.1;
   bgCtx.drawImage(fogCanvas, fogOffset % width - width, 0);
   bgCtx.drawImage(fogCanvas, fogOffset % width, 0);
   bgCtx.globalAlpha = 1.0;
 
-  // Soft glowing light reflections
+  // rain
+  for (let entity of entities) { entity.update(); };
+
+  // reflections
   reflections.forEach(ref => {
     let gradient = bgCtx.createRadialGradient(ref.x, ref.y, 0, ref.x, ref.y, ref.radius);
     gradient.addColorStop(0, `rgba(255, 255, 255, ${ref.opacity})`);
@@ -167,6 +233,9 @@ function animate() {
     bgCtx.arc(ref.x, ref.y, ref.radius, 0, 2 * Math.PI);
     bgCtx.fill();
   });
+
+  // and candles
+  candle.update();
 
   //schedule the next animation frame
   requestAnimFrame(animate);
