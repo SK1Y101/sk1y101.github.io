@@ -26,8 +26,10 @@ function RainDrop() {
   this.reset();
 }
 RainDrop.prototype.reset = function () {
-  this.x = Math.random() * width * 1.2 - width *0.2;
-  this.y = Math.random() * height;
+  const xoffset = 0.2
+  const yoffset = 0.5
+  this.x = width * (Math.random() * (xoffset + 1) - xoffset);
+  this.y = height * (Math.random() * (yoffset + 1) - yoffset);
   this.length = 20 + Math.random() * 20;
   this.speed = 4 + Math.random() * 4;
   this.opacity = 0.1 + Math.random() * 0.3;
@@ -105,12 +107,21 @@ background.height = height;
 bgCtx.fillStyle = "#110E19";
 bgCtx.fillRect(0, 0, width, height);
 
+// Lightning
+var lightningTimer = 0;
+var lightningOpacity = 0;
+
 // create an array of animated entities
 var entities = [];
-// for (var i = height; i > 0; i--) { entities.push(new Object()); }
-// Populate the rain
+var reflections = [];
+for (let i = 0; i < 5; i++) { reflections.push({
+    x: Math.random() * width,
+    y: Math.random() * height * 0.5,
+    radius: 40 + Math.random() * 60,
+    opacity: 0.03 + Math.random() * 0.05,
+  });
+}
 for (var i = 0; i < 300; i++) { entities.push(new RainDrop()); }
-
 for (var i = 0; i < 100; i++) { entities.push(new DripDrop()); }
 
 // animate the background
@@ -120,6 +131,20 @@ function animate() {
   bgCtx.fillRect(0, 0, width, height);
   bgCtx.fillStyle = '#ffffff';
   bgCtx.strokeStyle = '#ffffff';
+
+  // Random lightning strike
+  if (Math.random() < 0.002 && lightningTimer <= 0) {
+    lightningTimer = 5 + Math.floor(Math.random() * 5);
+    lightningOpacity = 0.6 + Math.random() * 0.3;
+  }
+
+  if (lightningTimer > 0) {
+    bgCtx.fillStyle = `rgba(255, 255, 255, ${lightningOpacity})`;
+    bgCtx.fillRect(0, 0, width, height);
+    lightningTimer--;
+    lightningOpacity *= 0.6; // fade quickly
+  }
+
 
   // update all entities
   for (let entity of entities) { entity.update(); };
@@ -131,6 +156,17 @@ function animate() {
   bgCtx.drawImage(fogCanvas, fogOffset % width, 0);
   bgCtx.globalAlpha = 1.0;
 
+  // Soft glowing light reflections
+  reflections.forEach(ref => {
+    let gradient = bgCtx.createRadialGradient(ref.x, ref.y, 0, ref.x, ref.y, ref.radius);
+    gradient.addColorStop(0, `rgba(255, 255, 255, ${ref.opacity})`);
+    gradient.addColorStop(1, `rgba(255, 255, 255, 0)`);
+
+    bgCtx.fillStyle = gradient;
+    bgCtx.beginPath();
+    bgCtx.arc(ref.x, ref.y, ref.radius, 0, 2 * Math.PI);
+    bgCtx.fill();
+  });
 
   //schedule the next animation frame
   requestAnimFrame(animate);
