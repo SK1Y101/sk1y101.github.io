@@ -103,78 +103,6 @@ LightningFlash.prototype.draw = function () {
   bgCtx.fillRect(0, 0, width, height);
 };
 
-// Candle Flicker
-function CandleFlicker(x, y) {
-  this.x = x;
-  this.y = y;
-  this.baseRadius = 40;
-  this.time = 0;
-}
-CandleFlicker.prototype.update = function () {
-  this.time += 0.05;
-  this.draw();
-};
-CandleFlicker.prototype.draw = function () {
-  const flicker = Math.sin(this.time * 2 + Math.random() * 0.5) * 5;
-  const innerFlicker = Math.sin(this.time * 3 + Math.random()) * 2;
-
-  const radius = this.baseRadius + flicker;
-  const innerRadius = this.baseRadius * 0.4 + innerFlicker;
-
-  // Outer warm glow
-  let outerGrad = bgCtx.createRadialGradient(this.x, this.y, 0, this.x, this.y, radius);
-  outerGrad.addColorStop(0, "rgba(255, 160, 90, 0.05)");
-  outerGrad.addColorStop(1, "rgba(255, 160, 90, 0)");
-  bgCtx.fillStyle = outerGrad;
-  bgCtx.beginPath();
-  bgCtx.arc(this.x, this.y, radius, 0, Math.PI * 2);
-  bgCtx.fill();
-
-  // Inner flame core
-  let innerGrad = bgCtx.createRadialGradient(this.x, this.y, 0, this.x, this.y, innerRadius);
-  innerGrad.addColorStop(0, "rgba(255, 230, 180, 0.2)");
-  innerGrad.addColorStop(1, "rgba(255, 230, 180, 0)");
-  bgCtx.fillStyle = innerGrad;
-  bgCtx.beginPath();
-  bgCtx.arc(this.x, this.y, innerRadius, 0, Math.PI * 2);
-  bgCtx.fill();
-};
-
-
-// Tree Shadows
-function TreeShadow(x, y, scale) {
-  this.x = x;
-  this.y = y;
-  this.scale = scale;
-  this.offset = 0;
-}
-TreeShadow.prototype.update = function () {
-  this.offset += 0.002 + Math.random() * 0.001;
-  this.draw();
-};
-TreeShadow.prototype.draw = function () {
-  let baseX = this.x + Math.sin(this.offset) * 10;
-  let heightFactor = 150 * this.scale;
-  let widthFactor = 50 * this.scale;
-  let waveCount = 4;
-  let step = heightFactor / waveCount;
-
-  bgCtx.beginPath();
-  for (let i = 0; i <= waveCount; i++) {
-    let y = this.y + i * step;
-    let xOffset = Math.sin(this.offset + i * 0.5) * 10;
-    let w = widthFactor * (1 - i / waveCount);
-    if (i === 0) {
-      bgCtx.moveTo(baseX + xOffset, y);
-    } else {
-      bgCtx.lineTo(baseX + xOffset + w, y);
-      bgCtx.lineTo(baseX + xOffset - w, y);
-    }
-  }
-  bgCtx.closePath();
-  bgCtx.fillStyle = "rgba(0, 0, 0, 0.08)";
-  bgCtx.fill();
-};
 
 // Rain Pooling
 function RainPool(x, y) {
@@ -201,40 +129,6 @@ RainPool.prototype.draw = function () {
   }
 };
 
-// Book and Candle Silhouette
-function drawSilhouette() {
-  // Book silhouette
-  const bookX = width * 0.15;
-  const bookY = height - 120;
-  const bookW = 60;
-  const bookH = 80;
-
-  bgCtx.fillStyle = "rgba(0, 0, 0, 0.2)";
-  bgCtx.fillRect(bookX, bookY, bookW, bookH);
-
-  // Book shadow
-  bgCtx.beginPath();
-  bgCtx.ellipse(bookX + bookW / 2, bookY + bookH + 10, 30, 10, 0, 0, Math.PI * 2);
-  bgCtx.fillStyle = "rgba(0, 0, 0, 0.1)";
-  bgCtx.fill();
-
-  // Candle silhouette
-  const candleX = width * 0.22;
-  const candleY = height - 100;
-
-  bgCtx.fillRect(candleX, candleY, 20, 40);
-  bgCtx.beginPath();
-  bgCtx.arc(candleX + 10, candleY, 5, 0, Math.PI * 2);
-  bgCtx.fill();
-
-  // Candle glow occlusion (block flicker glow behind)
-  bgCtx.globalCompositeOperation = "destination-out";
-  bgCtx.beginPath();
-  bgCtx.arc(candleX + 10, candleY + 10, 15, 0, Math.PI * 2);
-  bgCtx.fill();
-  bgCtx.globalCompositeOperation = "source-over";
-}
-
 // Add some fog
 var fogCanvas = document.createElement('canvas');
 fogCanvas.width = width;
@@ -256,12 +150,6 @@ for (let i = 0; i < 200; i++) {
 
 // === INIT ENTITIES ===
 let lightning = new LightningFlash();
-let candle = new CandleFlicker(width * 0.25, height - 80);
-let treeShadows = [
-  new TreeShadow(width * 0.3, height * 0.6, 1),
-  new TreeShadow(width * 0.6, height * 0.65, 0.8),
-  new TreeShadow(width * 0.8, height * 0.7, 1.2)
-];
 let pools = [];
 let entities = []; // your rain drops here
 let reflections = []; // optional visual flares
@@ -295,9 +183,6 @@ function animate() {
   bgCtx.fillStyle = tintGrad;
   bgCtx.fillRect(0, 0, width, height);
 
-  // Tree shadows
-  treeShadows.forEach(shadow => shadow.update());
-
   // Fog
   fogOffset += 0.05;
   bgCtx.globalAlpha = 0.1;
@@ -309,7 +194,7 @@ function animate() {
   for (let entity of entities) entity.update();
 
   // Rain pooling
-  if (Math.random() < 0.03) {
+  if (Math.random() < 0.1) {
     pools.push(new RainPool(Math.random() * width, height - 10));
   }
   pools.forEach(p => p.update());
@@ -325,12 +210,6 @@ function animate() {
     bgCtx.arc(ref.x, ref.y, ref.radius, 0, 2 * Math.PI);
     bgCtx.fill();
   });
-
-  // Candle flicker
-  candle.update();
-
-  // Silhouettes
-  drawSilhouette();
 
   requestAnimFrame(animate);
 }
