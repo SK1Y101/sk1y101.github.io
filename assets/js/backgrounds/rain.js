@@ -38,16 +38,17 @@ RainDrop.prototype.reset = function () {
   this.opacity = 0.1 + Math.random() * 0.2;
 };
 RainDrop.prototype.update = function () {
-  const wind = Math.sin(windTime + this.y * 0.01) * 1.5; // wave across screen
+  const windEffect = baseWind + gust;
   this.y += this.speed;
-  this.x += this.speed * 0.3 + wind * 0.1; // blend base drift and wind
+  this.x += this.speed * 0.3 + windEffect * 0.2;  // Stronger horizontal sway
   if (this.y > height) this.reset();
   this.draw();
 };
 RainDrop.prototype.draw = function () {
   bgCtx.beginPath();
+  let angleOffset = gust * 0.3;
   bgCtx.moveTo(this.x, this.y);
-  bgCtx.lineTo(this.x - 2, this.y - this.length);
+  bgCtx.lineTo(this.x - 2 + angleOffset, this.y - this.length);
   bgCtx.strokeStyle = `rgba(255, 255, 255, ${this.opacity})`;
   bgCtx.lineWidth = 1;
   bgCtx.stroke();
@@ -120,7 +121,7 @@ LightningFlash.prototype.trigger = function () {
   }
 };
 LightningFlash.prototype.update = function () {
-  if (Math.random() < 0.001 && this.timer <= 0) {
+  if (Math.random() < 0.01 && this.timer <= 0) {
     this.trigger();
   }
 
@@ -240,13 +241,18 @@ for (let i = 0; i < 200; i++) {
 }
 
 // === INIT ENTITIES ===
-let windTime = 0;
 let lightning = new LightningFlash();
 
 let pools = [];
 let entities = [];
 // let reflections = [];
 let fogOffset = 0;
+
+let windTime = 0;
+let baseWind = 0;
+let gust = 0;
+let gustTarget = 0;
+let gustSpeed = 0.02;
 
 // for (let i = 0; i < 5; i++) {
 //   reflections.push({
@@ -262,7 +268,16 @@ for (var i = 0; i < 100; i++) { entities.push(new DripDrop()); }
 
 // === ANIMATION LOOP ===
 function animate() {
+  // Wind simulation
   windTime += 0.01;
+  baseWind = Math.sin(windTime * 0.3) * 1.5;
+  if (Math.random() < 0.005) {
+    gustTarget = (Math.random() - 0.5) * 4;  // gust can be -2 to +2
+    gustSpeed = 0.01 + Math.random() * 0.02; // how quickly it ramps
+  }
+  gust += (gustTarget - gust) * gustSpeed;
+
+  // background
   bgCtx.fillStyle = "#110E19";
   bgCtx.fillRect(0, 0, width, height);
 
