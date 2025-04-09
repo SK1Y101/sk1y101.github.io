@@ -40,7 +40,7 @@ RainDrop.prototype.reset = function () {
 RainDrop.prototype.update = function () {
   const windEffect = baseWind + gust;
   this.y += this.speed;
-  this.x += this.speed * 0.3 + windEffect * 0.2;  // Stronger horizontal sway
+  this.x += this.speed * 0.3 + windEffect * 0.5;  // Stronger horizontal sway
   if (this.y > height) this.reset();
   this.draw();
 };
@@ -245,10 +245,10 @@ for (var i = 0; i < 100; i++) { entities.push(new DripDrop()); }
 function animate() {
   // Wind simulation
   windTime += 0.01;
-  baseWind = Math.sin(windTime * 0.3) * 1.5;
+  baseWind = Math.sin(windTime * 0.3) * 3;
   if (Math.random() < 0.005) {
-    gustTarget = (Math.random() - 0.5) * 4;  // gust can be -2 to +2
-    gustSpeed = 0.01 + Math.random() * 0.02; // how quickly it ramps
+    gustTarget = (Math.random() - 0.5) * 8;  // gust can be -4 to +4
+    gustSpeed = 0.01 + Math.random() * 0.04; // how quickly it ramps
   }
   gust += (gustTarget - gust) * gustSpeed;
 
