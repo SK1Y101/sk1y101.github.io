@@ -232,7 +232,7 @@ const mugWidth = 69;
 const mugHeight = 100;
 const mugRadius = 12;
 const mugX = width - 2*mugWidth;
-const mugY = height - mugHeight;
+const mugY = height - mugHeight - 10;
 
 // Cozy mug
 function drawMug(ctx) {
@@ -250,21 +250,21 @@ function drawMug(ctx) {
 
   // Mug top ellipse
   ctx.beginPath();
-  ctx.ellipse(mugX + mugWidth / 2, mugY, mugWidth / 2, 6, 0, 0, Math.PI * 2);
+  ctx.ellipse(mugX + mugWidth / 2, mugY + mugHeight, mugWidth / 2, 6, 0, 0, Math.PI * 2);
   ctx.fill();
 
-  const handleCX = mugX - 10; // X position offset from mug
+  const handleCX = mugX; // X position offset from mug
   const handleCY = mugY + mugHeight / 2;
   ctx.beginPath();
   ctx.strokeStyle = "#222";
-  ctx.lineWidth = 6;
+  ctx.lineWidth = 12;
   ctx.arc(handleCX, handleCY, 15, Math.PI / 2.2, -Math.PI / 2.2, false);
   ctx.stroke();
 
   // Handle inner cutout
   ctx.beginPath();
   ctx.strokeStyle = "#111";
-  ctx.lineWidth = 4;
+  ctx.lineWidth = 8;
   ctx.arc(handleCX, handleCY, 9, Math.PI / 2.2, -Math.PI / 2.2, false);
   ctx.stroke();
 }
@@ -281,7 +281,7 @@ function createSteamLine() {
   });
 }
 function updateSteamLines(ctx) {
-  if (Math.random() < 0.06) createSteamLine();
+  if (Math.random() < 0.02) createSteamLine();
 
   for (let i = steamLines.length - 1; i >= 0; i--) {
     const s = steamLines[i];
@@ -305,7 +305,7 @@ function updateSteamLines(ctx) {
     ctx.lineWidth = 1.5;
     ctx.stroke();
 
-    s.alpha -= 0.0005;
+    s.alpha -= 0.001;
   }
 }
 
