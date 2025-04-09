@@ -38,8 +38,9 @@ RainDrop.prototype.reset = function () {
   this.opacity = 0.1 + Math.random() * 0.2;
 };
 RainDrop.prototype.update = function () {
+  const wind = Math.sin(windTime + this.y * 0.01) * 1.5; // wave across screen
   this.y += this.speed;
-  this.x += this.speed * 0.3; // slight diagonal
+  this.x += this.speed * 0.3 + wind * 0.1; // blend base drift and wind
   if (this.y > height) this.reset();
   this.draw();
 };
@@ -137,9 +138,23 @@ LightningFlash.prototype.draw = function () {
   bgCtx.fillRect(0, 0, width, height);
 };
 LightningFlash.prototype.drawGlow = function () {
-  const grad = bgCtx.createLinearGradient(0, 0, width, height);
-  grad.addColorStop(0, `rgba(255, 255, 255, 0.08)`);
-  grad.addColorStop(1, `rgba(255, 255, 255, 0.01)`);
+  let glowX = 0, glowY = 0;
+  if (this.hasBolt && this.boltPath && this.boltPath.length) {
+    glowX = this.boltPath[0].x;
+    glowY = this.boltPath[0].y;
+  } else {
+    // Random point along top or sides
+    if (Math.random() < 0.5) {
+      glowX = Math.random() * width;
+      glowY = 0;
+    } else {
+      glowX = Math.random() < 0.5 ? 0 : width;
+      glowY = Math.random() * height * 0.3;
+    }
+  }
+  let grad = bgCtx.createRadialGradient(glowX, glowY, 50, glowX, glowY, height * 1.2);
+  grad.addColorStop(0, `rgba(255, 255, 255, ${this.opacity})`);
+  grad.addColorStop(1, `rgba(255, 255, 255, 0)`);
   bgCtx.fillStyle = grad;
   bgCtx.fillRect(0, 0, width, height);
 };
@@ -225,10 +240,12 @@ for (let i = 0; i < 200; i++) {
 }
 
 // === INIT ENTITIES ===
+let windTime = 0;
 let lightning = new LightningFlash();
+
 let pools = [];
-let entities = []; // your rain drops here
-// let reflections = []; // optional visual flares
+let entities = [];
+// let reflections = [];
 let fogOffset = 0;
 
 // for (let i = 0; i < 5; i++) {
@@ -245,6 +262,7 @@ for (var i = 0; i < 100; i++) { entities.push(new DripDrop()); }
 
 // === ANIMATION LOOP ===
 function animate() {
+  windTime += 0.01;
   bgCtx.fillStyle = "#110E19";
   bgCtx.fillRect(0, 0, width, height);
 
