@@ -111,17 +111,21 @@ function LightningFlash() {
   this.opacity = 0;
 }
 LightningFlash.prototype.trigger = function () {
-  this.timer = 3 + Math.floor(Math.random() * 3); // flicker frames
+  this.timer = 3 + Math.floor(Math.random() * 3); // flicker duration
   this.opacity = 1.0;
-  this.boltPath = generateLightningPath(); // cache for flicker
+  this.hasBolt = Math.random() < 0.5; // 50% chance of bolt
+  if (this.hasBolt) {
+    this.boltPath = generateLightningPath();
+  }
 };
 LightningFlash.prototype.update = function () {
-  if (Math.random() < 0.005 && this.timer <= 0) {
+  if (Math.random() < 0.001 && this.timer <= 0) {
     this.trigger();
   }
+
   if (this.timer > 0) {
-    this.drawGlow(); // background flash
-    drawLightningBolt(this.boltPath);
+    this.drawGlow(); // soft flash
+    if (this.hasBolt) drawLightningBolt(this.boltPath);
     this.timer--;
   }
 };
@@ -139,22 +143,22 @@ LightningFlash.prototype.drawGlow = function () {
   bgCtx.fillStyle = grad;
   bgCtx.fillRect(0, 0, width, height);
 };
-function generateLightningPath(segments = 15) {
+function generateLightningPath(segments = 10 + Math.floor(Math.random() * 5)) {
   const points = [];
-  let x = width / 4 + Math.random() * (width / 2);
+  let x = width * 0.3 + Math.random() * width * 0.4;
   let y = 0;
-  const stepY = height / segments;
+  const maxHeight = height * 0.5 + Math.random() * height * 0.4;
+  const stepY = maxHeight / segments;
 
   for (let i = 0; i <= segments; i++) {
-    x += (Math.random() - 0.5) * 60;
-    y = i * stepY + Math.random() * 10;
+    x += (Math.random() - 0.5) * 80;
+    y = i * stepY + Math.random() * 5;
     points.push({ x, y });
   }
 
   return points;
 }
 function drawLightningBolt(path) {
-  // Main bolt
   bgCtx.beginPath();
   bgCtx.moveTo(path[0].x, path[0].y);
 
@@ -169,22 +173,21 @@ function drawLightningBolt(path) {
     path[path.length - 1].x, path[path.length - 1].y
   );
   grad.addColorStop(0.0, 'rgba(255, 255, 255, 1)');
-  grad.addColorStop(0.7, 'rgba(255, 255, 255, 0.5)');
+  grad.addColorStop(0.4, 'rgba(255, 255, 255, 0.7)');
+  grad.addColorStop(0.7, 'rgba(255, 255, 255, 0.3)');
   grad.addColorStop(1.0, 'rgba(255, 255, 255, 0)');
 
   bgCtx.strokeStyle = grad;
   bgCtx.lineWidth = 2;
   bgCtx.stroke();
 
-  // Forks
-  for (let i = 3; i < path.length - 3; i++) {
-    if (Math.random() < 0.2) {
-      drawLightningFork(path[i]);
-    }
+  // forks
+  for (let i = 2; i < path.length - 2; i++) {
+    if (Math.random() < 0.3) drawLightningFork(path[i], i);
   }
 }
-function drawLightningFork(start) {
-  const segments = 4 + Math.floor(Math.random() * 3);
+function drawLightningFork(start, index) {
+  const segments = 3 + Math.floor(Math.random() * 3);
   let x = start.x;
   let y = start.y;
 
@@ -192,12 +195,12 @@ function drawLightningFork(start) {
   bgCtx.moveTo(x, y);
 
   for (let i = 0; i < segments; i++) {
-    x += (Math.random() - 0.5) * 60;
-    y += 10 + Math.random() * 20;
+    x += (Math.random() - 0.5) * 100;
+    y += 10 + Math.random() * 30;
     bgCtx.lineTo(x, y);
   }
 
-  bgCtx.strokeStyle = 'rgba(255, 255, 255, 0.3)';
+  bgCtx.strokeStyle = 'rgba(255, 255, 255, 0.4)';
   bgCtx.lineWidth = 1;
   bgCtx.stroke();
 }
@@ -268,7 +271,7 @@ function animate() {
 
   // Rain pooling
   if (Math.random() < 0.03) {
-    pools.push(new RainPool(Math.random() * width, height - 15));
+    pools.push(new RainPool(Math.random() * width, height - 10));
   }
   pools.forEach(p => p.update());
   pools = pools.filter(p => p.opacity > 0);
