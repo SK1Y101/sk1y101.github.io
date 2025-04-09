@@ -61,7 +61,7 @@ DripDrop.prototype.reset = function () {
   this.x = Math.random() * width;
   this.y = Math.random() * height;
   this.length = 8 + Math.random() * 15;
-  this.speed = 0.5 + Math.random() * 1.5;
+  this.speed = 0.3 + Math.random() * 0.7;
   this.opacity = 0.1 + Math.random() * 0.15;
 };
 
@@ -75,7 +75,7 @@ DripDrop.prototype.draw = function () {
   bgCtx.moveTo(this.x, this.y);
   bgCtx.lineTo(this.x, this.y - this.length);
   bgCtx.strokeStyle = `rgba(255, 255, 255, ${this.opacity})`;
-  bgCtx.lineWidth = 1;
+  bgCtx.lineWidth = 3;
   bgCtx.stroke();
 };
 
@@ -172,12 +172,12 @@ function drawLightningBolt(path) {
   bgCtx.stroke();
 
   // forks
-  for (let i = 2; i < path.length - 2; i++) {
-    if (Math.random() < 0.3) drawLightningFork(path[i], i);
+  for (let i = 1; i < path.length - 1; i++) {
+    if (Math.random() < 0.5) drawLightningFork(path[i], i);
   }
 }
 function drawLightningFork(start, index) {
-  const segments = 3 + Math.floor(Math.random() * 3);
+  const segments = 4 + Math.floor(Math.random() * 7);
   let x = start.x;
   let y = start.y;
 
@@ -185,8 +185,8 @@ function drawLightningFork(start, index) {
   bgCtx.moveTo(x, y);
 
   for (let i = 0; i < segments; i++) {
-    x += (Math.random() - 0.5) * 100;
-    y += 10 + Math.random() * 30;
+    x += (Math.random() - 0.5) * 150;
+    y += 10 + Math.random() * 40;
     bgCtx.lineTo(x, y);
   }
 
@@ -226,16 +226,8 @@ let windTime = 0;
 let baseWind = 0;
 let gust = 0;
 let gustTarget = 0;
-let gustSpeed = 0.02;
+let gustSpeed = 0.03;
 
-// for (let i = 0; i < 5; i++) {
-//   reflections.push({
-//     x: Math.random() * width,
-//     y: Math.random() * height * 0.5,
-//     radius: 40 + Math.random() * 60,
-//     opacity: 0.03 + Math.random() * 0.05,
-//   });
-// }
 for (var i = 0; i < 300; i++) { entities.push(new RainDrop()); }
 for (var i = 0; i < 100; i++) { entities.push(new DripDrop()); }
 
@@ -246,7 +238,7 @@ function animate() {
   windTime += 0.01;
   baseWind = Math.sin(windTime * 0.3) * 3;
   if (Math.random() < 0.005) {
-    gustTarget = (Math.random() - 0.5) * 8;  // gust can be -4 to +4
+    gustTarget = (Math.random() - 0.5) * 6;  // gust can be -3 to +3
     gustSpeed = 0.01 + Math.random() * 0.04; // how quickly it ramps
   }
   gust += (gustTarget - gust) * gustSpeed;
@@ -282,20 +274,6 @@ function animate() {
   }
   pools.forEach(p => p.update());
   pools = pools.filter(p => p.opacity > 0);
-
-  // Reflections
-  // for (let ref of reflections) {
-  //   ref.x += Math.sin(ref.x * 0.01) * 0.5; // Slight horizontal fluctuation
-  //   ref.y += Math.cos(ref.y * 0.01) * 0.5; // Slight vertical fluctuation
-
-  //   let gradient = bgCtx.createRadialGradient(ref.x, ref.y, 0, ref.x, ref.y, ref.radius);
-  //   gradient.addColorStop(0, `rgba(255, 255, 255, ${ref.opacity})`);
-  //   gradient.addColorStop(1, `rgba(255, 255, 255, 0)`);
-  //   bgCtx.fillStyle = gradient;
-  //   bgCtx.beginPath();
-  //   bgCtx.arc(ref.x, ref.y, ref.radius, 0, 2 * Math.PI);
-  //   bgCtx.fill();
-  // }
 
 
   requestAnimFrame(animate);
