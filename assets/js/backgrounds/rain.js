@@ -113,9 +113,12 @@ function LightningFlash() {
   this.opacity = 0;
 }
 LightningFlash.prototype.trigger = function () {
+  this.x = Math.random() * width;
+  this.y = this.hasBolt ? this.boltEndY : Math.random() * height * 0.5;
   this.timer = 3 + Math.floor(Math.random() * 3); // flicker duration
   this.opacity = 1.0;
-  this.hasBolt = Math.random() < 0.5; // 50% chance of bolt
+  this.hasBolt = Math.random() < 0.5;
+  this.boltEndY = height * (0.3 + Math.random() * 0.5); // Random vertical reach
   if (this.hasBolt) {
     this.boltPath = generateLightningPath();
   }
@@ -132,9 +135,10 @@ LightningFlash.prototype.update = function () {
   }
 };
 LightningFlash.prototype.draw = function () {
-  let grad = bgCtx.createLinearGradient(0, 0, width, height);
-  grad.addColorStop(0, `rgba(255, 255, 255, ${this.opacity})`);
-  grad.addColorStop(1, `rgba(255, 255, 255, ${this.opacity * 0.1})`);
+  let gradRadius = 600 + Math.random() * 400;
+  let grad = bgCtx.createRadialGradient(this.x, this.y, 0, this.x, this.y, gradRadius);
+  grad.addColorStop(0, `rgba(180, 200, 255, ${ this.opacity })`);
+  grad.addColorStop(1, `rgba(255, 255, 255, 0)`);
   bgCtx.fillStyle = grad;
   bgCtx.fillRect(0, 0, width, height);
 };
