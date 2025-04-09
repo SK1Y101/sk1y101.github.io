@@ -81,8 +81,8 @@ function LightningFlash() {
   this.opacity = 0;
 }
 LightningFlash.prototype.trigger = function () {
-  this.timer = 8 + Math.floor(Math.random() * 4);
-  this.opacity = 0.3 + Math.random() * 0.2;
+  this.opacity = 0.15 + Math.random() * 0.1;
+  this.timer = 4 + Math.floor(Math.random() * 3);
 };
 LightningFlash.prototype.update = function () {
   if (Math.random() < 0.001 && this.timer <= 0) {
@@ -97,7 +97,8 @@ LightningFlash.prototype.update = function () {
 LightningFlash.prototype.draw = function () {
   let grad = bgCtx.createLinearGradient(0, 0, width, height);
   grad.addColorStop(0, `rgba(255, 255, 255, ${this.opacity})`);
-  grad.addColorStop(1, `rgba(255, 255, 255, ${this.opacity * 0.2})`);
+  grad.addColorStop(1, `rgba(255, 255, 255, ${this.opacity * 0.1})`);
+
 
   bgCtx.fillStyle = grad;
   bgCtx.fillRect(0, 0, width, height);
@@ -111,7 +112,7 @@ function CandleFlicker(x, y) {
   this.flicker = 0;
 }
 CandleFlicker.prototype.update = function () {
-  this.flicker = (Math.random() - 0.5) * 10;
+  this.flicker = (Math.random() - 0.5) * 5;
   this.draw();
 };
 CandleFlicker.prototype.draw = function () {
@@ -143,7 +144,26 @@ TreeShadow.prototype.draw = function () {
   let x = this.x + Math.sin(this.offset) * 10;
   bgCtx.beginPath();
   bgCtx.ellipse(x, this.y, widthFactor, heightFactor, 0, 0, Math.PI * 2);
-  bgCtx.fillStyle = "rgba(0, 0, 0, 0.05)";
+  bgCtx.fillStyle = "rgba(0, 0, 0, 0.1)"; // increase from 0.05
+  bgCtx.fill();
+};
+
+// pooling rain
+function RainPool(x, y) {
+  this.x = x;
+  this.y = y;
+  this.radius = 0;
+  this.opacity = 0.3;
+}
+RainPool.prototype.update = function () {
+  this.radius += 0.2;
+  this.opacity -= 0.003;
+  this.draw();
+};
+RainPool.prototype.draw = function () {
+  bgCtx.beginPath();
+  bgCtx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+  bgCtx.fillStyle = `rgba(255, 255, 255, ${this.opacity})`;
   bgCtx.fill();
 };
 
@@ -176,6 +196,7 @@ bgCtx.fillStyle = "#110E19";
 bgCtx.fillRect(0, 0, width, height);
 
 // create an array of animated entities
+let pools = [];
 var entities = [];
 var reflections = [];
 for (let i = 0; i < 5; i++) { reflections.push({
@@ -209,6 +230,15 @@ function animate() {
   // lightning is basically the background
   lightning.update();
 
+  // soft tint
+  let tintGrad = bgCtx.createLinearGradient(0, 0, 0, height);
+  tintGrad.addColorStop(0, "rgba(100, 80, 150, 0.1)"); // purple night tone
+  tintGrad.addColorStop(1, "rgba(30, 20, 60, 0.3)");   // deeper at bottom
+
+  bgCtx.fillStyle = tintGrad;
+  bgCtx.fillRect(0, 0, width, height);
+
+
   // trees are the lowest layer
   treeShadows.forEach(shadow => shadow.update());
 
@@ -221,6 +251,10 @@ function animate() {
 
   // rain
   for (let entity of entities) { entity.update(); };
+  // rain pooling at the bottom
+  if (Math.random() < 0.03) { pools.push(new RainPool(Math.random() * width, height - 10)); }
+  pools.forEach(pool => pool.update());
+  pools = pools.filter(pool => pool.opacity > 0);
 
   // reflections
   reflections.forEach(ref => {
