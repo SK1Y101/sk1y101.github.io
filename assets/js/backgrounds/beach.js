@@ -234,39 +234,43 @@ Bubble.prototype.update = function (t) {
 
 // Wave entity
 function smoothNoise(x, y, t) {
-  return Math.sin(x * 0.05 + t * 0.002) * 0.5 +
-    Math.sin(y * 0.07 + t * 0.001) * 0.3 +
-    Math.sin((x + y) * 0.03 + t * 0.003) * 0.2;
+  // Simple noise function, can be replaced with Perlin or Simplex noise
+  return Math.sin(x * 0.03 + t * 0.05) * Math.cos(y * 0.03 + t * 0.05);
 }
 function Wave(yBase) {
-  this.yBase = yBase;
-  this.speed = 0.05 + Math.random() * 0.1;
-  this.amplitude = 10 + Math.random() * 15;
-  this.length = 300 + Math.random() * 300;
-  this.opacity = 0.1 + Math.random() * 0.2;
-  this.colour = `rgba(255, 255, 255, ${this.opacity})`;
+  this.yBase = yBase; // The base height where the wave originates
+  this.amplitude = 10 + Math.random() * 5; // Wave amplitude (how high/low the wave peaks are)
+  this.speed = 0.3 + Math.random() * 0.1; // Speed of the wave's motion
+  this.opacity = 0.05 + Math.random() * 0.1; // Random opacity for subtle wave difference
+  this.colour = `hsla(${200 + Math.random() * 30}, 60%, 85%, ${this.opacity})`; // Soft blueish color
 }
-
 Wave.prototype.update = function (t) {
-  const step = 10;
+  const step = 10; // Resolution for wave drawing
+  const offsetX = t * this.speed; // Make waves drift over time
   bgCtx.beginPath();
   bgCtx.moveTo(0, this.yBase);
-
+  // Draw the wave ridge, a series of points based on Perlin noise
   for (let x = 0; x <= width; x += step) {
-    const noiseY = smoothNoise(x, this.yBase, t);
+    const noiseY = smoothNoise(x + offsetX, this.yBase, t); // Apply Perlin noise
     const y = this.yBase + noiseY * this.amplitude;
     bgCtx.lineTo(x, y);
-  }
 
+    // Add highlights for wave crests
+    if (noiseY > 0.4) { // When the wave is a crest
+      bgCtx.fillStyle = "rgba(255, 255, 200, 0.15)";
+      bgCtx.beginPath();
+      bgCtx.arc(x, y - 1, 1.5, 0, 2 * Math.PI); // Draw glint sparkles
+      bgCtx.fill();
+    }
+  }
+  // Apply the color and shadow for the wave
   bgCtx.strokeStyle = this.colour;
   bgCtx.lineWidth = 1;
   bgCtx.shadowColor = this.colour;
-  bgCtx.shadowBlur = 4;
+  bgCtx.shadowBlur = 4; // Soft glow effect for waves
   bgCtx.stroke();
-  bgCtx.shadowBlur = 0;
+  bgCtx.shadowBlur = 0; // Clear the shadow for future objects
 };
-
-
 
 // Shooting star entity
 function ShootingStar() {
@@ -413,7 +417,10 @@ for (var i = 15; i > 0; i--) { clouds.push(new Cloud()); }
 // Add bubbles
 for (var i = 30; i > 0; i--) { bubbles.push(new Bubble()); }
 // Add waves
-for (var i = 20; i > 0; i--) { waves.push(new Wave(height * 0.7 + i * 20)); }
+for (var i = 20; i > 0; i--) {
+  const yBase = height * 0.7 + (Math.random() - 0.5) * height * 0.1;
+  waves.push(new Wave(yBase));
+}
 // Add shooting stars
 for (var i = 10; i > 0; i--) { shootingstars.push(new ShootingStar()); }
 // Add random stars
@@ -474,30 +481,20 @@ function animate() {
   drawSky();
 
   // Draw constellations and stars
-  for (let star of stars) {
-    star.update();
-  };
+  for (let star of stars) { star.update(); };
   drawConstellationLines(orionStars, orionConnections);
   drawConstellationLines(cassiopeiaStars, cassiopeiaConnections);
 
   // Sea and sun should layer next
   drawSea();
+  for (let wave of waves) { wave.update(time); };
   drawShimmer();
   drawSun();
 
-  // Update all entities
-  for (let shooting of shootingstars) {
-    shooting.update();
-  };
-  for (let wave of waves) {
-    wave.update(time);
-  };
-  for (let cloud of clouds) {
-    cloud.update();
-  };
-  for (let bubble of bubbles) {
-    bubble.update(time);
-  };
+  // Then the remaining moving entities
+  for (let shooting of shootingstars) { shooting.update(); };
+  for (let cloud of clouds) { cloud.update(); };
+  for (let bubble of bubbles) { bubble.update(time); };
 
   requestAnimFrame(animate);
 }
