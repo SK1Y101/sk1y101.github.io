@@ -45,9 +45,11 @@ RainDrop.prototype.update = function () {
   this.draw();
 };
 RainDrop.prototype.draw = function () {
+  const windEffect = baseWind + gust;
+  const dx = this.speed * 0.3 + windEffect * 0.5;
   bgCtx.beginPath();
   bgCtx.moveTo(this.x, this.y);
-  bgCtx.lineTo(this.x - gust, this.y - this.length);
+  bgCtx.lineTo(this.x + dx * (this.length / this.speed), this.y - this.length);
   bgCtx.strokeStyle = `rgba(255, 255, 255, ${this.opacity})`;
   bgCtx.lineWidth = 1;
   bgCtx.stroke();
