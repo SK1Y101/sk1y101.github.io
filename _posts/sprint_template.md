@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Sprint Travel, <DATE>>
+title: Sprint_Travel_<DATE>>
 date: 2022-11-01 00:00:00-0000
 description: A summary of the travel to the <DATE> sprint
 tags: train travel canonical

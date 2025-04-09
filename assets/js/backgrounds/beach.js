@@ -70,11 +70,11 @@ function drawShimmer() {
   const sunX = width / 2;
   const startY = height * 0.7;
   const endY = height * 0.95;
-  const shimmerLines = 60;
+  const shimmerLines = 30;
 
   bgCtx.save();
   bgCtx.globalAlpha = 0.4;
-  bgCtx.lineWidth = 2;
+  bgCtx.lineWidth = 4;
 
   for (let i = 0; i < shimmerLines; i++) {
     const t = i / shimmerLines;
@@ -233,45 +233,34 @@ Bubble.prototype.update = function (t) {
 
 // Wave entity
 function smoothNoise(x, y, t) {
-  // Simple noise function, can be replaced with Perlin or Simplex noise
-  return Math.sin(x * 0.03 + t * 0.05) * Math.cos(y * 0.03 + t * 0.05);
+  return Math.sin(x * 0.05 + t * 0.002) * 0.5 +
+    Math.sin(y * 0.07 + t * 0.001) * 0.3 +
+    Math.sin((x + y) * 0.03 + t * 0.003) * 0.2;
 }
 function Wave(yBase) {
-  this.yBase = yBase; // The base height where the wave originates
-  this.amplitude = 10 + Math.random() * 5; // Wave amplitude (how high/low the wave peaks are)
-  this.speed = 0.3 + Math.random() * 0.1; // Speed of the wave's motion
-  this.opacity = 0.05 + Math.random() * 0.1; // Random opacity for subtle wave difference
-  this.colour = `hsla(${200 + Math.random() * 30}, 60%, 85%, ${this.opacity})`; // Soft blueish color
+  this.yBase = yBase;
+  this.speed = 0.05 + Math.random() * 0.1;
+  this.amplitude = 10 + Math.random() * 15;
+  this.length = 300 + Math.random() * 300;
+  this.opacity = 0.1 + Math.random() * 0.2;
+  this.colour = `rgba(255, 255, 255, ${this.opacity})`;
 }
 Wave.prototype.update = function (t) {
-  const step = 10; // Resolution for wave drawing
-  const offsetX = t * this.speed; // Make waves drift over time
-
+  const step = 10;
   bgCtx.beginPath();
   bgCtx.moveTo(0, this.yBase);
 
-  // Draw the wave ridge, using the smooth slow noise
   for (let x = 0; x <= width; x += step) {
-    const noiseY = smoothNoise(x + offsetX, this.yBase, t); // Apply smooth noise
+    const noiseY = smoothNoise(x, this.yBase, t);
     const y = this.yBase + noiseY * this.amplitude;
     bgCtx.lineTo(x, y);
-
-    // Add highlights for wave crests
-    if (noiseY > 0.4) { // When the wave is a crest
-      bgCtx.fillStyle = "rgba(255, 255, 200, 0.15)";
-      bgCtx.beginPath();
-      bgCtx.arc(x, y - 1, 1.5, 0, 2 * Math.PI); // Draw glint sparkles
-      bgCtx.fill();
-    }
   }
-
-  // Apply the color and shadow for the wave
   bgCtx.strokeStyle = this.colour;
   bgCtx.lineWidth = 1;
   bgCtx.shadowColor = this.colour;
-  bgCtx.shadowBlur = 4; // Soft glow effect for waves
+  bgCtx.shadowBlur = 4;
   bgCtx.stroke();
-  bgCtx.shadowBlur = 0; // Clear the shadow for future objects
+  bgCtx.shadowBlur = 0;
 };
 
 
