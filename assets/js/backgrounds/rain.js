@@ -29,13 +29,13 @@ function RainDrop() {
   this.reset();
 }
 RainDrop.prototype.reset = function () {
-  const xoffset = 0.2
-  const yoffset = 0.5
+  const xoffset = 0.2;
+  const yoffset = 0.5;
   this.x = width * (Math.random() * (xoffset + 1) - xoffset);
   this.y = height * (Math.random() * (yoffset + 1) - yoffset);
   this.length = 20 + Math.random() * 20;
-  this.speed = 4 + Math.random() * 4;
-  this.opacity = 0.1 + Math.random() * 0.3;
+  this.speed = 3 + Math.random() * 4;
+  this.opacity = 0.1 + Math.random() * 0.2;
 };
 RainDrop.prototype.update = function () {
   this.y += this.speed;
@@ -78,32 +78,6 @@ DripDrop.prototype.draw = function () {
   bgCtx.stroke();
 };
 
-// Lightning Flash
-function LightningFlash() {
-  this.timer = 0;
-  this.opacity = 0;
-}
-LightningFlash.prototype.trigger = function () {
-  this.timer = 4 + Math.floor(Math.random() * 3);
-  this.opacity = 0.15 + Math.random() * 0.1;
-};
-LightningFlash.prototype.update = function () {
-  if (Math.random() < 0.001 && this.timer <= 0) this.trigger();
-  if (this.timer > 0) {
-    this.draw();
-    this.timer--;
-    this.opacity *= 0.5;
-  }
-};
-LightningFlash.prototype.draw = function () {
-  let grad = bgCtx.createLinearGradient(0, 0, width, height);
-  grad.addColorStop(0, `rgba(255, 255, 255, ${this.opacity})`);
-  grad.addColorStop(1, `rgba(255, 255, 255, ${this.opacity * 0.1})`);
-  bgCtx.fillStyle = grad;
-  bgCtx.fillRect(0, 0, width, height);
-};
-
-
 // Rain Pooling
 function RainPool(x, y) {
   this.x = x;
@@ -121,13 +95,41 @@ RainPool.prototype.draw = function () {
   for (let i = 0; i < maxRings; i++) {
     let ringRadius = this.radius * (0.6 + 0.2 * i);
     let ringOpacity = this.opacity * (1 - i / maxRings);
+    let offset = Math.sin(i * 0.5 + this.radius * 0.1) * 3; // Slight distortion on each ring
+
     bgCtx.beginPath();
-    bgCtx.ellipse(this.x, this.y, ringRadius * 1.3, ringRadius * 0.7, 0, 0, Math.PI * 2);
+    bgCtx.ellipse(this.x + offset, this.y, ringRadius * 1.3, ringRadius * 0.7, 0, 0, Math.PI * 2);
     bgCtx.strokeStyle = `rgba(255, 255, 255, ${ringOpacity})`;
     bgCtx.lineWidth = 1;
     bgCtx.stroke();
   }
 };
+
+// Lightning Flash
+function LightningFlash() {
+  this.timer = 0;
+  this.opacity = 0;
+}
+LightningFlash.prototype.trigger = function () {
+  this.timer = 4 + Math.floor(Math.random() * 3);
+  this.opacity = 0.15 + Math.random() * 0.1;
+};
+LightningFlash.prototype.update = function () {
+  if (Math.random() < 0.001 && this.timer <= 0) this.trigger();
+  if (this.timer > 0) {
+    this.draw();
+    this.timer--;
+    this.opacity *= 0.5 + Math.random() * 0.2; // Add random flicker to opacity
+  }
+};
+LightningFlash.prototype.draw = function () {
+  let grad = bgCtx.createLinearGradient(0, 0, width, height);
+  grad.addColorStop(0, `rgba(255, 255, 255, ${this.opacity})`);
+  grad.addColorStop(1, `rgba(255, 255, 255, ${this.opacity * 0.1})`);
+  bgCtx.fillStyle = grad;
+  bgCtx.fillRect(0, 0, width, height);
+};
+
 
 // Add some fog
 var fogCanvas = document.createElement('canvas');
@@ -176,19 +178,20 @@ function animate() {
   lightning.update();
 
   // Color grading
-  let flickerTint = Math.sin(candle.time * 1.5) * 0.02;
   let tintGrad = bgCtx.createLinearGradient(0, 0, 0, height);
-  tintGrad.addColorStop(0, `rgba(120, 90, 150, ${0.08 + flickerTint})`);
-  tintGrad.addColorStop(1, `rgba(40, 30, 80, 0.25)`);
-  bgCtx.fillStyle = tintGrad;
+  tintGrad.addColorStop(0, "rgba(100, 80, 150, 0.1)");
+  tintGrad.addColorStop(1, "rgba(30, 20, 60, 0.3)");
   bgCtx.fillRect(0, 0, width, height);
 
   // Fog
   fogOffset += 0.05;
-  bgCtx.globalAlpha = 0.1;
+  bgCtx.globalAlpha = 0.05;
+  bgCtx.filter = 'blur(2px)';  // Apply a slight blur to the fog
   bgCtx.drawImage(fogCanvas, fogOffset % width - width, 0);
   bgCtx.drawImage(fogCanvas, fogOffset % width, 0);
   bgCtx.globalAlpha = 1.0;
+  bgCtx.filter = 'none';  // Reset filter
+
 
   // Rain drops
   for (let entity of entities) entity.update();
@@ -201,7 +204,10 @@ function animate() {
   pools = pools.filter(p => p.opacity > 0);
 
   // Reflections
-  reflections.forEach(ref => {
+  for (let ref of reflections) {
+    ref.x += Math.sin(ref.x * 0.01) * 0.5; // Slight horizontal fluctuation
+    ref.y += Math.cos(ref.y * 0.01) * 0.5; // Slight vertical fluctuation
+
     let gradient = bgCtx.createRadialGradient(ref.x, ref.y, 0, ref.x, ref.y, ref.radius);
     gradient.addColorStop(0, `rgba(255, 255, 255, ${ref.opacity})`);
     gradient.addColorStop(1, `rgba(255, 255, 255, 0)`);
@@ -209,7 +215,8 @@ function animate() {
     bgCtx.beginPath();
     bgCtx.arc(ref.x, ref.y, ref.radius, 0, 2 * Math.PI);
     bgCtx.fill();
-  });
+  }
+
 
   requestAnimFrame(animate);
 }
