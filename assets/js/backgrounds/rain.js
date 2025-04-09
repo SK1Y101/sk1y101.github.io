@@ -217,37 +217,50 @@ for (let i = 0; i < 200; i++) {
   fogCtx.fill();
 }
 
+const mugX = width - 120;
+const mugY = height - 100;
+const mugWidth = 50;
+const mugHeight = 60;
+const mugRadius = 12;
+
 // Cozy mug
 function drawMug(ctx) {
-  const mugHeight = 60;
-  const mugWidth = 50;
-  const mugX = width - mugHeight - mugWidth;
-  const mugY = height - mugHeight;
-
-  // Mug body
+  // Mug body with rounded top
   ctx.fillStyle = "#222";
   ctx.beginPath();
-  ctx.fillRect(mugX, mugY, mugWidth, mugHeight);
+  ctx.moveTo(mugX, mugY + mugRadius);
+  ctx.quadraticCurveTo(mugX, mugY, mugX + mugRadius, mugY);
+  ctx.lineTo(mugX + mugWidth - mugRadius, mugY);
+  ctx.quadraticCurveTo(mugX + mugWidth, mugY, mugX + mugWidth, mugY + mugRadius);
+  ctx.lineTo(mugX + mugWidth, mugY + mugHeight);
+  ctx.lineTo(mugX, mugY + mugHeight);
+  ctx.closePath();
+  ctx.fill();
 
-  // Handle (a ring)
+  // Mug top ellipse
+  ctx.beginPath();
+  ctx.ellipse(mugX + mugWidth / 2, mugY, mugWidth / 2, 6, 0, 0, Math.PI * 2);
+  ctx.fill();
+
+  // Handle (on left side now)
   ctx.beginPath();
   ctx.strokeStyle = "#222";
   ctx.lineWidth = 6;
-  ctx.arc(mugX + mugWidth, mugY + mugHeight / 2, 15, Math.PI / 2.5, -Math.PI / 2.5, false);
+  ctx.arc(mugX, mugY + mugHeight / 2, 15, -Math.PI / 2.5, Math.PI / 2.5, false);
   ctx.stroke();
 
   // Handle inner cutout
   ctx.beginPath();
-  ctx.strokeStyle = "#111";  // darker to give illusion of depth
+  ctx.strokeStyle = "#111";
   ctx.lineWidth = 4;
-  ctx.arc(mugX + mugWidth, mugY + mugHeight / 2, 9, Math.PI / 2.5, -Math.PI / 2.5, false);
+  ctx.arc(mugX, mugY + mugHeight / 2, 9, -Math.PI / 2.5, Math.PI / 2.5, false);
   ctx.stroke();
 }
 
 function createSteamLine() {
   steamLines.push({
-    x: width - 75 + Math.random() * 10,
-    y: height - 100,
+    x: mugX + Math.random() * mugWidth,
+    y: mugY,
     offset: Math.random() * Math.PI * 2,
     length: 40 + Math.random() * 20,
     alpha: 0.1 + Math.random() * 0.05,
@@ -256,7 +269,7 @@ function createSteamLine() {
   });
 }
 function updateSteamLines(ctx) {
-  if (Math.random() < 0.02) createSteamLine();
+  if (Math.random() < 0.06) createSteamLine();
 
   for (let i = steamLines.length - 1; i >= 0; i--) {
     const s = steamLines[i];
