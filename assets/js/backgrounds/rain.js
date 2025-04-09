@@ -25,8 +25,8 @@ function drawWindow() {
   const top = height * 0.95;
 
   const gradient = bgCtx.createLinearGradient(0, top, 0, height);
-  gradient.addColorStop(0, 'darkgray');
-  gradient.addColorStop(1, 'black');
+  gradient.addColorStop(0, 'rgba(34, 34, 34, 1)');
+  gradient.addColorStop(1, 'rgba(0, 0, 0, 1)');
 
   bgCtx.fillStyle = gradient;
   bgCtx.fillRect(0, top, width, height - top);
@@ -80,7 +80,10 @@ DripDrop.prototype.reset = function () {
 
 DripDrop.prototype.update = function () {
   this.y += this.speed;
-  if (this.y > height) this.reset();
+  if (this.y + Math.random()*height*0.04 > height) {
+    pools.push(new RainPool(this.x, this.y));
+    this.reset();
+  }
   this.draw();
 };
 DripDrop.prototype.draw = function () {
@@ -232,7 +235,7 @@ const mugWidth = 69;
 const mugHeight = 100;
 const mugRadius = 12;
 const mugX = width - 2*mugWidth;
-const mugY = height - mugHeight - 10;
+const mugY = height - mugHeight - 30;
 
 // Cozy mug
 function drawMug(ctx) {
@@ -370,13 +373,9 @@ function animate() {
   for (let drop of drops) drop.update();
 
   // Rain pooling
-  if (Math.random() < 0.03) {
-    pools.push(new RainPool(Math.random() * width, height - (5 + 5 * Math.random())));
-  }
   pools.forEach(p => p.update());
   pools = pools.filter(p => p.opacity > 0);
 
-  
   // the mug and steam come last
   updateSteamLines(bgCtx);
   drawMug(bgCtx);
