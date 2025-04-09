@@ -233,27 +233,29 @@ Bubble.prototype.update = function (t) {
 };
 
 // Wave entity
-function Wave() {
-  this.x = Math.random() * width;
-  this.y = height * 0.7 + Math.random() * 40; // starting in sea region
-  this.amp = 10 + Math.random() * 20; // amplitude
-  this.freq = 0.005 + Math.random() * 0.01; // frequency
-  this.phase = Math.random() * Math.PI * 2;
-  this.speed = 0.002 + Math.random() * 0.003;
-  this.length = 200 + Math.random() * 100;
-  this.opacity = 0.2 + Math.random() * 0.2;
-  this.colour = 'rgba(255,255,255,' + this.opacity + ')';
+function smoothNoise(x, y, t) {
+  return Math.sin(x * 0.05 + t * 0.002) * 0.5 +
+    Math.sin(y * 0.07 + t * 0.001) * 0.3 +
+    Math.sin((x + y) * 0.03 + t * 0.003) * 0.2;
 }
-Wave.prototype.update = function (t) {
-  const segments = 20;
-  const dx = this.length / segments;
-  bgCtx.beginPath();
-  bgCtx.moveTo(this.x, this.y);
+function Wave(yBase) {
+  this.yBase = yBase;
+  this.speed = 0.05 + Math.random() * 0.1;
+  this.amplitude = 10 + Math.random() * 15;
+  this.length = 300 + Math.random() * 300;
+  this.opacity = 0.1 + Math.random() * 0.2;
+  this.colour = `rgba(255, 255, 255, ${this.opacity})`;
+}
 
-  for (let i = 0; i <= segments; i++) {
-    const px = this.x + i * dx;
-    const py = this.y + Math.sin((i * dx * this.freq) + this.phase + t * this.speed) * this.amp;
-    bgCtx.lineTo(px, py);
+Wave.prototype.update = function (t) {
+  const step = 10;
+  bgCtx.beginPath();
+  bgCtx.moveTo(0, this.yBase);
+
+  for (let x = 0; x <= width; x += step) {
+    const noiseY = smoothNoise(x, this.yBase, t);
+    const y = this.yBase + noiseY * this.amplitude;
+    bgCtx.lineTo(x, y);
   }
 
   bgCtx.strokeStyle = this.colour;
@@ -263,6 +265,7 @@ Wave.prototype.update = function (t) {
   bgCtx.stroke();
   bgCtx.shadowBlur = 0;
 };
+
 
 
 // Shooting star entity
@@ -410,7 +413,7 @@ for (var i = 15; i > 0; i--) { clouds.push(new Cloud()); }
 // Add bubbles
 for (var i = 30; i > 0; i--) { bubbles.push(new Bubble()); }
 // Add waves
-for (var i = 20; i > 0; i--) { waves.push(new Wave()); }
+for (var i = 20; i > 0; i--) { waves.push(new Wave(height * 0.7 + i * 20)); }
 // Add shooting stars
 for (var i = 10; i > 0; i--) { shootingstars.push(new ShootingStar()); }
 // Add random stars
