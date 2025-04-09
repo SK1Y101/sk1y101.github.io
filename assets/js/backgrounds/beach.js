@@ -70,11 +70,11 @@ function drawShimmer() {
   const sunX = width / 2;
   const startY = height * 0.7;
   const endY = height * 0.95;
-  const shimmerLines = 100;
+  const shimmerLines = 60;
 
   bgCtx.save();
   bgCtx.globalAlpha = 0.4;
-  bgCtx.lineWidth = 1;
+  bgCtx.lineWidth = 2;
 
   for (let i = 0; i < shimmerLines; i++) {
     const t = i / shimmerLines;
@@ -239,18 +239,20 @@ function smoothNoise(x, y, t) {
 function Wave(yBase) {
   this.yBase = yBase; // The base height where the wave originates
   this.amplitude = 10 + Math.random() * 5; // Wave amplitude (how high/low the wave peaks are)
-  this.speed = 0.1 + Math.random() * 0.1; // Speed of the wave's motion
-  this.opacity = 0.55 + Math.random() * 0.1; // Random opacity for subtle wave difference
+  this.speed = 0.3 + Math.random() * 0.1; // Speed of the wave's motion
+  this.opacity = 0.05 + Math.random() * 0.1; // Random opacity for subtle wave difference
   this.colour = `hsla(${200 + Math.random() * 30}, 60%, 85%, ${this.opacity})`; // Soft blueish color
 }
 Wave.prototype.update = function (t) {
   const step = 10; // Resolution for wave drawing
   const offsetX = t * this.speed; // Make waves drift over time
+
   bgCtx.beginPath();
   bgCtx.moveTo(0, this.yBase);
-  // Draw the wave ridge, a series of points based on Perlin noise
+
+  // Draw the wave ridge, using the smooth slow noise
   for (let x = 0; x <= width; x += step) {
-    const noiseY = smoothNoise(x + offsetX, this.yBase, t); // Apply Perlin noise
+    const noiseY = smoothNoise(x + offsetX, this.yBase, t); // Apply smooth noise
     const y = this.yBase + noiseY * this.amplitude;
     bgCtx.lineTo(x, y);
 
@@ -262,6 +264,7 @@ Wave.prototype.update = function (t) {
       bgCtx.fill();
     }
   }
+
   // Apply the color and shadow for the wave
   bgCtx.strokeStyle = this.colour;
   bgCtx.lineWidth = 1;
@@ -270,6 +273,7 @@ Wave.prototype.update = function (t) {
   bgCtx.stroke();
   bgCtx.shadowBlur = 0; // Clear the shadow for future objects
 };
+
 
 // Shooting star entity
 function ShootingStar() {
