@@ -21,6 +21,17 @@ const background = document.getElementById("bgCanvas"),
 background.width = width;
 background.height = height;
 
+function drawWindow() {
+  const top = height * 0.95;
+
+  const gradient = bgCtx.createLinearGradient(0, top, 0, height);
+  gradient.addColorStop(0, '#2d6cdf');  // Deeper blue
+  gradient.addColorStop(1, '#0b1a40');    // Beach edge: dark ocean blue
+
+  bgCtx.fillStyle = gradient;
+  bgCtx.fillRect(0, top, width, height - top);
+}
+
 // === ENTITIES ===
 
 
@@ -41,7 +52,7 @@ RainDrop.prototype.update = function () {
   const windEffect = baseWind + gust;
   this.y += this.speed;
   this.x += this.speed * 0.3 + windEffect * 0.5;
-  if (this.y > height) this.reset();
+  if (this.y + this.length + 10 > height) this.reset();
   this.draw();
 };
 RainDrop.prototype.draw = function () {
@@ -217,10 +228,10 @@ for (let i = 0; i < 200; i++) {
   fogCtx.fill();
 }
 
-const mugWidth = 100;
-const mugHeight = 150;
+const mugWidth = 69;
+const mugHeight = 100;
 const mugRadius = 12;
-const mugX = width - mugWidth;
+const mugX = width - 2*mugWidth;
 const mugY = height - mugHeight;
 
 // Cozy mug
@@ -360,6 +371,9 @@ function animate() {
   }
   pools.forEach(p => p.update());
   pools = pools.filter(p => p.opacity > 0);
+
+  // windowsil
+  drawWindow();
   
   // the mug and steam come last
   updateSteamLines(bgCtx);
