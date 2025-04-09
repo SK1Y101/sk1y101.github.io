@@ -119,46 +119,27 @@ LightningFlash.prototype.trigger = function () {
   this.opacity = 1.0;
   this.hasBolt = Math.random() < 0.5;
   this.boltEndY = height * (0.3 + Math.random() * 0.5); // Random vertical reach
+  this.hasBolt = Math.random() < 0.75;
   if (this.hasBolt) {
-    this.boltPath = generateLightningPath();
+    this.x = Math.random() * width;
+    this.boltEndY = height * (0.3 + Math.random() * 0.5);
+    this.bolt = this.generateBolt(this.x, 0, this.boltEndY);
+  } else {
+    this.bolt = null;
   }
 };
 LightningFlash.prototype.update = function () {
-  if (Math.random() < 0.01 && this.timer <= 0) {
-    this.trigger();
-  }
-
+  if (Math.random() < 0.01 && this.timer <= 0) this.trigger();
   if (this.timer > 0) {
     this.drawGlow(); // soft flash
-    if (this.hasBolt) drawLightningBolt(this.boltPath);
+    if (this.hasBolt && this.bolt) drawLightningBolt(this.bolt);
     this.timer--;
   }
 };
-LightningFlash.prototype.draw = function () {
-  let gradRadius = 600 + Math.random() * 400;
-  let grad = bgCtx.createRadialGradient(this.x, this.y, 0, this.x, this.y, gradRadius);
-  grad.addColorStop(0, `rgba(180, 200, 255, ${ this.opacity })`);
-  grad.addColorStop(1, `rgba(255, 255, 255, 0)`);
-  bgCtx.fillStyle = grad;
-  bgCtx.fillRect(0, 0, width, height);
-};
 LightningFlash.prototype.drawGlow = function () {
-  let glowX = 0, glowY = 0;
-  if (this.hasBolt && this.boltPath && this.boltPath.length) {
-    glowX = this.boltPath[0].x;
-    glowY = this.boltPath[0].y;
-  } else {
-    // Random point along top or sides
-    if (Math.random() < 0.5) {
-      glowX = Math.random() * width;
-      glowY = 0;
-    } else {
-      glowX = Math.random() < 0.5 ? 0 : width;
-      glowY = Math.random() * height * 0.3;
-    }
-  }
-  let grad = bgCtx.createRadialGradient(glowX, glowY, 50, glowX, glowY, height * 1.2);
-  grad.addColorStop(0, `rgba(255, 255, 255, ${this.opacity})`);
+  const topY = this.hasBolt ? 0 : this.y;
+  const grad = bgCtx.createLinearGradient(0, topY, 0, height);
+  grad.addColorStop(0, `rgba(255, 255, 255, ${this.opacity * 0.5})`);
   grad.addColorStop(1, `rgba(255, 255, 255, 0)`);
   bgCtx.fillStyle = grad;
   bgCtx.fillRect(0, 0, width, height);
