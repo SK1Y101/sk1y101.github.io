@@ -188,10 +188,7 @@ function animate() {
   bgCtx.strokeStyle = '#ffffff';
 
   // update all entities
-  var entLen = entities.length;
-  while (entLen--) {
-    entities[entLen].update();
-  }
+  for (let entity of entities) { entity.update(); };
 
   //schedule the next animation frame
   requestAnimFrame(animate);
