@@ -240,7 +240,7 @@ function smoothNoise(x, y, t) {
 function Wave(yBase) {
   this.yBase = yBase;
   this.amplitude = 10 + Math.random() * 15;
-  this.opacity = 0.05 + Math.random() * 0.5;
+  this.opacity = 0.05 + Math.random() * 0.05;
   this.colour = `rgba(255, 255, 255, ${this.opacity})`;
 }
 Wave.prototype.update = function (t) {
