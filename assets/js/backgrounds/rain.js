@@ -49,7 +49,7 @@ RainDrop.prototype.draw = function () {
   const dx = this.speed * 0.3 + windEffect * 0.5;
   bgCtx.beginPath();
   bgCtx.moveTo(this.x, this.y);
-  bgCtx.lineTo(this.x + dx * (this.length / this.speed), this.y - this.length);
+  bgCtx.lineTo(this.x - dx * (this.length / this.speed), this.y - this.length);
   bgCtx.strokeStyle = `rgba(255, 255, 255, ${this.opacity})`;
   bgCtx.lineWidth = 1;
   bgCtx.stroke();
@@ -77,7 +77,7 @@ DripDrop.prototype.draw = function () {
   bgCtx.moveTo(this.x, this.y);
   bgCtx.lineTo(this.x, this.y - this.length);
   bgCtx.strokeStyle = `rgba(255, 255, 255, ${this.opacity})`;
-  bgCtx.lineWidth = 3;
+  bgCtx.lineWidth = 2;
   bgCtx.stroke();
 };
 
@@ -115,7 +115,7 @@ function LightningFlash() {
 }
 LightningFlash.prototype.trigger = function () {
   this.timer = 3 + Math.floor(Math.random() * 3); // flicker duration
-  this.opacity = 1.0;
+  this.opacity = 0.4;
 
   this.hasBolt = Math.random() < 0.75;
   this.bolt = this.hasBolt ? generateLightningPath() : null;
@@ -130,7 +130,7 @@ LightningFlash.prototype.update = function () {
 };
 LightningFlash.prototype.drawGlow = function () {
   const grad = bgCtx.createLinearGradient(0, 0, 0, height);
-  grad.addColorStop(0, `rgba(255, 255, 255, ${this.opacity * 0.3})`);
+  grad.addColorStop(0, `rgba(255, 255, 255, ${this.opacity * 0.2})`);
   grad.addColorStop(1, `rgba(255, 255, 255, 0)`);
   bgCtx.fillStyle = grad;
   bgCtx.fillRect(0, 0, width, height);
@@ -174,11 +174,12 @@ function drawLightningBolt(path) {
   bgCtx.stroke();
 
   // forks
-  for (let i = 1; i < path.length - 1; i++) {
-    if (Math.random() < 0.5) drawLightningFork(path[i], i);
+  for (let i = 0; i < path.length; i++) {
+    let opacity = (1 - (path.length / i)) * 0.2 + 0.2
+    if (Math.random() < 0.5) drawLightningFork(path[i], opacity);
   }
 }
-function drawLightningFork(start, index) {
+function drawLightningFork(start, opacity) {
   const segments = 4 + Math.floor(Math.random() * 7);
   let x = start.x;
   let y = start.y;
@@ -192,7 +193,7 @@ function drawLightningFork(start, index) {
     bgCtx.lineTo(x, y);
   }
 
-  bgCtx.strokeStyle = 'rgba(255, 255, 255, 0.4)';
+  bgCtx.strokeStyle = `rgba(255, 255, 255, ${opacity})`;
   bgCtx.lineWidth = 1;
   bgCtx.stroke();
 }
