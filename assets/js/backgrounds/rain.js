@@ -115,14 +115,14 @@ LightningFlash.prototype.trigger = function () {
   this.opacity = 0.15 + Math.random() * 0.1;
 };
 LightningFlash.prototype.update = function () {
-  if (Math.random() < 0.001 && this.timer <= 0) {
+  if (Math.random() < 0.05 && this.timer <= 0) {
     this.trigger();
     this.forkX = Math.random() * width;
-    this.forkY = Math.random() * height * 0.5;
+    this.forkY = height * (0.5 + Math.random() * 0.4); // Lower half
   }
   if (this.timer > 0) {
     this.draw();
-    drawLightningFork(this.forkX, this.forkY);
+    drawLightningBolt(this.forkX, this.forkY);
     this.timer--;
     this.opacity *= 0.5 + Math.random() * 0.2;
   }
@@ -134,21 +134,47 @@ LightningFlash.prototype.draw = function () {
   bgCtx.fillStyle = grad;
   bgCtx.fillRect(0, 0, width, height);
 };
-function drawLightningFork(startX, startY, segments = 10) {
+function drawLightningBolt(endX, endY, segments = 12) {
+  const points = [];
+  let x = endX;
+  let y = endY;
+  const stepY = y / segments;
+  // Generate path upward from the bottom to top
+  for (let i = 0; i <= segments; i++) {
+    const px = x + (Math.random() - 0.5) * 50;
+    const py = y - stepY * i + (Math.random() - 0.5) * 10;
+    points.push({ x: px, y: py });
+  }
+  // Draw main bolt
+  bgCtx.strokeStyle = 'rgba(255, 255, 255, 0.7)';
+  bgCtx.lineWidth = 2;
+  bgCtx.beginPath();
+  bgCtx.moveTo(points[0].x, points[0].y);
+  for (let i = 1; i < points.length - 2; i++) {
+    const cpX = (points[i].x + points[i + 1].x) / 2;
+    const cpY = (points[i].y + points[i + 1].y) / 2;
+    bgCtx.quadraticCurveTo(points[i].x, points[i].y, cpX, cpY);
+  }
+  bgCtx.stroke();
+  // Forks
+  for (let i = 2; i < points.length - 2; i++) {
+    if (Math.random() < 0.2) {
+      const forkStart = points[i];
+      drawLightningFork(forkStart.x, forkStart.y, 4);
+    }
+  }
+}
+function drawLightningFork(startX, startY, segments = 4) {
   let x = startX;
   let y = startY;
-  bgCtx.strokeStyle = 'rgba(255, 255, 255, 0.6)';
-  bgCtx.lineWidth = 2;
+  bgCtx.strokeStyle = 'rgba(255, 255, 255, 0.3)';
+  bgCtx.lineWidth = 1;
   bgCtx.beginPath();
   bgCtx.moveTo(x, y);
   for (let i = 0; i < segments; i++) {
-    x += (Math.random() - 0.5) * 40; // horizontal variance
-    y += 20 + Math.random() * 20;    // downward stroke
+    x += (Math.random() - 0.5) * 40;
+    y += 10 + Math.random() * 20;
     bgCtx.lineTo(x, y);
-    // chance to fork
-    if (Math.random() < 0.2 && segments > 4) {
-      drawLightningFork(x, y, Math.floor(segments / 2));
-    }
   }
   bgCtx.stroke();
 }
@@ -176,17 +202,17 @@ for (let i = 0; i < 200; i++) {
 let lightning = new LightningFlash();
 let pools = [];
 let entities = []; // your rain drops here
-let reflections = []; // optional visual flares
+// let reflections = []; // optional visual flares
 let fogOffset = 0;
 
-for (let i = 0; i < 5; i++) {
-  reflections.push({
-    x: Math.random() * width,
-    y: Math.random() * height * 0.5,
-    radius: 40 + Math.random() * 60,
-    opacity: 0.03 + Math.random() * 0.05,
-  });
-}
+// for (let i = 0; i < 5; i++) {
+//   reflections.push({
+//     x: Math.random() * width,
+//     y: Math.random() * height * 0.5,
+//     radius: 40 + Math.random() * 60,
+//     opacity: 0.03 + Math.random() * 0.05,
+//   });
+// }
 for (var i = 0; i < 300; i++) { entities.push(new RainDrop()); }
 for (var i = 0; i < 100; i++) { entities.push(new DripDrop()); }
 
@@ -225,18 +251,18 @@ function animate() {
   pools = pools.filter(p => p.opacity > 0);
 
   // Reflections
-  for (let ref of reflections) {
-    ref.x += Math.sin(ref.x * 0.01) * 0.5; // Slight horizontal fluctuation
-    ref.y += Math.cos(ref.y * 0.01) * 0.5; // Slight vertical fluctuation
+  // for (let ref of reflections) {
+  //   ref.x += Math.sin(ref.x * 0.01) * 0.5; // Slight horizontal fluctuation
+  //   ref.y += Math.cos(ref.y * 0.01) * 0.5; // Slight vertical fluctuation
 
-    let gradient = bgCtx.createRadialGradient(ref.x, ref.y, 0, ref.x, ref.y, ref.radius);
-    gradient.addColorStop(0, `rgba(255, 255, 255, ${ref.opacity})`);
-    gradient.addColorStop(1, `rgba(255, 255, 255, 0)`);
-    bgCtx.fillStyle = gradient;
-    bgCtx.beginPath();
-    bgCtx.arc(ref.x, ref.y, ref.radius, 0, 2 * Math.PI);
-    bgCtx.fill();
-  }
+  //   let gradient = bgCtx.createRadialGradient(ref.x, ref.y, 0, ref.x, ref.y, ref.radius);
+  //   gradient.addColorStop(0, `rgba(255, 255, 255, ${ref.opacity})`);
+  //   gradient.addColorStop(1, `rgba(255, 255, 255, 0)`);
+  //   bgCtx.fillStyle = gradient;
+  //   bgCtx.beginPath();
+  //   bgCtx.arc(ref.x, ref.y, ref.radius, 0, 2 * Math.PI);
+  //   bgCtx.fill();
+  // }
 
 
   requestAnimFrame(animate);
