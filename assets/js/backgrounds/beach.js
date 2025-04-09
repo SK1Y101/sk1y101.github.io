@@ -68,10 +68,9 @@ function drawSea() {
 }
 function drawShimmer() {
   const sunX = width / 2;
-  const sunY = height * 0.6;
-  const startY = sunY + 10;
-  const endY = height * 0.95;
-  const shimmerLines = 60;
+  const startY = height * 0.7;
+  const endY = height * 0.9;
+  const shimmerLines = 200;
 
   bgCtx.save();
   bgCtx.globalAlpha = 0.4;
@@ -240,8 +239,8 @@ function smoothNoise(x, y, t) {
 function Wave(yBase) {
   this.yBase = yBase; // The base height where the wave originates
   this.amplitude = 10 + Math.random() * 5; // Wave amplitude (how high/low the wave peaks are)
-  this.speed = 0.3 + Math.random() * 0.1; // Speed of the wave's motion
-  this.opacity = 0.05 + Math.random() * 0.1; // Random opacity for subtle wave difference
+  this.speed = 0.1 + Math.random() * 0.1; // Speed of the wave's motion
+  this.opacity = 0.55 + Math.random() * 0.1; // Random opacity for subtle wave difference
   this.colour = `hsla(${200 + Math.random() * 30}, 60%, 85%, ${this.opacity})`; // Soft blueish color
 }
 Wave.prototype.update = function (t) {
@@ -355,7 +354,7 @@ Star.prototype.update = function () {
   this.drawGlow();
 
   // Adjust the size of the star due to twinkling
-  this.size = Math.max(this.isConstellation ? .35 : .1, Math.min(2, this.size + 0.1 * Math.random() - 0.05));
+  this.size = Math.max(.1, Math.min(2, this.size + 0.1 * Math.random() - 0.05));
 
   // Draw the star
   bgCtx.fillStyle = this.colour;
