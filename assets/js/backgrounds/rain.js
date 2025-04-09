@@ -219,50 +219,70 @@ for (let i = 0; i < 200; i++) {
 
 // Cozy mug
 function drawMug(ctx) {
-  const mugX = width - 80;
-  const mugY = height - 60;
+  const mugHeight = 60;
+  const mugWidth = 50;
+  const mugX = width - mugHeight - mugWidth;
+  const mugY = height - mugHeight;
 
   // Mug body
-  ctx.fillStyle = "#222";  // Silhouette color
+  ctx.fillStyle = "#222";
   ctx.beginPath();
-  ctx.fillRect(mugX, mugY, 40, 40);
-  ctx.arc(mugX + 40, mugY + 20, 10, Math.PI / 2, -Math.PI / 2, true);
-  ctx.fill();
+  ctx.fillRect(mugX, mugY, mugWidth, mugHeight);
 
-  // Mug top (optional ellipse)
+  // Handle (a ring)
   ctx.beginPath();
-  ctx.ellipse(mugX + 20, mugY, 20, 6, 0, 0, Math.PI * 2);
-  ctx.fill();
+  ctx.strokeStyle = "#222";
+  ctx.lineWidth = 6;
+  ctx.arc(mugX + mugWidth, mugY + mugHeight / 2, 15, Math.PI / 2.5, -Math.PI / 2.5, false);
+  ctx.stroke();
+
+  // Handle inner cutout
+  ctx.beginPath();
+  ctx.strokeStyle = "#111";  // darker to give illusion of depth
+  ctx.lineWidth = 4;
+  ctx.arc(mugX + mugWidth, mugY + mugHeight / 2, 9, Math.PI / 2.5, -Math.PI / 2.5, false);
+  ctx.stroke();
 }
 
-function createSteamPuff() {
-  steamPuffs.push({
-    x: width - 60 + Math.random() * 10,
-    y: height - 60,
-    radius: 2 + Math.random() * 3,
-    alpha: 0.4 + Math.random() * 0.2,
-    drift: Math.random() * 0.5 - 0.25,
-    speed: 0.2 + Math.random() * 0.3,
+function createSteamLine() {
+  steamLines.push({
+    x: width - 75 + Math.random() * 10,
+    y: height - 100,
+    offset: Math.random() * Math.PI * 2,
+    length: 40 + Math.random() * 20,
+    alpha: 0.1 + Math.random() * 0.05,
+    age: 0,
+    speed: 0.3 + Math.random() * 0.1,
   });
 }
-function updateSteam(ctx) {
-  if (Math.random() < 0.3) createSteamPuff();
-  for (let i = steamPuffs.length - 1; i >= 0; i--) {
-    const puff = steamPuffs[i];
-    puff.y -= puff.speed;
-    puff.x += puff.drift;
-    puff.alpha -= 0.003;
-    if (puff.alpha <= 0) {
-      steamPuffs.splice(i, 1);
+function updateSteamLines(ctx) {
+  if (Math.random() < 0.02) createSteamLine();
+
+  for (let i = steamLines.length - 1; i >= 0; i--) {
+    const s = steamLines[i];
+    s.y -= s.speed;
+    s.age += 0.02;
+
+    if (s.alpha <= 0 || s.y + s.length < 0) {
+      steamLines.splice(i, 1);
       continue;
     }
+
     ctx.beginPath();
-    ctx.fillStyle = `rgba(255,255,255,${puff.alpha})`;
-    ctx.arc(puff.x, puff.y, puff.radius, 0, Math.PI * 2);
-    ctx.fill();
+    ctx.moveTo(s.x, s.y);
+    for (let j = 0; j <= s.length; j += 4) {
+      const waveX = s.x + Math.sin(s.age + j * 0.1 + s.offset) * 5;
+      const waveY = s.y - j;
+      ctx.lineTo(waveX, waveY);
+    }
+
+    ctx.strokeStyle = `rgba(255, 255, 255, ${s.alpha})`;
+    ctx.lineWidth = 1.5;
+    ctx.stroke();
+
+    s.alpha -= 0.001;
   }
 }
-
 
 // === INIT ENTITIES ===
 let lightning = new LightningFlash();
@@ -270,7 +290,7 @@ let lightning = new LightningFlash();
 let pools = [];
 let rains = [];
 let drops = [];
-let steamPuffs = [];
+let steamLines = [];
 let fogOffset = 0;
 
 let windTime = 0;
@@ -328,7 +348,7 @@ function animate() {
   pools = pools.filter(p => p.opacity > 0);
   
   // the mug and steam come last
-  updateSteam(bgCtx);
+  updateSteamLines(bgCtx);
   drawMug(bgCtx);
 
   requestAnimFrame(animate);
