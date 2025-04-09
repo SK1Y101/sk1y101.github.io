@@ -70,7 +70,7 @@ function drawShimmer() {
   const sunX = width / 2;
   const startY = height * 0.7;
   const endY = height * 0.95;
-  const shimmerLines = 30;
+  const shimmerLines = 40;
 
   bgCtx.save();
   bgCtx.globalAlpha = 0.4;
@@ -239,10 +239,8 @@ function smoothNoise(x, y, t) {
 }
 function Wave(yBase) {
   this.yBase = yBase;
-  this.speed = 0.05 + Math.random() * 0.1;
   this.amplitude = 10 + Math.random() * 15;
-  this.length = 300 + Math.random() * 300;
-  this.opacity = 0.1 + Math.random() * 0.2;
+  this.opacity = 0.1 + Math.random() * 0.1;
   this.colour = `rgba(255, 255, 255, ${this.opacity})`;
 }
 Wave.prototype.update = function (t) {
@@ -409,8 +407,9 @@ for (var i = 15; i > 0; i--) { clouds.push(new Cloud()); }
 // Add bubbles
 for (var i = 30; i > 0; i--) { bubbles.push(new Bubble()); }
 // Add waves
-for (var i = 20; i > 0; i--) {
-  const yBase = height * 0.85 + (Math.random() - 0.5) * height * 0.15;
+const wavecount = 20
+for (var i = wavecount; i > 0; i--) {
+  const yBase = lerp(height*0.7, height, i / wavecount) + (Math.random() - 0.5) * height * 0.01;
   waves.push(new Wave(yBase));
 }
 // Add shooting stars

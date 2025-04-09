@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Sprint_Travel_May_2023
-date: 2023-05-01 00:00:00-0000
+title: Sprint Travel, May 2023
+date: 2023-5-01 00:00:00-0000
 description: A summary of the travel to the Spring 2023 sprint
 tags: train travel canonical
 categories: train-travel

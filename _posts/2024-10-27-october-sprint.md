@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Sprint_Travel_October_2024
+title: Sprint Travel October 2024
 date: 2024-10-27 00:00:00-0000
 description: A summary of the travel to the Autumn 2024 sprint
 tags: train travel canonical

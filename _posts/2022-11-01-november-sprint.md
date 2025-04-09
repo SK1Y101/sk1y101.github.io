@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Sprint_Travel_November_2022
+title: Sprint Travel, November 2022
 date: 2022-11-01 00:00:00-0000
 description: A summary of the travel to the autumn 2022 sprint
 tags: train travel canonical
