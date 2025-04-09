@@ -80,8 +80,10 @@ DripDrop.prototype.reset = function () {
 
 DripDrop.prototype.update = function () {
   this.y += this.speed;
-  if (this.y + Math.random()*height*0.04 > height) {
-    pools.push(new RainPool(this.x, this.y));
+  const sillY = height * (0.95 + Math.random * 0.04);
+  if (this.y > sillY) {
+    pools.push(new RainPool(this.x, sillY + 2));
+    dripTrails.push(new DripTrail(this.x, sillY));  // spawn the trail
     this.reset();
   }
   this.draw();
@@ -94,6 +96,30 @@ DripDrop.prototype.draw = function () {
   bgCtx.lineWidth = 2;
   bgCtx.stroke();
 };
+function DripTrail(x, y) {
+  this.x = x;
+  this.y = y;
+  this.length = 0;
+  this.maxLength = 20 + Math.random() * 10;
+  this.speed = 1 + Math.random() * 1;
+  this.opacity = 0.3 + Math.random() * 0.2;
+}
+DripTrail.prototype.update = function () {
+  this.length += this.speed;
+  this.opacity -= 0.01;
+  this.draw();
+};
+DripTrail.prototype.draw = function () {
+  if (this.opacity <= 0) return;
+
+  bgCtx.beginPath();
+  bgCtx.moveTo(this.x, this.y);
+  bgCtx.lineTo(this.x, this.y + this.length);
+  bgCtx.strokeStyle = `rgba(255, 255, 255, ${this.opacity})`;
+  bgCtx.lineWidth = 1;
+  bgCtx.stroke();
+};
+
 
 // Rain Pooling
 function RainPool(x, y) {
@@ -275,7 +301,7 @@ function drawMug(ctx) {
 function createSteamLine() {
   steamLines.push({
     x: mugX + Math.random() * mugWidth,
-    y: height,
+    y: mugY + 0.5 * mugHeight,
     offset: Math.random() * Math.PI * 2,
     length: 40 + Math.random() * 20,
     alpha: 0.2 + Math.random() * 0.05,
@@ -318,6 +344,7 @@ let lightning = new LightningFlash();
 let pools = [];
 let rains = [];
 let drops = [];
+let dripTrails = [];
 let steamLines = [];
 let fogOffset = 0;
 
@@ -375,6 +402,10 @@ function animate() {
   // Rain pooling
   pools.forEach(p => p.update());
   pools = pools.filter(p => p.opacity > 0);
+  // And the tails for the drips
+  dripTrails.forEach(t => t.update());
+  dripTrails = dripTrails.filter(t => t.opacity > 0);
+
 
   // the mug and steam come last
   updateSteamLines(bgCtx);
