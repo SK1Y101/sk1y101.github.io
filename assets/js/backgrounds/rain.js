@@ -217,12 +217,60 @@ for (let i = 0; i < 200; i++) {
   fogCtx.fill();
 }
 
+// Cozy mug
+function drawMug(ctx) {
+  const mugX = width - 80;
+  const mugY = height - 60;
+
+  // Mug body
+  ctx.fillStyle = "#222";  // Silhouette color
+  ctx.beginPath();
+  ctx.fillRect(mugX, mugY, 40, 40);
+  ctx.arc(mugX + 40, mugY + 20, 10, Math.PI / 2, -Math.PI / 2, true);
+  ctx.fill();
+
+  // Mug top (optional ellipse)
+  ctx.beginPath();
+  ctx.ellipse(mugX + 20, mugY, 20, 6, 0, 0, Math.PI * 2);
+  ctx.fill();
+}
+
+function createSteamPuff() {
+  steamPuffs.push({
+    x: width - 60 + Math.random() * 10,
+    y: height - 60,
+    radius: 2 + Math.random() * 3,
+    alpha: 0.4 + Math.random() * 0.2,
+    drift: Math.random() * 0.5 - 0.25,
+    speed: 0.2 + Math.random() * 0.3,
+  });
+}
+function updateSteam(ctx) {
+  if (Math.random() < 0.3) createSteamPuff();
+  for (let i = steamPuffs.length - 1; i >= 0; i--) {
+    const puff = steamPuffs[i];
+    puff.y -= puff.speed;
+    puff.x += puff.drift;
+    puff.alpha -= 0.003;
+    if (puff.alpha <= 0) {
+      steamPuffs.splice(i, 1);
+      continue;
+    }
+    ctx.beginPath();
+    ctx.fillStyle = `rgba(255,255,255,${puff.alpha})`;
+    ctx.arc(puff.x, puff.y, puff.radius, 0, Math.PI * 2);
+    ctx.fill();
+  }
+}
+
+
 // === INIT ENTITIES ===
 let lightning = new LightningFlash();
 
 let pools = [];
-let entities = [];
-// let reflections = [];
+let rains = [];
+let drops = [];
+let steamPuffs = [];
 let fogOffset = 0;
 
 let windTime = 0;
@@ -231,18 +279,18 @@ let gust = 0;
 let gustTarget = 0;
 let gustSpeed = 0.03;
 
-for (var i = 0; i < 300; i++) { entities.push(new RainDrop()); }
-for (var i = 0; i < 100; i++) { entities.push(new DripDrop()); }
+for (var i = 0; i < 400; i++) { rains.push(new RainDrop()); }
+for (var i = 0; i < 100; i++) { drops.push(new DripDrop()); }
 
 
 // === ANIMATION LOOP ===
 function animate() {
   // Wind simulation
   windTime += 0.01;
-  baseWind = Math.sin(windTime * 0.3) * 3;
+  baseWind = Math.sin(windTime * 0.3) * 2;
   if (Math.random() < 0.005) {
-    gustTarget = (Math.random() - 0.5) * 6;  // gust can be -3 to +3
-    gustSpeed = 0.01 + Math.random() * 0.04; // how quickly it ramps
+    gustTarget = (Math.random() - 0.5) * 4;  // gust can be -2 to +2
+    gustSpeed = 0.01 + Math.random() * 0.02; // how quickly it ramps
   }
   gust += (gustTarget - gust) * gustSpeed;
 
@@ -269,15 +317,19 @@ function animate() {
 
 
   // Rain drops
-  for (let entity of entities) entity.update();
+  for (let rain of rains) rain.update();
+  for (let drop of drops) drop.update();
 
   // Rain pooling
   if (Math.random() < 0.03) {
-    pools.push(new RainPool(Math.random() * width, height - 10));
+    pools.push(new RainPool(Math.random() * width, height - (5 + 5 * Math.random())));
   }
   pools.forEach(p => p.update());
   pools = pools.filter(p => p.opacity > 0);
-
+  
+  // the mug and steam come last
+  updateSteam(bgCtx);
+  drawMug(bgCtx);
 
   requestAnimFrame(animate);
 }
