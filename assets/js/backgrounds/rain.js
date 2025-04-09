@@ -111,20 +111,18 @@ function LightningFlash() {
   this.opacity = 0;
 }
 LightningFlash.prototype.trigger = function () {
-  this.timer = 4 + Math.floor(Math.random() * 3);
-  this.opacity = 0.15 + Math.random() * 0.1;
+  this.timer = 3 + Math.floor(Math.random() * 3); // flicker frames
+  this.opacity = 1.0;
+  this.boltPath = generateLightningPath(); // cache for flicker
 };
 LightningFlash.prototype.update = function () {
-  if (Math.random() < 0.05 && this.timer <= 0) {
+  if (Math.random() < 0.005 && this.timer <= 0) {
     this.trigger();
-    this.forkX = Math.random() * width;
-    this.forkY = height * (0.5 + Math.random() * 0.4); // Lower half
   }
   if (this.timer > 0) {
-    this.draw();
-    drawLightningBolt(this.forkX, this.forkY);
+    this.drawGlow(); // background flash
+    drawLightningBolt(this.boltPath);
     this.timer--;
-    this.opacity *= 0.5 + Math.random() * 0.2;
   }
 };
 LightningFlash.prototype.draw = function () {
@@ -134,48 +132,73 @@ LightningFlash.prototype.draw = function () {
   bgCtx.fillStyle = grad;
   bgCtx.fillRect(0, 0, width, height);
 };
-function drawLightningBolt(endX, endY, segments = 12) {
+LightningFlash.prototype.drawGlow = function () {
+  const grad = bgCtx.createLinearGradient(0, 0, width, height);
+  grad.addColorStop(0, `rgba(255, 255, 255, 0.08)`);
+  grad.addColorStop(1, `rgba(255, 255, 255, 0.01)`);
+  bgCtx.fillStyle = grad;
+  bgCtx.fillRect(0, 0, width, height);
+};
+function generateLightningPath(segments = 15) {
   const points = [];
-  let x = endX;
-  let y = endY;
-  const stepY = y / segments;
-  // Generate path upward from the bottom to top
+  let x = width / 4 + Math.random() * (width / 2);
+  let y = 0;
+  const stepY = height / segments;
+
   for (let i = 0; i <= segments; i++) {
-    const px = x + (Math.random() - 0.5) * 50;
-    const py = y - stepY * i + (Math.random() - 0.5) * 10;
-    points.push({ x: px, y: py });
+    x += (Math.random() - 0.5) * 60;
+    y = i * stepY + Math.random() * 10;
+    points.push({ x, y });
   }
-  // Draw main bolt
-  bgCtx.strokeStyle = 'rgba(255, 255, 255, 0.7)';
-  bgCtx.lineWidth = 2;
+
+  return points;
+}
+function drawLightningBolt(path) {
+  // Main bolt
   bgCtx.beginPath();
-  bgCtx.moveTo(points[0].x, points[0].y);
-  for (let i = 1; i < points.length - 2; i++) {
-    const cpX = (points[i].x + points[i + 1].x) / 2;
-    const cpY = (points[i].y + points[i + 1].y) / 2;
-    bgCtx.quadraticCurveTo(points[i].x, points[i].y, cpX, cpY);
+  bgCtx.moveTo(path[0].x, path[0].y);
+
+  for (let i = 1; i < path.length - 2; i++) {
+    const cpX = (path[i].x + path[i + 1].x) / 2;
+    const cpY = (path[i].y + path[i + 1].y) / 2;
+    bgCtx.quadraticCurveTo(path[i].x, path[i].y, cpX, cpY);
   }
+
+  const grad = bgCtx.createLinearGradient(
+    path[0].x, path[0].y,
+    path[path.length - 1].x, path[path.length - 1].y
+  );
+  grad.addColorStop(0.0, 'rgba(255, 255, 255, 1)');
+  grad.addColorStop(0.7, 'rgba(255, 255, 255, 0.5)');
+  grad.addColorStop(1.0, 'rgba(255, 255, 255, 0)');
+
+  bgCtx.strokeStyle = grad;
+  bgCtx.lineWidth = 2;
   bgCtx.stroke();
+
   // Forks
-  for (let i = 2; i < points.length - 2; i++) {
+  for (let i = 3; i < path.length - 3; i++) {
     if (Math.random() < 0.2) {
-      const forkStart = points[i];
-      drawLightningFork(forkStart.x, forkStart.y, 4);
+      drawLightningFork(path[i]);
     }
   }
 }
-function drawLightningFork(startX, startY, segments = 4) {
-  let x = startX;
-  let y = startY;
-  bgCtx.strokeStyle = 'rgba(255, 255, 255, 0.3)';
-  bgCtx.lineWidth = 1;
+function drawLightningFork(start) {
+  const segments = 4 + Math.floor(Math.random() * 3);
+  let x = start.x;
+  let y = start.y;
+
   bgCtx.beginPath();
   bgCtx.moveTo(x, y);
+
   for (let i = 0; i < segments; i++) {
-    x += (Math.random() - 0.5) * 40;
+    x += (Math.random() - 0.5) * 60;
     y += 10 + Math.random() * 20;
     bgCtx.lineTo(x, y);
   }
+
+  bgCtx.strokeStyle = 'rgba(255, 255, 255, 0.3)';
+  bgCtx.lineWidth = 1;
   bgCtx.stroke();
 }
 
