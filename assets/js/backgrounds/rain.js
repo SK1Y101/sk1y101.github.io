@@ -25,8 +25,8 @@ function drawWindow() {
   const top = height * 0.95;
 
   const gradient = bgCtx.createLinearGradient(0, top, 0, height);
-  gradient.addColorStop(0, '#2d6cdf');  // Deeper blue
-  gradient.addColorStop(1, '#0b1a40');    // Beach edge: dark ocean blue
+  gradient.addColorStop(0, 'darkgray');
+  gradient.addColorStop(1, 'black');
 
   bgCtx.fillStyle = gradient;
   bgCtx.fillRect(0, top, width, height - top);
@@ -237,7 +237,7 @@ const mugY = height - mugHeight;
 // Cozy mug
 function drawMug(ctx) {
   // Mug body with rounded top
-  ctx.fillStyle = "#111";
+  ctx.fillStyle = "#222";
   ctx.beginPath();
   ctx.moveTo(mugX, mugY + mugRadius);
   ctx.quadraticCurveTo(mugX, mugY, mugX + mugRadius, mugY);
@@ -248,24 +248,24 @@ function drawMug(ctx) {
   ctx.closePath();
   ctx.fill();
 
-  // // Mug top ellipse
-  // ctx.beginPath();
-  // ctx.ellipse(mugX + mugWidth / 2, mugY, mugWidth / 2, 6, 0, 0, Math.PI * 2);
-  // ctx.fill();
+  // Mug top ellipse
+  ctx.beginPath();
+  ctx.ellipse(mugX + mugWidth / 2, mugY, mugWidth / 2, 6, 0, 0, Math.PI * 2);
+  ctx.fill();
 
   const handleCX = mugX - 10; // X position offset from mug
   const handleCY = mugY + mugHeight / 2;
   ctx.beginPath();
-  ctx.strokeStyle = "#111";
+  ctx.strokeStyle = "#222";
   ctx.lineWidth = 6;
-  ctx.arc(handleCX, handleCY, 15, -Math.PI / 2.2, Math.PI / 2.2, false);
+  ctx.arc(handleCX, handleCY, 15, Math.PI / 2.2, -Math.PI / 2.2, false);
   ctx.stroke();
 
   // Handle inner cutout
   ctx.beginPath();
   ctx.strokeStyle = "#111";
   ctx.lineWidth = 4;
-  ctx.arc(handleCX, handleCY, 9, -Math.PI / 2.2, Math.PI / 2.2, false);
+  ctx.arc(handleCX, handleCY, 9, Math.PI / 2.2, -Math.PI / 2.2, false);
   ctx.stroke();
 }
 
@@ -275,7 +275,7 @@ function createSteamLine() {
     y: height,
     offset: Math.random() * Math.PI * 2,
     length: 40 + Math.random() * 20,
-    alpha: 0.1 + Math.random() * 0.05,
+    alpha: 0.2 + Math.random() * 0.05,
     age: 0,
     speed: 0.3 + Math.random() * 0.1,
   });
@@ -286,7 +286,7 @@ function updateSteamLines(ctx) {
   for (let i = steamLines.length - 1; i >= 0; i--) {
     const s = steamLines[i];
     s.y -= s.speed;
-    s.age += 0.01;
+    s.age += 0.1;
 
     if (s.alpha <= 0 || s.y + s.length < 0) {
       steamLines.splice(i, 1);
@@ -305,7 +305,7 @@ function updateSteamLines(ctx) {
     ctx.lineWidth = 1.5;
     ctx.stroke();
 
-    s.alpha -= 0.001;
+    s.alpha -= 0.0005;
   }
 }
 
@@ -360,9 +360,13 @@ function animate() {
   bgCtx.globalAlpha = 1.0;
   bgCtx.filter = 'none';  // Reset filter
 
-
-  // Rain drops
+  // Rain
   for (let rain of rains) rain.update();
+
+  // windowsil
+  drawWindow();
+
+  // and window drips
   for (let drop of drops) drop.update();
 
   // Rain pooling
@@ -372,8 +376,6 @@ function animate() {
   pools.forEach(p => p.update());
   pools = pools.filter(p => p.opacity > 0);
 
-  // windowsil
-  drawWindow();
   
   // the mug and steam come last
   updateSteamLines(bgCtx);
