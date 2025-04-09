@@ -128,8 +128,7 @@ LightningFlash.prototype.update = function () {
   }
 };
 LightningFlash.prototype.drawGlow = function () {
-  const topY = this.hasBolt ? 0 : this.y;
-  const grad = bgCtx.createLinearGradient(0, topY, 0, height);
+  const grad = bgCtx.createLinearGradient(0, 0, 0, height);
   grad.addColorStop(0, `rgba(255, 255, 255, ${this.opacity * 0.5})`);
   grad.addColorStop(1, `rgba(255, 255, 255, 0)`);
   bgCtx.fillStyle = grad;
