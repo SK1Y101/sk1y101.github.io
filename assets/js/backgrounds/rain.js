@@ -34,7 +34,7 @@ RainDrop.prototype.reset = function () {
   this.x = width * (Math.random() * (xoffset + 1) - xoffset);
   this.y = height * (Math.random() * (yoffset + 1) - yoffset);
   this.length = 20 + Math.random() * 20;
-  this.speed = 3 + Math.random() * 4;
+  this.speed = 4 + Math.random() * 4;
   this.opacity = 0.1 + Math.random() * 0.2;
 };
 RainDrop.prototype.update = function () {
@@ -83,11 +83,11 @@ function RainPool(x, y) {
   this.x = x;
   this.y = y;
   this.radius = 0;
-  this.opacity = 0.3;
+  this.opacity = 0.4;
 }
 RainPool.prototype.update = function () {
   this.radius += 0.2;
-  this.opacity -= 0.003;
+  this.opacity -= 0.002;
   this.draw();
 };
 RainPool.prototype.draw = function () {
@@ -115,11 +115,16 @@ LightningFlash.prototype.trigger = function () {
   this.opacity = 0.15 + Math.random() * 0.1;
 };
 LightningFlash.prototype.update = function () {
-  if (Math.random() < 0.001 && this.timer <= 0) this.trigger();
+  if (Math.random() < 0.001 && this.timer <= 0) {
+    this.trigger();
+    this.forkX = Math.random() * width;
+    this.forkY = Math.random() * height * 0.5;
+  }
   if (this.timer > 0) {
     this.draw();
+    drawLightningFork(this.forkX, this.forkY);
     this.timer--;
-    this.opacity *= 0.5 + Math.random() * 0.2; // Add random flicker to opacity
+    this.opacity *= 0.5 + Math.random() * 0.2;
   }
 };
 LightningFlash.prototype.draw = function () {
@@ -129,7 +134,24 @@ LightningFlash.prototype.draw = function () {
   bgCtx.fillStyle = grad;
   bgCtx.fillRect(0, 0, width, height);
 };
-
+function drawLightningFork(startX, startY, segments = 10) {
+  let x = startX;
+  let y = startY;
+  bgCtx.strokeStyle = 'rgba(255, 255, 255, 0.6)';
+  bgCtx.lineWidth = 2;
+  bgCtx.beginPath();
+  bgCtx.moveTo(x, y);
+  for (let i = 0; i < segments; i++) {
+    x += (Math.random() - 0.5) * 40; // horizontal variance
+    y += 20 + Math.random() * 20;    // downward stroke
+    bgCtx.lineTo(x, y);
+    // chance to fork
+    if (Math.random() < 0.2 && segments > 4) {
+      drawLightningFork(x, y, Math.floor(segments / 2));
+    }
+  }
+  bgCtx.stroke();
+}
 
 // Add some fog
 var fogCanvas = document.createElement('canvas');
@@ -186,7 +208,6 @@ function animate() {
   // Fog
   fogOffset += 0.05;
   bgCtx.globalAlpha = 0.05;
-  bgCtx.filter = 'blur(2px)';  // Apply a slight blur to the fog
   bgCtx.drawImage(fogCanvas, fogOffset % width - width, 0);
   bgCtx.drawImage(fogCanvas, fogOffset % width, 0);
   bgCtx.globalAlpha = 1.0;
@@ -197,8 +218,8 @@ function animate() {
   for (let entity of entities) entity.update();
 
   // Rain pooling
-  if (Math.random() < 0.1) {
-    pools.push(new RainPool(Math.random() * width, height - 10));
+  if (Math.random() < 0.03) {
+    pools.push(new RainPool(Math.random() * width, height - 15));
   }
   pools.forEach(p => p.update());
   pools = pools.filter(p => p.opacity > 0);
