@@ -26,8 +26,8 @@ function RainDrop() {
   this.reset();
 }
 RainDrop.prototype.reset = function () {
-  this.x = Math.random() * width;
-  this.y = Math.random() * -height; // start off-screen
+  this.x = Math.random() * width * 1.2 - width *0.2;
+  this.y = Math.random() * height;
   this.length = 20 + Math.random() * 20;
   this.speed = 4 + Math.random() * 4;
   this.opacity = 0.1 + Math.random() * 0.3;
@@ -47,6 +47,55 @@ RainDrop.prototype.draw = function () {
   bgCtx.stroke();
 };
 
+// Slow drops
+function DripDrop() {
+  this.reset();
+}
+DripDrop.prototype.reset = function () {
+  this.x = Math.random() * width;
+  this.y = Math.random() * height;
+  this.length = 8 + Math.random() * 15;
+  this.speed = 0.5 + Math.random() * 1.5;
+  this.opacity = 0.1 + Math.random() * 0.15;
+};
+
+DripDrop.prototype.update = function () {
+  this.y += this.speed;
+  if (this.y > height) this.reset();
+  this.draw();
+};
+DripDrop.prototype.draw = function () {
+  bgCtx.beginPath();
+  bgCtx.moveTo(this.x, this.y);
+  bgCtx.lineTo(this.x, this.y - this.length);
+  bgCtx.strokeStyle = `rgba(255, 255, 255, ${this.opacity})`;
+  bgCtx.lineWidth = 1;
+  bgCtx.stroke();
+};
+
+
+// Add some fog
+var fogCanvas = document.createElement('canvas');
+fogCanvas.width = width;
+fogCanvas.height = height;
+var fogCtx = fogCanvas.getContext('2d');
+
+// Generate fog texture
+for (let i = 0; i < 200; i++) {
+  let x = Math.random() * width;
+  let y = Math.random() * height;
+  let radius = 100 + Math.random() * 100;
+  let opacity = 0.01 + Math.random() * 0.03;
+
+  fogCtx.beginPath();
+  fogCtx.arc(x, y, radius, 0, 2 * Math.PI);
+  fogCtx.fillStyle = `rgba(255, 255, 255, ${opacity})`;
+  fogCtx.fill();
+}
+
+let fogOffset = 0;
+
+
 
 // set the canvase size
 background.width = width;
@@ -62,6 +111,8 @@ var entities = [];
 // Populate the rain
 for (var i = 0; i < 300; i++) { entities.push(new RainDrop()); }
 
+for (var i = 0; i < 100; i++) { entities.push(new DripDrop()); }
+
 // animate the background
 function animate() {
   // fetch the requiredbackground colour
@@ -72,6 +123,14 @@ function animate() {
 
   // update all entities
   for (let entity of entities) { entity.update(); };
+
+  // Apply fog overlay with slow movement
+  fogOffset += 0.05;
+  bgCtx.globalAlpha = 0.1;
+  bgCtx.drawImage(fogCanvas, fogOffset % width - width, 0);
+  bgCtx.drawImage(fogCanvas, fogOffset % width, 0);
+  bgCtx.globalAlpha = 1.0;
+
 
   //schedule the next animation frame
   requestAnimFrame(animate);
