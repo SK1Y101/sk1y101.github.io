@@ -153,11 +153,25 @@ TreeShadow.prototype.update = function () {
   this.draw();
 };
 TreeShadow.prototype.draw = function () {
-  let widthFactor = 50 * this.scale;
+  let baseX = this.x + Math.sin(this.offset) * 10;
   let heightFactor = 150 * this.scale;
-  let x = this.x + Math.sin(this.offset) * 10;
+  let widthFactor = 50 * this.scale;
+  let waveCount = 4;
+  let step = heightFactor / waveCount;
+
   bgCtx.beginPath();
-  bgCtx.ellipse(x, this.y, widthFactor, heightFactor, 0, 0, Math.PI * 2);
+  for (let i = 0; i <= waveCount; i++) {
+    let y = this.y + i * step;
+    let xOffset = Math.sin(this.offset + i * 0.5) * 10;
+    let w = widthFactor * (1 - i / waveCount);
+    if (i === 0) {
+      bgCtx.moveTo(baseX + xOffset, y);
+    } else {
+      bgCtx.lineTo(baseX + xOffset + w, y);
+      bgCtx.lineTo(baseX + xOffset - w, y);
+    }
+  }
+  bgCtx.closePath();
   bgCtx.fillStyle = "rgba(0, 0, 0, 0.08)";
   bgCtx.fill();
 };
@@ -175,23 +189,50 @@ RainPool.prototype.update = function () {
   this.draw();
 };
 RainPool.prototype.draw = function () {
-  bgCtx.beginPath();
-  bgCtx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-  bgCtx.fillStyle = `rgba(180, 200, 255, ${this.opacity * 0.6})`;
-  bgCtx.fill();
+  let maxRings = 3;
+  for (let i = 0; i < maxRings; i++) {
+    let ringRadius = this.radius * (0.6 + 0.2 * i);
+    let ringOpacity = this.opacity * (1 - i / maxRings);
+    bgCtx.beginPath();
+    bgCtx.ellipse(this.x, this.y, ringRadius * 1.3, ringRadius * 0.7, 0, 0, Math.PI * 2);
+    bgCtx.strokeStyle = `rgba(255, 255, 255, ${ringOpacity})`;
+    bgCtx.lineWidth = 1;
+    bgCtx.stroke();
+  }
 };
 
 // Book and Candle Silhouette
 function drawSilhouette() {
-  // Book
-  bgCtx.fillStyle = "rgba(0, 0, 0, 0.2)";
-  bgCtx.fillRect(width * 0.15, height - 120, 60, 80);
+  // Book silhouette
+  const bookX = width * 0.15;
+  const bookY = height - 120;
+  const bookW = 60;
+  const bookH = 80;
 
-  // Candle
-  bgCtx.fillRect(width * 0.22, height - 100, 20, 40);
+  bgCtx.fillStyle = "rgba(0, 0, 0, 0.2)";
+  bgCtx.fillRect(bookX, bookY, bookW, bookH);
+
+  // Book shadow
   bgCtx.beginPath();
-  bgCtx.arc(width * 0.232, height - 100, 5, 0, Math.PI * 2);
+  bgCtx.ellipse(bookX + bookW / 2, bookY + bookH + 10, 30, 10, 0, 0, Math.PI * 2);
+  bgCtx.fillStyle = "rgba(0, 0, 0, 0.1)";
   bgCtx.fill();
+
+  // Candle silhouette
+  const candleX = width * 0.22;
+  const candleY = height - 100;
+
+  bgCtx.fillRect(candleX, candleY, 20, 40);
+  bgCtx.beginPath();
+  bgCtx.arc(candleX + 10, candleY, 5, 0, Math.PI * 2);
+  bgCtx.fill();
+
+  // Candle glow occlusion (block flicker glow behind)
+  bgCtx.globalCompositeOperation = "destination-out";
+  bgCtx.beginPath();
+  bgCtx.arc(candleX + 10, candleY + 10, 15, 0, Math.PI * 2);
+  bgCtx.fill();
+  bgCtx.globalCompositeOperation = "source-over";
 }
 
 // Add some fog
