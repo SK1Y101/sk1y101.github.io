@@ -40,15 +40,14 @@ RainDrop.prototype.reset = function () {
 RainDrop.prototype.update = function () {
   const windEffect = baseWind + gust;
   this.y += this.speed;
-  this.x += this.speed * 0.3 + windEffect * 0.5;  // Stronger horizontal sway
+  this.x += this.speed * 0.3 + windEffect * 0.5;
   if (this.y > height) this.reset();
   this.draw();
 };
 RainDrop.prototype.draw = function () {
   bgCtx.beginPath();
-  let angleOffset = gust * 0.3;
   bgCtx.moveTo(this.x, this.y);
-  bgCtx.lineTo(this.x - 2 + angleOffset, this.y - this.length);
+  bgCtx.lineTo(this.x - gust, this.y - this.length);
   bgCtx.strokeStyle = `rgba(255, 255, 255, ${this.opacity})`;
   bgCtx.lineWidth = 1;
   bgCtx.stroke();
