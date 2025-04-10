@@ -331,7 +331,7 @@ SteamWave.prototype.update = function (ctx, t) {
   const topY = this.yBase - waveHeight;
 
   // The drift effect should be minimal at the bottom, and increase upwards
-  const drift = Math.sin(t * 0.0003 + this.xBase * 0.1)
+  const drift = Math.sin(t * 0.0003 + this.xBase * 0.1);
 
   ctx.beginPath();
   for (let y = this.yBase; y >= topY; y -= step) {
