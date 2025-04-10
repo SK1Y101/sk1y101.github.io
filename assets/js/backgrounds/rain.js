@@ -318,7 +318,7 @@ function drawMug(ctx) {
 function SteamWave(xBase) {
   this.xBase = xBase;
   this.amplitude = 5 + Math.random() * 8;
-  this.opacity = 0.05 + Math.random() * 0.05;
+  this.opacity = 0.1 + Math.random() * 0.1;
   this.colour = `255, 255, 255`; // base color
 }
 SteamWave.prototype.update = function (ctx, t) {
