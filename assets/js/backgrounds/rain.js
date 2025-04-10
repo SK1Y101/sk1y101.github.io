@@ -32,6 +32,10 @@ function drawWindow() {
   bgCtx.fillRect(0, top, width, height - top);
 }
 
+function lerp(a, b, t) {
+  return a + (b - a) * t;
+}
+
 // === ENTITIES ===
 
 
@@ -293,9 +297,10 @@ function drawMug(ctx) {
 
   // Drink surface inside the mug
   ctx.beginPath();
-  ctx.fillStyle = "#552200"; // warm coffee color
+  ctx.fillStyle = "#1a0e08"; // deep, silhouetted coffee
   ctx.ellipse(mugX + mugWidth / 2, mugY + 2, (mugWidth / 2) * 0.9, 4.5, 0, 0, Math.PI * 2);
   ctx.fill();
+
 
   const handleCX = mugX; // X position offset from mug
   const handleCY = mugY + mugHeight / 2;
@@ -305,42 +310,31 @@ function drawMug(ctx) {
   ctx.arc(handleCX, handleCY, 15, Math.PI / 2.2, -Math.PI / 2.2, false);
   ctx.stroke();
 }
-
-function createSteamLine() {
-  steamLines.push({
-    x: mugX + (Math.random() * 0.9 + 0.05) * mugWidth,
-    y: mugY + 0.5 * mugHeight,
-    length: 30 + Math.random() * 20,
-    speed: 0.2 + Math.random() * 0.1,
-  });
+function SteamWave(xBase) {
+  this.xBase = xBase;
+  this.amplitude = 5 + Math.random() * 8;
+  this.opacity = 0.05 + Math.random() * 0.05;
+  this.colour = `255, 255, 255`; // base color
 }
+SteamWave.prototype.update = function (ctx, t) {
+  const step = 6;
+  ctx.beginPath();
+  ctx.moveTo(this.xBase, mugY + mugHeight * 0.5);
+  for (let y = mugY + mugHeight * 0.5; y > mugY - 60; y -= step) {
+    const noiseX = smoothNoise(this.xBase, y, t);
+    const x = this.xBase + noiseX * this.amplitude;
 
-function updateSteamLines(ctx) {
-  if (Math.random() < 0.03) createSteamLine();
-
-  for (let i = steamLines.length - 1; i >= 0; i--) {
-    const s = steamLines[i];
-    s.y -= s.speed;
-
-    const endY = s.y - s.length;
-
-    // Fade out based on how high the steam is
-    const maxY = mugY - 40; // adjust as needed
-    const opacity = Math.max(0, Math.min(1, (endY - maxY) / 40));
-
-    if (opacity <= 0 || endY < 0) {
-      steamLines.splice(i, 1);
-      continue;
-    }
-
-    ctx.beginPath();
-    ctx.moveTo(s.x, s.y);
-    ctx.lineTo(s.x, endY);
-    ctx.strokeStyle = `rgba(255, 255, 255, ${opacity * 0.25})`; // subtle steam
-    ctx.lineWidth = 1;
-    ctx.stroke();
+    const fade = (y - (mugY - 60)) / 60; // 1 at bottom, 0 at top
+    ctx.lineTo(x, y);
+    ctx.strokeStyle = `rgba(${this.colour}, ${fade * this.opacity})`;
   }
-}
+  ctx.lineWidth = 1;
+  ctx.shadowColor = `rgba(${this.colour}, ${this.opacity})`;
+  ctx.shadowBlur = 4;
+  ctx.stroke();
+  ctx.shadowBlur = 0;
+};
+
 
 // === INIT ENTITIES ===
 let lightning = new LightningFlash();
@@ -349,7 +343,7 @@ let pools = [];
 let rains = [];
 let drops = [];
 let dripTrails = [];
-let steamLines = [];
+const steamWaves = [];
 let fogOffset = 0;
 
 let windTime = 0;
@@ -357,9 +351,11 @@ let baseWind = 0;
 let gust = 0;
 let gustTarget = 0;
 let gustSpeed = 0.03;
+let steamCount = 6
 
 for (var i = 0; i < 400; i++) { rains.push(new RainDrop()); }
 for (var i = 0; i < 100; i++) { drops.push(new DripDrop()); }
+for (let i = 0; i < steamCount; i++) { steamWaves.push(new SteamWave(lerp(mugX+2, mugX+mugWidth-2, i / steamCount))); }
 
 
 // === ANIMATION LOOP ===
@@ -412,8 +408,9 @@ function animate() {
 
 
   // the mug and steam come last
-  updateSteamLines(bgCtx);
   drawMug(bgCtx);
+  for (let wave of steamWaves) { wave.update(ctx, performance.now()); }
+
 
   requestAnimFrame(animate);
 }
