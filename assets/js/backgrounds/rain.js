@@ -80,7 +80,7 @@ DripDrop.prototype.reset = function () {
 
 DripDrop.prototype.update = function () {
   this.y += this.speed;
-  const sillY = height * (0.95 + Math.random * 0.04);
+  const sillY = height * (0.95 + Math.random() * 0.04);
   if (this.y > sillY) {
     pools.push(new RainPool(this.x, sillY + 2));
     dripTrails.push(new DripTrail(this.x, sillY));  // spawn the trail
@@ -279,6 +279,7 @@ function drawMug(ctx) {
 
   // Mug top ellipse
   ctx.beginPath();
+  ctx.strokeStyle = "#111";
   ctx.ellipse(mugX + mugWidth / 2, mugY + mugHeight, mugWidth / 2, 6, 0, 0, Math.PI * 2);
   ctx.fill();
 
@@ -291,16 +292,16 @@ function drawMug(ctx) {
   ctx.stroke();
 
   // Handle inner cutout
-  ctx.beginPath();
-  ctx.strokeStyle = "#111";
-  ctx.lineWidth = 8;
-  ctx.arc(handleCX, handleCY, 9, Math.PI / 2.2, -Math.PI / 2.2, false);
-  ctx.stroke();
+  // ctx.beginPath();
+  // ctx.strokeStyle = "#111";
+  // ctx.lineWidth = 8;
+  // ctx.arc(handleCX, handleCY, 9, Math.PI / 2.2, -Math.PI / 2.2, false);
+  // ctx.stroke();
 }
 
 function createSteamLine() {
   steamLines.push({
-    x: mugX + Math.random() * mugWidth,
+    x: mugX + (Math.random()*0.9+0.05) * mugWidth,
     y: mugY + 0.5 * mugHeight,
     offset: Math.random() * Math.PI * 2,
     length: 40 + Math.random() * 20,
@@ -323,7 +324,7 @@ function updateSteamLines(ctx) {
     }
 
     ctx.beginPath();
-    ctx.moveTo(s.x, s.y);
+    ctx.moveTo(s.x + Math.sin(s.age + s.offset) * 5, s.y);
     for (let j = 0; j <= s.length; j += 4) {
       const waveX = s.x + Math.sin(s.age + j * 0.1 + s.offset) * 5;
       const waveY = s.y - j;
