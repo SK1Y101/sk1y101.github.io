@@ -320,7 +320,7 @@ function drawMug(ctx, x = mugX, y = mugY) {
 }
 function SteamWave(xBase, yBase) {
   this.xBase = xBase;
-  this.xBase = yBase;
+  this.yBase = yBase;
   this.amplitude = 5 + Math.random() * 8;
   this.opacity = 0.1 + Math.random() * 0.1;
   this.colour = `255, 255, 255`; // base color
