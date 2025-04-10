@@ -91,7 +91,9 @@ DripDrop.prototype.update = function () {
   this.y += this.speed;
   const sillY = height * (0.96 + Math.random() * 0.05);
   if (this.y > sillY) {
-    if (this.x > mugX - 5 && this.x < mugX + mugWidth + 5) {
+    if (this.x > mugX - 10 && this.x < mugX + mugWidth + 10) {
+      this.reset();
+    } else if (this.x > secondMugX - 10 && this.x < secondMugX + mugWidth + 10) {
       this.reset();
     } else {
       pools.push(new RainPool(this.x, sillY + 2));
@@ -120,7 +122,7 @@ function DripTrail(x, y, length, speed, opacity) {
 DripTrail.prototype.update = function () {
   if (this.y > this.taily) return;
   this.taily += this.speed;
-  this.opacity = lerp(0, this.opacity, (this.y - this.taily) / this.length)
+  this.opacity = lerp(0, this.opacity, (this.y - this.taily) / this.length);
 
   const gradient = bgCtx.createLinearGradient(this.x, this.y - this.length, this.x, this.y);
   gradient.addColorStop(0, `rgba(255, 255, 255, 0)`);
@@ -275,7 +277,7 @@ const mugHeight = 100;
 const mugX = width - 2*mugWidth;
 const mugY = height - mugHeight - 30;
 const secondMugX = mugX - mugWidth - 40;
-const secondmugY = mugY + 10;
+const secondMugY = mugY + 10;
 
 // Cozy mug
 function drawMug(ctx, x = mugX, y = mugY) {
