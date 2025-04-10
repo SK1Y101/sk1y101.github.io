@@ -329,24 +329,23 @@ SteamWave.prototype.update = function (ctx, t) {
   const step = 6;
   const waveHeight = step * 20;
   const topY = this.yBase - waveHeight;
-  const bottomY = this.yBase;
 
   // The drift effect should be minimal at the bottom, and increase upwards
-  const drift = Math.sin(t * 0.0003 + this.xBase * 0.1) * (this.yBase - bottomY) * 0.1;
+  const drift = Math.sin(t * 0.0003 + this.xBase * 0.1)
 
   ctx.beginPath();
-  for (let y = bottomY; y >= topY; y -= step) {
+  for (let y = this.yBase; y >= topY; y -= step) {
     const noiseX = smoothNoise(this.xBase, y, t);
 
     // More amplitude higher up (greater variation), less closer to the mug
     const amplitudeVariation = this.amplitude * ((y - topY) / waveHeight);
 
     // Apply the amplitude and drift
-    const x = this.xBase + noiseX * amplitudeVariation + (y === bottomY ? drift : 0);
+    const x = this.xBase + noiseX * amplitudeVariation + (y === this.yBase ? 0 : drift);
     ctx.lineTo(x, y);
   }
 
-  const gradient = ctx.createLinearGradient(this.xBase, bottomY, this.xBase, topY);
+  const gradient = ctx.createLinearGradient(this.xBase, this.yBase, this.xBase, topY);
   gradient.addColorStop(0, `rgba(${this.colour}, ${this.opacity})`);
   gradient.addColorStop(1, `rgba(${this.colour}, 0)`);
 
@@ -378,8 +377,8 @@ let steamCount = 6
 
 for (var i = 0; i < 400; i++) { rains.push(new RainDrop()); }
 for (var i = 0; i < 100; i++) { drops.push(new DripDrop()); }
-for (let i = 0; i < steamCount; i++) { steamWaves.push(new SteamWave(lerp(mugX+2, mugX+mugWidth-2, i / steamCount))); }
-for (let i = 0; i < steamCount; i++) { steamWaves.push(new SteamWave(lerp(secondMugX + 2, secondMugX + mugWidth - 2, i / steamCount))); }
+for (let i = 0; i < steamCount; i++) { steamWaves.push(new SteamWave(lerp(mugX+2, mugX+mugWidth-2, i / steamCount), mugY)); }
+for (let i = 0; i < steamCount; i++) { steamWaves.push(new SteamWave(lerp(secondMugX + 2, secondMugX + mugWidth - 2, i / steamCount)), secondMugY); }
 
 
 
