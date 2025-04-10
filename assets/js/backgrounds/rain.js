@@ -80,11 +80,15 @@ DripDrop.prototype.reset = function () {
 
 DripDrop.prototype.update = function () {
   this.y += this.speed;
-  const sillY = height * (0.95 + Math.random() * 0.04);
+  const sillY = height * (0.96 + Math.random() * 0.05);
   if (this.y > sillY) {
-    pools.push(new RainPool(this.x, sillY + 2));
-    dripTrails.push(new DripTrail(this.x, sillY));  // spawn the trail
-    this.reset();
+    if (this.x > mugX && this.x < mugX + mugWidth) {
+      this.reset();
+    } else {
+      pools.push(new RainPool(this.x, sillY + 2));
+      dripTrails.push(new DripTrail(this.x, sillY + 2)); // moved trail start to match pool
+      this.reset();
+    }
   }
   this.draw();
 };
@@ -99,27 +103,28 @@ DripDrop.prototype.draw = function () {
 function DripTrail(x, y) {
   this.x = x;
   this.y = y;
-  this.length = 0;
-  this.maxLength = 20 + Math.random() * 10;
-  this.speed = 1 + Math.random() * 1;
-  this.opacity = 0.3 + Math.random() * 0.2;
+  this.length = 6 + Math.random() * 4;
+  this.opacity = 1;
+  this.fadeSpeed = 0.15;
 }
 DripTrail.prototype.update = function () {
-  this.length += this.speed;
-  this.opacity -= 0.01;
+  this.opacity -= this.fadeSpeed;
   this.draw();
 };
 DripTrail.prototype.draw = function () {
   if (this.opacity <= 0) return;
 
-  bgCtx.beginPath();
-  bgCtx.moveTo(this.x, this.y);
-  bgCtx.lineTo(this.x, this.y + this.length);
-  bgCtx.strokeStyle = `rgba(255, 255, 255, ${this.opacity})`;
+  const gradient = bgCtx.createLinearGradient(this.x, this.y - this.length, this.x, this.y);
+  gradient.addColorStop(0, `rgba(255, 255, 255, 0)`);
+  gradient.addColorStop(1, `rgba(255, 255, 255, ${this.opacity})`);
+
+  bgCtx.strokeStyle = gradient;
   bgCtx.lineWidth = 1;
+  bgCtx.beginPath();
+  bgCtx.moveTo(this.x, this.y - this.length);
+  bgCtx.lineTo(this.x, this.y);
   bgCtx.stroke();
 };
-
 
 // Rain Pooling
 function RainPool(x, y) {
