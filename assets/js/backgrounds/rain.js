@@ -95,7 +95,7 @@ DripDrop.prototype.update = function () {
       this.reset();
     } else {
       pools.push(new RainPool(this.x, sillY + 2));
-      dripTrails.push(new DripTrail(this.x, sillY + 2)); // moved trail start to match pool
+      dripTrails.push(new DripTrail(this.x, sillY + 2, this.length, this.speed, this.opacity)); // moved trail start to match pool
       this.reset();
     }
   }
@@ -109,19 +109,18 @@ DripDrop.prototype.draw = function () {
   bgCtx.lineWidth = 2;
   bgCtx.stroke();
 };
-function DripTrail(x, y) {
+function DripTrail(x, y, length, speed, opacity) {
   this.x = x;
   this.y = y;
-  this.length = 6 + Math.random() * 4;
-  this.opacity = 1;
-  this.fadeSpeed = 0.15;
+  this.taily = y - length;
+  this.length = length;
+  this.opacity = opacity;
+  this.speed = speed;
 }
 DripTrail.prototype.update = function () {
-  this.opacity -= this.fadeSpeed;
-  this.draw();
-};
-DripTrail.prototype.draw = function () {
-  if (this.opacity <= 0) return;
+  if (this.y > this.taily) return;
+  this.taily += this.speed;
+  this.opacity = lerp(0, this.opacity, (this.y - this.taily) / this.length)
 
   const gradient = bgCtx.createLinearGradient(this.x, this.y - this.length, this.x, this.y);
   gradient.addColorStop(0, `rgba(255, 255, 255, 0)`);
@@ -275,65 +274,76 @@ const mugWidth = 69;
 const mugHeight = 100;
 const mugX = width - 2*mugWidth;
 const mugY = height - mugHeight - 30;
-const secondMugX = mugX - mugWidth - 20;
+const secondMugX = mugX - mugWidth - 40;
+const secondmugY = mugY + 10;
 
 // Cozy mug
-function drawMug(ctx, x = mugX) {
+function drawMug(ctx, x = mugX, y = mugY) {
   // Mug body with rounded top
   ctx.fillStyle = "#222";
   ctx.beginPath();
-  ctx.moveTo(x, mugY);
-  ctx.lineTo(x + mugWidth, mugY);
-  ctx.lineTo(x + mugWidth, mugY + mugHeight);
-  ctx.lineTo(x, mugY + mugHeight);
+  ctx.moveTo(x, y);
+  ctx.lineTo(x + mugWidth, y);
+  ctx.lineTo(x + mugWidth, y + mugHeight);
+  ctx.lineTo(x, y + mugHeight);
   ctx.closePath();
   ctx.fill();
 
   // mug top elipse
   ctx.beginPath();
   ctx.strokeStyle = "#111";
-  ctx.ellipse(x + mugWidth / 2, mugY, mugWidth / 2, 6, 0, 0, Math.PI * 2);
+  ctx.ellipse(x + mugWidth / 2, y, mugWidth / 2, 6, 0, 0, Math.PI * 2);
   ctx.fill();
 
   // Mug bottom ellipse
   ctx.beginPath();
   ctx.strokeStyle = "#111";
-  ctx.ellipse(x + mugWidth / 2, mugY + mugHeight, mugWidth / 2, 6, 0, 0, Math.PI * 2);
+  ctx.ellipse(x + mugWidth / 2, y + mugHeight, mugWidth / 2, 6, 0, 0, Math.PI * 2);
   ctx.fill();
 
   // Drink surface inside the mug
   ctx.beginPath();
   ctx.fillStyle = "#1a0e08"; // deep, silhouetted coffee
-  ctx.ellipse(x + mugWidth / 2, mugY + 2, (mugWidth / 2) * 0.9, 4.5, 0, 0, Math.PI * 2);
+  ctx.ellipse(x + mugWidth / 2, y + 2, (mugWidth / 2) * 0.9, 4.5, 0, 0, Math.PI * 2);
   ctx.fill();
 
 
   const handleCX = x; // X position offset from mug
-  const handleCY = mugY + mugHeight / 2;
+  const handleCY = y + mugHeight / 2;
   ctx.beginPath();
   ctx.strokeStyle = "#222";
   ctx.lineWidth = 12;
   ctx.arc(handleCX, handleCY, 15, Math.PI / 2.2, -Math.PI / 2.2, false);
   ctx.stroke();
 }
-function SteamWave(xBase) {
+function SteamWave(xBase, yBase) {
   this.xBase = xBase;
+  this.xBase = yBase;
   this.amplitude = 5 + Math.random() * 8;
   this.opacity = 0.1 + Math.random() * 0.1;
   this.colour = `255, 255, 255`; // base color
 }
 SteamWave.prototype.update = function (ctx, t) {
   const step = 6;
-  const waveHeight = step * 5;
-  const topY = mugY - waveHeight;
-  const bottomY = mugY;
-  const drift = Math.sin(t * 0.0003 + this.xBase * 0.1) * 5;
+  const waveHeight = step * 20;
+  const topY = this.yBase - waveHeight;
+  const bottomY = this.yBase;
+
+  // The drift effect should be minimal at the bottom, and increase upwards
+  const drift = Math.sin(t * 0.0003 + this.xBase * 0.1) * (this.yBase - bottomY) * 0.1;
+
   ctx.beginPath();
   for (let y = bottomY; y >= topY; y -= step) {
     const noiseX = smoothNoise(this.xBase, y, t);
-    const x = this.xBase + noiseX * this.amplitude + (y === topY ? drift : 0);
+
+    // More amplitude higher up (greater variation), less closer to the mug
+    const amplitudeVariation = this.amplitude * ((y - topY) / waveHeight);
+
+    // Apply the amplitude and drift
+    const x = this.xBase + noiseX * amplitudeVariation + (y === bottomY ? drift : 0);
     ctx.lineTo(x, y);
   }
+
   const gradient = ctx.createLinearGradient(this.xBase, bottomY, this.xBase, topY);
   gradient.addColorStop(0, `rgba(${this.colour}, ${this.opacity})`);
   gradient.addColorStop(1, `rgba(${this.colour}, 0)`);
@@ -421,8 +431,8 @@ function animate() {
   dripTrails = dripTrails.filter(t => t.opacity > 0);
 
   // Mug and steam
-  drawMug(bgCtx, mugX);
-  drawMug(bgCtx, secondMugX);
+  drawMug(bgCtx, mugX, mugY);
+  drawMug(bgCtx, secondMugX, secondMugY);
   for (let wave of steamWaves) { wave.update(bgCtx, performance.now()); }
 
   requestAnimFrame(animate);
