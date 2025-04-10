@@ -323,13 +323,14 @@ function SteamWave(xBase) {
 }
 SteamWave.prototype.update = function (ctx, t) {
   const step = 6;
+  const height = step * 5;
   ctx.beginPath();
-  ctx.moveTo(this.xBase, mugY + mugHeight * 0.5);
-  for (let y = mugY + mugHeight * 0.5; y > mugY - 60; y -= step) {
+  ctx.moveTo(this.xBase, mugY);
+  for (let y = mugY - height; y > mugY; y -= step) {
     const noiseX = smoothNoise(this.xBase, y, t);
     const x = this.xBase + noiseX * this.amplitude;
 
-    const fade = (y - (mugY - 60)) / 60; // 1 at bottom, 0 at top
+    const fade = (mugY - y) / height; // 1 at bottom, 0 at top
     ctx.lineTo(x, y);
     ctx.strokeStyle = `rgba(${this.colour}, ${fade * this.opacity})`;
   }
