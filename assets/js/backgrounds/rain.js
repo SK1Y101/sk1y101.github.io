@@ -409,7 +409,7 @@ function animate() {
 
   // the mug and steam come last
   drawMug(bgCtx);
-  for (let wave of steamWaves) { wave.update(ctx, performance.now()); }
+  for (let wave of steamWaves) { wave.update(bgCtx, performance.now()); }
 
 
   requestAnimFrame(animate);
