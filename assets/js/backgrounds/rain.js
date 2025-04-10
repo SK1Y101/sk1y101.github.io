@@ -35,6 +35,11 @@ function drawWindow() {
 function lerp(a, b, t) {
   return a + (b - a) * t;
 }
+function smoothNoise(x, y, t) {
+  return Math.sin(x * 0.05 + t * 0.002) * 0.5 +
+    Math.sin(y * 0.07 + t * 0.001) * 0.3 +
+    Math.sin((x + y) * 0.03 + t * 0.003) * 0.2;
+}
 
 // === ENTITIES ===
 
