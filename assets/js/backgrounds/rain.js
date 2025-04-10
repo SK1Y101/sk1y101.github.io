@@ -166,7 +166,7 @@ LightningFlash.prototype.trigger = function () {
   this.bolt = this.hasBolt ? generateLightningPath() : null;
 };
 LightningFlash.prototype.update = function () {
-  if (Math.random() < 0.005 && this.timer <= 0) this.trigger();
+  if (Math.random() < 0.001 && this.timer <= 0) this.trigger();
   if (this.timer > 0) {
     this.drawGlow(); // soft flash
     if (this.hasBolt && this.bolt) drawLightningBolt(this.bolt);
@@ -175,7 +175,7 @@ LightningFlash.prototype.update = function () {
 };
 LightningFlash.prototype.drawGlow = function () {
   const grad = bgCtx.createLinearGradient(0, 0, 0, height);
-  grad.addColorStop(0, `rgba(255, 255, 255, ${this.opacity * 0.2})`);
+  grad.addColorStop(0, `rgba(255, 255, 255, ${this.opacity * 0.1})`);
   grad.addColorStop(1, `rgba(255, 255, 255, 0)`);
   bgCtx.fillStyle = grad;
   bgCtx.fillRect(0, 0, width, height);
@@ -264,7 +264,6 @@ for (let i = 0; i < 200; i++) {
 
 const mugWidth = 69;
 const mugHeight = 100;
-const mugRadius = 12;
 const mugX = width - 2*mugWidth;
 const mugY = height - mugHeight - 30;
 
@@ -273,19 +272,29 @@ function drawMug(ctx) {
   // Mug body with rounded top
   ctx.fillStyle = "#222";
   ctx.beginPath();
-  ctx.moveTo(mugX, mugY + mugRadius);
-  ctx.quadraticCurveTo(mugX, mugY, mugX + mugRadius, mugY);
-  ctx.lineTo(mugX + mugWidth - mugRadius, mugY);
-  ctx.quadraticCurveTo(mugX + mugWidth, mugY, mugX + mugWidth, mugY + mugRadius);
+  ctx.moveTo(mugX, mugY);
+  ctx.lineTo(mugX + mugWidth, mugY);
   ctx.lineTo(mugX + mugWidth, mugY + mugHeight);
   ctx.lineTo(mugX, mugY + mugHeight);
   ctx.closePath();
   ctx.fill();
 
-  // Mug top ellipse
+  // mug top elipse
+  ctx.beginPath();
+  ctx.strokeStyle = "#111";
+  ctx.ellipse(mugX + mugWidth / 2, mugY, mugWidth / 2, 6, 0, 0, Math.PI * 2);
+  ctx.fill();
+
+  // Mug bottom ellipse
   ctx.beginPath();
   ctx.strokeStyle = "#111";
   ctx.ellipse(mugX + mugWidth / 2, mugY + mugHeight, mugWidth / 2, 6, 0, 0, Math.PI * 2);
+  ctx.fill();
+
+  // Drink surface inside the mug
+  ctx.beginPath();
+  ctx.fillStyle = "#552200"; // warm coffee color
+  ctx.ellipse(mugX + mugWidth / 2, mugY + 2, (mugWidth / 2) * 0.9, 4.5, 0, 0, Math.PI * 2);
   ctx.fill();
 
   const handleCX = mugX; // X position offset from mug
@@ -295,52 +304,41 @@ function drawMug(ctx) {
   ctx.lineWidth = 12;
   ctx.arc(handleCX, handleCY, 15, Math.PI / 2.2, -Math.PI / 2.2, false);
   ctx.stroke();
-
-  // Handle inner cutout
-  // ctx.beginPath();
-  // ctx.strokeStyle = "#111";
-  // ctx.lineWidth = 8;
-  // ctx.arc(handleCX, handleCY, 9, Math.PI / 2.2, -Math.PI / 2.2, false);
-  // ctx.stroke();
 }
 
 function createSteamLine() {
   steamLines.push({
-    x: mugX + (Math.random()*0.9+0.05) * mugWidth,
+    x: mugX + (Math.random() * 0.9 + 0.05) * mugWidth,
     y: mugY + 0.5 * mugHeight,
-    offset: Math.random() * Math.PI * 2,
-    length: 40 + Math.random() * 20,
-    alpha: 0.2 + Math.random() * 0.05,
-    age: 0,
-    speed: 0.3 + Math.random() * 0.1,
+    length: 30 + Math.random() * 20,
+    speed: 0.2 + Math.random() * 0.1,
   });
 }
+
 function updateSteamLines(ctx) {
-  if (Math.random() < 0.02) createSteamLine();
+  if (Math.random() < 0.03) createSteamLine();
 
   for (let i = steamLines.length - 1; i >= 0; i--) {
     const s = steamLines[i];
     s.y -= s.speed;
-    s.age += 0.1;
 
-    if (s.alpha <= 0 || s.y + s.length < 0) {
+    const endY = s.y - s.length;
+
+    // Fade out based on how high the steam is
+    const maxY = mugY - 40; // adjust as needed
+    const opacity = Math.max(0, Math.min(1, (endY - maxY) / 40));
+
+    if (opacity <= 0 || endY < 0) {
       steamLines.splice(i, 1);
       continue;
     }
 
     ctx.beginPath();
-    ctx.moveTo(s.x + Math.sin(s.age + s.offset) * 5, s.y);
-    for (let j = 0; j <= s.length; j += 4) {
-      const waveX = s.x + Math.sin(s.age + j * 0.1 + s.offset) * 5;
-      const waveY = s.y - j;
-      ctx.lineTo(waveX, waveY);
-    }
-
-    ctx.strokeStyle = `rgba(255, 255, 255, ${s.alpha})`;
-    ctx.lineWidth = 1.5;
+    ctx.moveTo(s.x, s.y);
+    ctx.lineTo(s.x, endY);
+    ctx.strokeStyle = `rgba(255, 255, 255, ${opacity * 0.25})`; // subtle steam
+    ctx.lineWidth = 1;
     ctx.stroke();
-
-    s.alpha -= 0.001;
   }
 }
 
