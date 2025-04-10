@@ -91,7 +91,7 @@ DripDrop.prototype.update = function () {
   this.y += this.speed;
   const sillY = height * (0.96 + Math.random() * 0.05);
   if (this.y > sillY) {
-    if (this.x > mugX && this.x < mugX + mugWidth) {
+    if (this.x > mugX - 5 && this.x < mugX + mugWidth + 5) {
       this.reset();
     } else {
       pools.push(new RainPool(this.x, sillY + 2));
@@ -128,7 +128,7 @@ DripTrail.prototype.draw = function () {
   gradient.addColorStop(1, `rgba(255, 255, 255, ${this.opacity})`);
 
   bgCtx.strokeStyle = gradient;
-  bgCtx.lineWidth = 1;
+  bgCtx.lineWidth = 2; // <-- More visible
   bgCtx.beginPath();
   bgCtx.moveTo(this.x, this.y - this.length);
   bgCtx.lineTo(this.x, this.y);
@@ -275,39 +275,40 @@ const mugWidth = 69;
 const mugHeight = 100;
 const mugX = width - 2*mugWidth;
 const mugY = height - mugHeight - 30;
+const secondMugX = mugX - mugWidth - 20;
 
 // Cozy mug
-function drawMug(ctx) {
+function drawMug(ctx, x = mugX) {
   // Mug body with rounded top
   ctx.fillStyle = "#222";
   ctx.beginPath();
-  ctx.moveTo(mugX, mugY);
-  ctx.lineTo(mugX + mugWidth, mugY);
-  ctx.lineTo(mugX + mugWidth, mugY + mugHeight);
-  ctx.lineTo(mugX, mugY + mugHeight);
+  ctx.moveTo(x, mugY);
+  ctx.lineTo(x + mugWidth, mugY);
+  ctx.lineTo(x + mugWidth, mugY + mugHeight);
+  ctx.lineTo(x, mugY + mugHeight);
   ctx.closePath();
   ctx.fill();
 
   // mug top elipse
   ctx.beginPath();
   ctx.strokeStyle = "#111";
-  ctx.ellipse(mugX + mugWidth / 2, mugY, mugWidth / 2, 6, 0, 0, Math.PI * 2);
+  ctx.ellipse(x + mugWidth / 2, mugY, mugWidth / 2, 6, 0, 0, Math.PI * 2);
   ctx.fill();
 
   // Mug bottom ellipse
   ctx.beginPath();
   ctx.strokeStyle = "#111";
-  ctx.ellipse(mugX + mugWidth / 2, mugY + mugHeight, mugWidth / 2, 6, 0, 0, Math.PI * 2);
+  ctx.ellipse(x + mugWidth / 2, mugY + mugHeight, mugWidth / 2, 6, 0, 0, Math.PI * 2);
   ctx.fill();
 
   // Drink surface inside the mug
   ctx.beginPath();
   ctx.fillStyle = "#1a0e08"; // deep, silhouetted coffee
-  ctx.ellipse(mugX + mugWidth / 2, mugY + 2, (mugWidth / 2) * 0.9, 4.5, 0, 0, Math.PI * 2);
+  ctx.ellipse(x + mugWidth / 2, mugY + 2, (mugWidth / 2) * 0.9, 4.5, 0, 0, Math.PI * 2);
   ctx.fill();
 
 
-  const handleCX = mugX; // X position offset from mug
+  const handleCX = x; // X position offset from mug
   const handleCY = mugY + mugHeight / 2;
   ctx.beginPath();
   ctx.strokeStyle = "#222";
@@ -323,17 +324,21 @@ function SteamWave(xBase) {
 }
 SteamWave.prototype.update = function (ctx, t) {
   const step = 6;
-  const height = step * 5;
+  const waveHeight = step * 5;
+  const topY = mugY - waveHeight;
+  const bottomY = mugY;
+  const drift = Math.sin(t * 0.0003 + this.xBase * 0.1) * 5;
   ctx.beginPath();
-  ctx.moveTo(this.xBase, mugY);
-  for (let y = mugY - height; y > mugY; y -= step) {
+  for (let y = bottomY; y >= topY; y -= step) {
     const noiseX = smoothNoise(this.xBase, y, t);
-    const x = this.xBase + noiseX * this.amplitude;
-
-    const fade = (mugY - y) / height; // 1 at bottom, 0 at top
+    const x = this.xBase + noiseX * this.amplitude + (y === topY ? drift : 0);
     ctx.lineTo(x, y);
-    ctx.strokeStyle = `rgba(${this.colour}, ${fade * this.opacity})`;
   }
+  const gradient = ctx.createLinearGradient(this.xBase, bottomY, this.xBase, topY);
+  gradient.addColorStop(0, `rgba(${this.colour}, ${this.opacity})`);
+  gradient.addColorStop(1, `rgba(${this.colour}, 0)`);
+
+  ctx.strokeStyle = gradient;
   ctx.lineWidth = 1;
   ctx.shadowColor = `rgba(${this.colour}, ${this.opacity})`;
   ctx.shadowBlur = 4;
@@ -362,6 +367,8 @@ let steamCount = 6
 for (var i = 0; i < 400; i++) { rains.push(new RainDrop()); }
 for (var i = 0; i < 100; i++) { drops.push(new DripDrop()); }
 for (let i = 0; i < steamCount; i++) { steamWaves.push(new SteamWave(lerp(mugX+2, mugX+mugWidth-2, i / steamCount))); }
+for (let i = 0; i < steamCount; i++) { steamWaves.push(new SteamWave(lerp(secondMugX + 2, secondMugX + mugWidth - 2, i / steamCount))); }
+
 
 
 // === ANIMATION LOOP ===
@@ -408,15 +415,15 @@ function animate() {
   // Rain pooling
   pools.forEach(p => p.update());
   pools = pools.filter(p => p.opacity > 0);
-  // And the tails for the drips
+
+  // Move dripTrails up here!
   dripTrails.forEach(t => t.update());
   dripTrails = dripTrails.filter(t => t.opacity > 0);
 
-
-  // the mug and steam come last
-  drawMug(bgCtx);
+  // Mug and steam
+  drawMug(bgCtx, mugX);
+  drawMug(bgCtx, secondMugX);
   for (let wave of steamWaves) { wave.update(bgCtx, performance.now()); }
-
 
   requestAnimFrame(animate);
 }
