@@ -345,16 +345,9 @@ SteamWave.prototype.update = function (ctx, t) {
     ctx.lineTo(x, y);
   }
 
-  const gradient = ctx.createLinearGradient(this.xBase, this.yBase, this.xBase, topY);
-  gradient.addColorStop(0, `rgba(${this.colour}, ${this.opacity})`);
-  gradient.addColorStop(1, `rgba(${this.colour}, 0)`);
-
-  ctx.strokeStyle = gradient;
+  ctx.strokeStyle = this.colour;
   ctx.lineWidth = 1;
-  ctx.shadowColor = `rgba(${this.colour}, ${this.opacity})`;
-  ctx.shadowBlur = 4;
   ctx.stroke();
-  ctx.shadowBlur = 0;
 };
 
 
