@@ -274,7 +274,7 @@ for (let i = 0; i < 200; i++) {
 
 const mugWidth = 69;
 const mugHeight = 100;
-const mugX = width - 2*mugWidth;
+const mugX = width - 2 * mugWidth;
 const mugY = height - mugHeight - 30;
 const secondMugX = mugX - mugWidth - 40;
 const secondMugY = mugY + 10;
@@ -318,6 +318,40 @@ function drawMug(ctx, x = mugX, y = mugY) {
   ctx.arc(handleCX, handleCY, 15, Math.PI / 2.2, -Math.PI / 2.2, false);
   ctx.stroke();
 }
+// mug steam
+function SteamWave(xBase, yBase) {
+  this.xBase = xBase;
+  this.yBase = yBase;
+  this.amplitude = 4 + Math.random() * 4;
+  this.opacity = 0.08 + Math.random() * 0.08;
+  this.colour = `255, 255, 255`;
+}
+SteamWave.prototype.update = function (ctx, t) {
+  const step = 6;
+  const waveHeight = step * 20;
+  const topY = this.yBase - waveHeight;
+  const bottomY = this.yBase;
+
+  ctx.beginPath();
+  for (let y = bottomY; y >= topY; y -= step) {
+    const heightFactor = 1 - (bottomY - y) / waveHeight;
+    const localAmp = this.amplitude * heightFactor;  // More motion near the top
+    const noiseX = smoothNoise(this.xBase, y, t);
+    const drift = Math.sin(t * 0.0003 + this.xBase * 0.05 + y * 0.01) * heightFactor * 5;
+
+    const x = this.xBase + noiseX * localAmp + drift;
+    ctx.lineTo(x, y);
+  }
+  const gradient = ctx.createLinearGradient(this.xBase, bottomY, this.xBase, topY);
+  gradient.addColorStop(0, `rgba(${this.colour}, ${this.opacity})`);
+  gradient.addColorStop(1, `rgba(${this.colour}, 0)`);
+  ctx.strokeStyle = gradient;
+  ctx.lineWidth = 1;
+  ctx.shadowColor = `rgba(${this.colour}, ${this.opacity})`;
+  ctx.shadowBlur = 4;
+  ctx.stroke();
+  ctx.shadowBlur = 0;
+};
 
 
 // === INIT ENTITIES ===
@@ -327,8 +361,9 @@ let pools = [];
 let rains = [];
 let drops = [];
 let dripTrails = [];
-let fogOffset = 0;
+let steamWaves = [];
 
+let fogOffset = 0;
 let windTime = 0;
 let baseWind = 0;
 let gust = 0;
@@ -338,8 +373,14 @@ let steamCount = 6
 
 for (var i = 0; i < 400; i++) { rains.push(new RainDrop()); }
 for (var i = 0; i < 100; i++) { drops.push(new DripDrop()); }
-
-
+for (let i = 0; i < steamCount; i++) {
+  const steamX = lerp(mugX + 8, mugX + mugWidth - 8, i / (steamCount - 1));
+  steamWaves.push(new SteamWave(steamX, mugY));
+}
+for (let i = 0; i < steamCount; i++) {
+  const steamX = lerp(secondMugX + 8, secondMugX + mugWidth - 8, i / (steamCount - 1));
+  steamWaves.push(new SteamWave(steamX, secondMugY));
+}
 
 // === ANIMATION LOOP ===
 function animate() {
@@ -393,6 +434,8 @@ function animate() {
   // Mug and steam
   drawMug(bgCtx, mugX, mugY);
   drawMug(bgCtx, secondMugX, secondMugY);
+  for (let wave of steamWaves) { wave.update(bgCtx, performance.now()); }
+
 
   requestAnimFrame(animate);
 }
