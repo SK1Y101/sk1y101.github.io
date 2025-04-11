@@ -318,37 +318,6 @@ function drawMug(ctx, x = mugX, y = mugY) {
   ctx.arc(handleCX, handleCY, 15, Math.PI / 2.2, -Math.PI / 2.2, false);
   ctx.stroke();
 }
-function SteamWave(xBase, yBase) {
-  this.xBase = xBase;
-  this.yBase = yBase;
-  this.amplitude = 5 + Math.random() * 8;
-  this.opacity = 0.1 + Math.random() * 0.1;
-  this.colour = `255, 255, 255`; // base color
-}
-SteamWave.prototype.update = function (ctx, t) {
-  const step = 6;
-  const waveHeight = step * 20;
-  const topY = this.yBase - waveHeight;
-
-  // The drift effect should be minimal at the bottom, and increase upwards
-  const drift = Math.sin(t * 0.0003 + this.xBase * 0.1);
-
-  ctx.beginPath();
-  for (let y = this.yBase; y >= topY; y -= step) {
-    const noiseX = smoothNoise(this.xBase, y, t);
-
-    // More amplitude higher up (greater variation), less closer to the mug
-    const amplitudeVariation = this.amplitude * ((y - topY) / waveHeight);
-
-    // Apply the amplitude and drift
-    const x = this.xBase + noiseX * amplitudeVariation + (y === this.yBase ? 0 : drift);
-    ctx.lineTo(x, y);
-  }
-
-  ctx.strokeStyle = this.colour;
-  ctx.lineWidth = 1;
-  ctx.stroke();
-};
 
 
 // === INIT ENTITIES ===
@@ -358,7 +327,6 @@ let pools = [];
 let rains = [];
 let drops = [];
 let dripTrails = [];
-const steamWaves = [];
 let fogOffset = 0;
 
 let windTime = 0;
@@ -370,8 +338,6 @@ let steamCount = 6
 
 for (var i = 0; i < 400; i++) { rains.push(new RainDrop()); }
 for (var i = 0; i < 100; i++) { drops.push(new DripDrop()); }
-for (let i = 0; i < steamCount; i++) { steamWaves.push(new SteamWave(lerp(mugX+2, mugX+mugWidth-2, i / steamCount), mugY)); }
-for (let i = 0; i < steamCount; i++) { steamWaves.push(new SteamWave(lerp(secondMugX + 2, secondMugX + mugWidth - 2, i / steamCount)), secondMugY); }
 
 
 
@@ -427,7 +393,6 @@ function animate() {
   // Mug and steam
   drawMug(bgCtx, mugX, mugY);
   drawMug(bgCtx, secondMugX, secondMugY);
-  for (let wave of steamWaves) { wave.update(bgCtx, performance.now()); }
 
   requestAnimFrame(animate);
 }
