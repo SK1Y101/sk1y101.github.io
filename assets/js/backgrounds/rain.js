@@ -333,8 +333,8 @@ SteamWave.prototype.update = function (ctx, t) {
   const bottomY = this.yBase;
 
   ctx.beginPath();
-  for (let y = bottomY; y >= topY; y -= step) {
-    const heightFactor = 1 - (bottomY - y) / waveHeight;
+  for (let y = topY; y <= bottomY; y += step) {
+    const heightFactor = 1 - (y - topY) / waveHeight;
     const localAmp = this.amplitude * heightFactor;  // More motion near the top
     const noiseX = smoothNoise(this.xBase, y, t);
     const drift = Math.sin(t * 0.0003 + this.xBase * 0.05 + y * 0.01) * heightFactor * 5;
@@ -342,7 +342,7 @@ SteamWave.prototype.update = function (ctx, t) {
     const x = this.xBase + noiseX * localAmp + drift;
     ctx.lineTo(x, y);
   }
-  const gradient = ctx.createLinearGradient(this.xBase, bottomY, this.xBase, topY);
+  const gradient = ctx.createLinearGradient(this.xBase, topY, this.xBase, bottomY);
   gradient.addColorStop(0, `rgba(${this.colour}, ${this.opacity})`);
   gradient.addColorStop(1, `rgba(${this.colour}, 0)`);
   ctx.strokeStyle = gradient;
