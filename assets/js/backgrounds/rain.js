@@ -328,7 +328,7 @@ function SteamWave(xBase, yBase) {
 }
 SteamWave.prototype.update = function (ctx, t) {
   const step = 2;
-  const waveHeight = 125 + 25 * smoothNoise(this.xBase + this.amplitude, this.yBase - this.amplitude, t);
+  const waveHeight = 100 + 25 * smoothNoise(this.xBase + this.amplitude, this.yBase - this.amplitude, t / 2);
   const topY = this.yBase - waveHeight;
   const bottomY = this.yBase;
 
@@ -336,7 +336,7 @@ SteamWave.prototype.update = function (ctx, t) {
   for (let y = topY; y <= bottomY; y += step) {
     const heightFactor = 1 - (y - topY) / waveHeight;
     const localAmp = this.amplitude * heightFactor;  // More motion near the top
-    const noiseX = smoothNoise(this.xBase, y, t);
+    const noiseX = smoothNoise(this.xBase, y, t / 2);
     const drift = Math.sin(t * 0.0003 + this.xBase * 0.05 + y * 0.01) * heightFactor * 5;
 
     const x = this.xBase + noiseX * localAmp + drift;
