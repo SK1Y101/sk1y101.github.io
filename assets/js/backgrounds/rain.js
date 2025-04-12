@@ -328,7 +328,7 @@ function SteamWave(xBase, yBase) {
 }
 SteamWave.prototype.update = function (ctx, t) {
   const step = 2;
-  const waveHeight = 100 + 100 * smoothNoise(this.xBase + this.amplitude, this.yBase - this.amplitude, t);
+  const waveHeight = 125 + 25 * smoothNoise(this.xBase + this.amplitude, this.yBase - this.amplitude, t);
   const topY = this.yBase - waveHeight;
   const bottomY = this.yBase;
 
