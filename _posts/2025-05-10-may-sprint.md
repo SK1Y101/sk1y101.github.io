@@ -67,7 +67,7 @@ I think my opinion of SNCB would be improved if I had intended to be on this tri
 Departure – 20:10<br>Arrival Frankfurt Flughafen Fernbahnhof – 23:36
 
 Finaly on the correct train, and had a lovely time of this ICE 3 unit. we absolutely love high speed trains in germany... when you don't get the Deutsch-Bahn'ed.
-The frankfurt HAuptbahnhof picture was taken a day later, I include it just to show off the great architecture
+The frankfurt Hauptbahnhof picture was taken a day later, I include it just to show off the great architecture
 
 <swiper-container keyboard="true" navigation="true" pagination="true" pagination-clickable="true" pagination-dynamic-bullets="true" rewind="true">
   <swiper-slide>{% include figure.liquid loading="eager" path="assets/img/sprint2505/outbound_ice.jpg" class="img-fluid rounded z-depth-1" %}</swiper-slide>
