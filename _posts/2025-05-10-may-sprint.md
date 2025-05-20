@@ -28,8 +28,8 @@ Distance: 920Km
 Most looked forward to train: ICE to Frankfurt
 
 ## Havant
-Departure – 11:16><br>Arrival Three bridges – 12:43
-Departure – 12:50><br>Arrival St. Pancras – 13:40
+Departure – 11:16<br>Arrival Three bridges – 12:43
+Departure – 12:50<br>Arrival St. Pancras – 13:40
 
 Pretty standard travel, but the weather was nice. I actually remembered to take a photo of all of the trains for once!
 
@@ -53,7 +53,7 @@ Saw le shuttle out of the window, and enjoyed some delivious food. I'm always so
 </swiper-container>
 
 ## Bruxelles Midi
-Departure – 18:54><br>Arrival Liège-Guillemins – 20:04
+Departure – 18:54<br>Arrival Liège-Guillemins – 20:04
 
 Well, I was never meant to be on this train, but my Bruxelles->Frankfurt connection was cancelled due to a stuck coupling system (apparently) so we get an extra (terrible) rail connection out to Liège to meet my original train.
 I think my opinion of SNCB would be improved if I had intended to be on this trian, rather than it being a packed replacement.
@@ -110,8 +110,8 @@ Also got a lovely view of the tunnel portal with the 30 year anniversary decal a
 </swiper-container>
 
 ## St. Pancras
-Departure – 16:20><br>Arrival East Croydon – 17:06
-Departure – 17:14><br>Arrival Havant – 18:29
+Departure – 16:20<br>Arrival East Croydon – 17:06
+Departure – 17:14<br>Arrival Havant – 18:29
 
 Standard train journey, I always think I'll miss this onnection and have to wait 30 minutes. I am always wrong about this.
 

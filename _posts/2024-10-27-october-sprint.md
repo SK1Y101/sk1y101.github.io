@@ -28,8 +28,8 @@ Distance:
 Most looked forward to train: Eurostar to Rotterdam Centraal
 
 ## Havant
-Departure – 08:16><br>Arrival Three bridges – 09:43
-Departure – 09:50><br>Arrival St. Pancras – 10:40
+Departure – 08:16<br>Arrival Three bridges – 09:43
+Departure – 09:50<br>Arrival St. Pancras – 10:40
 
 I actually remembered to take a picture of one of the trains, despite them being normal and boring!
 
@@ -38,7 +38,7 @@ I actually remembered to take a picture of one of the trains, despite them being
 </swiper-container>
 
 ## St. Pancras
-Departure – 12:04><br>Arrival Rotterdam Centraal – 15:32
+Departure – 12:04<br>Arrival Rotterdam Centraal – 15:32
 
 We love eurostar, so so so much here, and despite being seated in *shudder* standard class, this was still no exception. The further journey out to the Netherlands was great, definitely enjoyed the scenery along the route.
 Rotterdam Centraal has definitely been my favourite Eurostar station. Now I just need to try out Lille and Amsterdam Centraal!
@@ -49,7 +49,7 @@ Rotterdam Centraal has definitely been my favourite Eurostar station. Now I just
 </swiper-container>
 
 ## Rotterdam Centraal
-Departure – 16:18><br>Arrival Den Haag Centraal – 16:21
+Departure – 16:18<br>Arrival Den Haag Centraal – 16:21
 
 I didn't take any pictures, and I'm not even completely sure this was my departure/arrival time. It is, howver, what's listed in my rail travel calendar, so I'll believe it.
 
@@ -68,7 +68,7 @@ Distance:
 Most looked forward to train: Eurostar to St. Pancras
 
 ## Den Haag Centraal
-Departure – 06:36><br>Arrival Rotterdam Centraal – 06:39
+Departure – 06:36<br>Arrival Rotterdam Centraal – 06:39
 
 Yet another case of not being sure on the timings, but the metadata on my images at Den Haag and Rotterdam say these times, and that would never be wrong, right? /s
 
@@ -79,7 +79,7 @@ Anyway, Loved the station and the Metro line. Was a lot nicer early in the morni
 </swiper-container>
 
 ## Rotterdam Centraal
-Departure – 08:28><br>Arrival Bruxelles Midi – 09:38
+Departure – 08:28<br>Arrival Bruxelles Midi – 09:38
 
 It took me completely by surprise that eurostar are considered regular high speed trains between european cities, but I guess it makes compllete sense for anywhere part of Schengen. Wasn't a fan of the other passengers, and definitely not the noise level of the families, but what are you going to do when you're saddled in standard?
 
@@ -89,7 +89,7 @@ It took me completely by surprise that eurostar are considered regular high spee
 </swiper-container>
 
 ## Bruxelles Midi
-Departure – 10:23><br>Arrival St. Pancras – 11:57
+Departure – 10:23<br>Arrival St. Pancras – 11:57
 
 There was a short period where I didn't expect to be able to take this, due to the engineering works on HSL-1 north of Lille. Fortunately, It was a possible journey, and no train nerds were harmed in the making of these images.
 
@@ -99,8 +99,8 @@ There was a short period where I didn't expect to be able to take this, due to t
 </swiper-container>
 
 ## St. Pancras
-Departure – 12:20><br>Arrival East Croydon – 13:06
-Departure – 13:14><br>Arrival Havant – 14:59
+Departure – 12:20<br>Arrival East Croydon – 13:06
+Departure – 13:14<br>Arrival Havant – 14:59
 
 Relatively standard journey home afterwards, and while this train isn't the one I rode on, it is representative.
 
