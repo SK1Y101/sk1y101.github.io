@@ -46,7 +46,7 @@ The earliest Eurostar service I've ever been on, makes a change to get the break
 The pastry was delicious, but I do wish they'd served just a little more...
 
 <swiper-container keyboard="true" navigation="true" pagination="true" pagination-clickable="true" pagination-dynamic-bullets="true" rewind="true">
-  <swiper-slide>{% include figure.liquid loading="eager" path="assets/img/sprint2405/outbound_eurostar_nose.jpg" class="img-fluid rounded z-depth-1" %}</swiper-slide>
+  <swiper-slide>{% include figure.liquid loading="eager" path="assets/img/sprint2405/outbound_eurostar.jpg" class="img-fluid rounded z-depth-1" %}</swiper-slide>
   <swiper-slide>{% include figure.liquid loading="eager" path="assets/img/sprint2405/outbound_eurostar_meal.jpg" class="img-fluid rounded z-depth-1" %}</swiper-slide>
 </swiper-container>
 

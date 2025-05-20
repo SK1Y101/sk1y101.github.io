@@ -13,7 +13,7 @@ toc:
 # Location
 
 Frankfurt
-I was kind of excited to revisit germany, and especially pass through cologne, my favourite european train station!
+I was kind of excited to revisit germany, and especially pass through Köln, my favourite european train station!
 
 # Outbound May 10, 2025
 
@@ -89,7 +89,7 @@ Most looked forward to train: Eurostar to St. Pancras
 ## Frankfurt Flughafen Fernbahnhof
 Departure – 09:49<br>Arrival Bruxelles Midi – 13:35
 
-The single connection I was originally meant to take. An otherwise perfectly fine journey elevated by the other passengers very politely telling off a rowdy drunk crowd. To the five german passengers who made the first leg to cologne a blast, 11/10.
+The single connection I was originally meant to take. An otherwise perfectly fine journey elevated by the other passengers very politely telling off a rowdy drunk crowd. To the five german passengers who made the first leg to Köln a blast, 11/10.
 
 <swiper-container keyboard="true" navigation="true" pagination="true" pagination-clickable="true" pagination-dynamic-bullets="true" rewind="true">
   <swiper-slide>{% include figure.liquid loading="eager" path="assets/img/sprint2505/inbound_ice.jpg" class="img-fluid rounded z-depth-1" %}</swiper-slide>
