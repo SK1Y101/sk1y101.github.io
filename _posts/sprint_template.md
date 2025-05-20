@@ -23,6 +23,9 @@ Transfers:
 Countries: 
 
 Distance: 
+(Havant to STP ~135km)
+(STP to GDN ~345)
+(STP to BXM ~320)
 
 Most looked forward to train: 
 

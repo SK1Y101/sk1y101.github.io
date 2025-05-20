@@ -46,7 +46,7 @@ Departure – 15.04<br>Arrival at Bruxelles – 17.05
 
 I really wish I'd grabbed a picture of all the Tube trains I jumped on, because the Victoria line was very delayed, but I was a little more focused on getting to St.Pancras on time!
 
-Boarding the absolutely gorgeous eurostar e320, I took a slightly blurry image of the other stabled beside us. They served a delicious meal too!
+Boarding the absolutely gorgeous Eurostar e320, I took a slightly blurry image of the other stabled beside us. They served a delicious meal too!
 
 <swiper-container keyboard="true" navigation="true" pagination="true" pagination-clickable="true" pagination-dynamic-bullets="true" rewind="true">
   <swiper-slide>{% include figure.liquid loading="eager" path="assets/img/sprint2211/outbound_eurostar.jpg" class="img-fluid rounded z-depth-1" %}</swiper-slide>
@@ -132,7 +132,7 @@ My first experience with the ice3, and I was quite impressed. Caught a great sho
 ## Bruxelles
 Departure – 11.52<br>Arrival at St Pancras – 13.57
 
-A delicious meal and the classic eurostar of my childhood, I was quite happy.
+A delicious meal and the classic Eurostar of my childhood, I was quite happy.
 
 <swiper-container keyboard="true" navigation="true" pagination="true" pagination-clickable="true" pagination-dynamic-bullets="true" rewind="true">
   <swiper-slide>{% include figure.liquid loading="eager" path="assets/img/sprint2211/inbound_eurostar.jpg" class="img-fluid rounded z-depth-1" %}</swiper-slide>
