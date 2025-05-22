@@ -40,14 +40,6 @@ layout: default
 
     <div class="clearfix">{{ content }}</div>
 
-    <div style="display: flex; width: 100%; gap: 10px; overflow: hidden;">
-      {% for image in site.static_files %}
-        {% if image.path contains '/profiles/' and image.extname contains '.jpg' or image.extname contains '.png' or image.extname contains '.jpeg' or image.extname contains '.webp' %}
-          <img src="{{ image.path | relative_url }}" alt="{{ image.name }}" style="width: auto; flex-grow:1; object-fit: cover;" />
-        {% endif %}
-      {% endfor %}
-    </div>
-
     <!-- News -->
     {% if page.news and site.announcements.enabled %}
       <h2>
@@ -79,6 +71,14 @@ layout: default
       </h2>
       {% include selected_repos.liquid %}
     {% endif %}
+
+    <div style="display: flex; width: 100%; gap: 10px; overflow: hidden; height:300px; ">
+      {% for image in site.static_files %}
+        {% if image.path contains '/profiles/' and image.extname contains '.jpg' or image.extname contains '.png' or image.extname contains '.jpeg' or image.extname contains '.webp' %}
+          <img src="{{ image.path | relative_url }}" alt="{{ image.name }}" style="width: auto; flex-grow:1; object-fit: cover;" />
+        {% endif %}
+      {% endfor %}
+    </div>
 
     <!-- Social -->
     {% if page.social %}
