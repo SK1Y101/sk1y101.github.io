@@ -73,13 +73,10 @@ layout: default
     {% endif %}
 
     <!-- Self gallery -->
-    <h2>
-      The Skye gallery
-    </h2>
-    <div style="display: flex; width: 100%; gap: 10px; overflow: hidden; height:200px; ">
+    <div style="display: flex; width: 100%; gap: 10px; overflow: hidden; height:150px; ">
       {% for image in site.static_files %}
         {% if image.path contains '/profiles/' and image.extname contains '.jpg' or image.extname contains '.png' or image.extname contains '.jpeg' or image.extname contains '.webp' %}
-          <img src="{{ image.path | relative_url }}" alt="{{ image.name }}" style="width: auto; flex-grow:1; object-fit: cover;" />
+          <img src="{{ image.path | relative_url }}" alt="{{ image.name }}" style="width: auto; flex-grow:1; object-fit: cover; object-position: top;" />
         {% endif %}
       {% endfor %}
     </div>
