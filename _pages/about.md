@@ -17,7 +17,7 @@ selected_repos: true # includes select repo cards
 social: true # includes social icons at the bottom of the page
 ---
 
-I'm [Jack Lloyd-Walters](https://lloydwaltersj.com/), I'm one of those "programmer people" everyone likes to ask for printer advice. Sometimes I write code that does stuff, most of the time that code is purely for my own entertainment.
+I'm [Jack Lloyd-Walters](https://lloydwaltersj.com/) (skiy/skye online), I'm one of those "programmer people" everyone likes to ask for printer advice. Sometimes I write code that does stuff, most of the time that code is purely for my own entertainment.
 {% assign user = site.data.repositories.github_users | first %}
 {% include repository/repo_user.liquid username=user %}
 
