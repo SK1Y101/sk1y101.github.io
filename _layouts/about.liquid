@@ -73,18 +73,18 @@ layout: default
     {% endif %}
 
     <!-- Self gallery -->
-    <div style="display: flex; width: 100%; gap: 10px; overflow: hidden; height:175px; ">
+    <div style="display: flex; width: 100%; gap: 10px; overflow: hidden; height:175px;">
       {% for image in site.static_files %}
         {% if image.path contains '/profiles/' and image.extname contains '.jpg' or image.extname contains '.png' or image.extname contains '.jpeg' or image.extname contains '.webp' %}
           {% assign parts = image.name | split: "-" %}
           {% if parts.size == 3 %}
             {% assign year = parts[0] %}
             {% assign month = parts[1] %}
-            <a href="/blog/{{ year }}/{{ month }}-sprint/">
-              <img src="{{ image.path | relative_url }}" alt="{{ year }}-{{ month }}" style="width: auto; flex-grow:1; object-fit: cover; object-position: center; aspect-ratio: 6 / 13;" />
+            <a href="/blog/{{ year }}/{{ month }}-sprint/" style="height: inherit;" >
+              <img src="{{ image.path | relative_url }}" alt="{{ year }}-{{ month }}" style="width: auto; height: inherit; flex-grow:1; object-fit: cover; object-position: center; aspect-ratio: 6 / 13;" />
             </a>
           {% else %}
-            <img src="{{ image.path | relative_url }}" alt="{{ image.name }}" style="width: auto; flex-grow:1; object-fit: cover; object-position: center; aspect-ratio: 6 / 13;" />
+            <img src="{{ image.path | relative_url }}" alt="{{ image.name }}" style="width: auto; height: inherit; flex-grow:1; object-fit: cover; object-position: center; aspect-ratio: 6 / 13;" />
           {% endif %}
         {% endif %}
       {% endfor %}
