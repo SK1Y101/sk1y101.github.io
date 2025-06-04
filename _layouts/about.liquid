@@ -73,7 +73,24 @@ layout: default
     {% endif %}
 
     <!-- Self gallery -->
-    <div style="display: flex; width: 100%; gap: 10px; overflow: hidden; height:250px;">
+    {% assign container_width = 800 %}
+    {% assign gap = 10 %}
+    {% assign aspect_ratio_inverse = 13 | divided_by: 6 %}
+
+    {%- assign image_count = 0 -%}
+    {% for image in site.static_files %}
+      {% if image.path contains '/profiles/' and image.extname contains '.jpg' or image.extname contains '.png' or image.extname contains '.jpeg' or image.extname contains '.webp' %}
+        {% assign image_count = image_count | plus: 1 %}
+      {% endif %}
+    {% endfor %}
+
+    {% assign image_count_minus_1 = image_count | minus: 1 %}
+    {% assign total_gap = gap | times: image_count_minus_1 %}
+    {% assign usable_width = container_width | minus: total_gap %}
+    {% assign image_width = usable_width | divided_by: image_count %}
+    {% assign image_height = image_width | times: aspect_ratio_inverse | floor %}
+
+    <div style="display: flex; width: 100%; gap: {{ gap }}px; overflow: hidden; height: {{ image_height }}px;">
       {% for image in site.static_files %}
         {% if image.path contains '/profiles/' and image.extname contains '.jpg' or image.extname contains '.png' or image.extname contains '.jpeg' or image.extname contains '.webp' %}
           {% assign parts = image.name | split: "-" %}
