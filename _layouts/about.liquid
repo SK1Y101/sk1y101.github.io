@@ -5,7 +5,22 @@ layout: default
   <header class="post-header">
     <h1 class="post-title">
       {% if site.title == 'blank' %}
-        <span class="font-weight-bold">{{ site.first_name }}</span> {{ site.middle_name }} {{ site.last_name }}<br>
+        {% assign pronouns = "" %}
+        {% if site.pronouns and site.pronouns != "" %}
+            {% assign pronouns = " - " %}
+            {% assign parts = site.pronouns | split: "/" %}
+
+            {% for part in parts %}
+                {% assign trimmed = part | strip %}
+                {% if forloop.first %}
+                    {% assign pronouns = trimmed %}
+                {% else %}
+                    {% assign pronouns = pronouns | append: " / " | append: trimmed %}
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+
+        <span class="font-weight-bold">{{ site.first_name }}</span> {{ site.middle_name }} {{ site.last_name }} <span style="font-style: italic; font-size: x-large;">{{ pronouns }}</span><br>
         <span style="color: var(--global-theme-color);">{{ site.post_nomials }}</span>
       {% else %}
         {{ site.title }}
@@ -29,7 +44,7 @@ layout: default
       30vw, 95vw"{% endcapture %}
           {%
             include figure.liquid path = profile_image_path class = profile_image_class sizes = sizes alt = page.profile.image
-            cache_bust = true 
+            cache_bust = true
           %}
         {% endif %}
         {% if page.profile.more_info %}

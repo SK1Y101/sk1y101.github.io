@@ -3,13 +3,14 @@
 # -----------------------------------------------------------------------------
 
 title: blank # the website title (if blank, full name will be used instead)
-first_name: Jack
+first_name: Jack Skye
 middle_name:
 last_name: Lloyd-Walters
+pronouns: They / She / He
 post_nomials: MPhys MInstP FRAS
 email: email@lloydwaltersj.com
 description: > # the ">" symbol means to ignore newlines until "footer_text:"
-  Jack Lloyd-Walters' Personal website. Based on [*folio](https://github.com/bogoli/-folio) design.
+  Skye/Jack Lloyd-Walters' Personal website. Based on [*folio](https://github.com/bogoli/-folio) design.
 footer_text: >
   Powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme.
   Hosted by <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
@@ -73,7 +74,7 @@ github_username: SK1Y101 # your GitHub user name
 gitlab_username: # your GitLab user name
 x_username: # your X handle
 mastodon_username: # your mastodon instance+username in the format instance.tld/@username
-linkedin_username: jack-lloyd-walters # your LinkedIn user name
+linkedin_username: jack-skye-lloyd-walters/ # your LinkedIn user name
 telegram_username: # your Telegram user name
 scholar_userid: # your Google Scholar ID
 semanticscholar_id: # your Semantic Scholar ID
@@ -130,7 +131,7 @@ bing_site_verification: # out your bing-site-verification ID (Bing Webmaster)
 # Blog
 # -----------------------------------------------------------------------------
 
-blog_name: Jack's Ramblings # blog_name will be displayed in your blog page
+blog_name: Skiylian Ramblings # blog_name will be displayed in your blog page
 blog_description: I post things occasionally. Here's where you can choose to read them
 permalink: /blog/:year/:title/
 
@@ -283,7 +284,7 @@ jekyll-archives:
 
 scholar:
   last_name: [Lloyd-Walters]
-  first_name: [Jack, J.]
+  first_name: [Jack Skye, Jack, J., J.S.]
 
   style: apa
   locale: en

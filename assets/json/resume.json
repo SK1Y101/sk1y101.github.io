@@ -1,9 +1,9 @@
 {
   "basics": {
-    "name": "Jack Lloyd-Walters",
+    "name": "Jack/Skye Lloyd-Walters",
     "label": "Software Engineer",
     "image": "/img/prof_pic.jpg",
-    "email": "jack@lloydwaltersj.com",
+    "email": "skye@lloydwaltersj.com",
     "phone": "",
     "url": "https://lloydwaltersj.com",
     "summary": "UK Based Software Engineer working on the Metal As A Service team at Canonical.",
@@ -22,8 +22,8 @@
       },
       {
         "network": "Linkedin",
-        "username": "jack-lloyd-walters",
-        "url": "https://www.linkedin.com/in/jack-lloyd-walters"
+        "username": "jack-skye-lloyd-walters",
+        "url": "https://www.linkedin.com/in/jack-skye-lloyd-walters"
       }
     ]
   },
