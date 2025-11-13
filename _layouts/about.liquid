@@ -92,35 +92,51 @@ layout: default
     {% assign gap = 10 %}
     {% assign aspect_ratio_inverse = 13 | divided_by: 6 %}
 
-    {%- assign image_count = 0 -%}
-    {% for image in site.static_files %}
-      {% if image.path contains '/profiles/' and image.extname contains '.jpg' or image.extname contains '.png' or image.extname contains '.jpeg' or image.extname contains '.webp' %}
-        {% assign image_count = image_count | plus: 1 %}
-      {% endif %}
-    {% endfor %}
+    {%- assign profile_images = "" | split: "" -%}
 
-    {% assign image_count_minus_1 = image_count | minus: 1 %}
-    {% assign total_gap = gap | times: image_count_minus_1 %}
-    {% assign usable_width = container_width | minus: total_gap %}
-    {% assign image_width = usable_width | divided_by: image_count %}
-    {% assign image_height = image_width | times: aspect_ratio_inverse | floor %}
+    {%- for image in site.static_files -%}
+    {%- if image.path contains '/profiles/' and (image.extname == '.jpg' or image.extname == '.png' or image.extname == '.jpeg' or image.extname == '.webp') -%}
+        {%- assign profile_images = profile_images | push: image -%}
+    {%- endif -%}
+    {%- endfor -%}
 
-    <div style="display: flex; width: 100%; gap: {{ gap }}px; overflow: hidden; height: {{ image_height }}px;">
-      {% for image in site.static_files %}
-        {% if image.path contains '/profiles/' and image.extname contains '.jpg' or image.extname contains '.png' or image.extname contains '.jpeg' or image.extname contains '.webp' %}
-          {% assign parts = image.name | split: "-" %}
-          {% if parts.size == 3 %}
-            {% assign year = parts[0] %}
-            {% assign month = parts[1] %}
-            <a href="/blog/{{ year }}/{{ month }}-sprint/" style="height: inherit;" >
-              <img src="{{ image.path | relative_url }}" alt="{{ year }}-{{ month }}" style="width: auto; height: inherit; flex-grow:1; object-fit: cover; object-position: center; aspect-ratio: 6 / 13;" />
-            </a>
-          {% else %}
-            <img src="{{ image.path | relative_url }}" alt="{{ image.name }}" style="width: auto; height: inherit; flex-grow:1; object-fit: cover; object-position: center; aspect-ratio: 6 / 13;" />
-          {% endif %}
-        {% endif %}
-      {% endfor %}
-    </div>
+    {%- assign row_size = 4 -%}
+    {%- assign total_images = profile_images.size -%}
+    {%- assign rows = total_images | divided_by: row_size | ceil -%}
+
+    {%- for i in (0..rows-1) -%}
+        {%- assign start_index = i | times: row_size -%}
+        {%- assign end_index = start_index | plus: row_size | minus: 1 -%}
+        {%- assign row_images = "" | split: "" -%}
+
+        {%- for j in (start_index..end_index) -%}
+            {%- if j < total_images -%}
+            {%- assign row_images = row_images | push: profile_images[j] -%}
+            {%- endif -%}
+        {%- endfor -%}
+
+        {%- assign image_count = row_images.size -%}
+        {%- assign image_count_minus_1 = image_count | minus: 1 -%}
+        {%- assign total_gap = gap | times: image_count_minus_1 -%}
+        {%- assign usable_width = container_width | minus: total_gap -%}
+        {%- assign image_width = usable_width | divided_by: image_count -%}
+        {%- assign image_height = image_width | times: aspect_ratio_inverse | floor -%}
+
+        <div style="display:flex; gap: {{ gap }}px; overflow:hidden; height: {{ image_height }}px; margin-bottom: {{ gap }}px;">
+            {%- for image in row_images -%}
+            {% assign parts = image.name | split: "-" %}
+            {% if parts.size == 3 %}
+                {% assign year = parts[0] %}
+                {% assign month = parts[1] %}
+                <a href="/blog/{{ year }}/{{ month }}-sprint/" style="height: inherit;">
+                <img src="{{ image.path | relative_url }}" alt="{{ year }}-{{ month }}" style="width: auto; height: inherit; flex-grow:1; object-fit: cover; object-position: center; aspect-ratio: 6 / 13;" />
+                </a>
+            {% else %}
+                <img src="{{ image.path | relative_url }}" alt="{{ image.name }}" style="width: auto; height: inherit; flex-grow:1; object-fit: cover; object-position: center; aspect-ratio: 6 / 13;" />
+            {% endif %}
+            {%- endfor -%}
+        </div>
+    {%- endfor -%}
 
     <!-- Social -->
     {% if page.social %}
