@@ -95,9 +95,9 @@ layout: default
     {%- assign profile_images = "" | split: "" -%}
 
     {%- for image in site.static_files -%}
-    {%- if image.path contains '/profiles/' and (image.extname == '.jpg' or image.extname == '.png' or image.extname == '.jpeg' or image.extname == '.webp') -%}
-        {%- assign profile_images = profile_images | push: image -%}
-    {%- endif -%}
+        {%- if image.path contains '/profiles/' and (image.extname == '.jpg' or image.extname == '.png' or image.extname == '.jpeg' or image.extname == '.webp') -%}
+            {%- assign profile_images = profile_images | push: image -%}
+        {%- endif -%}
     {%- endfor -%}
 
     {%- assign row_size = 4 -%}
@@ -119,7 +119,11 @@ layout: default
         {%- assign image_count_minus_1 = image_count | minus: 1 -%}
         {%- assign total_gap = gap | times: image_count_minus_1 -%}
         {%- assign usable_width = container_width | minus: total_gap -%}
-        {%- assign image_width = usable_width | divided_by: image_count -%}
+        {%- if image_count == 1 -%}
+            {%- assign image_width = usable_width | divided_by: 2 -%}
+        {%- else -%}
+            {%- assign image_width = usable_width | divided_by: image_count -%}
+        {%- endif -%}
         {%- assign image_height = image_width | times: aspect_ratio_inverse | floor -%}
 
         <div style="display:flex; gap: {{ gap }}px; justify-content: center; overflow:hidden; height: {{ image_height }}px; margin-bottom: {{ gap }}px;">
