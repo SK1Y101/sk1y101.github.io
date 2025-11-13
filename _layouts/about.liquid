@@ -104,7 +104,7 @@ layout: default
     {%- assign total_images = profile_images.size -%}
     {%- assign rows = total_images | divided_by: row_size | ceil -%}
 
-    {%- for i in (0..rows-1) -%}
+    {%- for i in (0..rows) -%}
         {%- assign start_index = i | times: row_size -%}
         {%- assign end_index = start_index | plus: row_size | minus: 1 -%}
         {%- assign row_images = "" | split: "" -%}
