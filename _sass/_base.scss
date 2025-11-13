@@ -68,6 +68,7 @@ img {
   background-color: var(--global-bg-color);
   border-radius: 2rem !important;
   margin-bottom: 100px;
+  padding-bottom: 1em;
 }
 
 .background {
@@ -1114,7 +1115,7 @@ progress::-moz-progress-bar {
   .dropdown-item.active,
   .dropdown-item:active {
     color: var(--global-theme-color)  !important;
-    
+
     &:hover {
       color: var(--global-hover-color)  !important;
     }
