@@ -122,7 +122,7 @@ layout: default
         {%- assign image_width = usable_width | divided_by: image_count -%}
         {%- assign image_height = image_width | times: aspect_ratio_inverse | floor -%}
 
-        <div style="display:flex; gap: {{ gap }}px; overflow:hidden; height: {{ image_height }}px; margin-bottom: {{ gap }}px;">
+        <div style="display:flex; gap: {{ gap }}px; justify-content: center; overflow:hidden; height: {{ image_height }}px; margin-bottom: {{ gap }}px;">
             {%- for image in row_images -%}
             {% assign parts = image.name | split: "-" %}
             {% if parts.size == 3 %}
