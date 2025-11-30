@@ -127,6 +127,13 @@
   ],
   "publications": [
     {
+      "name": "ExoClock Project IV: A homogeneous catalogue of 620 updated exoplanet ephemerides",
+      "releaseDate": "2025-11",
+      "url": "https://arxiv.org/abs/2511.14407",
+      "summary": "ExoClock Project IV: A homogeneous catalogue of 620 updated exoplanet ephemerides",
+      "preview": "exolcock_ariel.png"
+    },
+    {
       "name": "Determining The Parameters of Exoplanetary Candidates From Transit Timing Variations",
       "releaseDate": "2022-05",
       "url": "/projects/TransitProject/",
