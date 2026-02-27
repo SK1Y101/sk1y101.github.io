@@ -101,12 +101,15 @@ pagination:
 {% endif %}
 
   <ul class="post-list">
+    {% assign now = 'now' | date: "%s" %}
 
     {% if page.pagination.enabled %}
-      {% assign postlist = paginator.posts %}
+    {% assign postlist = paginator.posts %}
     {% else %}
-      {% assign postlist = site.posts %}
+    {% assign postlist = site.posts %}
     {% endif %}
+
+    {% assign postlist = postlist | where_exp: "post", "post.date <= now and post.title != nil and post.title contains '<TEMPLATE>' == false" %}
 
     {% for post in postlist %}
 

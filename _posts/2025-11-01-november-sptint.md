@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Sprint_Travel_<DATE>>
+title: Sprint Travel November 2025
 date: 2025-11-01 00:00:00-0000
 description: A summary of the travel to the Gothenburg sprint
 tags: train travel canonical
