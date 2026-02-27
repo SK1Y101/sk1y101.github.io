@@ -18,6 +18,20 @@ I'd never travelled across europe before this, so I used it as an opportunity to
 
 I should apologise for the image quality: This was the final month of my dying old phone.
 
+# Sumamry
+
+Time: 44h 9m
+
+Countries: 4 (UK, BE, DE, CZ)
+
+Distance: 2803Km
+
+Trains: Solid across the board. Was very surprised to find loco hauled services in Czechia, but it was a pleasant surprise.
+
+Stations: Bruxelles was the lowest point of the journey, Köln was the highest. Regensburg was quite nice.
+
+Destination: Loved Prague, favourite european city to have visited yet.
+
 # Outbound Oct 22, 2022
 
 Planned time: 21h 55m
@@ -85,7 +99,7 @@ Relaxed at Prague with mapo tofu for lunch. I visited this place a few more time
   <swiper-slide>{% include figure.liquid loading="eager" path="assets/img/sprint2211/outbound_cz_locomotive.jpg" class="img-fluid rounded z-depth-1" %}</swiper-slide>
   <swiper-slide>{% include figure.liquid loading="eager" path="assets/img/sprint2211/mapo_tofu.jpg" class="img-fluid rounded z-depth-1" %}</swiper-slide>
 </swiper-container>
-	
+
 # Inbound Nov 5, 2022
 
 Planned time: 22h 14m
@@ -143,11 +157,3 @@ A delicious meal and the classic Eurostar of my childhood, I was quite happy.
 Departure – 15.35<br>Arrival at Chichester – 17.21
 
 No images, this was a standard train again
-
-# Rating
-
-Trains: Solid across the board. Was very surprised to find loco hauled services in Czechia, but it was a pleasant surprise.
-
-Stations: Bruxelles was the lowest point of the journey, Köln was the highest. Regensburg was quite nice.
-
-Destination: Loved Prague, favourite european city to have visited yet.

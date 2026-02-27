@@ -12,8 +12,24 @@ toc:
 
 # Location
 
-Frankfurt
+Frankfurt.
 I was kind of excited to revisit germany, and especially pass through Köln, my favourite european train station!
+
+
+# Summary
+
+Time: 20h 58m
+
+Countries: 3 (UK, BE, NL)
+
+Distance: 1840Km, Cummulative 12643Km
+
+Trains: We love DB rolling stock, we dislike DB timetabling.solid set of trains though, 8/10.
+
+Stations: Frankfurt Flughafen Fernbahnhof was surprisingly nice, and Frankfurt Hauptbahnhof has some lovely architecture.
+
+Destination: Frankfurt around the hauptbahnhof was easily one of the worst locations I have ever been to. The old town and parts of the river were nicer, I would definitely reccomend you take the U-Bahn or S-Bahn from the station, rather than going on foot.
+
 
 # Outbound May 10, 2025
 
@@ -73,7 +89,8 @@ The frankfurt Hauptbahnhof picture was taken a day later, I include it just to s
   <swiper-slide>{% include figure.liquid loading="eager" path="assets/img/sprint2505/outbound_ice.jpg" class="img-fluid rounded z-depth-1" %}</swiper-slide>
   <swiper-slide>{% include figure.liquid loading="eager" path="assets/img/sprint2505/outbound_frankfurt.jpg" class="img-fluid rounded z-depth-1" %}</swiper-slide>
 </swiper-container>
-	
+
+
 # Inbound May 17, 2025
 
 Planned time: 9h 40m
@@ -119,11 +136,3 @@ Standard train journey, I always think I'll miss this onnection and have to wait
   <swiper-slide>{% include figure.liquid loading="eager" path="assets/img/sprint2505/inbound_thameslink.jpg" class="img-fluid rounded z-depth-1" %}</swiper-slide>
   <swiper-slide>{% include figure.liquid loading="eager" path="assets/img/sprint2505/inbound_southern.jpg" class="img-fluid rounded z-depth-1" %}</swiper-slide>
 </swiper-container>
-
-# Rating
-
-Trains: We love DB rolling stock, we dislike DB timetabling.solid set of trains though, 8/10.
-
-Stations: Frankfurt Flughafen Fernbahnhof was surprisingly nice, and Frankfurt Hauptbahnhof has some lovely architecture.
-
-Destination: Frankfurt around the hauptbahnhof was easily one of the worst locations I have ever been to. The old town and parts of the river were nicer, I would definitely reccomend you take the U-Bahn or S-Bahn from the station, rather than going on foot.

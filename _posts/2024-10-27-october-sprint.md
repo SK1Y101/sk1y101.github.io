@@ -15,7 +15,23 @@ toc:
 Den Haag, or the Hague, was definitely a place I've had my eye on for a few years now. And not just so I can see all of the NS trains moving around (although that would definitely be amazing).
 Unfortunately, despite this being the easiest rail journey by far, I couldn't quite convince any other UK colleagues to join me on Eurostar. We did, however, have the highest representation of rail-travel in the team of any previous sprint, so that's a win!
 
-# Outbound Ocyober 27, 2024
+
+# Sumamry
+
+Time: 17h 55m
+
+Countries: 3 (UK, BE, NL)
+
+Distance: 790Km, Cummulative 10403Km
+
+Trains: Eurostar and a heritage steam locomotive?! How could this be anything but 10/10.
+
+Stations: Rotterdaam Central was awesome, as was Den Haag. Definitely wish they were my local
+
+Destination: I **loved** the Hague. A city of trams, pedestrian priority, and delightful architecture. 9/10, would move there except for the smell of drug usage.
+
+
+# Outbound October 27, 2024
 
 Planned time: 8h 32m
 
@@ -23,7 +39,7 @@ Transfers: 4
 
 Countries: 3 (UK, BE, NL)
 
-Distance: 
+Distance: 395Km
 
 Most looked forward to train: Eurostar to Rotterdam Centraal
 
@@ -55,15 +71,16 @@ I didn't take any pictures, and I'm not even completely sure this was my departu
 
 Side note: Den Haag is so multimodal, and a really clean and open station. Definitely a great place to pass through imo.
 
+
 # Inbound November 02, 2024
 
-Planned time: 
+Planned time: 9h 23m
 
 Transfers: 4
 
 Countries: (NL, BE, UK)
 
-Distance: 
+Distance: 395Km
 
 Most looked forward to train: Eurostar to St. Pancras
 
@@ -107,11 +124,3 @@ Relatively standard journey home afterwards, and while this train isn't the one 
 <swiper-container keyboard="true" navigation="true" pagination="true" pagination-clickable="true" pagination-dynamic-bullets="true" rewind="true">
   <swiper-slide>{% include figure.liquid loading="eager" path="assets/img/sprint2410/inbound_thameslink.jpg" class="img-fluid rounded z-depth-1" %}</swiper-slide>
 </swiper-container>
-
-# Rating
-
-Trains: Eurostar and a heritage steam locomotive?! How could this be anything but 10/10.
-
-Stations: Rotterdaam Central was awesome, as was Den Haag. Definitely wish they were my local
-
-Destination: I **loved** the Hague. A city of trams, pedestrian priority, and delightful architecture. 9/10, would move there except for the smell of drug usage.

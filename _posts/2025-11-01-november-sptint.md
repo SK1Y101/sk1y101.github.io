@@ -1,8 +1,8 @@
 ---
 layout: post
 title: Sprint_Travel_<DATE>>
-date: 2022-11-01 00:00:00-0000
-description: A summary of the travel to the <DATE> sprint
+date: 2025-11-01 00:00:00-0000
+description: A summary of the travel to the Gothenburg sprint
 tags: train travel canonical
 categories: train-travel
 related_posts: false
@@ -12,46 +12,195 @@ toc:
 
 # Location
 
-<place>
+Göteborg
+I've always wondered what Sweden was like, and a stop in Denmark sounds lovely too!
 
-# Outbound <time>
+# Summary
 
-Planned time: 
+Time: 57h 4m
 
-Transfers: 
+Countries: 5 (GB, BE, DE, DK, SE)
 
-Countries: 
+Distance: 4810Km, Cummulative 17453Km
 
-Distance: 
-(Havant to STP ~135km)
-(STP to GDN ~345)
-(STP to BXM ~320)
+Trains: Well, I accidentally saw more than intended, and more trains *is* more good, so.. 8/10, the Hamburg to Köln train had some awful passengers that's really pulling this down.
 
-Most looked forward to train: 
+Stations: I *absolutely* loved the vibes at København and Hamburg. If they weren't so far away, I would love to revisit! My side quest to the west coast of Denmark was actually lovely, time pressure aside, maybe I should visit again?
 
-## journey start
-Departure – <time><br>Arrival <place> – <time>
+Destination: Göteborg was nice, not especially cold compared to my expectations. I loved all of the trams there, very excellent public transport network.
+
+
+# Outbound November 1, 2025
+
+Planned time: 30h 7m
+
+Transfers: 8
+
+Countries: 5 (GB, BE, DE, DK, SE)
+
+Distance: 2305Km
+
+Most looked forward to train: SJR to Göteborg
+
+## Havant
+Departure – 13:47<br>Arrival Three bridges – 15:05
+Departure – 15:08<br>Arrival St. Pancras – 16:00
+
+At this point what else is there to say? I've done this journey hundreds of times, and tens of times for the sprints.
 
 <swiper-container keyboard="true" navigation="true" pagination="true" pagination-clickable="true" pagination-dynamic-bullets="true" rewind="true">
-  <swiper-slide>{% include figure.liquid loading="eager" path="assets/img/sprint2211/outbound_southern.jpg" class="img-fluid rounded z-depth-1" %}</swiper-slide>
+  <swiper-slide>{% include figure.liquid loading="eager" path="assets/img/sprint2511/outbound_southern.jpg" class="img-fluid rounded z-depth-1" %}</swiper-slide>
+  <swiper-slide>{% include figure.liquid loading="eager" path="assets/img/sprint2511/outbound_thameslink.jpg" class="img-fluid rounded z-depth-1" %}</swiper-slide>
 </swiper-container>
-	
-# Inbound <time>
 
-Planned time: 
+## St. Pancras
+Departure – 17:04<br>Arrival Bruxelles Midi – 20:05
 
-Transfers: 
+I will never not love this route. The food was lovely too!
 
-Countries: 
+<swiper-container keyboard="true" navigation="true" pagination="true" pagination-clickable="true" pagination-dynamic-bullets="true" rewind="true">
+  <swiper-slide>{% include figure.liquid loading="eager" path="assets/img/sprint2511/outbound_eurostar.jpg" class="img-fluid rounded z-depth-1" %}</swiper-slide>
+  <swiper-slide>{% include figure.liquid loading="eager" path="assets/img/sprint2511/outbound_eurostar_food.jpg" class="img-fluid rounded z-depth-1" %}</swiper-slide>
+</swiper-container>
 
-Distance: 
+## Bruxelles Midi
+Departure – 20:25<br>Arrival Köln – 22:15
 
-Most looked forward to train: 
+We really are replaying the classics, I love the destination, I love the ICE train I was on, and it was very quiet luckily!
 
-# Rating
+<swiper-container keyboard="true" navigation="true" pagination="true" pagination-clickable="true" pagination-dynamic-bullets="true" rewind="true">
+  <swiper-slide>{% include figure.liquid loading="eager" path="assets/img/sprint2511/outbound_ice_to_koln.jpg" class="img-fluid rounded z-depth-1" %}</swiper-slide>
+</swiper-container>
 
-Trains: 
+## Köln
+Departure – 02:09<br>Arrival Hamburg – 06:50
 
-Stations: 
+I had a lovely, if cold, time here. Watching the trains from the platforms was great, even if after 4 hours I was bored and ready to leave.
 
-Destination: 
+<swiper-container keyboard="true" navigation="true" pagination="true" pagination-clickable="true" pagination-dynamic-bullets="true" rewind="true">
+  <swiper-slide>{% include figure.liquid loading="eager" path="assets/img/sprint2511/outbound_ice_to_hamburg.jpg" class="img-fluid rounded z-depth-1" %}</swiper-slide>
+</swiper-container>
+
+## Hamburg
+Departure – 08:44<br>Arrival København – 13:50
+
+I absolutely loved this statio, the architecture, the view from where I grabbed breakfasts! I just wish the platforms were a little wider, it was quite cramped waiting for my denmark train.
+Also I wish I got more pictures of the route, it was incredibly scenic.
+
+<swiper-container keyboard="true" navigation="true" pagination="true" pagination-clickable="true" pagination-dynamic-bullets="true" rewind="true">
+  <swiper-slide>{% include figure.liquid loading="eager" path="assets/img/sprint2511/outbound_hamburg_above.jpg" class="img-fluid rounded z-depth-1" %}</swiper-slide>
+  <swiper-slide>{% include figure.liquid loading="eager" path="assets/img/sprint2511/outbound_hamburg_platform.jpg" class="img-fluid rounded z-depth-1" %}</swiper-slide>
+  <swiper-slide>{% include figure.liquid loading="eager" path="assets/img/sprint2511/outbound_denmark_sea.jpg" class="img-fluid rounded z-depth-1" %}</swiper-slide>
+  <swiper-slide>{% include figure.liquid loading="eager" path="assets/img/sprint2511/outbound_denmark.jpg" class="img-fluid rounded z-depth-1" %}</swiper-slide>
+  <swiper-slide>{% include figure.liquid loading="eager" path="assets/img/sprint2511/outbound_to_copenhagen.jpg" class="img-fluid rounded z-depth-1" %}</swiper-slide>
+</swiper-container>
+
+## København
+Departure – 14:44<br>Arrival Malmö – 15:25
+Departure – 16:38<br>Arrival Göteborg – 19:05
+
+Fans of JetLag: The Game will recognise the model and location I just *had* to visit while I was there. The trains were fun too, if a little weird. I haven't seen the all metal body that SJR seems to employ... well, ever!
+
+<swiper-container keyboard="true" navigation="true" pagination="true" pagination-clickable="true" pagination-dynamic-bullets="true" rewind="true">
+  <swiper-slide>{% include figure.liquid loading="eager" path="assets/img/sprint2511/outbound_jetlag_spot.jpg" class="img-fluid rounded z-depth-1" %}</swiper-slide>
+  <swiper-slide>{% include figure.liquid loading="eager" path="assets/img/sprint2511/outbound_copenhagen_model.jpg" class="img-fluid rounded z-depth-1" %}</swiper-slide>
+  <swiper-slide>{% include figure.liquid loading="eager" path="assets/img/sprint2511/outbound_copenhagen_model2.jpg" class="img-fluid rounded z-depth-1" %}</swiper-slide>
+  <swiper-slide>{% include figure.liquid loading="eager" path="assets/img/sprint2511/outbound_copenhagen_to_oslo.jpg" class="img-fluid rounded z-depth-1" %}</swiper-slide>
+  <swiper-slide>{% include figure.liquid loading="eager" path="assets/img/sprint2511/outbound_olso_not_mine.jpg" class="img-fluid rounded z-depth-1" %}</swiper-slide>
+  <swiper-slide>{% include figure.liquid loading="eager" path="assets/img/sprint2511/outbound_olso_train.jpg" class="img-fluid rounded z-depth-1" %}</swiper-slide>
+  <swiper-slide>{% include figure.liquid loading="eager" path="assets/img/sprint2511/outbound_olso.jpg" class="img-fluid rounded z-depth-1" %}</swiper-slide>
+  <swiper-slide>{% include figure.liquid loading="eager" path="assets/img/sprint2511/outbound_to_olso.jpg" class="img-fluid rounded z-depth-1" %}</swiper-slide>
+</swiper-container>
+
+
+# Inbound November 8, 2025
+
+Planned time: 26h 57m
+
+Transfers: 8 planned, 13 actual
+
+Countries: 5 (SE, DK, DE, BE, GB)
+
+Distance: 2505Km
+
+Most looked forward to train: Southern to Havant, I just really wanted to be home.
+
+## Göteborg
+Departure – 10:25<br>Arrival Helsingborg – 12:10
+Departure – 12:25<br>Arrival Malmö – 13:10
+Departure – 13:41<br>Arrival København – 15:07
+
+I admit, I was actually quite stressed here, given it was a replacement bus service to København. Especially when I couldn't find the stand for the first bus, and then watched the second one leave as I arrived, and then couldn't get on the third due to overcrowding...
+
+<swiper-container keyboard="true" navigation="true" pagination="true" pagination-clickable="true" pagination-dynamic-bullets="true" rewind="true">
+  <swiper-slide>{% include figure.liquid loading="eager" path="assets/img/sprint2511/inbound_gothenburg_tram.jpg" class="img-fluid rounded z-depth-1" %}</swiper-slide>
+  <swiper-slide>{% include figure.liquid loading="eager" path="assets/img/sprint2511/inbound_gothenburg_station.jpg" class="img-fluid rounded z-depth-1" %}</swiper-slide>
+  <swiper-slide>{% include figure.liquid loading="eager" path="assets/img/sprint2511/inbound_gothenburg_hall.jpg" class="img-fluid rounded z-depth-1" %}</swiper-slide>
+  <swiper-slide>{% include figure.liquid loading="eager" path="assets/img/sprint2511/inbound_gothenburg_nose.jpg" class="img-fluid rounded z-depth-1" %}</swiper-slide>
+  <swiper-slide>{% include figure.liquid loading="eager" path="assets/img/sprint2511/inbound_helsingborg_nose.jpg" class="img-fluid rounded z-depth-1" %}</swiper-slide>
+  <swiper-slide>{% include figure.liquid loading="eager" path="assets/img/sprint2511/inbound_helsingborg_end.jpg" class="img-fluid rounded z-depth-1" %}</swiper-slide>
+  <swiper-slide>{% include figure.liquid loading="eager" path="assets/img/sprint2511/inbound_helsingborg_curve.jpg" class="img-fluid rounded z-depth-1" %}</swiper-slide>
+</swiper-container>
+
+## København
+Departure – 15:52<br>Arrival Odense – 17:03
+Departure – 17:09<br>Arrival Bramming – 18:17
+Departure – 18:25<br>Arrival Tønder – 19:40
+Departure – 19:26<br>Arrival Niebüll – 19:51
+Departure – 20:01<br>Arrival Hamburg-Altona – 22:22
+Departure – 22:45<br>Arrival Köln – 03:02
+
+I'm sorry for compressing so many transfers into one spot, but this was meant to be a simple two train trip to Köln, not a veritable side quest that *only* just got me to my Hamburg onwards train.
+Long story short, I missed the first train to Odense, which meant I couldn't connect to my onward one. Danish rail staff at København, you were amazing. You dealt with a very stressed and very close to tears girls issue with minimal fuss, and incredibly clear instructions.
+And no, I was not really in the right mindset for pictures, how can you tell?
+
+<swiper-container keyboard="true" navigation="true" pagination="true" pagination-clickable="true" pagination-dynamic-bullets="true" rewind="true">
+  <swiper-slide>{% include figure.liquid loading="eager" path="assets/img/sprint2511/inbound_odense.jpg" class="img-fluid rounded z-depth-1" %}</swiper-slide>
+  <swiper-slide>{% include figure.liquid loading="eager" path="assets/img/sprint2511/inbound_braming.jpg" class="img-fluid rounded z-depth-1" %}</swiper-slide>
+  <swiper-slide>{% include figure.liquid loading="eager" path="assets/img/sprint2511/inbound_braming_grafiti.jpg" class="img-fluid rounded z-depth-1" %}</swiper-slide>
+  <swiper-slide>{% include figure.liquid loading="eager" path="assets/img/sprint2511/inbound_tonder.jpg" class="img-fluid rounded z-depth-1" %}</swiper-slide>
+  <swiper-slide>{% include figure.liquid loading="eager" path="assets/img/sprint2511/inbound_niebull.jpg" class="img-fluid rounded z-depth-1" %}</swiper-slide>
+  <swiper-slide>{% include figure.liquid loading="eager" path="assets/img/sprint2511/inbound_niebull_nose.jpg" class="img-fluid rounded z-depth-1" %}</swiper-slide>
+</swiper-container>
+
+## Köln
+Departure – 07:35<br>Arrival Bruxelles Midi – 09:40
+
+Back on track (heh) finally, and this was a very quiet train journey. Just two other people in my carriage! lovely! I love ICE trains that really aren't that busy, they're so lovely.
+
+I will say though, after this I think I'll try to avoid long stays at Köln. For as much as I like the station, the 4h30m ish that I was there was *very* tedious, especially after such a high stress trip to here.
+
+<swiper-container keyboard="true" navigation="true" pagination="true" pagination-clickable="true" pagination-dynamic-bullets="true" rewind="true">
+  <swiper-slide>{% include figure.liquid loading="eager" path="assets/img/sprint2511/inbound_koln.jpg" class="img-fluid rounded z-depth-1" %}</swiper-slide>
+  <swiper-slide>{% include figure.liquid loading="eager" path="assets/img/sprint2511/inbound_koln_blue.jpg" class="img-fluid rounded z-depth-1" %}</swiper-slide>
+  <swiper-slide>{% include figure.liquid loading="eager" path="assets/img/sprint2511/inbound_koln_cathedral.jpg" class="img-fluid rounded z-depth-1" %}</swiper-slide>
+  <swiper-slide>{% include figure.liquid loading="eager" path="assets/img/sprint2511/inbound_koln_departure.jpg" class="img-fluid rounded z-depth-1" %}</swiper-slide>
+</swiper-container>
+
+## Bruxelles Midi
+Departure – 10:45<br>Arrival St. Pancras – 12:10
+
+Eurostar, my comfy, my beloved. I was *so* glad to be back in the first class experience on a trip back to my home country, especially given how quiet it was and how nice the food was.
+
+Early morning trains are awesome, first to Bruxelles, now this? Heck yeah!
+
+<swiper-container keyboard="true" navigation="true" pagination="true" pagination-clickable="true" pagination-dynamic-bullets="true" rewind="true">
+  <swiper-slide>{% include figure.liquid loading="eager" path="assets/img/sprint2511/inbound_bruxelles_ice.jpg" class="img-fluid rounded z-depth-1" %}</swiper-slide>
+  <swiper-slide>{% include figure.liquid loading="eager" path="assets/img/sprint2511/inbound_bruxelles_ice_nose.jpg" class="img-fluid rounded z-depth-1" %}</swiper-slide>
+  <swiper-slide>{% include figure.liquid loading="eager" path="assets/img/sprint2511/inbound_eurostar_food.jpg" class="img-fluid rounded z-depth-1" %}</swiper-slide>
+</swiper-container>
+
+## St. Pancras
+Departure – 12:40<br>Arrival East Croydon – 13:15
+Departure – 13:58<br>Arrival Havant – 16:01
+
+Hey look, I made the train I never think I can get!
+I tell you, thameslink has never been so comfy as it was this journey
+
+Also I had an impeccable croissant at east croydon, tripple chocolate! absolutely delightful.
+
+<swiper-container keyboard="true" navigation="true" pagination="true" pagination-clickable="true" pagination-dynamic-bullets="true" rewind="true">
+  <swiper-slide>{% include figure.liquid loading="eager" path="assets/img/sprint2511/inbound_eurostar_nose.jpg" class="img-fluid rounded z-depth-1" %}</swiper-slide>
+  <swiper-slide>{% include figure.liquid loading="eager" path="assets/img/sprint2511/inbound_thameslink.jpg" class="img-fluid rounded z-depth-1" %}</swiper-slide>
+  <swiper-slide>{% include figure.liquid loading="eager" path="assets/img/sprint2511/inbound_southern.jpg" class="img-fluid rounded z-depth-1" %}</swiper-slide>
+</swiper-container>

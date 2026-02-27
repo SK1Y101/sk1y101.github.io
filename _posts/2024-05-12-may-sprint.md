@@ -14,6 +14,22 @@ toc:
 
 Madrid. I've not been there except for a flight transfer nearly 15 years beforehand, so it'll be interesting to arrive by the (obviously) superior mode of transport
 
+
+# Sumamry
+
+Time: 40h 20m
+
+Countries: 3 (UK, FR, ES)
+
+Distance: 4506Km, Cummulative 9613Km
+
+Trains: Fastest ever train I've noticed, and super comfy. Full points to trenitalia. TGV InOui also gets full points for comfort and speed, would definitely reccomend them over other french high-speed rail operators!
+
+Stations: Gare du Nord is a much nicer station, but the RER sucks. maybe a 7/10 overall, Atocha was delightful.
+
+Destination: Madrid was okay, solidly mediocre city. Won't complain if I go back, but also won't choose it over other destinations;
+
+
 # Outbound May 11, 2024
 
 Planned time: 23h 7m
@@ -138,11 +154,3 @@ Regular trains, no pictures, but I did snap a shot of the Shard
 <swiper-container keyboard="true" navigation="true" pagination="true" pagination-clickable="true" pagination-dynamic-bullets="true" rewind="true">
   <swiper-slide>{% include figure.liquid loading="eager" path="assets/img/sprint2405/inbound_shard.jpg" class="img-fluid rounded z-depth-1" %}</swiper-slide>
 </swiper-container>
-
-# Rating
-
-Trains: Fastest ever train I've noticede, and super comfy. Full points to trenitalia. TGV InOui also gets full points for comfort and speed, would definitely reccomend them over other french high-speed rail operators!
-
-Stations: Gare du Nord is a much nicer station, but the RER sucks. maybe a 7/10 overall, Atocha was delightful.
-
-Destination: Madrid was okay, solidly mediocre city. Won't complain if I go back, but also won't choose it over other destinations;

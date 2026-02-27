@@ -14,6 +14,22 @@ toc:
 
 Prague yet again. Not that I was complaining, I love this city
 
+
+# Sumamry
+
+Time: 46h 6m
+
+Countries: 4 (UK, FR, DE, CZ)
+
+Distance: 3104Km, Cummulative 5107Km
+
+Trains: An excellent set, probably the best in a journey so far
+
+Stations: I'm so glad I went via Paris this time. The stations are so much nicer (sorry Belgium!)
+
+Destination: We love Prague
+
+
 # Outbound April 28, 2023
 
 Planned time: 21h 45m
@@ -70,6 +86,7 @@ What can I say, I loved the sleeper last time, so I'll f*cking do it again. I do
   <swiper-slide>{% include figure.liquid loading="eager" path="assets/img/sprint2305/outbound_tram.jpg" class="img-fluid rounded z-depth-1" %}</swiper-slide>
 </swiper-container>
 
+
 # Inbound May 5, 2023
 
 Planned time: 24h 21m
@@ -118,11 +135,3 @@ Departure – 14:50<br>Arrival East Croydon – 15:18
 Departure East Croydon – 15:23<br>Arrival Chichester – 16:37
 
 Yet another example of trains I didn't think were important enough for a photo.
-
-# Rating
-
-Trains: An excellent set, probably the best in a journey so far
-
-Stations: I'm so glad I went via Paris this time. The stations are so much nicer (sorry Belgium!)
-
-Destination: We love Prague
