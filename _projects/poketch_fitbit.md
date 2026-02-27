@@ -85,13 +85,13 @@ As there are two versions of the Fitbit OS currently used, there are two store l
 <div class="row">
   <div class="col-sm g-0 imgfig">
     <a href="https://gallery.fitbit.com/details/c69cadcb-a312-4be3-a51f-681b259364c4">
-      <img src="{{ "assets/img/fitbit/poketchfitbit.png" | relative_url }}" />
+      <img src="{{ 'assets/img/fitbit/poketchfitbit.png' | relative_url }}" />
       <figcaption class="caption">For the Versa 1, Versa 2, and Versa Lite</figcaption>
     </a>
   </div>
   <div class="col-sm g-0 imgfig">
     <a href="https://gallery.fitbit.com/details/5f740578-6ec4-4bf3-a98b-561e2d94fd0c">
-      <img src="{{ "assets/img/fitbit/poketchfitbit2.png" | relative_url }}" />
+      <img src="{{ 'assets/img/fitbit/poketchfitbit2.png' | relative_url }}" />
       <figcaption class="caption">For the Versa 3, and Sense</figcaption>
     </a>
   </div>
