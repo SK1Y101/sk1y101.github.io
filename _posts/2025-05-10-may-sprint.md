@@ -44,8 +44,10 @@ Distance: 920Km
 Most looked forward to train: ICE to Frankfurt
 
 ## Havant
-Departure – 11:16<br>Arrival Three bridges – 12:43
-Departure – 12:50<br>Arrival St. Pancras – 13:40
+| Departure | Arrival | Location |
+| --------- | ------- | -------- |
+| 11:16 | 12:43 | Three bridge |
+| 12:50 | 13:40 | St. Pancras |
 
 Pretty standard travel, but the weather was nice. I actually remembered to take a photo of all of the trains for once!
 
@@ -57,7 +59,9 @@ Pretty standard travel, but the weather was nice. I actually remembered to take 
 </swiper-container>
 
 ## St. Pancras
-Departure – 15:04<br>Arrival Bruxelles Midi – 18:05
+| Departure | Arrival | Location |
+| --------- | ------- | -------- |
+| 15:04 | 18:05 | Bruxelles Midi |
 
 Saw le shuttle out of the window, and enjoyed some delivious food. I'm always so tempted to steal the etched glasses, but I refrained this time. Eurostar is always a 10/10.
 
@@ -69,7 +73,9 @@ Saw le shuttle out of the window, and enjoyed some delivious food. I'm always so
 </swiper-container>
 
 ## Bruxelles Midi
-Departure – 18:54<br>Arrival Liège-Guillemins – 20:04
+| Departure | Arrival | Location |
+| --------- | ------- | -------- |
+| 18:54 | 20:04 | Liège-Guillemins |
 
 Well, I was never meant to be on this train, but my Bruxelles->Frankfurt connection was cancelled due to a stuck coupling system (apparently) so we get an extra (terrible) rail connection out to Liège to meet my original train.
 I think my opinion of SNCB would be improved if I had intended to be on this trian, rather than it being a packed replacement.
@@ -80,7 +86,9 @@ I think my opinion of SNCB would be improved if I had intended to be on this tri
 </swiper-container>
 
 ## Liège-Guillemins
-Departure – 20:10<br>Arrival Frankfurt Flughafen Fernbahnhof – 23:36
+| Departure | Arrival | Location |
+| --------- | ------- | -------- |
+| 20:10 | 23:36 | Frankfurt Flughafen Fernbahnhof |
 
 Finaly on the correct train, and had a lovely time of this ICE 3 unit. we absolutely love high speed trains in germany... when you don't get the Deutsch-Bahn'ed.
 The frankfurt Hauptbahnhof picture was taken a day later, I include it just to show off the great architecture
@@ -104,7 +112,9 @@ Distance: 920Km
 Most looked forward to train: Eurostar to St. Pancras
 
 ## Frankfurt Flughafen Fernbahnhof
-Departure – 09:49<br>Arrival Bruxelles Midi – 13:35
+| Departure | Arrival | Location |
+| --------- | ------- | -------- |
+| 09:49 | 13:35 | Bruxelles Midi |
 
 The single connection I was originally meant to take. An otherwise perfectly fine journey elevated by the other passengers very politely telling off a rowdy drunk crowd. To the five german passengers who made the first leg to Köln a blast, 11/10.
 
@@ -114,7 +124,9 @@ The single connection I was originally meant to take. An otherwise perfectly fin
 </swiper-container>
 
 ## Bruxelles Midi
-Departure – 14:52<br>Arrival St. Pancras – 15:57
+| Departure | Arrival | Location |
+| --------- | ------- | -------- |
+| 14:52 | 15:57 | St. Pancras |
 
 We love eurostar. We love eurostar.
 Also got a lovely view of the tunnel portal with the 30 year anniversary decal as we entered, and a lovely meal. 10/10 as always.
@@ -127,8 +139,10 @@ Also got a lovely view of the tunnel portal with the 30 year anniversary decal a
 </swiper-container>
 
 ## St. Pancras
-Departure – 16:20<br>Arrival East Croydon – 17:06
-Departure – 17:14<br>Arrival Havant – 18:29
+| Departure | Arrival | Location |
+| --------- | ------- | -------- |
+| 16:20 | 17:06 | East Croydon |
+| 17:14 | 18:29 | Havant |
 
 Standard train journey, I always think I'll miss this onnection and have to wait 30 minutes. I am always wrong about this.
 

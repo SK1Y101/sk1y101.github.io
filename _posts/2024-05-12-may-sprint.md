@@ -43,8 +43,10 @@ Distance: 2253Km
 Most looked forward to train: Iryo Barcelona to Madrid
 
 ## Chichester
-Departure – 23:33<br>Arrival Three bridges – 00:35
-Departure Three Bridges – 00:40<br>Arrival St. Pacras – 01:30
+| Departure | Arrival | Location |
+| --------- | ------- | -------- |
+| 23:33 | 00:35 | Three bridge |
+| 00:40 | 01:30 | St. Pancras |
 
 Fairly standard at this point, though being on one of the last trains is certainly new.
 I don't actually remember what train I took from TBD to STP, I just jumped on a thameslink as it rolled in. I had been planning on a 2am connection, but luckily the other train was delayed enough to make it.
@@ -56,7 +58,9 @@ I did manage to get a great night shot at blackfriars though, so no complaints!
 </swiper-container>
 
 ## St. Pancras
-Departure – 08:01<br>Arrival Gare du Nord – 11:18
+| Departure | Arrival | Location |
+| --------- | ------- | -------- |
+| 08:01 | 11:18 | Gare du Nord |
 
 The earliest Eurostar service I've ever been on, makes a change to get the breakfast meal!
 The pastry was delicious, but I do wish they'd served just a little more...
@@ -67,7 +71,9 @@ The pastry was delicious, but I do wish they'd served just a little more...
 </swiper-container>
 
 ## Gare de Lyon
-Departure – 12:26<br>Arrival Lyon Part-Dieu – 14:22
+| Departure | Arrival | Location |
+| --------- | ------- | -------- |
+| 12:26 | 14:22 | Lyon Part-Dieu |
 
 It was a bit of a rush (common theme this journey), and my first time on the RER. It was an... experience. The Ougio service I was on was very comfortable, and another double decker train is always great! good view leaving Gare de Lyon too.
 
@@ -77,7 +83,9 @@ It was a bit of a rush (common theme this journey), and my first time on the RER
 </swiper-container>
 
 ## Lyon Part-Dieu
-Departure – 14:32<br>Arrival Barcelona Sants – 19:34
+| Departure | Arrival | Location |
+| --------- | ------- | -------- |
+| 14:32 | 19:34 | Barcelona Sants |
 
 With the previous train running late, this was easily my closest ever transfer, just five minutes to run down into the subway, across four platforms, and back up again to meet my onward connection. Probably should've added a little more than 10 minutes into my transfer planning, but the later connections to madrid didn't quite allow it.
 
@@ -89,7 +97,9 @@ Had to take the train pics at Barcelona (for obvious reasons). I loved the views
 </swiper-container>
 
 ## Barcelona Sants
-Departure – 19:55<br>Arrival Madrid Atocha – 22:40
+| Departure | Arrival | Location |
+| --------- | ------- | -------- |
+| 19:55 | 22:40 | Madrid Atocha |
 
 This journey was amazing! The food was delicious and I *think* this might have set a new personal high speed record at 320km/h (not that I got a photo of it, what do you think I am, a professional)
 
@@ -113,7 +123,9 @@ Distance: 2253Km
 Most looked forward to train: TGV Barcelona to Gare de Lyon
 
 ## Madrid Atocha
-Departure – 06:15<br>Arrival Barcelona Sants – 08:45
+| Departure | Arrival | Location |
+| --------- | ------- | -------- |
+| 06:15 | 08:45 | Barcelona Sants |
 
 Madrid has a bare but decent departures area, you can see all of the trains coming and going (Not that there were many this early in the morning!)
 
@@ -123,8 +135,9 @@ Madrid has a bare but decent departures area, you can see all of the trains comi
 </swiper-container>
 
 ## Barcelon Sants
-Departure – 09:28<br>Arrival Gare de Lyon – 16:12
-Actual. arrival – 17:03
+| Departure | Arrival | Location |
+| --------- | ------- | -------- |
+| 09:28 | ~~16:12~~<br>17:03 | Gare de Lyon |
 
 We were held at Avignon TGV for almost 85 minutes, which *absolutely* did not cause quite a chunk of anxiety. though we made up for lost time.
 Additionally, the RER further cemented itself as my least favourite way of crossing any city ever devised. Next time I make this transfer, I think I'd rather build in the time to walk.
@@ -135,7 +148,9 @@ Additionally, the RER further cemented itself as my least favourite way of cross
 </swiper-container>
 
 ## Gare du Nord
-Departure – 19:11<br>Arrival St. Pancras – 20:30
+| Departure | Arrival | Location |
+| --------- | ------- | -------- |
+| 19:11 | 20:30 | St. Pancras |
 
 What can I say, another excellent Eurostar trip with good food. Favourite rail operator, but they could definitely do with some competition to lower those prices.
 
@@ -146,8 +161,10 @@ What can I say, another excellent Eurostar trip with good food. Favourite rail o
 </swiper-container>
 
 ## St. Pancras
-Departure – 20.50<Br>Arrival at East Croydon – 21:19
-Departure – 21.23<Br>Arrival at Chichester – 22:38
+| Departure | Arrival | Location |
+| --------- | ------- | -------- |
+| 20:50 | 21:19 | East Croydon |
+| 21:23 | 22:38 | Chichester |
 
 Regular trains, no pictures, but I did snap a shot of the Shard
 

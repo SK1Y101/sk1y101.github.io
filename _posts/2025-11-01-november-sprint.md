@@ -43,8 +43,10 @@ Distance: 2305Km
 Most looked forward to train: SJR to Göteborg
 
 ## Havant
-Departure – 13:47<br>Arrival Three bridges – 15:05
-Departure – 15:08<br>Arrival St. Pancras – 16:00
+| Departure | Arrival | Location |
+| --------- | ------- | -------- |
+| 13:47 | 15:05 | Three bridge |
+| 15:08 | 16:00 | St. Pancras |
 
 At this point what else is there to say? I've done this journey hundreds of times, and tens of times for the sprints.
 
@@ -54,7 +56,9 @@ At this point what else is there to say? I've done this journey hundreds of time
 </swiper-container>
 
 ## St. Pancras
-Departure – 17:04<br>Arrival Bruxelles Midi – 20:05
+| Departure | Arrival | Location |
+| --------- | ------- | -------- |
+| 17:04 | 20:05 | Bruxelles Midi |
 
 I will never not love this route. The food was lovely too!
 
@@ -64,7 +68,9 @@ I will never not love this route. The food was lovely too!
 </swiper-container>
 
 ## Bruxelles Midi
-Departure – 20:25<br>Arrival Köln – 22:15
+| Departure | Arrival | Location |
+| --------- | ------- | -------- |
+| 20:25 | 22:15 | Köln Hauptbahnhof |
 
 We really are replaying the classics, I love the destination, I love the ICE train I was on, and it was very quiet luckily!
 
@@ -72,8 +78,10 @@ We really are replaying the classics, I love the destination, I love the ICE tra
   <swiper-slide>{% include figure.liquid loading="eager" path="assets/img/sprint2511/outbound_ice_to_koln.jpg" class="img-fluid rounded z-depth-1" %}</swiper-slide>
 </swiper-container>
 
-## Köln
-Departure – 02:09<br>Arrival Hamburg – 06:50
+## Köln Hauptbahnhof
+| Departure | Arrival | Location |
+| --------- | ------- | -------- |
+| 02:09 | 06:50 | Hamburg Hbf |
 
 I had a lovely, if cold, time here. Watching the trains from the platforms was great, even if after 4 hours I was bored and ready to leave.
 
@@ -82,7 +90,9 @@ I had a lovely, if cold, time here. Watching the trains from the platforms was g
 </swiper-container>
 
 ## Hamburg
-Departure – 08:44<br>Arrival København – 13:50
+| Departure | Arrival | Location |
+| --------- | ------- | -------- |
+| 08:44 | 13:50 | København |
 
 I absolutely loved this statio, the architecture, the view from where I grabbed breakfasts! I just wish the platforms were a little wider, it was quite cramped waiting for my denmark train.
 Also I wish I got more pictures of the route, it was incredibly scenic.
@@ -96,8 +106,10 @@ Also I wish I got more pictures of the route, it was incredibly scenic.
 </swiper-container>
 
 ## København
-Departure – 14:44<br>Arrival Malmö – 15:25
-Departure – 16:38<br>Arrival Göteborg – 19:05
+| Departure | Arrival | Location |
+| --------- | ------- | -------- |
+| 14:44 | 15:25 | Malmö |
+| 16:38 | 19:05 | Göteborg |
 
 Fans of JetLag: The Game will recognise the model and location I just *had* to visit while I was there. The trains were fun too, if a little weird. I haven't seen the all metal body that SJR seems to employ... well, ever!
 
@@ -106,10 +118,10 @@ Fans of JetLag: The Game will recognise the model and location I just *had* to v
   <swiper-slide>{% include figure.liquid loading="eager" path="assets/img/sprint2511/outbound_copenhagen_model.jpg" class="img-fluid rounded z-depth-1" %}</swiper-slide>
   <swiper-slide>{% include figure.liquid loading="eager" path="assets/img/sprint2511/outbound_copenhagen_model2.jpg" class="img-fluid rounded z-depth-1" %}</swiper-slide>
   <swiper-slide>{% include figure.liquid loading="eager" path="assets/img/sprint2511/outbound_copenhagen_to_oslo.jpg" class="img-fluid rounded z-depth-1" %}</swiper-slide>
-  <swiper-slide>{% include figure.liquid loading="eager" path="assets/img/sprint2511/outbound_olso_not_mine.jpg" class="img-fluid rounded z-depth-1" %}</swiper-slide>
+  <swiper-slide>{% include figure.liquid loading="eager" path="assets/img/sprint2511/outbound_oslo_not_mine.jpg" class="img-fluid rounded z-depth-1" %}</swiper-slide>
   <swiper-slide>{% include figure.liquid loading="eager" path="assets/img/sprint2511/outbound_olso_train.jpg" class="img-fluid rounded z-depth-1" %}</swiper-slide>
-  <swiper-slide>{% include figure.liquid loading="eager" path="assets/img/sprint2511/outbound_olso.jpg" class="img-fluid rounded z-depth-1" %}</swiper-slide>
-  <swiper-slide>{% include figure.liquid loading="eager" path="assets/img/sprint2511/outbound_to_olso.jpg" class="img-fluid rounded z-depth-1" %}</swiper-slide>
+  <swiper-slide>{% include figure.liquid loading="eager" path="assets/img/sprint2511/outbound_oslo.jpg" class="img-fluid rounded z-depth-1" %}</swiper-slide>
+  <swiper-slide>{% include figure.liquid loading="eager" path="assets/img/sprint2511/outbound_to_oslo.jpg" class="img-fluid rounded z-depth-1" %}</swiper-slide>
 </swiper-container>
 
 
@@ -126,9 +138,11 @@ Distance: 2505Km
 Most looked forward to train: Southern to Havant, I just really wanted to be home.
 
 ## Göteborg
-Departure – 10:25<br>Arrival Helsingborg – 12:10
-Departure – 12:25<br>Arrival Malmö – 13:10
-Departure – 13:41<br>Arrival København – 15:07
+| Departure | Arrival | Location |
+| --------- | ------- | -------- |
+| 10:25 | 12:10 | Helsingborg |
+| 12:25 | 13:10 | Malmö |
+| 13:41 | 15:07 | København |
 
 I admit, I was actually quite stressed here, given it was a replacement bus service to København. Especially when I couldn't find the stand for the first bus, and then watched the second one leave as I arrived, and then couldn't get on the third due to overcrowding...
 
@@ -143,12 +157,14 @@ I admit, I was actually quite stressed here, given it was a replacement bus serv
 </swiper-container>
 
 ## København
-Departure – 15:52<br>Arrival Odense – 17:03
-Departure – 17:09<br>Arrival Bramming – 18:17
-Departure – 18:25<br>Arrival Tønder – 19:40
-Departure – 19:26<br>Arrival Niebüll – 19:51
-Departure – 20:01<br>Arrival Hamburg-Altona – 22:22
-Departure – 22:45<br>Arrival Köln – 03:02
+| Departure | Arrival | Location |
+| --------- | ------- | -------- |
+| 15:52 | 17:03 | Odense |
+| 17:09 | 18:17 | Bramming |
+| 18:25 | 19:40 | Tønder |
+| 19:26 | 19:51 | Niebüll |
+| 20:01 | 22:22 | Hamburg-Altona |
+| 22:45 | 03:02 | Köln Hauptbahnhof |
 
 I'm sorry for compressing so many transfers into one spot, but this was meant to be a simple two train trip to Köln, not a veritable side quest that *only* just got me to my Hamburg onwards train.
 Long story short, I missed the first train to Odense, which meant I couldn't connect to my onward one. Danish rail staff at København, you were amazing. You dealt with a very stressed and very close to tears girls issue with minimal fuss, and incredibly clear instructions.
@@ -163,8 +179,10 @@ And no, I was not really in the right mindset for pictures, how can you tell?
   <swiper-slide>{% include figure.liquid loading="eager" path="assets/img/sprint2511/inbound_niebull_nose.jpg" class="img-fluid rounded z-depth-1" %}</swiper-slide>
 </swiper-container>
 
-## Köln
-Departure – 07:35<br>Arrival Bruxelles Midi – 09:40
+## Köln Hauptbahnhof
+| Departure | Arrival | Location |
+| --------- | ------- | -------- |
+| 07:35 | 09:40 | Bruxelles Midi |
 
 Back on track (heh) finally, and this was a very quiet train journey. Just two other people in my carriage! lovely! I love ICE trains that really aren't that busy, they're so lovely.
 
@@ -178,7 +196,9 @@ I will say though, after this I think I'll try to avoid long stays at Köln. For
 </swiper-container>
 
 ## Bruxelles Midi
-Departure – 10:45<br>Arrival St. Pancras – 12:10
+| Departure | Arrival | Location |
+| --------- | ------- | -------- |
+| 10:45 | 12:10 | St. Pancras |
 
 Eurostar, my comfy, my beloved. I was *so* glad to be back in the first class experience on a trip back to my home country, especially given how quiet it was and how nice the food was.
 
@@ -191,8 +211,10 @@ Early morning trains are awesome, first to Bruxelles, now this? Heck yeah!
 </swiper-container>
 
 ## St. Pancras
-Departure – 12:40<br>Arrival East Croydon – 13:15
-Departure – 13:58<br>Arrival Havant – 16:01
+| Departure | Arrival | Location |
+| --------- | ------- | -------- |
+| 12:40 | 13:15 | East Croydon |
+| 13:58 | 16:01 | Havant |
 
 Hey look, I made the train I never think I can get!
 I tell you, thameslink has never been so comfy as it was this journey

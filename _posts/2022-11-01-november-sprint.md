@@ -45,9 +45,10 @@ Distance: 1494Km
 Most looked forward to train: Köln to Berlin
 
 ## Chichester
-Departure – 11.22<br>Arrival Barnham – 11.30
-
-Departure Barnham – 11.36<br>Arrival Victoria – 13.13
+| Departure | Arrival | Location |
+| --------- | ------- | -------- |
+| 11:22 | 11:30 | Barnham |
+| 11:36 | 13:13 | Victoria |
 
 Standard trains where I live, electrostar 377, so I didn't take many photos. Only this image of the final train as I walked past it at London Victoria.
 
@@ -55,8 +56,10 @@ Standard trains where I live, electrostar 377, so I didn't take many photos. Onl
   <swiper-slide>{% include figure.liquid loading="eager" path="assets/img/sprint2211/outbound_southern.jpg" class="img-fluid rounded z-depth-1" %}</swiper-slide>
 </swiper-container>
 
-## St Pancras
-Departure – 15.04<br>Arrival at Bruxelles – 17.05
+## St. Pancras
+| Departure | Arrival | Location |
+| --------- | ------- | -------- |
+| 15.04 | 17.05 | Bruxelles Midi |
 
 I really wish I'd grabbed a picture of all the Tube trains I jumped on, because the Victoria line was very delayed, but I was a little more focused on getting to St.Pancras on time!
 
@@ -67,8 +70,10 @@ Boarding the absolutely gorgeous Eurostar e320, I took a slightly blurry image o
   <swiper-slide>{% include figure.liquid loading="eager" path="assets/img/sprint2211/outbound_eurostar_meal.jpg" class="img-fluid rounded z-depth-1" %}</swiper-slide>
 </swiper-container>
 
-## Bruxelles
-Departure – 18.25<br>Arrival at Köln – 20.15
+## Bruxelles Midi
+| Departure | Arrival | Location |
+| --------- | ------- | -------- |
+| 18.25 | 20.15 | Köln Hauptbahnhof |
 
 My first time in belgium. Bruxelles Midi was definitely a station. Thalys services were awesome, but someone was sat in my seat before I boarded ):
 
@@ -77,8 +82,10 @@ My first time in belgium. Bruxelles Midi was definitely a station. Thalys servic
   <swiper-slide>{% include figure.liquid loading="eager" path="assets/img/sprint2211/outbound_thalys_meal.jpg" class="img-fluid rounded z-depth-1" %}</swiper-slide>
 </swiper-container>
 
-## Köln
-Departure – 22.15<br>Arrival at Berlin – 05.11
+## Köln Hauptbahnhof
+| Departure | Arrival | Location |
+| --------- | ------- | -------- |
+| 22.15 | 05.11 | Berlin Hauptbahnhof |
 
 This might be my all time favourite station. I loved the hours sat here watching the trains go by while eating dinner. This was also my first experience with night running trains, which was quite the enjoyable time.
 
@@ -87,8 +94,10 @@ This might be my all time favourite station. I loved the hours sat here watching
   <swiper-slide>{% include figure.liquid loading="eager" path="assets/img/sprint2211/outbound_ice_seats.jpg" class="img-fluid rounded z-depth-1" %}</swiper-slide>
 </swiper-container>
 
-## Berlin
-Departure – 08.00<br>Arrival at Prague – 12.35
+## Berlin Hauptbahnhof
+| Departure | Arrival | Location |
+| --------- | ------- | -------- |
+| 08.00 | 12.35 | Praha Holešovice |
 
 Very enjoyable, wandered across all the levels and took a small walk outside waiting for the trainsfer. Both the train and backup train were canceled however, which was a little stressful when you're a million metres from home.
 
@@ -112,18 +121,12 @@ Distance: 1309Km
 
 Most looked forward to train: Regensburg to Köln
 
-## Prague
-Departure – 16.38<br>Arrival at Schwandorf 20.05
-
-I may have forotten to take a photo here.
-
-## Schwandorf
-Departure – 21.07<br>Arrival at Regensburg – 21.07
-
-I may have forotten to take a photo here.
-
-## Regensburg
-Departure – 22.56<br>Arrival at Köln – 06.02
+## Praha hlavní nádraží
+| Departure | Arrival | Location |
+| --------- | ------- | -------- |
+| 16.38 | 20.05 | Schwandorf |
+| 21.07 | 21.27 | Regensburg Hauptbahnhof |
+| 22.56 | 06.02 | Köln Hauptbahnhof |
 
 I was a bit too tired for a photo of the train at Regensburg, so instead have a photo of the carraige I slept in when we reached Köln.
 
@@ -133,8 +136,10 @@ It was a very novel and enjoyable experience riding a sleeper train, would absol
   <swiper-slide>{% include figure.liquid loading="eager" path="assets/img/sprint2211/inbound_sleeper.jpg" class="img-fluid rounded z-depth-1" %}</swiper-slide>
 </swiper-container>
 
-## Köln
-Departure – 08.42<br>Arrival at Bruxelles 10.35
+## Köln Hauptbahnhof
+| Departure | Arrival | Location |
+| --------- | ------- | -------- |
+| 08.42 | 10.35 | Bruxelles Midi |
 
 My first experience with the ice3, and I was quite impressed. Caught a great shot of the speed too.
 
@@ -143,8 +148,10 @@ My first experience with the ice3, and I was quite impressed. Caught a great sho
   <swiper-slide>{% include figure.liquid loading="eager" path="assets/img/sprint2211/inbound_ice_speed.jpg" class="img-fluid rounded z-depth-1" %}</swiper-slide>
 </swiper-container>
 
-## Bruxelles
-Departure – 11.52<br>Arrival at St Pancras – 13.57
+## Bruxelles Midi
+| Departure | Arrival | Location |
+| --------- | ------- | -------- |
+| 11.52 | 13.57 | St. Pancras |
 
 A delicious meal and the classic Eurostar of my childhood, I was quite happy.
 
@@ -154,6 +161,8 @@ A delicious meal and the classic Eurostar of my childhood, I was quite happy.
 </swiper-container>
 
 ## Victoria
-Departure – 15.35<br>Arrival at Chichester – 17.21
+| Departure | Arrival | Location |
+| --------- | ------- | -------- |
+| 15.35 | 17.21 | Chichester |
 
 No images, this was a standard train again

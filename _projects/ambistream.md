@@ -1,6 +1,6 @@
 ---
 layout: page
-title: AutoBreezeBeats
+title: Ambistream
 description: Web interface to play youtube video audio over a bluetooth connected device. Designed with a home "radio station" in mind
 highlights:
 img:

@@ -43,8 +43,10 @@ Distance: 1504Km
 Most looked forward to train: Mannheim Hauptbahnhof to Praha hlavní nádraží
 
 ## Chichester
-Departure – 09:07<br>Arrival Three bridges – 10:03
-Departure Three bridges – 10:10<br>Arrival St. Pancras – 11:00
+| Departure | Arrival | Location |
+| --------- | ------- | -------- |
+| 09:07 | 10:03 | Three bridge |
+| 10:10 | 11:00 | St. Pancras |
 
 A standard southern then thameslink connection. Didn't think it was worth the photo opportunity, but got a nice look at the london skyline
 
@@ -53,7 +55,9 @@ A standard southern then thameslink connection. Didn't think it was worth the ph
 </swiper-container>
 
 ## St. Pancras
-Departure – 12:31<br>Arrival Gare du Nord – 15:47
+| Departure | Arrival | Location |
+| --------- | ------- | -------- |
+| 12:31 | 15:47 | Gare du Nord |
 
 Here we go, my first time back to Gare du Nord in about a decade. Eurostar premiere is always worth it, the food was delicious
 
@@ -63,8 +67,10 @@ Here we go, my first time back to Gare du Nord in about a decade. Eurostar premi
   <swiper-slide>{% include figure.liquid loading="eager" path="assets/img/sprint2305/outbound_eurostar_meal.jpg" class="img-fluid rounded z-depth-1" %}</swiper-slide>
 </swiper-container>
 
-## Gare de Paris-Est
-Departure – 19:07<br>Arrival Mannheim Hauptbahnhof – 22:17
+## Gare de l'Est
+| Departure | Arrival | Location |
+| --------- | ------- | -------- |
+| 19:07 | 22:17 | Mannheim Hauptbahnhof |
 
 I've never been on a double decker train before, nor on the TGV in general, so I was quite impressed. Absolutely loved this train.
 
@@ -76,7 +82,9 @@ This is also the fastest train I've ever been on, beating the previous ICE recor
 </swiper-container>
 
 ## Mannheim Hauptbahnhof
-Departure – 23:42<br>Arrival Praha hlavní nádraží – 09:38
+| Departure | Arrival | Location |
+| --------- | ------- | -------- |
+| 23:42 | 09:38 | Praha hlavní nádraží |
 
 What can I say, I loved the sleeper last time, so I'll f*cking do it again. I don't think I've ever had such a good wake up, as on a train slowly drifting through a beautiful valley
 
@@ -100,7 +108,9 @@ Distance: 1598Km
 Most looked forward to train: Offenburg Bahnhof to Gare de Paris-Est
 
 ## Praha hlavní nádraží
-Departure – 18:26<br>Arrival Offenburg Bahnhof – 05:45
+| Departure | Arrival | Location |
+| --------- | ------- | -------- |
+| 18:26 | 05:45 | Bahnhof Offenburg |
 
 Oh look, he's on a night train again. What a surprise.
 
@@ -111,7 +121,9 @@ But seriously, this may be the best non-high-speed way to sample european trains
 </swiper-container>
 
 ## Offenburg Bahnhof
-Departure – 07:46<br>Arrival Gare de Paris-Est – 10:05
+| Departure | Arrival | Location |
+| --------- | ------- | -------- |
+| 07:46 | 10:05 | Gare de l'Est |
 
 Picture was taken at the destination, but damn if that isn't a good looking train
 
@@ -120,7 +132,9 @@ Picture was taken at the destination, but damn if that isn't a good looking trai
 </swiper-container>
 
 ## Gare du Nord
-Departure – 13:13<br>Arrival St. Pancras – 14:30
+| Departure | Arrival | Location |
+| --------- | ------- | -------- |
+| 13:13 | 14:30 | St. Pancras |
 
 Lovely overhead view of the terminus as my train home disembarks passengers. This is an excellent place to sit while waiting for the train. Eurostar food is awesome, as per usual.
 
@@ -130,8 +144,9 @@ Lovely overhead view of the terminus as my train home disembarks passengers. Thi
 </swiper-container>
 
 ## St. Pancras
-Departure – 14:50<br>Arrival East Croydon – 15:18
-
-Departure East Croydon – 15:23<br>Arrival Chichester – 16:37
+| Departure | Arrival | Location |
+| --------- | ------- | -------- |
+| 14:50 | 15:18 | East Croydon |
+| 15:23 | 16:37 | Chichester |
 
 Yet another example of trains I didn't think were important enough for a photo.
