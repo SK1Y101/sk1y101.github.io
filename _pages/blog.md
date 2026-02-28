@@ -113,7 +113,7 @@ pagination:
     {% for post in postlist %}
     {% if post.title contains "<TEMPLATE>" %}
         {% continue %}
-    {% elsif post_time <= now $}
+    {% elsif post_time <= now %}
         {% continue %}
     {% endif %}
 
