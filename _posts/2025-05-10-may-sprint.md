@@ -44,8 +44,9 @@ Distance: 920Km
 Most looked forward to train: ICE to Frankfurt
 
 ## Havant
+
 | Departure | Arrival | Location |
-| --------- | ------- | -------- |
+| :-------: | :-----: | :------- |
 | 11:16 | 12:43 | Three bridge |
 | 12:50 | 13:40 | St. Pancras |
 
@@ -59,8 +60,9 @@ Pretty standard travel, but the weather was nice. I actually remembered to take 
 </swiper-container>
 
 ## St. Pancras
+
 | Departure | Arrival | Location |
-| --------- | ------- | -------- |
+| :-------: | :-----: | :------- |
 | 15:04 | 18:05 | Bruxelles Midi |
 
 Saw le shuttle out of the window, and enjoyed some delivious food. I'm always so tempted to steal the etched glasses, but I refrained this time. Eurostar is always a 10/10.
@@ -73,8 +75,9 @@ Saw le shuttle out of the window, and enjoyed some delivious food. I'm always so
 </swiper-container>
 
 ## Bruxelles Midi
+
 | Departure | Arrival | Location |
-| --------- | ------- | -------- |
+| :-------: | :-----: | :------- |
 | 18:54 | 20:04 | Liège-Guillemins |
 
 Well, I was never meant to be on this train, but my Bruxelles->Frankfurt connection was cancelled due to a stuck coupling system (apparently) so we get an extra (terrible) rail connection out to Liège to meet my original train.
@@ -86,8 +89,9 @@ I think my opinion of SNCB would be improved if I had intended to be on this tri
 </swiper-container>
 
 ## Liège-Guillemins
+
 | Departure | Arrival | Location |
-| --------- | ------- | -------- |
+| :-------: | :-----: | :------- |
 | 20:10 | 23:36 | Frankfurt Flughafen Fernbahnhof |
 
 Finaly on the correct train, and had a lovely time of this ICE 3 unit. we absolutely love high speed trains in germany... when you don't get the Deutsch-Bahn'ed.
@@ -112,8 +116,9 @@ Distance: 920Km
 Most looked forward to train: Eurostar to St. Pancras
 
 ## Frankfurt Flughafen Fernbahnhof
+
 | Departure | Arrival | Location |
-| --------- | ------- | -------- |
+| :-------: | :-----: | :------- |
 | 09:49 | 13:35 | Bruxelles Midi |
 
 The single connection I was originally meant to take. An otherwise perfectly fine journey elevated by the other passengers very politely telling off a rowdy drunk crowd. To the five german passengers who made the first leg to Köln a blast, 11/10.
@@ -124,8 +129,9 @@ The single connection I was originally meant to take. An otherwise perfectly fin
 </swiper-container>
 
 ## Bruxelles Midi
+
 | Departure | Arrival | Location |
-| --------- | ------- | -------- |
+| :-------: | :-----: | :------- |
 | 14:52 | 15:57 | St. Pancras |
 
 We love eurostar. We love eurostar.
@@ -139,8 +145,9 @@ Also got a lovely view of the tunnel portal with the 30 year anniversary decal a
 </swiper-container>
 
 ## St. Pancras
+
 | Departure | Arrival | Location |
-| --------- | ------- | -------- |
+| :-------: | :-----: | :------- |
 | 16:20 | 17:06 | East Croydon |
 | 17:14 | 18:29 | Havant |
 

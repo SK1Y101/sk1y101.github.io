@@ -43,8 +43,9 @@ Distance: 2305Km
 Most looked forward to train: SJR to Göteborg
 
 ## Havant
+
 | Departure | Arrival | Location |
-| --------- | ------- | -------- |
+| :-------: | :-----: | :------- |
 | 13:47 | 15:05 | Three bridge |
 | 15:08 | 16:00 | St. Pancras |
 
@@ -56,8 +57,9 @@ At this point what else is there to say? I've done this journey hundreds of time
 </swiper-container>
 
 ## St. Pancras
+
 | Departure | Arrival | Location |
-| --------- | ------- | -------- |
+| :-------: | :-----: | :------- |
 | 17:04 | 20:05 | Bruxelles Midi |
 
 I will never not love this route. The food was lovely too!
@@ -68,8 +70,9 @@ I will never not love this route. The food was lovely too!
 </swiper-container>
 
 ## Bruxelles Midi
+
 | Departure | Arrival | Location |
-| --------- | ------- | -------- |
+| :-------: | :-----: | :------- |
 | 20:25 | 22:15 | Köln Hauptbahnhof |
 
 We really are replaying the classics, I love the destination, I love the ICE train I was on, and it was very quiet luckily!
@@ -79,8 +82,9 @@ We really are replaying the classics, I love the destination, I love the ICE tra
 </swiper-container>
 
 ## Köln Hauptbahnhof
+
 | Departure | Arrival | Location |
-| --------- | ------- | -------- |
+| :-------: | :-----: | :------- |
 | 02:09 | 06:50 | Hamburg Hbf |
 
 I had a lovely, if cold, time here. Watching the trains from the platforms was great, even if after 4 hours I was bored and ready to leave.
@@ -90,8 +94,9 @@ I had a lovely, if cold, time here. Watching the trains from the platforms was g
 </swiper-container>
 
 ## Hamburg
+
 | Departure | Arrival | Location |
-| --------- | ------- | -------- |
+| :-------: | :-----: | :------- |
 | 08:44 | 13:50 | København |
 
 I absolutely loved this statio, the architecture, the view from where I grabbed breakfasts! I just wish the platforms were a little wider, it was quite cramped waiting for my denmark train.
@@ -106,8 +111,9 @@ Also I wish I got more pictures of the route, it was incredibly scenic.
 </swiper-container>
 
 ## København
+
 | Departure | Arrival | Location |
-| --------- | ------- | -------- |
+| :-------: | :-----: | :------- |
 | 14:44 | 15:25 | Malmö |
 | 16:38 | 19:05 | Göteborg |
 
@@ -138,8 +144,9 @@ Distance: 2505Km
 Most looked forward to train: Southern to Havant, I just really wanted to be home.
 
 ## Göteborg
+
 | Departure | Arrival | Location |
-| --------- | ------- | -------- |
+| :-------: | :-----: | :------- |
 | 10:25 | 12:10 | Helsingborg |
 | 12:25 | 13:10 | Malmö |
 | 13:41 | 15:07 | København |
@@ -157,8 +164,9 @@ I admit, I was actually quite stressed here, given it was a replacement bus serv
 </swiper-container>
 
 ## København
+
 | Departure | Arrival | Location |
-| --------- | ------- | -------- |
+| :-------: | :-----: | :------- |
 | 15:52 | 17:03 | Odense |
 | 17:09 | 18:17 | Bramming |
 | 18:25 | 19:40 | Tønder |
@@ -180,8 +188,9 @@ And no, I was not really in the right mindset for pictures, how can you tell?
 </swiper-container>
 
 ## Köln Hauptbahnhof
+
 | Departure | Arrival | Location |
-| --------- | ------- | -------- |
+| :-------: | :-----: | :------- |
 | 07:35 | 09:40 | Bruxelles Midi |
 
 Back on track (heh) finally, and this was a very quiet train journey. Just two other people in my carriage! lovely! I love ICE trains that really aren't that busy, they're so lovely.
@@ -196,8 +205,9 @@ I will say though, after this I think I'll try to avoid long stays at Köln. For
 </swiper-container>
 
 ## Bruxelles Midi
+
 | Departure | Arrival | Location |
-| --------- | ------- | -------- |
+| :-------: | :-----: | :------- |
 | 10:45 | 12:10 | St. Pancras |
 
 Eurostar, my comfy, my beloved. I was *so* glad to be back in the first class experience on a trip back to my home country, especially given how quiet it was and how nice the food was.
@@ -211,8 +221,9 @@ Early morning trains are awesome, first to Bruxelles, now this? Heck yeah!
 </swiper-container>
 
 ## St. Pancras
+
 | Departure | Arrival | Location |
-| --------- | ------- | -------- |
+| :-------: | :-----: | :------- |
 | 12:40 | 13:15 | East Croydon |
 | 13:58 | 16:01 | Havant |
 

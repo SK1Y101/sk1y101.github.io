@@ -45,8 +45,9 @@ Distance: 1494Km
 Most looked forward to train: Köln to Berlin
 
 ## Chichester
+
 | Departure | Arrival | Location |
-| --------- | ------- | -------- |
+| :-------: | :-----: | :------- |
 | 11:22 | 11:30 | Barnham |
 | 11:36 | 13:13 | Victoria |
 
@@ -57,8 +58,9 @@ Standard trains where I live, electrostar 377, so I didn't take many photos. Onl
 </swiper-container>
 
 ## St. Pancras
+
 | Departure | Arrival | Location |
-| --------- | ------- | -------- |
+| :-------: | :-----: | :------- |
 | 15.04 | 17.05 | Bruxelles Midi |
 
 I really wish I'd grabbed a picture of all the Tube trains I jumped on, because the Victoria line was very delayed, but I was a little more focused on getting to St.Pancras on time!
@@ -71,8 +73,9 @@ Boarding the absolutely gorgeous Eurostar e320, I took a slightly blurry image o
 </swiper-container>
 
 ## Bruxelles Midi
+
 | Departure | Arrival | Location |
-| --------- | ------- | -------- |
+| :-------: | :-----: | :------- |
 | 18.25 | 20.15 | Köln Hauptbahnhof |
 
 My first time in belgium. Bruxelles Midi was definitely a station. Thalys services were awesome, but someone was sat in my seat before I boarded ):
@@ -83,8 +86,9 @@ My first time in belgium. Bruxelles Midi was definitely a station. Thalys servic
 </swiper-container>
 
 ## Köln Hauptbahnhof
+
 | Departure | Arrival | Location |
-| --------- | ------- | -------- |
+| :-------: | :-----: | :------- |
 | 22.15 | 05.11 | Berlin Hauptbahnhof |
 
 This might be my all time favourite station. I loved the hours sat here watching the trains go by while eating dinner. This was also my first experience with night running trains, which was quite the enjoyable time.
@@ -95,8 +99,9 @@ This might be my all time favourite station. I loved the hours sat here watching
 </swiper-container>
 
 ## Berlin Hauptbahnhof
+
 | Departure | Arrival | Location |
-| --------- | ------- | -------- |
+| :-------: | :-----: | :------- |
 | 08.00 | 12.35 | Praha Holešovice |
 
 Very enjoyable, wandered across all the levels and took a small walk outside waiting for the trainsfer. Both the train and backup train were canceled however, which was a little stressful when you're a million metres from home.
@@ -122,8 +127,9 @@ Distance: 1309Km
 Most looked forward to train: Regensburg to Köln
 
 ## Praha hlavní nádraží
+
 | Departure | Arrival | Location |
-| --------- | ------- | -------- |
+| :-------: | :-----: | :------- |
 | 16.38 | 20.05 | Schwandorf |
 | 21.07 | 21.27 | Regensburg Hauptbahnhof |
 | 22.56 | 06.02 | Köln Hauptbahnhof |
@@ -137,8 +143,9 @@ It was a very novel and enjoyable experience riding a sleeper train, would absol
 </swiper-container>
 
 ## Köln Hauptbahnhof
+
 | Departure | Arrival | Location |
-| --------- | ------- | -------- |
+| :-------: | :-----: | :------- |
 | 08.42 | 10.35 | Bruxelles Midi |
 
 My first experience with the ice3, and I was quite impressed. Caught a great shot of the speed too.
@@ -149,8 +156,9 @@ My first experience with the ice3, and I was quite impressed. Caught a great sho
 </swiper-container>
 
 ## Bruxelles Midi
+
 | Departure | Arrival | Location |
-| --------- | ------- | -------- |
+| :-------: | :-----: | :------- |
 | 11.52 | 13.57 | St. Pancras |
 
 A delicious meal and the classic Eurostar of my childhood, I was quite happy.
@@ -161,8 +169,9 @@ A delicious meal and the classic Eurostar of my childhood, I was quite happy.
 </swiper-container>
 
 ## Victoria
+
 | Departure | Arrival | Location |
-| --------- | ------- | -------- |
+| :-------: | :-----: | :------- |
 | 15.35 | 17.21 | Chichester |
 
 No images, this was a standard train again

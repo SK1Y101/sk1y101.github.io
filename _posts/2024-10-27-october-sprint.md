@@ -44,8 +44,9 @@ Distance: 395Km
 Most looked forward to train: Eurostar to Rotterdam Centraal
 
 ## Havant
+
 | Departure | Arrival | Location |
-| --------- | ------- | -------- |
+| :-------: | :-----: | :------- |
 | 08:16 | 09:43 | Three bridge |
 | 09:50 | 10:40 | St. Pancras |
 
@@ -56,8 +57,9 @@ I actually remembered to take a picture of one of the trains, despite them being
 </swiper-container>
 
 ## St. Pancras
+
 | Departure | Arrival | Location |
-| --------- | ------- | -------- |
+| :-------: | :-----: | :------- |
 | 12:04 | 15:32 | Rotterdam Centraal |
 
 We love eurostar, so so so much here, and despite being seated in *shudder* standard class, this was still no exception. The further journey out to the Netherlands was great, definitely enjoyed the scenery along the route.
@@ -69,8 +71,9 @@ Rotterdam Centraal has definitely been my favourite Eurostar station. Now I just
 </swiper-container>
 
 ## Rotterdam Centraal
+
 | Departure | Arrival | Location |
-| --------- | ------- | -------- |
+| :-------: | :-----: | :------- |
 | 16:18 | 16:21 | Den Haag Centraal |
 
 I didn't take any pictures, and I'm not even completely sure this was my departure/arrival time. It is, howver, what's listed in my rail travel calendar, so I'll believe it.
@@ -91,8 +94,9 @@ Distance: 395Km
 Most looked forward to train: Eurostar to St. Pancras
 
 ## Den Haag Centraal
+
 | Departure | Arrival | Location |
-| --------- | ------- | -------- |
+| :-------: | :-----: | :------- |
 | 06:36 | 06:49 | Rotterdam Centraal |
 
 Yet another case of not being sure on the timings, but the metadata on my images at Den Haag and Rotterdam say these times, and that would never be wrong, right? /s
@@ -104,8 +108,9 @@ Anyway, Loved the station and the Metro line. Was a lot nicer early in the morni
 </swiper-container>
 
 ## Rotterdam Centraal
+
 | Departure | Arrival | Location |
-| --------- | ------- | -------- |
+| :-------: | :-----: | :------- |
 | 08:28 | 09:38 | Bruxelles Midi |
 
 It took me completely by surprise that eurostar are considered regular high speed trains between european cities, but I guess it makes compllete sense for anywhere part of Schengen. Wasn't a fan of the other passengers, and definitely not the noise level of the families, but what are you going to do when you're saddled in standard?
@@ -116,8 +121,9 @@ It took me completely by surprise that eurostar are considered regular high spee
 </swiper-container>
 
 ## Bruxelles Midi
+
 | Departure | Arrival | Location |
-| --------- | ------- | -------- |
+| :-------: | :-----: | :------- |
 | 10:23 | 11:57 | St. Pancras |
 
 There was a short period where I didn't expect to be able to take this, due to the engineering works on HSL-1 north of Lille. Fortunately, It was a possible journey, and no train nerds were harmed in the making of these images.
@@ -128,8 +134,9 @@ There was a short period where I didn't expect to be able to take this, due to t
 </swiper-container>
 
 ## St. Pancras
+
 | Departure | Arrival | Location |
-| --------- | ------- | -------- |
+| :-------: | :-----: | :------- |
 | 12:20 | 13:06 | East Croydon |
 | 13:14 | 14:59 | Havant |
 
