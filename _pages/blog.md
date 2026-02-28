@@ -102,6 +102,7 @@ pagination:
 
   <ul class="post-list">
     {% assign now = 'now' | date: "%s" %}
+    {% assign post_time = post.date | date: "%s" %}
 
     {% if page.pagination.enabled %}
         {% assign postlist = paginator.posts %}
@@ -112,7 +113,7 @@ pagination:
     {% for post in postlist %}
     {% if post.title contains "<TEMPLATE>" %}
         {% continue %}
-    {% elsif post.date <= now $}
+    {% elsif post_time <= now $}
         {% continue %}
     {% endif %}
 
