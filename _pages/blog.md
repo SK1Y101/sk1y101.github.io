@@ -104,14 +104,17 @@ pagination:
     {% assign now = 'now' | date: "%s" %}
 
     {% if page.pagination.enabled %}
-    {% assign postlist = paginator.posts %}
+        {% assign postlist = paginator.posts %}
     {% else %}
-    {% assign postlist = site.posts %}
+        {% assign postlist = site.posts %}
     {% endif %}
 
-    {% assign postlist = postlist | where_exp: "post", "post.date <= now and post.title != nil and post.title contains '<TEMPLATE>' == false" %}
-
     {% for post in postlist %}
+    {% if post.title contains "<TEMPLATE>" %}
+        {% continue %}
+    {% elsif post.date <= now $}
+        {% continue %}
+    {% endif %}
 
     {% if post.external_source == blank %}
       {% assign read_time = post.content | number_of_words | divided_by: 180 | plus: 1 %}
